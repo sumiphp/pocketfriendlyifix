@@ -38,6 +38,7 @@ class Pocket extends CI_Controller {
 	public function index()
 	{
 		$data['result']=$this->sm->get_categoriesall();
+		$data['resultsub']=$this->sm->get_subcategoriesall();
 		$this->load->view('pocket/index.php',$data);
 	}
 
@@ -49,7 +50,8 @@ class Pocket extends CI_Controller {
 
 
 public function service(){
-    $this->load->view('pocket/service.php');
+	$data['result']=$this->sm->get_categoriesall();
+    $this->load->view('pocket/service.php',$data);
 }
 public function blog(){
     $this->load->view('pocket/blog.php');

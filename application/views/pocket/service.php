@@ -66,6 +66,8 @@
             <div class="hosting-services-sec">
                 <div class="container">
                     <div class="row">
+
+                    <?php foreach($result as $res){?>
                         <div class="col-lg-6 col-md-12">
                             <div class="elementor-element">
                                 <div class="elementor-widget-container">
@@ -74,19 +76,22 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'pockets/assets/img/service/icon-1.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php echo base_url().'assets/img/hos-icon/'.$res['categoryimage'];?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
-                                                    <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">Branding</a></h3>
+                                                    <h3 class="gt3-core-imagebox-title secondary-title"><a href="#"><?php echo $res['categoryname'];?></a></h3>
                                                 </div>
-                                                <p class="gt3-core-imagebox-description">Our branding services are designed to make your business shine. We craft compelling brand identities, logos, and strategies that captivate your audience and leave a lasting impression.</p>
+                                                <p class="gt3-core-imagebox-description"><?php echo $res['categorydescription'];?></p>
                                             </div>
                                         </div>
                                         <a href="service-details.php" class="plan-btn Mtop-20">View Plan</a>		
                                             </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-12">
+                        <?php } ?>
+
+
+                        <!--<div class="col-lg-6 col-md-12">
                             <div class="elementor-element">
                                 <div class="elementor-widget-container">
                                     <div class="gt3-core-imagebox-wrapper elementor-image_icon-position-beside">
@@ -94,7 +99,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover ">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'pockets/assets/img/service/icon-2.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php //echo base_url().'pockets/assets/img/service/icon-2.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">SEO</a></h3>
@@ -105,12 +110,12 @@
                                         <a href="service-details.php" class="plan-btn Mtop-20">View Plan</a>		
                                             </div>
                             </div>
-                        </div>
+                        </div>-->
                        
 
                     </div>
 
-                    <div class="row row-padding">
+                    <!--<div class="row row-padding">
                         <div class="col-lg-6 col-md-12">
                             <div class="elementor-element">
                                 <div class="elementor-widget-container">
@@ -119,7 +124,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'pockets/assets/img/service/icon-3.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php //echo base_url().'pockets/assets/img/service/icon-3.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">Advertise</a></h3>
@@ -139,7 +144,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'pockets/assets/img/service/icon-4.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php //echo base_url().'pockets/assets/img/service/icon-4.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">Digital Marketing</a></h3>
@@ -153,9 +158,9 @@
                         </div>
                        
 
-                    </div>
+                    </div>-->
 
-                    <div class="row row-padding">
+                    <!--<div class="row row-padding">
                         <div class="col-lg-6 col-md-12">
                             <div class="elementor-element">
                                 <div class="elementor-widget-container">
@@ -164,7 +169,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'pockets/assets/img/service/icon-5.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php //echo base_url().'pockets/assets/img/service/icon-5.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">Social Media</a></h3>
@@ -184,7 +189,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'pockets/assets/img/service/icon-6.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php //echo base_url().'pockets/assets/img/service/icon-6.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">Web Application</a></h3>
@@ -200,7 +205,7 @@
                         </div>
                        
 
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </section>

@@ -99,7 +99,7 @@
                                                 <span id="catmsg"></span><br>
                                                 <div class="product-info">
                                                     <h5>Add Category</h5>
-                                                    <form id="frm" method="post" action="<?php echo base_url().'index.php/Welcome/categoryaddprocess';?>" >
+                                                    <form id="frm" method="post" enctype="multipart/form-data" action="<?php echo base_url().'index.php/Welcome/categoryaddprocess';?>" >
                                                         <div class="product-group">
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
@@ -112,16 +112,28 @@
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
-                                                                <label class="form-label">Add Product Category</label>
+                                                                <label class="form-label">Product Description</label>
                                                                 <input class="form-control" placeholder="Enter Product Description" type="text" name="productdescription"  data-bs-original-title="" title="" required><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Select Product Category Image</label>
+                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="file"  name="productdescription"  data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+
                                                           <div class="row">
-                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php echo base_url().'index.php/Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>
+                                                         
+                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>
                                                           </div>
                                                         </div>
                                                       </form>
+                                                      <button id="upload">Upload</button>
 
                                                 </div>
                                             </div>
@@ -400,6 +412,10 @@
                 url: Form.attr('action'),
                 type: 'post',
                 data: Form.serialize(),
+                processData: false,
+        contentType: false,
+        cache:false,
+        async:false,
                 success: function(response){
                     
                     
@@ -454,3 +470,28 @@
 
 
 </script>
+<script type="text/javascript">
+//$(document).ready(function(e){
+    $('#upload').on('click', function () {
+        var file_data = $('#file').prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        $.ajax({
+            url: "<?php echo base_url().'index.php/Welcome/upload_file';?>", // point to server-side controller method
+            dataType: 'text', // what to expect back from the server
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function (response) {
+                $('#msg').html(response); // display success response from the server
+            },
+            error: function (response) {
+                $('#msg').html(response); // display error response from the server
+            }
+        });
+    });
+//});
+</script>
+

@@ -8,7 +8,7 @@ class Welcome extends CI_Controller {
 		 $this->load->library('session'); 
          $this->load->model('Servicesmodel','sm');
 		 $this->load->library("pagination");
-		 $this->load->library('session');
+		 $this->load->library('upload');
 		 $this->load->database();
 		 //$this->session->keep_flashdata('flash_msg'); 		 
 		
@@ -76,7 +76,51 @@ public function addcategory(){
 	$this->load->view('services/add-category',$data);
 }
 
+public function editcategory(){
+	if($this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$catid=$this->uri->segment(3);
+	//die;
+	$this->load->model('Servicesmodel');
+	$this->db->where('categoryid',$catid);
+	$this->db->from('category');
+    $query = $this->db->get();
+    $data['result']=$query->row();
+	$this->load->view('services/edit-category',$data);
+}
+
+
+
+
+
+
+
 public function categoryaddprocess(){
+
+    $config['upload_path'] = './uploads/';
+    $config['allowed_types'] = 'gif|jpg|png';
+    //$config['max_size'] = '100';
+    //$config['max_width'] = '1024';
+    //$config['max_height'] = '768';
+	$this->load->library('upload', $config);
+	if($this->upload->do_upload('file'))
+{
+$data = array('upload_data' => $this->upload->data());
+//$this->load->view('upload_success',$data);
+print_r($data);
+}
+else
+{
+$error = array('error' => $this->upload->display_errors());
+//$this->load->view('custom_view', $error);
+print_r($error);
+}
+
+print_r($_POST);
+
 	$productcategory=$this->input->post('productcategory');
 	$productdesc=$this->input->post('productdescription');
 	$data = array(
@@ -86,6 +130,55 @@ public function categoryaddprocess(){
 	 $this->db->insert('category', $data);
 	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product' : 'Product Category added Successfully';
 }
+public function categoryeditprocess(){
+	$productcategory=$this->input->post('productcategory');
+	$productdesc=$this->input->post('productdescription');
+	$data = array(
+		'categoryname' =>"$productcategory",
+		'categorydescription' =>"$productdesc",		
+	 );
+	 $this->db->insert('category', $data);
+	 echo ($this->db->affected_rows() != 1) ? 'Error in Editing Product' : 'Product Category edited Successfully';
+
+
+
+}
+
+
+function upload_file() {
+
+	//upload file
+	$config['upload_path'] = 'uploads/';
+	$config['allowed_types'] = 'gif|jpg|png';
+	//$config['max_filename'] = '255';
+	//$config['encrypt_name'] = TRUE;   // remove it for actual file name.
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	if (isset($_FILES['file']['name'])) {
+		if (0 < $_FILES['file']['error']) {
+			echo 'Error during file upload' . $_FILES['file']['error'];
+		} else {
+			if (file_exists('uploads/' . $_FILES['file']['name'])) {
+				echo 'File already exists : uploads/' . $_FILES['file']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('file')) {
+					echo $this->upload->display_errors();
+				} else {
+					echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+}
+
+
+
+
+
+
 
 public function listcategory(){
 	if( $this->session->has_userdata('username')) {					

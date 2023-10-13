@@ -32,25 +32,6 @@
 
         <!-- Favicon -->
         <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png"> -->
-        <style>
-            .pagination strong {
-  border: none;
-  text-align: center;
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 0;
-  color: rgba(0, 0, 0, 0.4);
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  margin-right: 4px;
-  -webkit-box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
-  -moz-box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
-  box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
-  margin-top: 20px;
-}
-        </style>
     </head>
 
     <body>
@@ -110,50 +91,99 @@
                 <div class="dashboard-innerbox">
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2> View Category  </h2>
+                                <h2>Category / Sub-Category Information </h2>
                                 <div class="row">
-                                    <div class="col-lg-12 col-md-12">
+                                    <div class="col-lg-6 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
-                                              <div class="table-responsive theme-scrollbar">
-                                              <span id="catmsg"></span><br>
-                                                <div id="data-source-1_wrapper" class="dataTables_wrapper">
+                                                <span id="catmsg"></span><br>
+                                                <div class="product-info">
+                                                    <h5>Edit Category</h5>
+                                                    <form id="frm" method="post" action="<?php echo base_url().'index.php/Welcome/categoryeditprocess';?>" >
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Product Category</label>
+                                                                <input class="form-control" placeholder="Enter Product Name" type="text" name="productcategory" value="<?php echo $result->categoryname;?>" data-bs-original-title="" title="" required ><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Edit Product Category</label>
+                                                                <input class="form-control" placeholder="Enter Product Description" type="text" name="productdescription" value="<?php echo $result->categorydescription;?>" data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row">
+                                                            <div class="col-sm-12 text-end"><!--<a class="btn btn-primary me-3" href="<?php //echo base_url().'index.php/Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a>--><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>
+                                                          </div>
+                                                        </div>
+                                                      </form>
 
-                                                    <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
-                                                  <thead>
-                                                    <tr role="row">
-                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Category Name</th>
-                                                      <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Subcategory Name</th>-->
-                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Category Description</th>
-                                                           <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
-                                                  </thead>
-                                                  <tbody>
-                                                    <?php 
-                                                    
-                                                    
-                                                    
-                                                    foreach($result as $res){?>
-                                                  <tr role="row" class="odd" id="<?php echo $res['categoryid'];?>" >
-                                                      <td class="sorting_1"><?php echo $res['categoryname'];?></td>
-                                                      <!--<td>Indoor Lamps</td>-->
-                                                      <td><?php echo $res['categorydescription'];?></td>
-                                                      <td> 
-                                                        <ul class="action"> 
-                                                          <li class="edit"> <a href="<?php echo base_url().'Welcome/editcategory/'.$res['categoryid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
-                                                          <li class="delete"><a href="#" onclick="delcategoryrow(<?php echo $res['categoryid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
-                                                          <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
-                                                        </ul>
-                                                      </td>
-                                                    </tr>
-                                                    <?php } ?>                                                  
-                                                  
-                                                </tbody>                                                
-                                                </table>                                               
-                                            </div>                                      
-
-                                                <div class="pagination mb-4"><?php echo $links;?> </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>                             
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                                  <h5>Edit Sub-Category</h5>
+                                                    <form id="subfrm" method="post" action="<?php echo base_url().'index.php/Welcome/subcategoryaddprocess';?>">
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Product Category</label>
+                                                                <select class="form-control" placeholder="Product Category Name" name="prdcat" id="prdcat"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Category</option>
+                                                                
+                                                                <?php                                              
+                                                                                                     
+                                                    foreach($result as $res){?>
+                                                    <option value="<?php echo $res['categoryid'];?>"><?php echo $res['categoryname'];?></option>
+
+                                                    <?php } ?>
+                                                                    
+</select>
+                                                                
+                                                                <span class="text-danger">
+
+
+</select>
+                                                                </span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Product Sub-Category:</label>
+                                                                <input class="form-control" placeholder="Product Sub-Category" name="prdsubcat" id="prdsubcat" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Description:</label>
+                                                                <input class="form-control" placeholder="Description" name="prdsubdesc" id="prdsubdesc" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row">
+                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php echo base_url().'index.php/Welcome/listsubcategory';?>" data-bs-original-title="" title="">View and Edit </a><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>
+                                                          </div>
+                                                        </div>
+                                                      </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -360,23 +390,67 @@
 
 
 <script>
-function delcategoryrow(catid){
-$.ajax({
-            type: 'GET',
-            url: "<?php echo base_url().'index.php/Welcome/deletecategory';?>",
-            data:{catid:catid},
-            success:function(data){
-                $("#"+catid).remove();
-                $("#catmsg").html(data);
-            }
+    $(function() {
+        $("#frm").on('submit', function(e) {
+            e.preventDefault();
+
+            var Form = $(this);
+
+            $.ajax({
+                url: Form.attr('action'),
+                type: 'post',
+                data: Form.serialize(),
+                success: function(response){
+                    
+                    
+                    $('input[type=text]').each(function() {
+        $(this).val('');
+    });
+   
+                    $("#catmsg").html(response);
+                   
+
+                }
+            });
         });
+    });
 
-}
-    
+
+
+    $(function() {
+        $("#subfrm").on('submit', function(e) {
+            e.preventDefault();
+
+            var Form = $(this);
+
+            $.ajax({
+                url: Form.attr('action'),
+                type: 'post',
+                data: Form.serialize(),
+                success: function(response){
+                    
+                    
+                    $('input[type=text]').each(function() {
+        $(this).val('');
+    });
+   
+                    $("#catmsg").html(response);
+                   
+
+                }
+            });
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
-
-
-
-
-
-

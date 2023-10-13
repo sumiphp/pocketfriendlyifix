@@ -62,7 +62,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1" required="required">
+                                                <input type="text" id="phone"  maxlength="12" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1" required="required">
                                             </div>
                                         </div>
                                     </div>
@@ -138,4 +138,16 @@
             });
         });
     });
+
+
+    $("#phone").keypress(function(event){
+        var keycode = event.which;
+        if (!(keycode >= 48 && keycode <= 57)) {
+            event.preventDefault();
+        }
+    });
+
+
+
+
 </script>

@@ -62,7 +62,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" name="phone" placeholder="Phone" required="">
+                                                <input type="text" class="form-control" id="phone" name="phone" maxlength="12" placeholder="Phone" required="">
                                             </div>
                                         </div>
                                        
@@ -84,8 +84,8 @@
                                             <div class="input-group mb-3">
                                             <select name="package" id="package" required>
                                                 <option value="">Select</option>
-                                                <?php foreach($result as $res){?>
-                                              <option value="<?php echo $res['categoryid'];?>"><?php echo $res['categoryname'];?></option>
+                                                <?php foreach($resultsub as $res){?>
+                                              <option value="<?php echo $res['subcategoryid'];?>"><?php echo $res['subcategoryname'];?></option>
                                               <?php } ?>
                                              
                                             </select>
@@ -329,6 +329,10 @@
             <div class="hosting-services-sec">
                 <div class="container">
                     <div class="row">
+
+                    <?php foreach($result as $res){?>
+                                              
+
                         <div class="col-lg-4 col-md-12 col-sm-12">
                             <div class="elementor-element">
                                 <div class="elementor-widget-container">
@@ -337,19 +341,21 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'assets/img/hos-icon/icon-1.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php echo base_url().'assets/img/hos-icon/'.$res['categoryimage'];?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
-                                                    <h3 class="gt3-core-imagebox-title"><a href="#">Hosting</a></h3>
+                                                    <h3 class="gt3-core-imagebox-title"><a href="#"><?php echo $res['categoryname'];?></a></h3>
                                                 </div>
-                                                <p class="gt3-core-imagebox-description">Reliable hosting solutions to keep your website secure, fast, and accessible around the clock.</p>
+                                                <p class="gt3-core-imagebox-description"><?php echo $res['categorydescription'];?></p>
                                             </div>
                                         </div>
                                         <a href="#" class="plan-btn">View Plan</a>		
                                             </div>
                             </div>
+                          
                         </div>
-                        <div class="col-lg-4 col-md-12 col-sm-12">
+                        <?php } ?>
+                        <!--<div class="col-lg-4 col-md-12 col-sm-12">
                             <div class="elementor-element">
                                 <div class="elementor-widget-container">
                                     <div class="gt3-core-imagebox-wrapper elementor-image_icon-position-beside">
@@ -357,7 +363,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'assets/img/hos-icon/icon-2.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php //echo base_url().'assets/img/hos-icon/icon-2.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title"><a href="#">Domain</a></h3>
@@ -377,7 +383,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'assets/img/hos-icon/icon-3.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php //echo base_url().'assets/img/hos-icon/icon-3.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title"><a href="#">Responsive Design</a></h3>
@@ -401,7 +407,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'assets/img/hos-icon/icon-4.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php //echo base_url().'assets/img/hos-icon/icon-4.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title"><a href="#">SEO Integration</a></h3>
@@ -421,7 +427,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'assets/img/hos-icon/icon-5.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php //echo base_url().'assets/img/hos-icon/icon-5.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title"><a href="#">Search Engine Optimization</a></h3>
@@ -441,7 +447,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'assets/img/hos-icon/icon-6.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php //echo base_url().'assets/img/hos-icon/icon-6.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title"><a href="#">Social Media</a></h3>
@@ -454,9 +460,9 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div>-->
 
-                    <div class="row row-padding">
+                    <!--<div class="row row-padding">
                         <div class="col-lg-4 col-md-12 col-sm-12">
                             <div class="elementor-element">
                                 <div class="elementor-widget-container">
@@ -520,7 +526,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </section>
@@ -863,6 +869,19 @@
             });
         });
     });
+
+
+    $("#phone").keypress(function(event){
+        var keycode = event.which;
+        if (!(keycode >= 48 && keycode <= 57)) {
+            event.preventDefault();
+        }
+    });
+
+
+
+
+
 </script>
 
         

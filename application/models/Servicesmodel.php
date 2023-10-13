@@ -76,6 +76,16 @@ function get_categoriesall(){
     $query = $this->db->get();
     return $query->result_array();
 }
+
+
+function get_subcategoriesall(){
+    $this->db->select('*');
+    $this->db->from('subcategory');
+    $query = $this->db->get();
+    return $query->result_array();
+}
+
+
 function get_subcategories($limit,$start){
 $this->db->limit($limit,$start);
 $this->db->select('*');
