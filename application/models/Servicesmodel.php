@@ -86,6 +86,21 @@ function get_subcategoriesall(){
 }
 
 
+function get_servicesall(){
+    $this->db->select('*');
+    $this->db->from('services');
+    $query = $this->db->get();
+    return $query->row();
+
+}
+
+function get_aboutus(){
+    $this->db->select('*');
+    $this->db->from('aboutus');
+    $query = $this->db->get();
+    return $query->row();
+}
+
 function get_subcategories($limit,$start){
 $this->db->limit($limit,$start);
 $this->db->select('*');

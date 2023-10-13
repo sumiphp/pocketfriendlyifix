@@ -89,9 +89,28 @@ public function editcategory(){
 	$this->db->from('category');
     $query = $this->db->get();
     $data['result']=$query->row();
+	
+	$data['cat_detail']=$this->sm->get_categoriesall();
 	$this->load->view('services/edit-category',$data);
 }
 
+public function editsubcategory(){
+	if($this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$catid=$this->uri->segment(3);
+	//die;
+	$this->load->model('Servicesmodel');
+	$this->db->where('categoryid',$catid);
+	$this->db->from('category');
+    $query = $this->db->get();
+    $data['result']=$query->row();
+	
+	$data['cat_detail']=$this->sm->get_categoriesall();
+	$this->load->view('services/edit-subcategory',$data);
+}
 
 
 
@@ -133,12 +152,15 @@ print_r($_POST);
 public function categoryeditprocess(){
 	$productcategory=$this->input->post('productcategory');
 	$productdesc=$this->input->post('productdescription');
+	$catid=2;
 	$data = array(
 		'categoryname' =>"$productcategory",
 		'categorydescription' =>"$productdesc",		
 	 );
-	 $this->db->insert('category', $data);
-	 echo ($this->db->affected_rows() != 1) ? 'Error in Editing Product' : 'Product Category edited Successfully';
+	 $this->db->where('categoryid',$catid);
+	 $this->db->update('category', $data);
+	 
+	 echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Category not edited') : $this->session->set_flashdata('flash_msg', 'Category edited successfully');;
 
 
 
@@ -190,7 +212,7 @@ public function listcategory(){
 	$config = array();
 	$config["base_url"] = base_url() . "Welcome/listcategory";
 	$config["total_rows"] = $this->sm->get_count();
-	$config["per_page"] = 2;
+	$config["per_page"] = 5;
 	$config["uri_segment"] = 3;
 	$this->pagination->initialize($config);
 	$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -290,6 +312,18 @@ $data['result']=$this->sm->get_contactenquiries($config["per_page"],$page);
 $this->load->view('services/listcontactenquiries',$data);
 }
 
+function addservices(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$this->db->from('category');
+    $query = $this->db->get();
+    $data['result']=$query->result_array(); 
+	$this->load->view('services/addservices',$data);
 
+}
 
 }

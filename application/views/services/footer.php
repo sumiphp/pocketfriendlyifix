@@ -25,16 +25,16 @@
                     <div class="footer-service-icon">
                         <div class="row">
                             <div class="col-md-3 col-lg-3 feature-updates">
-                                <img src="assets/img/footer-1.png">
+                                <img src="<?php echo base_url().'assets/img/footer-1.png';?>">
                             </div>
                             <div class="col-md-3 col-lg-3 feature-updates">
-                                <img src="assets/img/footer-2.png">
+                                <img src="<?php echo base_url().'assets/img/footer-2.png';?>">
                             </div>
                             <div class="col-md-3 col-lg-3 feature-updates">
-                                <img src="assets/img/footer-3.png">
+                                <img src="<?php echo base_url().'assets/img/footer-3.png';?>">
                             </div>
                             <div class="col-md-3 col-lg-3 feature-updates">
-                                <img src="assets/img/footer-4.png">
+                                <img src="<?php echo base_url().'assets/img/footer-4.png';?>">
                             </div>
                         </div>
                         

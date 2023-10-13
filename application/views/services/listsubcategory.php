@@ -120,7 +120,7 @@
                                                       <td><?php echo $res['subcatdesc'];?></td>
                                                       <td> 
                                                         <ul class="action"> 
-                                                          <li class="edit"> <a href="#" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
+                                                          <li class="edit"> <a href="<?php echo base_url().'Welcome/editsubcategory/'.$res['categoryid'];?>"   data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
                                                           <li class="delete"><a href="#" onclick="delsubcategoryrow(<?php echo $res['subcategoryid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
                                                           <li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>
                                                         </ul>

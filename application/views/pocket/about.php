@@ -57,27 +57,27 @@
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="about-content">
-                               <p>At PocketFriendlyWeb, we provide comprehensive solutions to elevate your business's online presence. From branding and social media management to SEO, content marketing, advertising, and viral campaigns, we are your one-stop destination for effective and impactful online strategies. Our expertise extends to website development, ensuring your digital journey is engaging and successful.</p>
+                               <p><?php echo $about->aboutcompany;?></p>
                             </div>
                         </div>
 
                         <div class="col-lg-5 col-mg-5 colsm-5">
                             <div class="our-mission-block">
                             <div class="main-title text-left">
-                                <h2>Our Mission <span class="icon-box"><img src="<?php echo base_url().'pockets/assets/img/about/icon-1.png';?>"> </span>  </h2>
+                                <h2>Our Mission <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/icon-1.png';?>"> </span>  </h2>
                             </div>
                             <div class="our-mission">
-                                <p>Our mission is to deliver top-notch digital marketing, branding, and web development services that are affordable and tailored to meet each client's unique needs. We strive to create impactful online experiences, drive engagement, and maximize ROI. We are dedicated to allowing businesses to realize their full potential online by being on the cutting edge of technological advancements.</p>
+                                <p><?php echo $about->mission;?></p>
                             </div>
                         </div>
                         </div>
                         <div class="col-lg-5 col-mg-5 colsm-5">
                             <div class="our-mission-block">
                             <div class="main-title text-left">
-                                <h2>Our Vision <span class="icon-box"><img src="<?php echo base_url().'pockets/assets/img/about/icon-2.png';?>"></span> </h2>
+                                <h2>Our Vision <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/icon-2.png';?>"></span> </h2>
                             </div>
                             <div class="our-mission">
-                                <p>At PocketFriendlyWeb, our goal is to enable businesses to succeed online. We aim to be the catalyst for their online success, providing cost-effective and result-driven solutions that elevate their brand, boost their visibility, and drive sustainable growth.</p>
+                                <p><?php echo $about->vision;?></p>
                             </div>
                         </div>
                         </div>

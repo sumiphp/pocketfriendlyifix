@@ -99,7 +99,7 @@
                                                 <span id="catmsg"></span><br>
                                                 <div class="product-info">
                                                     <h5>Edit Category</h5>
-                                                    <form id="frm" method="post" action="<?php echo base_url().'index.php/Welcome/categoryeditprocess';?>" >
+                                                    <form id="frmedit" method="post" action="<?php echo base_url().'Welcome/categoryeditprocess';?>" >
                                                         <div class="product-group">
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
@@ -113,7 +113,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Edit Product Category</label>
-                                                                <input class="form-control" placeholder="Enter Product Description" type="text" name="productdescription" value="<?php echo $result->categorydescription;?>" data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                                <textarea class="form-control" placeholder="Enter Product Description"  name="productdescription" rows="5" value="" data-bs-original-title="" title="" required><?php echo $result->categorydescription;?></textarea><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -127,12 +127,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                    <!--<div class="col-lg-6 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
                                                   <h5>Edit Sub-Category</h5>
-                                                    <form id="subfrm" method="post" action="<?php echo base_url().'index.php/Welcome/subcategoryaddprocess';?>">
+                                                    <form id="subfrm" method="post" action="<?php //echo base_url().'index.php/Welcome/subcategoryaddprocess';?>">
                                                         <div class="product-group">
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
@@ -143,10 +143,10 @@
                                                                 
                                                                 <?php                                              
                                                                                                      
-                                                    foreach($result as $res){?>
-                                                    <option value="<?php echo $res['categoryid'];?>"><?php echo $res['categoryname'];?></option>
+                                                   // foreach($result as $res){?>
+                                                    <option value="<?php //echo $res['categoryid'];?>"><?php //echo $res['categoryname'];?></option>
 
-                                                    <?php } ?>
+                                                    <?php //} ?>
                                                                     
 </select>
                                                                 
@@ -183,7 +183,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
 
                                 </div>
                             </div>
@@ -391,7 +391,7 @@
 
 <script>
     $(function() {
-        $("#frm").on('submit', function(e) {
+        $("#frmedit").on('submit', function(e) {
             e.preventDefault();
 
             var Form = $(this);
@@ -406,8 +406,8 @@
                     $('input[type=text]').each(function() {
         $(this).val('');
     });
-   
-                    $("#catmsg").html(response);
+    window.location.href ="<?php echo base_url().'Welcome/listcategory';?>";
+                    //$("#catmsg").html(response);
                    
 
                 }

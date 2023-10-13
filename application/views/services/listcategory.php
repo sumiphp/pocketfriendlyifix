@@ -118,6 +118,7 @@
                                               <div class="table-responsive theme-scrollbar">
                                               <span id="catmsg"></span><br>
                                                 <div id="data-source-1_wrapper" class="dataTables_wrapper">
+                                                <?php echo $this->session->flashdata('flash_msg');?>
 
                                                     <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
                                                   <thead>

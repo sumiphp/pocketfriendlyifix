@@ -32,7 +32,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="main-title">
-                            <h2>Services</h2>
+                            <h2><?php echo $service->maintitle;?></h2>
                         </div>
                        
                     </div>
@@ -46,8 +46,8 @@
                         </div>
                         <div class="col-lg-5 col-mg-5 col-sm-5">
                             <div class="left-banner-content">
-                                <h2>Optimise your business visibility with us</h2>
-                                <p>Cost-effective solutions to elevate your brand and experience quality services without breaking the bank.</p>
+                                <h2><?php echo $service->subtitle;?></h2>
+                                <p><?php echo $service->description;?></p>
                             </div>
                         </div>
                         <div class="share-sec-position">
@@ -221,7 +221,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="our-service-block-img">
-                                <img src="<?php echo base_url().'pockets/assets/img/service/service-img.png';?>">
+                                <img src="<?php echo base_url().'uploads/service-img.png';?>">
                             </div>
                         </div>
                     </div>

@@ -45,12 +45,14 @@ class Pocket extends CI_Controller {
 
     public function about()
 	{
-		$this->load->view('pocket/about.php');
+		$data['about']=$this->sm->get_aboutus();
+		$this->load->view('pocket/about.php',$data);
 	}
 
 
 public function service(){
 	$data['result']=$this->sm->get_categoriesall();
+	$data['service']=$this->sm->get_servicesall();
     $this->load->view('pocket/service.php',$data);
 }
 public function blog(){
