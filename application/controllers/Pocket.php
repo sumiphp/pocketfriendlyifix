@@ -30,7 +30,8 @@ class Pocket extends CI_Controller {
 		 $this->load->library('session'); 
          $this->load->model('Servicesmodel','sm');
 		 $this->load->database();
-		 $this->session->keep_flashdata('flash_msg');  
+		 $this->session->keep_flashdata('flash_msg'); 
+		 $this->load->helper(['form', 'url']); 
 
     }
 

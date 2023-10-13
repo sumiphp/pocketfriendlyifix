@@ -119,12 +119,13 @@ public function editsubcategory(){
 
 public function categoryaddprocess(){
 
-    $config['upload_path'] = './uploads/';
+    $config['upload_path'] = 'uploads';
     $config['allowed_types'] = 'gif|jpg|png';
     //$config['max_size'] = '100';
     //$config['max_width'] = '1024';
     //$config['max_height'] = '768';
 	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
 	if($this->upload->do_upload('file'))
 {
 $data = array('upload_data' => $this->upload->data());
@@ -170,12 +171,14 @@ public function categoryeditprocess(){
 function upload_file() {
 
 	//upload file
-	$config['upload_path'] = 'uploads/';
+	
+	$config['upload_path'] = 'uploads';
 	$config['allowed_types'] = 'gif|jpg|png';
 	//$config['max_filename'] = '255';
 	//$config['encrypt_name'] = TRUE;   // remove it for actual file name.
 	$config['max_size'] = '1024'; //1 MB
 	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
 	if (isset($_FILES['file']['name'])) {
 		if (0 < $_FILES['file']['error']) {
 			echo 'Error during file upload' . $_FILES['file']['error'];

@@ -133,6 +133,6 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 //$autoload['model'] = array();
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('url','form');
 
 $autoload['model'] = array('Servicesmodel');

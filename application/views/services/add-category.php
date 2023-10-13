@@ -132,8 +132,9 @@
                                                             <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>
                                                           </div>
                                                         </div>
+                                                        <button id="upload">Upload</button>
                                                       </form>
-                                                      <button id="upload">Upload</button>
+                                                      
 
                                                 </div>
                                             </div>
@@ -402,7 +403,7 @@
 
 
 <script>
-    $(function() {
+   $(function() {
         $("#frm").on('submit', function(e) {
             e.preventDefault();
 
@@ -477,7 +478,7 @@
         var form_data = new FormData();
         form_data.append('file', file_data);
         $.ajax({
-            url: "<?php echo base_url().'index.php/Welcome/upload_file';?>", // point to server-side controller method
+            url: "<?php echo base_url().'Welcome/upload_file';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server
             cache: false,
             contentType: false,
