@@ -149,5 +149,75 @@ function get_countcontactenquiries(){
 }
 
 
+function get_services($limit,$start){
+    $this->db->limit($limit,$start);
+    $this->db->select('*');
+    $this->db->from('services');
+    $query = $this->db->get();
+    return $query->result_array();
+
+
+}
+
+function get_countservices(){
+    $this->db->select('*');
+    $this->db->from('services');
+    $query = $this->db->get();
+    return $rowcount = $query->num_rows();
+}
+
+function get_aboutusadmin(){
+    //$this->db->limit($limit,$start);
+    $this->db->select('*');
+    $this->db->from('aboutus');
+    $query = $this->db->get();
+    return $query->result_array();
+
+
+}
+
+function get_blog(){
+    $this->db->select('*');
+    $this->db->from('blog');
+    $query = $this->db->get();
+    return $query->row();
+    
+}
+
+function get_blogcontents(){
+    $this->db->select('*');
+    $this->db->from('blogcontents');
+    $query = $this->db->get();
+    return $query->result_array();
+
+}
+
+function get_blogcontentstop(){
+
+    $this->db->where('toparticle',1);
+    $this->db->select('*');
+    $this->db->from('blogcontents');
+    $query = $this->db->get();
+    return $query->row();
+
+
+}
+
+function get_faq(){
+    $this->db->select('*');
+    $this->db->from('faq');
+    $query = $this->db->get();
+    return $query->result_array();
+
+
+}
+
+function get_testimonial(){
+    $this->db->select('*');
+    $this->db->from('testimonials');
+    $query = $this->db->get();
+    return $query->result_array();
+}
+
 }
 ?>

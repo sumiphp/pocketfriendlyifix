@@ -540,15 +540,16 @@
                             <h2>Our Blog</h2>
                         </div>
                     </div>
+                    <?php foreach($resultcontents as $con){?>
                     <div class="row blog-section">
                         <div class="col-md-4">
                             <div class="blog-img">
-                                <img src="<?php echo base_url().'assets/img/blog/blog-1.png';?>">
+                                <img src="<?php echo base_url().'uploads/blog/'.$con['contentimage'];?>">
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="blog-content">
-                                <p>In today's fast-paced digital landscape, capturing and retaining the audience's attention is challenging. Motion video creation services offer a dynamic solution. Through compelling visuals, animations, and captivating narratives, businesses can convey complex messages concisely and engagingly. From brand storytelling to product demonstrations, motion videos transcend language barriers and connect with audiences emotionally. Explore how integrating motion videos into your marketing strategy can elevate your brand presence and drive meaningful engagement.</p>
+                                <p><?php echo $con['description'];?> </p>
                                 <div class="primary-btn mt-3">
                                     <a href="#" class="default-btn">Learn More</a>
                                 </div>
@@ -556,7 +557,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="blog-person">
-                                <img src="<?php echo base_url().'assets/img/blog/blog-img.png';?>">
+                                <img src="<?php echo base_url().'uploads/blog/'.$con['autorimage'];?>">
                             </div>
                             <div class="social-icon">
                                 <img src="<?php echo base_url().'assets/img/blog/facebook.png';?>">
@@ -565,56 +566,8 @@
                             </div>
                         </div>
                     </div>
-                     <div class="row blog-section mt-5">
-                        <div class="col-md-4">
-                            <div class="blog-img">
-                                <img src="<?php echo base_url().'assets/img/blog/blog-2.png';?>">
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="blog-content">
-                                <p>Behind every impactful motion video lies a well-crafted storyboard and script. These fundamental components form the backbone of the creative process. Storyboarding visually outlines the sequence of scenes, ensuring a cohesive flow of ideas. On the other hand, scriptwriting condenses complex messages into concise and engaging narratives. By combining these two things, businesses can create motion videos that inform and resonate with audiences on a deeper level, leaving a lasting impression.</p>
-                                <div class="primary-btn mt-3">
-                                    <a href="#" class="default-btn">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="blog-person">
-                                <img src="assets/img/blog/blog-img2.png">
-                            </div>
-                            <div class="social-icon">
-                                <img src="<?php echo base_url().'assets/img/blog/facebook.png';?>">
-                                <img src="<?php echo base_url().'assets/img/blog/twitter.png';?>">
-                                <img src="<?php echo base_url().'assets/img/blog/linked-in.png';?>">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row blog-section mt-5">
-                        <div class="col-md-4">
-                            <div class="blog-img">
-                                <img src="<?php echo base_url().'assets/img/blog/blog-3.png';?>">
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="blog-content">
-                                <p>A critical factor in the success of motion videos is the audio component. Professional voiceovers and sound design convey the intended message and evoke emotions. A carefully selected voice can establish brand personality, while well-executed sound effects and music enhance the viewing experience. From establishing authority to creating an immersive atmosphere, the correct audio elements in motion videos can amplify brand communication and leave a memorable impact.</p>
-                                <div class="primary-btn mt-3">
-                                    <a href="#" class="default-btn">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="blog-person">
-                                <img src="<?php echo base_url().'assets/img/blog/blog-img3.png';?>">
-                            </div>
-                            <div class="social-icon">
-                                <img src="<?php echo base_url().'assets/img/blog/facebook.png';?>">
-                                <img src="<?php echo base_url().'assets/img/blog/twitter.png';?>">
-                                <img src="<?php echo base_url().'assets/img/blog/linked-in.png';?>">
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
+                     
                 </div>
             </div>
         </section>
@@ -632,13 +585,14 @@
                         <div class="col-md-12 col-lg-12 col-xxl-12 ">
                             <div class="testimonial-slider">
                                 <div class="testimonial-item-slider owl-carousel owl-theme">
+                                <?php foreach($resulttest as $test){?>
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-img">
-                                            <img src="assets/img/testimonials/testimonial-1.png';?>" alt="Testimonial Images">
+                                            <img src="<?php echo base_url().'uploads/testimonial/'.$test['image'];?>"  alt="Testimonial Images">
                                         </div>
                                         <div class="testimonail-content">
                                             <p>
-                                                "Working with PocketFriendlyWeb was an absolute game-changer for our business. Their digital marketing strategies boosted our online presence, and their motion video creation services helped us communicate complex ideas effortlessly."
+                                               <?php echo $test['testimonial'];?>
                                              </p>
                                        
                                              <div class="testimonal-info">
@@ -659,17 +613,17 @@
                                                         <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
                                                     </li>
                                                 </ul>
-                                                <h3>Sarah M.</h3>
-                                                <p>Nintendo</p>
+                                                <h3><?php echo $test['name'];?></h3>
+                                                <p><?php echo $test['place'];?></p>
                                           
                                             </div>
-                                        </div>
-
-
-                                       
+                                        </div>                                      
                                     </div>
+<?php } ?>
+
+
     
-                                    <div class="testimonial-item">
+                                    <!--<div class="testimonial-item">
                                         <div class="testimonial-item-img">
                                             <img src="<?php echo base_url().'assets/img/testimonials/testimonial-1.png';?>" alt="Testimonial Images">
                                         </div>
@@ -741,7 +695,7 @@
 
 
                                        
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -767,20 +721,22 @@
                                 </div>
                                     <div class="faq-accordion faq-accordion-width">
                                         <ul class="accordion">
+                                            <?php foreach($resultfaq as $faq){?>
                                             <li class="accordion-item">
                                                 <a class="accordion-title" href="javascript:void(0)">
                                                     <i class='bx bx-chevron-down'></i>
-                                                    What services does PocketFriendlyWeb offer?
+                                                    <?php echo $faq['faqtitle'];?>
                                                 </a>
                 
                                                 <div class="accordion-content">
                                                     <p> 
-                                                        PocketFriendlyWeb specializes in a range of digital marketing and branding services. From social media management to SEO, content marketing, motion video creation, and website development, we provide comprehensive solutions to enhance your brand's online presence.
+                                                    <?php echo $faq['faqdescription'];?>
                                                     </p>
                                                 </div>
                                             </li>
+                                            <?php } ?>
             
-                                            <li class="accordion-item">
+                                            <!--<li class="accordion-item">
                                                 <a class="accordion-title" href="javascript:void(0)">
                                                     <i class='bx bx-chevron-down'></i>
                                                     How can I request a quote for my project?
@@ -817,7 +773,7 @@
                                                         At PocketFriendlyWeb, we pride ourselves on our innovative approach, personalized strategies, and a team of experts passionate about delivering results. We're committed to understanding your unique needs and tailoring our services to achieve your specific goals, all while keeping affordability in mind.
                                                     </p>
                                                 </div>
-                                            </li>
+                                            </li>-->
                                         </ul>
                                     </div>
                             </div>

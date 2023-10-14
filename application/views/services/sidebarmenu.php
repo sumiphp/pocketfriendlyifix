@@ -37,8 +37,8 @@
                                 <li><a class="link_name" href="#">Posts</a></li>
                                 <li><a href="#">Carousel</a></li>
                                 <li><a href="#">Home Page</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="<?php echo base_url().'Welcome/addservices';?>">Services</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listaboutus';?>">About Us</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listservices';?>">Services</a></li>
                                 
                                 <li><a href="#">Blog Page</a></li>
                                 <li><a href="#">Download Page</a></li>

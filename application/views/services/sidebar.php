@@ -63,16 +63,16 @@
                           </div>
                           <ul class="sub-menu">
                             <li><a class="link_name" href="#">Posts</a></li>
-                            <li><a href="#">Carousel</a></li>
-                            <li><a href="#">Home Page</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Blog Page</a></li>
-                            <li><a href="#">Download Page</a></li>
-                            <li><a href="#">Contact Page</a></li>
-                           
+                                <li><a href="#">Carousel</a></li>
+                                <li><a href="#">Home Page</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listaboutus';?>">About Us</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listservices';?>">Services</a></li>
+                                
+                                <li><a href="#">Blog Page</a></li>
+                                <li><a href="#">Download Page</a></li>
+                                <li><a href="#">Contact Page</a></li>                           
                           </ul>
-                        </li>
-                    
+                        </li>               
                       
                         <li>
                           <div class="iocn-link">
@@ -84,9 +84,8 @@
                           </div>
                           <ul class="sub-menu">
                             <li><a class="link_name" href="#">Plugins</a></li>
-                            <li><a href="#">Add Category</a></li>
-                            <li><a href="#">Add Sub Category</a></li>
-                          
+                            <li><a href="<?php echo base_url().'Welcome/addcategory';?>">Add Category</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/addcategory';?>">Add Sub Category</a></li>
                           </ul>
                         </li>
                         <li>
@@ -104,19 +103,27 @@
                           
                         </li>
                         <li>
-                                <a href="sign-in.html">
+                              <a href="<?php echo base_url().'Welcome/listenquiries';?>">
+                                <i class='bx bx-history'></i>
+                                <span class="link_name">Enquiries</span>
+                              </a>
+                            
+                            </li>
+                            <li>
+                              <a href="<?php echo base_url().'Welcome/listcontactenquiries';?>">
+                                <i class='bx bx-history'></i>
+                                <span class="link_name">Contact Enquiry</span>
+                              </a>
+                            
+                            </li>
+                        <li>
+                                <a href="<?php echo base_url().'index.php/Welcome/logout';?>">
                                   <i class='bx bx-history'></i>
-                                  <span class="link_name">Login</span>
+                                  <span class="link_name">Logout</span>
                                 </a>
                               
                               </li>
-                        <li>
-                          <a href="#">
-                            <i class='bx bx-history'></i>
-                            <span class="link_name">Contact Enquiry</span>
-                          </a>
                         
-                        </li>
                     
                   </ul>
                     </nav>

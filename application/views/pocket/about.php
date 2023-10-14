@@ -64,7 +64,7 @@
                         <div class="col-lg-5 col-mg-5 colsm-5">
                             <div class="our-mission-block">
                             <div class="main-title text-left">
-                                <h2>Our Mission <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/icon-1.png';?>"> </span>  </h2>
+                                <h2>Our Mission <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/'.$about->missionlogo;?>"> </span>  </h2>
                             </div>
                             <div class="our-mission">
                                 <p><?php echo $about->mission;?></p>
@@ -74,7 +74,7 @@
                         <div class="col-lg-5 col-mg-5 colsm-5">
                             <div class="our-mission-block">
                             <div class="main-title text-left">
-                                <h2>Our Vision <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/icon-2.png';?>"></span> </h2>
+                                <h2>Our Vision <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/'.$about->visionlogo;?>"></span> </h2>
                             </div>
                             <div class="our-mission">
                                 <p><?php echo $about->vision;?></p>

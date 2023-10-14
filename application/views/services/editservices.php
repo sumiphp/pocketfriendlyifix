@@ -58,7 +58,7 @@
                 <span id="sermsg"></span><br>
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2>Add Services</h2>
+                                <h2>Edit Services</h2>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="inner-card">
@@ -68,53 +68,36 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Main Title:</label>
-                                                              <input type="text" class="form-control" id="maintitle" name="maintitle" placeholder="Enter Main Title">
+                                                              <input type="text" class="form-control" id="maintitle" name="maintitle" required placeholder="Enter Main Title" value="<?php echo $result->maintitle;?>">
                                           
                                                           </div>
                                                           <div class="col-md-6">
-                                                              <label for="company-logo" class="form-label text-primary">Image1:</label>
-                                                              <input type="file" class="form-control" id="image1" name="image1">
+
+                                                          <label for="contact-person" class="form-label text-primary">Subtitle:</label>
+                                                              <input type="text" class="form-control" id="subtitle" name="subtitle" required placeholder="Enter Sub Title" value="<?php echo $result->subtitle;?>">
+
+
+                                                             
                                                           </div>
                                                       </div>
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
-                                                              <label for="contact-person" class="form-label text-primary">Subtitle:</label>
-                                                              <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Enter Sub Title">
+                                                          <label for="company-logo" class="form-label text-primary">Image1:</label>
+                                                              <input type="file" class="form-control" id="image1" name="image1">
+                                                              <img src="<?php echo base_url().'uploads/'.$result->Image1;?>" width="50" height="50" />
+
+
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Image2:</label>
                                                               <input type="file" class="form-control" id="image2" name="image2">
+                                                              <img src="<?php echo base_url().'uploads/'.$result->Image2;?>" width="50" height="50" />
                                                           </div>
                                                       </div>
-                                                      <!--<div class="row mb-3">
-                                                          <div class="col-md-6">
-                                                              <label for="contact-number-1" class="form-label text-primary">Contact Number 1:</label>
-                                                              <div class="input-group">
-                                                                  <input type="tel" class="form-control" id="contact-number-1" name="contact-number-1" placeholder="Enter contact number 1">
-                                                                  <div class="input-group-append">
-                                                                      <div class="form-check mx-3">
-                                                                          <input class="form-check-input" type="checkbox" id="whatsapp-1" name="whatsapp-1">
-                                                                          <label class="form-check-label" for="whatsapp-1">WhatsApp</label>
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <label for="contact-number-2" class="form-label text-primary">Contact Number 2:</label>
-                                                              <div class="input-group">
-                                                                  <input type="tel" class="form-control" id="contact-number-2" name="contact-number-2" placeholder="Enter contact number 2">
-                                                                  <div class="input-group-append">
-                                                                      <div class="form-check mx-3">
-                                                                          <input class="form-check-input" type="checkbox" id="whatsapp-2" name="whatsapp-2">
-                                                                          <label class="form-check-label" for="whatsapp-2">WhatsApp</label>
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                      </div>-->
+                                                      
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description"></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required><?php echo $result->description;?></textarea>
                                                       </div>
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">
@@ -127,9 +110,9 @@
                                                           </div>
                                                       </div>--->
                                                       
-                                                      <a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a>
+                                                      <!--<a class="btn btn-primary me-3" href="<?php //echo base_url().'Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a>-->
                                                       
-                                                      <button type="button" class="btn btn-primary" id="uploadsub" >Submit</button>
+                                                      <button type="button" class="btn btn-primary" id="uploadser" >Update</button>
                                                   </form>
 
                                                 </div>
@@ -181,7 +164,7 @@
         <!-- Custom JS -->
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
         <script>
-$('#uploadsub').on('click', function (e) {
+$('#uploadser').on('click', function (e) {
     e.preventDefault();
     //alert("enter");
         var file_data1 = $('#image1').prop('files')[0];
@@ -198,7 +181,7 @@ $('#uploadsub').on('click', function (e) {
         form_data.append('description',description);
        
         $.ajax({
-            url: "<?php echo base_url().'Welcome/addservicesprocess';?>", // point to server-side controller method
+            url: "<?php echo base_url().'Welcome/editservicesprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server
             cache: false,
             contentType: false,
@@ -211,10 +194,12 @@ $('#uploadsub').on('click', function (e) {
                 $('input[type=text]').each(function() {
         $(this).val('');
     });
-                $('#sermsg').html(response); // display success response from the server
+                //$('#sermsg').html(response); // display success response from the server
+                window.location.href ="<?php echo base_url().'Welcome/listservices';?>";
             },
             error: function (response) {
-                $('#sermsg').html(response); // display error response from the server
+               // $('#sermsg').html(response); // display error response from the server
+               window.location.href ="<?php echo base_url().'Welcome/listservices';?>";
             }
         });
     });

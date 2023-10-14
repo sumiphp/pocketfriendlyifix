@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="assets/css/theme-dark.css">
 
         <!-- Title -->
-        <title>Pocket Frindly HTML Template</title>
+        <title>Pocket Frindly</title>
 
         <!-- Favicon -->
         <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png"> -->

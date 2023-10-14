@@ -37,9 +37,9 @@
                     </div>
                     <div class="col-lg-10 col-md-10">
                         <div class="blog-sec">
-                            <h3>Marvin McKinney</h3>
-                            <p>The Walt Disney Company</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                            <h3><?php echo $resulttopcontent->authorname;?></h3>
+                            <p><?php echo $resulttopcontent->companyname ;?></p>
+                            <p><?php echo $resulttopcontent->description ;?></p>
                         </div>
                         <div class="icon-sec">
                             <img src="<?php echo base_url().'pockets/assets/img/blog/facebook.png';?>">
@@ -58,10 +58,11 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="artical-content">
-                            <h2 class="text-center">Most Recent Articals</h2>
+                            <h2 class="text-center"><?php echo $result->blogtitle ;?></h2>
+                            <p><?php echo $result->blogdescription ;?></p>
+                            <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>-->
 
                         </div>
                     </div>
@@ -69,13 +70,32 @@
 
                 <div class="blog-aritical-sec">
                     <div class="row">
+                        <?php foreach($resultcontents as $con){?>
                         <div class="col-lg-6 col-md-6">
                             <div class="blog-img">
-                                <img src="<?php echo base_url().'pockets/assets/img/blog/blog-inner.jpg';?>">
+                                <img src="<?php echo base_url().'uploads/blog/'.$con['contentimage'];?>">
                             </div>
                             <div class="blog-content-inner">
                                 <div class="blog-author-img">
-                                    <img src="<?php echo base_url().'pockets/assets/img/blog/blog-icon.png';?>"/>
+                                    <img src="<?php echo base_url().'uploads/blog/'.$con['autorimage'];?>"/>
+
+                                </div>
+                                <div class="blog-details">
+                            <p><?php echo $con['description'];?> </p>
+                            <p class="date">November 28, 2023</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <?php } ?>
+                        <!--<div class="col-lg-6 col-md-6">
+                            <div class="blog-img">
+                                <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-inner.jpg';?>">
+                            </div>
+                            <div class="blog-content-inner">
+                                <div class="blog-author-img">
+                                    <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-icon.png';?>"/>
 
                                 </div>
                                 <div class="blog-details">
@@ -85,14 +105,16 @@
 
                             </div>
 
+                        </div>-->
                         </div>
+                        <!--<div class="row row-padding">
                         <div class="col-lg-6 col-md-6">
                             <div class="blog-img">
-                                <img src="<?php echo base_url().'pockets/assets/img/blog/blog-inner.jpg';?>">
+                                <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-inner.jpg';?>">
                             </div>
                             <div class="blog-content-inner">
                                 <div class="blog-author-img">
-                                    <img src="<?php echo base_url().'pockets/assets/img/blog/blog-icon.png';?>"/>
+                                    <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-icon.png';?>"/>
 
                                 </div>
                                 <div class="blog-details">
@@ -102,16 +124,14 @@
 
                             </div>
 
-                        </div>
-                        </div>
-                        <div class="row row-padding">
-                        <div class="col-lg-6 col-md-6">
+                        </div>-->
+                        <!--<div class="col-lg-6 col-md-6">
                             <div class="blog-img">
-                                <img src="<?php echo base_url().'pockets/assets/img/blog/blog-inner.jpg';?>">
+                                <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-inner.jpg';?>">
                             </div>
                             <div class="blog-content-inner">
                                 <div class="blog-author-img">
-                                    <img src="<?php echo base_url().'pockets/assets/img/blog/blog-icon.png';?>"/>
+                                    <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-icon.png';?>"/>
 
                                 </div>
                                 <div class="blog-details">
@@ -121,24 +141,7 @@
 
                             </div>
 
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="blog-img">
-                                <img src="<?php echo base_url().'pockets/assets/img/blog/blog-inner.jpg';?>">
-                            </div>
-                            <div class="blog-content-inner">
-                                <div class="blog-author-img">
-                                    <img src="<?php echo base_url().'pockets/assets/img/blog/blog-icon.png';?>"/>
-
-                                </div>
-                                <div class="blog-details">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
-                            <p class="date">November 28, 2023</p>
-                                </div>
-
-                            </div>
-
-                        </div>
+                        </div>-->
                     </div>
                     
                 </div>

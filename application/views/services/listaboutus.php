@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="<?php echo base_url().'assets/css/theme-dark.css';?>">
 
         <!-- Title -->
-        <title>Pocket Frindly </title>
+        <title>Pocket Frindly</title>
 
         <!-- Favicon -->
         <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png"> -->
@@ -91,124 +91,63 @@
                 <div class="dashboard-innerbox">
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2>Category / Sub-Category Information </h2>
+                                <h2> View About Us  </h2>
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                    <div class="col-lg-12 col-md-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
-                                                <span id="catmsg"></span><br>
-                                                <div class="product-info">
-                                                    <h5>Add Category</h5>
-                                                    <form id="frm" method="post" enctype="multipart/form-data" action="<?php echo base_url().'Welcome/categoryaddprocess';?>" >
-                                                        <div class="product-group">
-                                                          <div class="row"> 
-                                                            <div class="col-sm-12">
-                                                              <div class="mb-3">
-                                                                <label class="form-label">Product Category</label>
-                                                                <input class="form-control" placeholder="Enter Product Name" type="text" id="productcategory"  name="productcategory" data-bs-original-title="" title="" required ><span class="text-danger"></span>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="row"> 
-                                                            <div class="col-sm-12">
-                                                              <div class="mb-3">
-                                                                <label class="form-label">Product Description</label>
-                                                                <input class="form-control" placeholder="Enter Product Description" id="productdescription" type="text" name="productdescription"  data-bs-original-title="" title="" required><span class="text-danger"></span>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="row"> 
-                                                            <div class="col-sm-12">
-                                                              <div class="mb-3">
-                                                                <label class="form-label">Select Product Category Image</label>
-                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="file"  name="productdescription"  data-bs-original-title="" title="" required><span class="text-danger"></span>
-                                                              </div>
-                                                            </div>
-                                                          </div>
+                                              <div class="table-responsive theme-scrollbar">
+                                              <span id="msg"></span><br>
+                                                <div id="data-source-1_wrapper" class="dataTables_wrapper">
 
-
-                                                          <div class="row">
-                                                         
-                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a> <button class="btn btn-secondary" id="upload">Save</button><!--<button class="btn btn-secondary" data-bs-original-title="" title="">Save</button>--></div>
-                                                          </div>
-                                                        </div>
-                                                       
-                                                      </form>
-                                                      
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12">
-                                        <div class="inner-card">
-                                            <div class="inner-card-body">
-                                                <div class="product-info">
-                                                  <h5>Add Sub-Category</h5>
-                                                  <span id="catsubmsg"></span><br>
-                                                    <form id="subfrm" method="post" action="<?php echo base_url().'Welcome/subcategoryaddprocess';?>">
-                                                        <div class="product-group">
-                                                          <div class="row"> 
-                                                            <div class="col-sm-12">
-                                                              <div class="mb-3">
-                                                                <label class="form-label">Product Category</label>
-                                                                <select class="form-control" placeholder="Product Category Name" name="prdcat" id="prdcat"  data-bs-original-title="" title="" required>
-                                                                <option value=''>Select Category</option>
-                                                                
-                                                                <?php                                              
-                                                                                                     
+                                                    <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
+                                                  <thead>
+                                                    <tr role="row">
+                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Aboutcompany</th>
+                              
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Mission</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:132px;">Missionlogo</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Vision</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Visionlogo</th>
+                                                                              <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Aboutusbanner</th>
+                                                           <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    <?php 
+                                                    
+                                                    
+                                                    
                                                     foreach($result as $res){?>
-                                                    <option value="<?php echo $res['categoryid'];?>"><?php echo $res['categoryname'];?></option>
-
+                                                  <tr role="row" class="odd" id="<?php echo $res['aboutusid'];?>" >
+                                                      <td class="sorting_1"><?php echo $res['aboutcompany'];?></td>
+                                                      <!--<td>Indoor Lamps</td>-->
+                                                      <td><?php echo $res['mission'];?></td>
+                                                      
+                                                      <td><?php echo "<img src=".base_url().'uploads/aboutus/'.$res['missionlogo']." />";?></td>
+                                                      <td><?php echo "<img src=".base_url().'uploads/aboutus/'.$res['visionlogo']." />";?></td>
+                                                      <td><?php echo $res['vision'];?></td>
+                                                      <td><?php echo "<img src=".base_url().'uploads/aboutus/'.$res['aboutusbanner']." />";?></td>
+                                                      <!--<td><?php //echo $res['note'];?></td>-->
+                                                      <td> 
+                                                        <ul class="action"> 
+                                                          <li class="edit"> <a href="#" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
+                                                          <!--<li class="delete"><a href="#" onclick="delservices(<?php //echo $res['serviceid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
+                                                          <li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
+                                                        </ul>
+                                                      </td>
+                                                    </tr>
                                                     <?php } ?>
-                                                                    
-</select>
-                                                                
-                                                                <span class="text-danger">
-
-
-</select>
-                                                                </span>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="row"> 
-                                                            <div class="col-sm-12">
-                                                              <div class="mb-3">
-                                                                <label class="form-label">Product Sub-Category:</label>
-                                                                <input class="form-control" placeholder="Product Sub-Category" name="prdsubcat" id="prdsubcat" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="row"> 
-                                                            <div class="col-sm-12">
-                                                              <div class="mb-3">
-                                                                <label class="form-label">Description:</label>
-                                                                <input class="form-control" placeholder="Description" name="prdsubdesc" id="prdsubdesc" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-
-                                                          <div class="row"> 
-                                                            <div class="col-sm-12">
-                                                              <div class="mb-3">
-                                                                <label class="form-label">Select Product Sub-Category Image</label>
-                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="filesub"  name="productdescription"  data-bs-original-title="" title="" required><span class="text-danger"></span>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-
-
-                                                          <div class="row">
-                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php echo base_url().'index.php/Welcome/listsubcategory';?>" data-bs-original-title="" title="">View and Edit </a><button class="btn btn-secondary" id="uploadsub" data-bs-original-title="" title="">Save</button></div>
-                                                          </div>
-                                                        </div>
-                                                      </form>
-
-                                                </div>
+                                                   
+                                                  
+                                                </tbody>
+                                                
+                                                </table>
                                             </div>
+
+                                            <div class="pagination mb-4"><?php echo $links;?> </div>
                                         </div>
                                     </div>
+                                   
 
                                 </div>
                             </div>
@@ -415,140 +354,23 @@
 
 
 <script>
-   $(function() {
-        $("#frm").on('submit', function(e) {
-            e.preventDefault();
-            var Form = $(this);
-            $.ajax({
-                url: Form.attr('action'),
-                type: 'post',
-                data: Form.serialize(),
-                processData: false,
-        contentType: false,
-        cache:false,
-        async:false,
-                success: function(response){                   
-     $('input[type=text]').each(function() {
-        $(this).val('');
-    });   
-      $("#catmsg").html(response);                
-
-                }
-            });
-        });
-    });
-
-
-
-    $(function() {
-        $("#subfrm").on('submit', function(e) {
-            e.preventDefault();
-
-            var Form = $(this);
-
-            $.ajax({
-                url: Form.attr('action'),
-                type: 'post',
-                data: Form.serialize(),
-                success: function(response){
-                    
-                    
-                    $('input[type=text]').each(function() {
-        $(this).val('');
-    });
-   
-                    $("#catmsg").html(response);
-                   
-
-                }
-            });
-        });
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
-<script type="text/javascript">
-//$(document).ready(function(e){
-    $('#upload').on('click', function () {
-        var file_data = $('#file').prop('files')[0];
-        var productcategory=$('#productcategory').val();
-        var productdescription=$('#productdescription').val();
-        var form_data = new FormData();
-        form_data.append('file', file_data);
-        form_data.append('productcategory',productcategory);
-        form_data.append('productdescription',productdescription);
-       
-        $.ajax({
-            url: "<?php echo base_url().'Welcome/upload_file';?>", // point to server-side controller method
-            dataType: 'text', // what to expect back from the server
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function (response) {
-                $('#file').val('');
-                $('input[type=text]').each(function() {
-        $(this).val('');
-    });
-                $('#catmsg').html(response); // display success response from the server
-            },
-            error: function (response) {
-                $('#catmsg').html(response); // display error response from the server
+function delservices(id){
+$.ajax({
+            type: 'GET',
+            url: "<?php echo base_url().'index.php/Welcome/deleteservices';?>",
+            data:{id:id},
+            success:function(data){
+                $("#"+id).remove();
+                $("#msg").html(data);
             }
         });
-    });
 
-
-    $('#uploadsub').on('click', function () {
-        var file_data = $('#filesub').prop('files')[0];
-        var prdcat=$('#prdcat').val();
-        var prdsubcat=$("#prdsubcat").val();
-        var prdsubdesc=$("#prdsubdesc").val();
-        //var productdescription=$('#productdescription').val();
-        var form_data = new FormData();
-        form_data.append('filesub', file_data);
-        form_data.append('prdsubcat',prdsubcat);
-        form_data.append('prdcat',prdcat);
-        form_data.append('prdsubdesc',prdsubdesc);
-       
-        $.ajax({
-            url: "<?php echo base_url().'Welcome/upload_filesub';?>", // point to server-side controller method
-            dataType: 'text', // what to expect back from the server
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function (response) {
-                $('#filesub').val('');
-                $('input[type=text]').each(function() {
-        $(this).val('');
-    });
-                $('#catsubmsg').html(response); // display success response from the server
-            },
-            error: function (response) {
-                $('#catsubmsg').html(response); // display error response from the server
-            }
-        });
-    });
-
-
-
-
-
-
-
-//});
+}
+    
 </script>
+
+
+
+
+
 

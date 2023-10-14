@@ -221,7 +221,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="our-service-block-img">
-                                <img src="<?php echo base_url().'uploads/service-img.png';?>">
+                                <img src="<?php echo base_url().'uploads/'.$service->Image2;?>">
                             </div>
                         </div>
                     </div>
