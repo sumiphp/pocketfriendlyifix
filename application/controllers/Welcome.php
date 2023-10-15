@@ -583,23 +583,6 @@ public function editservicesprocess(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public function listservices(){
 
 	if( $this->session->has_userdata('username')) {					
@@ -653,8 +636,37 @@ $this->load->view('services/listaboutus',$data);
 
 }
 
+public function listcontactus(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$data['result']=$this->sm->get_contactus();
+	$this->load->view('services/listcontactus',$data);	
+
+}
+
+public function listfaq(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+$config = array();
+$config["base_url"] = base_url() . "Welcome/listfaq";
+$config["total_rows"] = $this->sm->get_countfaq();
+$config["per_page"] = 10;
+$config["uri_segment"] = 3;
+$this->pagination->initialize($config);
+$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+$data["links"] = $this->pagination->create_links();	
+$data['result']=$this->sm->get_faqadmin($config["per_page"],$page);
+$this->load->view('services/listfaq',$data);	
 
 
+}
 
 
 

@@ -237,6 +237,29 @@ function get_newsletter(){
     return $query->row();
 
 }
+function get_contactusrow(){
+    $this->db->select('*');
+    $this->db->from('contactus');
+    $query = $this->db->get();
+    return $query->row();
+}
+
+function get_countfaq(){
+    $this->db->select('*');
+    $this->db->from('faq');
+    $query = $this->db->get();
+    return $rowcount = $query->num_rows();
+
+}
+
+
+function get_faqadmin($limit,$start){
+    $this->db->limit($limit,$start);
+    $this->db->select('*');
+    $this->db->from('faq');
+    $query = $this->db->get();
+    return $query->result_array(); 
+    }
 
 }
 ?>
