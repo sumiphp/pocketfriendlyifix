@@ -91,7 +91,7 @@
                 <div class="dashboard-innerbox">
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2> View Enquiries  </h2>
+                                <h2> View Testimonials  </h2>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="inner-card">
@@ -103,13 +103,10 @@
                                                     <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
                                                   <thead>
                                                     <tr role="row">
-                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Firstname</th>
+                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Faq title</th>
                               
-                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Lastname</th>
-                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:132px;">Email</th>
-                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Phone</th>
-                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Businessnature</th>
-                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Businesswebsiteduration</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Faq description</th>
+
                                                                               <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Notes</th>-->
                                                            <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
                                                   </thead>
@@ -119,19 +116,15 @@
                                                     
                                                     
                                                     foreach($result as $res){?>
-                                                  <tr role="row" class="odd" id="<?php echo $res['enquiryid'];?>" >
-                                                      <td class="sorting_1"><?php echo $res['firstname'];?></td>
+                                                  <tr role="row" class="odd" id="<?php echo $res['testimonialid'];?>" >
+                                                      <td class="sorting_1"><?php echo $res['testimonial'];?></td>
                                                       <!--<td>Indoor Lamps</td>-->
-                                                      <td><?php echo $res['lastname'];?></td>
-                                                      <td><?php echo $res['email'];?></td>
-                                                      <td><?php echo $res['phone'];?></td>
-                                                      <td><?php echo $res['businessnature'];?></td>
-                                                      <td><?php echo $res['businesswebsiteduration'];?></td>
-                                                      <!--<td><?php //echo $res['note'];?></td>-->
+                                                      <td><?php echo $res['name'];?></td>
+                                                      
                                                       <td> 
                                                         <ul class="action"> 
                                                           <!--<li class="edit"> <a href="#" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>--->
-                                                          <li class="delete"><a href="#" onclick="delenquiries(<?php echo $res['enquiryid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
+                                                          <li class="delete"><a href="#" onclick="delfaq(<?php echo $res['testimonialid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
                                                           <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
                                                         </ul>
                                                       </td>

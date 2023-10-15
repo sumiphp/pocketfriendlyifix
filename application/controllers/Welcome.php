@@ -668,7 +668,50 @@ $this->load->view('services/listfaq',$data);
 
 }
 
+public function listblog(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+$config = array();
+$config["base_url"] = base_url() . "Welcome/listblog";
+$config["total_rows"] = $this->sm->get_countblog();
+$config["per_page"] = 10;
+$config["uri_segment"] = 3;
+$this->pagination->initialize($config);
+$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+$data["links"] = $this->pagination->create_links();	
+$data['result']=$this->sm->get_blogadmin($config["per_page"],$page);
+$this->load->view('services/listblog',$data);	
 
 
+}
+public function listtestimonials(){
+
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+$config = array();
+$config["base_url"] = base_url() . "Welcome/listtestimonials";
+$config["total_rows"] = $this->sm->get_counttestimonials();
+$config["per_page"] = 10;
+$config["uri_segment"] = 3;
+$this->pagination->initialize($config);
+$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+$data["links"] = $this->pagination->create_links();	
+$data['result']=$this->sm->get_testimonialsadmin($config["per_page"],$page);
+$this->load->view('services/listtestimonials',$data);	
+
+
+
+
+
+
+}	
 
 }

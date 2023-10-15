@@ -261,5 +261,37 @@ function get_faqadmin($limit,$start){
     return $query->result_array(); 
     }
 
+    function get_countblog(){
+        $this->db->select('*');
+        $this->db->from('blogcontents');
+        $query = $this->db->get();
+        return $rowcount = $query->num_rows();
+
+
+    }
+    function get_counttestimonials(){
+        $this->db->select('*');
+        $this->db->from('testimonials');
+        $query = $this->db->get();
+        return $rowcount = $query->num_rows();
+
+
+    }
+
+    function get_testimonialsadmin($limit,$start){
+        $this->db->limit($limit,$start);
+        $this->db->select('*');
+        $this->db->from('testimonials');
+        $query = $this->db->get();
+        return $query->result_array(); 
+        }
+    function get_blogadmin($limit,$start){
+        $this->db->limit($limit,$start);
+        $this->db->select('*');
+        $this->db->from('blogcontents');
+        $query = $this->db->get();
+        return $query->result_array(); 
+        }
+
 }
 ?>
