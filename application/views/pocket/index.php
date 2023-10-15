@@ -143,7 +143,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="about-content">
-                               <p>At PocketFriendlyWeb, we provide comprehensive solutions to elevate your business's online presence. From branding and social media management to SEO, content marketing, advertising, and viral campaigns, we are your one-stop destination for effective and impactful online strategies. Our expertise extends to website development, ensuring your digital journey is engaging and successful.</p>
+                               <p><?php echo $about->aboutcompany;?></p>
                             
                             <h2>Distinguishing Qualities that Set Us Apart</h2>
                             <div class="row">
@@ -205,25 +205,30 @@
         <section>
             <div class="bg-section icon-services">
                 <div class="container">
-                    <div class="row">
+                <div class="row">
+                    <?php foreach($resultsub as $res){?>
+                        
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="icon-main-area">
                             <div class="icon-sec">
-                                <img src="<?php echo base_url().'assets/img/icon/icon1.png';?>">
+                                <img src="<?php echo base_url().'uploads/subcategory/'.$res['subcategoryimage'];?>">
                             </div>
                             <div class="content-area">
-                                <h3>Digital Consutation</h3>
-                                <p>Elevate your online presence with our digital consultation services. Experience personalized strategies, expert guidance, and enhanced brand visibility for your business growth.</p>
+                                <h3><?php echo $res['subcategoryname'];?></h3>
+                                <p><?php echo $res['subcatdesc'];?></p>
                             </div>
                             <div class="bg-btn">
                                 <a href="#" class="default-btn enquiry-btn">Enquiry</a>
                             </div>
+                            </div>
                         </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
+                        <?php } ?>
+                        
+                      
+                       <!---  <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="icon-main-area">
                             <div class="icon-sec">
-                                <img src="<?php echo base_url().'assets/img/icon/icon-2.png';?>">
+                                <img src="<?php //echo base_url().'assets/img/icon/icon-2.png';?>">
                             </div>
                             <div class="content-area">
                                 <h3>Web Development</h3>
@@ -237,7 +242,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="icon-main-area">
                             <div class="icon-sec">
-                                <img src="<?php echo base_url().'assets/img/icon/icon3.png';?>">
+                                <img src="<?php //echo base_url().'assets/img/icon/icon3.png';?>">
                             </div>
                             <div class="content-area">
                                 <h3>Web Design</h3>
@@ -251,7 +256,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="icon-main-area">
                             <div class="icon-sec">
-                                <img src="<?php echo base_url().'assets/img/icon/icon4.png';?>">
+                                <img src="<?php //echo base_url().'assets/img/icon/icon4.png';?>">
                             </div>
                             <div class="content-area">
                                 <h3>Web Ranking</h3>
@@ -263,11 +268,11 @@
                         </div>
                         </div>
                     </div>
-                    <div class="row row-padding">
+                   <div class="row row-padding">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="icon-main-area">
                             <div class="icon-sec">
-                                <img src="<?php echo base_url().'assets/img/icon/icon-5.png';?>">
+                                <img src="<?php //echo base_url().'assets/img/icon/icon-5.png';?>">
                             </div>
                             <div class="content-area">
                                 <h3>Content Writing</h3>
@@ -281,7 +286,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="icon-main-area">
                             <div class="icon-sec">
-                                <img src="<?php echo base_url().'assets/img/icon/icon-6.png';?>">
+                                <img src="<?php //echo base_url().'assets/img/icon/icon-6.png';?>">
                             </div>
                             <div class="content-area">
                                 <h3>Branding</h3>
@@ -295,7 +300,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="icon-main-area">
                             <div class="icon-sec">
-                                <img src="<?php echo base_url().'assets/img/icon/icon-7.png';?>">
+                                <img src="<?php //echo base_url().'assets/img/icon/icon-7.png';?>">
                             </div>
                             <div class="content-area">
                                 <h3>Digital Marketing</h3>
@@ -309,7 +314,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="icon-main-area">
                             <div class="icon-sec">
-                                <img src="<?php echo base_url().'assets/img/icon/icon-8.png';?>">
+                                <img src="<?php //echo base_url().'assets/img/icon/icon-8.png';?>">
                             </div>
                             <div class="content-area">
                                 <h3>Motion video creation</h3>
@@ -320,7 +325,7 @@
                             </div>
                         </div>
                         </div>
-                    </div>
+                    </div>--->
                 </div>
             </div>
         </section>
@@ -781,7 +786,7 @@
                                 <div class="bgimg-part">
                                     <div class="model-content">
                                     <h5>How To Contact us</h5>
-                                    <p>To get in touch with us at PocketFriendlyWeb it's straightforward. We value open communication and are always eager to hear from you. Whether you have questions about our services, want to discuss a project, or seek expert advice on digital marketing and branding, we're here to help. You can contact us via phone or can email us. Alternatively, you can visit our website to explore our range of services and better understand how we can elevate your brand's online presence. Don't hesitate – reach out to us today, and let's embark on a journey to make your brand shine in the digital world.</p>
+                                    <p><?php echo $contactus->contactusdescription;?></p>
 
                                 </div>
                                 </div>

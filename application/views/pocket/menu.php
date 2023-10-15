@@ -47,7 +47,7 @@
                                 <a href="#" class="seo-btn mr-25"><i class='bx bx-search'></i> Search</a>
                             </div>
                             <div class="menu-btn">
-                                <a href="tel:+971585893348" target="_blank" class="seo-btn"><i class='bx bx-phone'></i> +971 585893348</a>
+                                <a href="tel:+<?php echo $contactus->phoneno;?>" target="_blank" class="seo-btn"><i class='bx bx-phone'></i> +<?php echo $contactus->phoneno;?></a>
                             </div>
                         </div>
                     </nav>

@@ -6,7 +6,7 @@
                         <div class="col-md-6 col-lg-6">
                             <div class="subscribe-area">
                                 <h2>News Letter</h2>
-                                <p>Join our newsletter to stay in the loop about the latest trends in digital marketing, branding, and business growth. Receive exclusive insights, tips, and offers directly to your inbox. Take advantage of the opportunity to elevate your online presence and unlock new possibilities for your brand. Sign up today and be a part of the PocketFriendlyWeb community!</p>
+                                <p><?php echo $newsletter->newsletterdescription;?></p>
                             </div>
                             <div class="newsletter-area">
                                 <form class="newsletter-form" data-toggle="validator">
@@ -121,15 +121,15 @@
                                 <ul>
                                     <li>
                                         <i class='bx bxs-map'></i>
-                                          Dubai,UAE
+                                          <?php echo $contactus->city;?>,<?php echo $contactus->country;?>
                                     </li>
                                     <li>
                                         <i class='bx bxs-phone'></i>
-                                        <a href="tel:+971 585893348">+971 585893348</a>
+                                        <a href="tel:+<?php echo $contactus->phoneno;?>">+<?php echo $contactus->phoneno;?></a>
                                     </li>
                                     <li>
                                         <i class='bx bx-envelope'></i>
-                                        <a href="mailto:info@ifixcomapnyonline">info@pocketfriendlyweb.com</a>
+                                        <a href="mailto:info@ifixcomapnyonline"><?php echo $contactus->emailid;?></a>
                                     </li>
                                   
                                     

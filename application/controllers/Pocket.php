@@ -43,18 +43,23 @@ class Pocket extends CI_Controller {
 		$data['resultcontents']=$this->sm->get_blogcontents();
 		$data['resultfaq']=$this->sm->get_faq();
 		$data['resulttest']=$this->sm->get_testimonial();
+		$data['about']=$this->sm->get_aboutus();
+		$data['contactus']=$this->sm->get_contactus();
+		$data['newsletter']=$this->sm->get_newsletter();
 		$this->load->view('pocket/index.php',$data);
 	}
 
 
     public function about()
 	{
+		$data['contactus']=$this->sm->get_contactus();
 		$data['about']=$this->sm->get_aboutus();
 		$this->load->view('pocket/about.php',$data);
 	}
 
 
 public function service(){
+	$data['contactus']=$this->sm->get_contactus();
 	$data['result']=$this->sm->get_categoriesall();
 	$data['service']=$this->sm->get_servicesall();
     $this->load->view('pocket/service.php',$data);
@@ -63,6 +68,7 @@ public function blog(){
 	$data['result']=$this->sm->get_blog();
 	$data['resultcontents']=$this->sm->get_blogcontents();
 	$data['resulttopcontent']=$this->sm->get_blogcontentstop();
+	$data['contactus']=$this->sm->get_contactus();
     $this->load->view('pocket/blog.php',$data);
 }
 
@@ -75,7 +81,8 @@ public function services(){
 } 
 
 public function contact(){
-    $this->load->view('pocket/contact.php');
+	$data['contactus']=$this->sm->get_contactus();
+    $this->load->view('pocket/contact.php',$data);
 
 
 }

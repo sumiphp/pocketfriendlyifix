@@ -219,5 +219,24 @@ function get_testimonial(){
     return $query->result_array();
 }
 
+
+function get_contactus(){
+    //$this->db->where('toparticle',1);
+    $this->db->select('*');
+    $this->db->from('contactus');
+    $query = $this->db->get();
+    return $query->row();
+
+
+}
+
+function get_newsletter(){
+    $this->db->select('*');
+    $this->db->from('newsletter');
+    $query = $this->db->get();
+    return $query->row();
+
+}
+
 }
 ?>
