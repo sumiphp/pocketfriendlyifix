@@ -67,6 +67,7 @@ public function service(){
 	$data['service']=$this->sm->get_servicesall();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
+	$data['about']=$this->sm->get_aboutus();
     $this->load->view('pocket/service.php',$data);
 }
 public function blog(){
@@ -76,6 +77,7 @@ public function blog(){
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
+	$data['about']=$this->sm->get_aboutus();
     $this->load->view('pocket/blog.php',$data);
 }
 
@@ -91,6 +93,7 @@ public function contact(){
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['about']=$this->sm->get_aboutus();
     $this->load->view('pocket/contact.php',$data);
 
 
@@ -221,7 +224,17 @@ public function servicedetails(){
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
+	$data['about']=$this->sm->get_aboutus();
 	$this->load->view('pocket/service-details.php',$data);
+
+}
+
+public function newslettersubscribe(){
+	
+	$newsletteremailid=$this->input->post('EMAIL1');
+	$data=array('subscribeemailid'=>$newsletteremailid);
+	$this->db->insert('newslettersubscribe', $data);
+	echo ($this->db->affected_rows() != 1) ? 'Error in Subscription' : 'Your emailid subscribed Successfully';
 
 }
 

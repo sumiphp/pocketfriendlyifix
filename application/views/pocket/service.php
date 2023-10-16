@@ -91,121 +91,7 @@
                         <?php } ?>
 
 
-                        <!--<div class="col-lg-6 col-md-12">
-                            <div class="elementor-element">
-                                <div class="elementor-widget-container">
-                                    <div class="gt3-core-imagebox-wrapper elementor-image_icon-position-beside">
-                                        <div class="gt3-core-imagebox-content">
-                                            <div class="gt3-core-imagebox-title">
-                                            <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover ">
-                                                <a href="#">
-                                                    <img src="<?php //echo base_url().'pockets/assets/img/service/icon-2.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
-                                                    </a>
-                                                </figure>
-                                                    <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">SEO</a></h3>
-                                                </div>
-                                                <p class="gt3-core-imagebox-description">We provide Tailored optimization plans to improve online visibility and rankings, driving organic traffic growth.</p>
-                                            </div>
-                                        </div>
-                                        <a href="service-details.php" class="plan-btn Mtop-20">View Plan</a>		
-                                            </div>
-                            </div>
-                        </div>-->
                        
-
-                    </div>
-
-                    <!--<div class="row row-padding">
-                        <div class="col-lg-6 col-md-12">
-                            <div class="elementor-element">
-                                <div class="elementor-widget-container">
-                                    <div class="gt3-core-imagebox-wrapper elementor-image_icon-position-beside">
-                                        <div class="gt3-core-imagebox-content">
-                                            <div class="gt3-core-imagebox-title">
-                                            <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
-                                                <a href="#">
-                                                    <img src="<?php //echo base_url().'pockets/assets/img/service/icon-3.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
-                                                    </a>
-                                                </figure>
-                                                    <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">Advertise</a></h3>
-                                                </div>
-                                                <p class="gt3-core-imagebox-description">We are experts in developing highly effective advertising strategies to elevate your brand's prominence.</p>
-                                            </div>
-                                        </div>
-                                        <a href="service-details.php" class="plan-btn Mtop-20">View Plan</a>		
-                                            </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                            <div class="elementor-element">
-                                <div class="elementor-widget-container">
-                                    <div class="gt3-core-imagebox-wrapper elementor-image_icon-position-beside">
-                                        <div class="gt3-core-imagebox-content">
-                                            <div class="gt3-core-imagebox-title">
-                                            <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
-                                                <a href="#">
-                                                    <img src="<?php //echo base_url().'pockets/assets/img/service/icon-4.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
-                                                    </a>
-                                                </figure>
-                                                    <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">Digital Marketing</a></h3>
-                                                </div>
-                                                <p class="gt3-core-imagebox-description">Our digital marketing services drive growth through targeted strategies, enhancing online visibility, engaging audiences, and boosting conversions effectively and affordably.</p>
-                                            </div>
-                                        </div>
-                                        <a href="service-details.php" class="plan-btn Mtop-20">View Plan</a>		
-                                            </div>
-                            </div>
-                        </div>
-                       
-
-                    </div>-->
-
-                    <!--<div class="row row-padding">
-                        <div class="col-lg-6 col-md-12">
-                            <div class="elementor-element">
-                                <div class="elementor-widget-container">
-                                    <div class="gt3-core-imagebox-wrapper elementor-image_icon-position-beside">
-                                        <div class="gt3-core-imagebox-content">
-                                            <div class="gt3-core-imagebox-title">
-                                            <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
-                                                <a href="#">
-                                                    <img src="<?php //echo base_url().'pockets/assets/img/service/icon-5.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
-                                                    </a>
-                                                </figure>
-                                                    <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">Social Media</a></h3>
-                                                </div>
-                                                <p class="gt3-core-imagebox-description">Unlock your brand's potential with PocketFriendlyWeb's social media expertise. Elevate engagement, drive growth, and foster connections that matter.</p>
-                                            </div>
-                                        </div>
-                                        <a href="service-details.php" class="plan-btn Mtop-20">View Plan</a>		
-                                            </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                            <div class="elementor-element">
-                                <div class="elementor-widget-container">
-                                    <div class="gt3-core-imagebox-wrapper elementor-image_icon-position-beside">
-                                        <div class="gt3-core-imagebox-content">
-                                            <div class="gt3-core-imagebox-title">
-                                            <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
-                                                <a href="#">
-                                                    <img src="<?php //echo base_url().'pockets/assets/img/service/icon-6.png';?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
-                                                    </a>
-                                                </figure>
-                                                    <h3 class="gt3-core-imagebox-title secondary-title"><a href="#">Web Application</a></h3>
-                                                </div>
-                                                <p class="gt3-core-imagebox-description">Experience the power of tailored web applications to enhance your online presence and boost your business.
-
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <a href="service-details.php" class="plan-btn Mtop-20">View Plan</a>		
-                                            </div>
-                            </div>
-                        </div>
-                       
-
-                    </div>-->
                 </div>
             </div>
         </section>
@@ -239,8 +125,8 @@
                                     <img src="<?php echo base_url().'pockets/assets/img/service/plan-icon.png';?>">
                                 </div>
                                 <div class="content-block">
-                                    <h4>Planning</h4>
-                                    <p>Strategize your success with meticulous planning, setting the foundation for your project's journey.</p>
+                                    <h4><?php echo $service->box1title;?></h4>
+                                    <p><?php echo $service->box1description;?></p>
                                 </div>
 
                             </div>
@@ -251,8 +137,8 @@
                                     <img src="<?php echo base_url().'pockets/assets/img/service/design-icon.png';?>">
                                 </div>
                                 <div class="content-block">
-                                    <h4>Designing</h4>
-                                    <p>Crafting the future with innovative designs that captivate and inspire.</p>
+                                    <h4><?php echo $service->box2title;?></h4>
+                                    <p><?php echo $service->box2description;?></p>
                                 </div>
 
                             </div>
@@ -263,8 +149,8 @@
                                     <img src="<?php echo base_url().'pockets/assets/img/service/delivary-icon.png';?>">
                                 </div>
                                 <div class="content-block">
-                                    <h4>Delivery</h4>
-                                    <p>Bringing your vision to life, on time and target, with seamless project delivery.</p>
+                                    <h4><?php echo $service->box3title;?></h4>
+                                    <p><?php echo $service->box3description;?></p>
                                 </div>
 
                             </div>

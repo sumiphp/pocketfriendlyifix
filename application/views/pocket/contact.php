@@ -90,10 +90,10 @@
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="address-sec">
                                 
-                                    <h4><a href="#"><img src="<?php echo base_url().'pockets/assets/img/map-icon.png';?>"> Dubai, UAE</a></h4>
+                                    <h4><a href="#"><img src="<?php echo base_url().'pockets/assets/img/map-icon.png';?>">  <?php echo $contactus->city;?>, <?php echo $contactus->country;?></a></h4>
 
-                                    <h4><a href="#"><img src="<?php echo base_url().'pockets/assets/img/mail-icon.png';?>"> info@pocketfriendlyweb.com</a> </h4>
-                                    <h4><a href="#"><img src="<?php echo base_url().'pockets/assets/img/call-icon.png';?>"> +971585893348 </a></h4>
+                                    <h4><a href="#"><img src="<?php echo base_url().'pockets/assets/img/mail-icon.png';?>"> <?php echo $contactus->emailid;?></a> </h4>
+                                    <h4><a href="#"><img src="<?php echo base_url().'pockets/assets/img/call-icon.png';?>"> +<?php echo $contactus->phoneno;?></a></h4>
 
                                
                             </div>

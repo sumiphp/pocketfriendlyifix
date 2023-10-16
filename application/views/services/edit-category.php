@@ -117,6 +117,19 @@
                                                               </div>
                                                             </div>
                                                           </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Select Product Category Image</label>
+                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="file"  name="file"  data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+
+
+
                                                           <div class="row">
                                                             <div class="col-sm-12 text-end"><!--<a class="btn btn-primary me-3" href="<?php //echo base_url().'index.php/Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a>--><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>
                                                           </div>
