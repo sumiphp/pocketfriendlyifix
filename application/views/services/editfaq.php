@@ -59,17 +59,18 @@
                             <div class="inner-page-sec">
                             <span id="faqmsg" style="color:green"></span><br>
                               <div class="description-sec">
-                                <h2>Add Faq</h2>
+                                <h2>Edit Faq</h2>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
-                                                    <form id="faqfrm" class="rounded-form" method="post"  action="<?php echo base_url().'Welcome/addfaqprocess';?>" >
+                                                    <form id="faqfrm" class="rounded-form" method="post"  action="<?php echo base_url().'Welcome/editfaqprocess';?>" >
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Faq Title:</label>
-                                                              <input type="text" class="form-control" id="faqtitle" name="faqtitle" placeholder="Enter Faq Title" required>
+                                                              <input type="text" class="form-control" id="faqtitle" name="faqtitle" placeholder="Enter Faq Title" value="<?php echo $result->faqtitle;?>" required>
+                                                              <input type="hidden" class="form-control" id="faqid" name="faqid" placeholder="Enter Faq Id" value="<?php echo $result->faqid;?>" required>
                                           
                                                           </div>
                                                           <!--<div class="col-md-6">
@@ -90,7 +91,7 @@
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Faq Description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required><?php echo $result->faqdescription;?></textarea>
                                                       </div>
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">
@@ -163,18 +164,18 @@ $('#faqfrm').on('submit', function (e) {
         //var file_data1 = $('#image1').prop('files')[0];
         //var file_data2 = $('#image2').prop('files')[0];
         var faqtitle=$('#faqtitle').val();
-        //var subtitle=$("#subtitle").val();
+        var faqid=$("#faqid").val();
         var description=$("#description").val();
-        
+
         var form_data = new FormData();
         //form_data.append('image1', file_data1);
         //form_data.append('image2', file_data2);
         form_data.append('faqtitle',faqtitle);
-        //form_data.append('subtitle',subtitle);
+        form_data.append('faqid',faqid);
         form_data.append('description',description);
        
         $.ajax({
-            url: "<?php echo base_url().'Welcome/addfaqprocess';?>", // point to server-side controller method
+            url: "<?php echo base_url().'Welcome/editfaqprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server
             cache: false,
             contentType: false,
@@ -188,10 +189,12 @@ $('#faqfrm').on('submit', function (e) {
         $(this).val('');
     });
     $("#description").val('');
-                $('#faqmsg').html(response); // display success response from the server
+                //$('#faqmsg').html(response); // display success response from the server
+             
+                window.location.href ="<?php echo base_url().'Welcome/listfaq';?>";
             },
             error: function (response) {
-                $('#faqmsg').html(response); // display error response from the server
+                window.location.href ="<?php echo base_url().'Welcome/listfaq';?>";
             }
         });
     });

@@ -418,7 +418,23 @@ function addfaq(){
 
 }
 
+function editfaq(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$id=$this->uri->segment(3);
+	//echo $id;
+	//die;
+	$this->load->model('Servicesmodel');
+	$this->db->from('faq');
+	$this->db->where('faqid',$id);
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$this->load->view('services/editfaq',$data);
 
+}
 
 
 
@@ -513,18 +529,39 @@ public function addfaqprocess(){
 	$data = array(
 		'faqtitle' =>"$faqtitle",
 		//'subtitle' =>"$subtitle",
-		'description'=>"$description",
+		'faqdescription'=>"$description",
 		//'Image1'=>$image1,'Image2'=>$image2		
 	 );
 	 //print_r($data);
 	 $this->db->insert('faq', $data);
 
 	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Faq' : '<b>Faq added Successfully</b>';
-
-
-
-
 }
+
+
+public function editfaqprocess(){
+	$faqtitle=$this->input->post('faqtitle');
+	$faqid=$this->input->post('faqid');
+	$description=$this->input->post('description');
+	$data = array(
+		'faqtitle' =>"$faqtitle",
+		//'subtitle' =>"$subtitle",
+		'faqdescription'=>"$description",
+		//'Image1'=>$image1,'Image2'=>$image2		
+	 );
+	 //print_r($data);
+	 $this->db->where('faqid',$faqid);
+	 $this->db->update('faq', $data);
+
+	 echo ($this->db->affected_rows() != 1) ? 'Error in Editing Faq' : '<b>Faq edited Successfully</b>';
+}
+
+
+
+
+
+
+
 
 
 public function editservicesprocess(){
@@ -698,7 +735,7 @@ public function listfaq(){
 $config = array();
 $config["base_url"] = base_url() . "Welcome/listfaq";
 $config["total_rows"] = $this->sm->get_countfaq();
-$config["per_page"] = 10;
+$config["per_page"] = 2;
 $config["uri_segment"] = 3;
 $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
