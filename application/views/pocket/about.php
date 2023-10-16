@@ -38,7 +38,8 @@
                     </div>
             </div>
             </div>
-            <div class="inner-banner-sec">
+            <?php //print_r($about);?>
+            <div class="inner-banner-sec" style="background:url(<?php //echo base_url().'uploads/aboutus/'.$about->aboutusbanner;?>;">
                 <div class="container">
             </div>
             </div>

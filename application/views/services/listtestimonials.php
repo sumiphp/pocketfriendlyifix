@@ -103,12 +103,15 @@
                                                     <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
                                                   <thead>
                                                     <tr role="row">
-                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Faq title</th>
+                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Testimonial description</th>
                               
-                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Faq description</th>
-
-                                                                              <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Notes</th>-->
-                                                           <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Name</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Place</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">No of Stars</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Date</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Image</th>
+                                                           <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th>
+                                                        </tr>
                                                   </thead>
                                                   <tbody>
                                                     <?php 
@@ -120,7 +123,10 @@
                                                       <td class="sorting_1"><?php echo $res['testimonial'];?></td>
                                                       <!--<td>Indoor Lamps</td>-->
                                                       <td><?php echo $res['name'];?></td>
-                                                      
+                                                      <td><?php echo $res['place'];?></td>
+                                                      <td><?php echo $res['rating'];?></td>
+                                                      <td><?php echo $res['date'];?></td>
+                                                      <td> <img src="<?php echo base_url().'uploads/testimonial/'.$res['image'];?>" /></td>
                                                       <td> 
                                                         <ul class="action"> 
                                                           <!--<li class="edit"> <a href="#" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>--->

@@ -406,7 +406,8 @@
                     $('input[type=text]').each(function() {
         $(this).val('');
     });
-    window.location.href ="<?php echo base_url().'Welcome/listcategory';?>";
+    
+    
                     //$("#catmsg").html(response);
                    
 

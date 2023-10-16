@@ -135,10 +135,10 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="about-img-sec">
-                                <img src="<?php echo base_url().'assets/img/gif.gif';?>" class="w-100">
+                                <img src="<?php echo base_url().'pockets/assets/img/gif.gif';?>" class="w-100">
                             </div>
                             <div class="about-img-sec taC">
-                                <img src="<?php echo base_url().'assets/img/about-img2.png';?>">
+                                <img src="<?php echo base_url().'pockets/assets/img/about-img2.png';?>">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">

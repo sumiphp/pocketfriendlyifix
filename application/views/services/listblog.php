@@ -126,8 +126,10 @@
                                                       <td><?php echo $res['date'];?></td>
                                                       <td><?php echo $res['toparticle'];?></td>
                                                       <td><?php echo $res['companyname'];?></td>
-                                                      <td><?php echo $res['autorimage'];?></td>
-                                                      <td><?php echo $res['contentimage'];?></td>
+                                                      <td>
+                                                    <img src="<?php echo base_url().'uploads/blog/'.$res['autorimage'];?>" />
+                                                    </td>
+                                                      <td> <img src="<?php echo base_url().'uploads/blog/'.$res['contentimage'];?>" /></td>
                                                       <td> 
                                                         <ul class="action"> 
                                                           <!--<li class="edit"> <a href="#" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>--->

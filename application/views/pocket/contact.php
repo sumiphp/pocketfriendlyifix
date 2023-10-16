@@ -29,7 +29,7 @@
         <!-- Start home page Area -->
         <section>
            
-            <div class="contact-banner-sec">
+            <div class="contact-banner-sec" style="background:url(<?php echo base_url().'uploads/contactus/'.$contactus->contactusimg;?>);background-repeat:no-repeat;background-size:cover;">
                 <div class="container">
                     <div class="row">
                         <div class="main-title">

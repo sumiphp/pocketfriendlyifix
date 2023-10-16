@@ -1322,11 +1322,11 @@ Footer Section End
 }
 
 .inner-banner-sec {
-  background: url(../img/about/bannerif.png);
+  /*background: url(../img/about/bannerif.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  height: 100vh;
+  height: 100vh;*/
 }
 
 .about-sec-inner {
