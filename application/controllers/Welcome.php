@@ -404,6 +404,28 @@ function addservices(){
 
 }
 
+function addfaq(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$this->db->from('faq');
+    $query = $this->db->get();
+    $data['result']=$query->result_array(); 
+	$this->load->view('services/addfaq',$data);
+
+}
+
+
+
+
+
+
+
+
+
 function editservices(){
 	if( $this->session->has_userdata('username')) {					
 	}
@@ -484,6 +506,25 @@ public function addservicesprocess(){
 
 }
 
+public function addfaqprocess(){
+	$faqtitle=$this->input->post('faqtitle');
+	//$subtitle=$this->input->post('subtitle');
+	$description=$this->input->post('description');
+	$data = array(
+		'faqtitle' =>"$faqtitle",
+		//'subtitle' =>"$subtitle",
+		'description'=>"$description",
+		//'Image1'=>$image1,'Image2'=>$image2		
+	 );
+	 //print_r($data);
+	 $this->db->insert('faq', $data);
+
+	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Faq' : '<b>Faq added Successfully</b>';
+
+
+
+
+}
 
 
 public function editservicesprocess(){
@@ -705,13 +746,20 @@ $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_testimonialsadmin($config["per_page"],$page);
-$this->load->view('services/listtestimonials',$data);	
+$this->load->view('services/listtestimonials',$data);
+}
 
 
+function delfaq(){
+
+	$id=$_GET['id'];
+	$this->db->where('faqid',$id);
+	$this->db->delete('faq');
+	echo ($this->db->affected_rows() != 1) ? 'Error in deleting Faq' : 'Faq deleted Successfully';
 
 
+}
 
 
-}	
 
 }

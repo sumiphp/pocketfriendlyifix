@@ -602,6 +602,7 @@
                                        
                                              <div class="testimonal-info">
                                                 <ul class="start-icon">
+                                                    <?php if ($test['rating']==5){?>
                                                     <li>
                                                         <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
                                                     </li>
@@ -617,6 +618,54 @@
                                                     <li>
                                                         <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
                                                     </li>
+                                                    <?php } ?>
+                                                    <?php if ($test['rating']==4){?>
+                                                    
+                                                    <li>
+                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
+                                                    </li>
+                                                    <li>
+                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
+                                                    </li>
+                                                    <li>
+                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
+                                                    </li>
+                                                    <li>
+                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
+                                                    </li>
+                                                    <?php } ?>
+                                                    <?php if ($test['rating']==3){?>
+                                                    
+                                                   
+                                                    <li>
+                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
+                                                    </li>
+                                                    <li>
+                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
+                                                    </li>
+                                                    <li>
+                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
+                                                    </li>
+                                                    <?php } ?>
+                                                    <?php if ($test['rating']==2){?>
+                                                    
+                                                   
+                                                   
+                                                    <li>
+                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
+                                                    </li>
+                                                    <li>
+                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
+                                                    </li>
+                                                    <?php } ?>
+                                                    <?php if ($test['rating']==1){?>                              
+                                                   
+                                                   
+                                                    
+                                                    <li>
+                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
+                                                    </li>
+                                                    <?php } ?>
                                                 </ul>
                                                 <h3><?php echo $test['name'];?></h3>
                                                 <p><?php echo $test['place'];?></p>
@@ -628,79 +677,7 @@
 
 
     
-                                    <!--<div class="testimonial-item">
-                                        <div class="testimonial-item-img">
-                                            <img src="<?php echo base_url().'assets/img/testimonials/testimonial-1.png';?>" alt="Testimonial Images">
-                                        </div>
-                                        <div class="testimonail-content">
-                                            <p>
-                                                "The team at PocketFriendlyWeb exceeded our expectations with their branding expertise. Their attention to detail and creativity in designing our brand identity truly set us apart in a competitive market." 
-                                             </p>
-                                       
-                                             <div class="testimonal-info">
-                                                <ul class="start-icon">
-                                                    <li>
-                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
-                                                    </li>
-                                                    <li>
-                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
-                                                    </li>
-                                                    <li>
-                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
-                                                    </li>
-                                                    <li>
-                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
-                                                    </li>
-                                                    <li>
-                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
-                                                    </li>
-                                                </ul>
-                                                <h3>Michael R</h3>
-                                                <p>Nintendo</p>
-                                             
-                                            </div>
-                                        </div>
-
-
-                                       
-                                    </div>
-    
-                                    <div class="testimonial-item">
-                                        <div class="testimonial-item-img">
-                                            <img src="<?php echo base_url().'assets/img/testimonials/testimonial-1.png';?>" alt="Testimonial Images">
-                                        </div>
-                                        <div class="testimonail-content">
-                                            <p>
-                                                "PocketFriendlyWeb's social media management services transformed our engagement levels. Their strategic approach and consistent content delivery increased our followers and brought our brand closer to our audience." 
-                                             </p>
-                                       
-                                             <div class="testimonal-info">
-                                                <ul class="start-icon">
-                                                    <li>
-                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
-                                                    </li>
-                                                    <li>
-                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
-                                                    </li>
-                                                    <li>
-                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
-                                                    </li>
-                                                    <li>
-                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
-                                                    </li>
-                                                    <li>
-                                                        <img src="<?php echo base_url().'assets/img/testimonials/star.png';?>">
-                                                    </li>
-                                                </ul>
-                                                <h3>Emily S</h3>
-                                                <p>Nintendo</p>
-                                               
-                                            </div>
-                                        </div>
-
-
-                                       
-                                    </div>-->
+                                   
                                 </div>
                             </div>
                         </div>

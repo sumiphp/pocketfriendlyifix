@@ -40,9 +40,9 @@
                                 <li><a href="<?php echo base_url().'Welcome/listaboutus';?>">About Us</a></li>
                                 <li><a href="<?php echo base_url().'Welcome/listservices';?>">Services</a></li>
                                 
-                                <li><a href="#">Blog Page</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listblog';?>">Blog Page</a></li>
                                 <li><a href="#">Download Page</a></li>
-                                <li><a href="#">Contact Page</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listcontactus';?>">Contact Page</a></li>
                                
                               </ul>
                             </li>
@@ -73,9 +73,24 @@
                               </li>
 
                             <li>
-                              <a href="#">
+                              <a href="<?php echo base_url().'Welcome/addblogcontent';?>">
                                 <i class='bx bx-compass' ></i>
                                 <span class="link_name">Add Blog</span>
+                              </a>
+                              
+                            </li>
+
+                            <li>
+                              <a href="<?php echo base_url().'Welcome/addtestimonials';?>">
+                                <i class='bx bx-compass' ></i>
+                                <span class="link_name">Add Testimonials</span>
+                              </a>
+                              
+                            </li>
+                            <li>
+                              <a href="<?php echo base_url().'Welcome/addfaq';?>">
+                                <i class='bx bx-compass' ></i>
+                                <span class="link_name">Add Faq</span>
                               </a>
                               
                             </li>

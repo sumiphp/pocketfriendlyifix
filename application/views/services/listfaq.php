@@ -347,16 +347,20 @@
 
 
 <script>
-function delenquiries(id){
-$.ajax({
+
+
+function delfaq(id){
+
+    $.ajax({
             type: 'GET',
-            url: "<?php echo base_url().'index.php/Welcome/deleteenquiries';?>",
+            url: "<?php echo base_url().'index.php/Welcome/delfaq';?>",
             data:{id:id},
             success:function(data){
                 $("#"+id).remove();
                 $("#msg").html(data);
             }
         });
+
 
 }
     

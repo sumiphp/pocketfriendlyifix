@@ -132,7 +132,7 @@
                                                       <td><?php echo $result->city;?></td>
                                                      
                                                       <td><?php echo $result->country;?></td>
-                                                      <td><?php echo $result->contactusimg;?></td>
+                                                      <td>"<img src=<?php echo base_url()."uploads/contactus/$result->contactusimg";?>  /></td>
                                                       <td> 
                                                         <ul class="action"> 
                                                           <li class="edit"> <a href="#" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
