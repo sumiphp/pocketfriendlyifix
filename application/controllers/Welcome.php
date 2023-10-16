@@ -419,6 +419,28 @@ function addtestimonials(){
 
 }
 
+function edittestimonials(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$testid=$this->uri->segment(3);
+	$this->load->model('Servicesmodel');
+	$this->db->where('testimonialid',$testid);
+	$this->db->from('testimonials');
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$this->load->view('services/edittestimonials',$data);
+
+
+}
+
+
+
+
+
+
 function addblogcontent(){
 	if( $this->session->has_userdata('username')) {					
 	}
@@ -912,10 +934,67 @@ public function deletetestimonials(){
 	echo ($this->db->affected_rows() != 1) ? 'Error in deleting Testimonials' : 'Testimonials deleted Successfully';
 }
 
+public function deleteblog(){
+	$id=$_GET['id'];
+	$this->db->where('contentid',$id);
+	$this->db->delete('blogcontents');
+	echo ($this->db->affected_rows() != 1) ? 'Error in deleting Blog Contents' : 'Blog Contents deleted Successfully';
+}
 
 
 
+public function edittestimonialsprocess(){
 
+	$config['upload_path'] = 'uploads/testimonial';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/testimonial' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+	
+	
+
+	
+	$image1=$_FILES['image1']['name'];
+	//$image2=$_FILES['image2']['name'];
+
+	 $testtitle=$this->input->post('testtitle');
+	 $rating=$this->input->post('rating');
+	 $description=$this->input->post('description');
+	 $name=$this->input->post('name');
+	  $place=$this->input->post('place');
+	  $date=$this->input->post('date');
+	 $data = array(
+		 'testimonial' =>"$description",
+		 'rating' =>"$rating",
+		 'name'=>"$name",
+		 'image'=>$image1,'place'=>$place,'date'=>$date,'title'=>$testtitle		
+	  );
+	  $id=$this->uri->segment(3); 
+	  $this->db->where('testimonialid',$id);
+	   $this->db->update('testimonials', $data);
+
+	  echo ($this->db->affected_rows() != 1) ? 'Error in Editing Testimonials' : '<b>Testimonials Edited Successfully</b>';
+
+
+}
 
 
 

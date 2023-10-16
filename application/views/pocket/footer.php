@@ -24,18 +24,20 @@
                             <h2>Feature Update</h2>
                             <div class="footer-service-icon">
                                 <div class="row">
+                                    <?php foreach($featureupdate as $res){?>
                                     <div class="col-md-3 col-lg-3 feature-updates">
-                                        <img src="<?php echo base_url().'pockets/assets/img/footer-1.png';?>">
+                                        <img src="<?php echo base_url().'uploads/featureicon/'.$res['featureicon'];?>">
+                                    </div>
+                                    <?php } ?>
+                                    <!--<div class="col-md-3 col-lg-3 feature-updates">
+                                        <img src="<?php //echo base_url().'pockets/assets/img/footer-2.png';?>">
                                     </div>
                                     <div class="col-md-3 col-lg-3 feature-updates">
-                                        <img src="<?php echo base_url().'pockets/assets/img/footer-2.png';?>">
+                                        <img src="<?php //echo base_url().'pockets/assets/img/footer-3.png';?>">
                                     </div>
                                     <div class="col-md-3 col-lg-3 feature-updates">
-                                        <img src="<?php echo base_url().'pockets/assets/img/footer-3.png';?>">
-                                    </div>
-                                    <div class="col-md-3 col-lg-3 feature-updates">
-                                        <img src="<?php echo base_url().'pockets/assets/img/footer-4.png';?>">
-                                    </div>
+                                        <img src="<?php //echo base_url().'pockets/assets/img/footer-4.png';?>">
+                                    </div>-->
                                 </div>
                                 
                             </div>

@@ -129,7 +129,7 @@
                                                       <td> <img src="<?php echo base_url().'uploads/testimonial/'.$res['image'];?>" /></td>
                                                       <td> 
                                                         <ul class="action"> 
-                                                          <!--<li class="edit"> <a href="#" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>--->
+                                                          <li class="edit"> <a href="<?php echo base_url().'Welcome/edittestimonials/'.$res['testimonialid'];?>"  data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
                                                           <li class="delete"><a href="#" onclick="deltestimonials(<?php echo $res['testimonialid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
                                                           <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
                                                         </ul>

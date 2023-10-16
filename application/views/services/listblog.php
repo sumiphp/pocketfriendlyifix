@@ -356,10 +356,10 @@
 
 
 <script>
-function delenquiries(id){
+function delblog(id){
 $.ajax({
             type: 'GET',
-            url: "<?php echo base_url().'index.php/Welcome/deleteenquiries';?>",
+            url: "<?php echo base_url().'index.php/Welcome/deleteblog';?>",
             data:{id:id},
             success:function(data){
                 $("#"+id).remove();

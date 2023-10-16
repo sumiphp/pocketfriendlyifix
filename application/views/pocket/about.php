@@ -39,7 +39,7 @@
             </div>
             </div>
             <?php //print_r($about);?>
-            <div class="inner-banner-sec" style="background:url(<?php //echo base_url().'uploads/aboutus/'.$about->aboutusbanner;?>;">
+            <div class="inner-banner-sec" style="background:url(<?php echo base_url().'uploads/aboutus/'.$about->aboutusbanner;?>; !important">
                 <div class="container">
             </div>
             </div>

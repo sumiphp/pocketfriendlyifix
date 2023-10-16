@@ -46,6 +46,7 @@ class Pocket extends CI_Controller {
 		$data['about']=$this->sm->get_aboutus();
 		$data['contactus']=$this->sm->get_contactus();
 		$data['newsletter']=$this->sm->get_newsletter();
+		$data['featureupdate']=$this->sm->get_featureupdate();
 		$this->load->view('pocket/index.php',$data);
 	}
 
@@ -55,6 +56,7 @@ class Pocket extends CI_Controller {
 		$data['contactus']=$this->sm->get_contactus();
 		$data['about']=$this->sm->get_aboutus();
 		$data['newsletter']=$this->sm->get_newsletter();
+		$data['featureupdate']=$this->sm->get_featureupdate();
 		$this->load->view('pocket/about.php',$data);
 	}
 
@@ -64,6 +66,7 @@ public function service(){
 	$data['result']=$this->sm->get_categoriesall();
 	$data['service']=$this->sm->get_servicesall();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['featureupdate']=$this->sm->get_featureupdate();
     $this->load->view('pocket/service.php',$data);
 }
 public function blog(){
@@ -72,6 +75,7 @@ public function blog(){
 	$data['resulttopcontent']=$this->sm->get_blogcontentstop();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['featureupdate']=$this->sm->get_featureupdate();
     $this->load->view('pocket/blog.php',$data);
 }
 
@@ -85,6 +89,7 @@ public function services(){
 
 public function contact(){
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['featureupdate']=$this->sm->get_featureupdate();
 	$data['contactus']=$this->sm->get_contactus();
     $this->load->view('pocket/contact.php',$data);
 
@@ -105,7 +110,7 @@ public function dashboard(){
 
 public function logout(){
 	$this->load->model('Servicesmodel');
-	redirect("index.php/welcome/services");
+	redirect("welcome/services");
 
 
 
@@ -207,5 +212,18 @@ public function contactenquiryprocess(){
 	}
 	echo "Your enquiry send successfully";
 	}
+
+public function servicedetails(){
+
+    $serid=$this->uri->segment(3);
+	//echo "hhhh";
+	$data['servicedetails']=$this->sm->get_servicedetals($serid);
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['featureupdate']=$this->sm->get_featureupdate();
+	$this->load->view('pocket/service-details.php',$data);
+
+}
+
 	
 }

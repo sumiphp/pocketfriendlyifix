@@ -75,7 +75,7 @@
                                         <div class="gt3-core-imagebox-content">
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
-                                                <a href="#">
+                                                <a href="<?php echo base_url().'Pocket/servicedetails';?>">
                                                     <img src="<?php echo base_url().'assets/img/hos-icon/'.$res['categoryimage'];?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
@@ -84,7 +84,7 @@
                                                 <p class="gt3-core-imagebox-description"><?php echo $res['categorydescription'];?></p>
                                             </div>
                                         </div>
-                                        <a href="service-details.php" class="plan-btn Mtop-20">View Plan</a>		
+                                        <a href="<?php echo base_url().'Pocket/servicedetails/'.$res['categoryid'];?>" class="plan-btn Mtop-20">View Plan</a>		
                                             </div>
                             </div>
                         </div>

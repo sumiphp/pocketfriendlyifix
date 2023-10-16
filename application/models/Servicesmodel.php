@@ -293,5 +293,29 @@ function get_faqadmin($limit,$start){
         return $query->result_array(); 
         }
 
+function get_servicedetals($serid){
+    //$this->db->limit($limit,$start);
+    $this->db->where('categoryid',$serid);
+    $this->db->select('*');
+    $this->db->from('subcategory');
+    $query = $this->db->get();
+    //echo $this->db->last_query();
+    return $query->result_array(); 
+
+
+}
+
+function get_featureupdate(){
+    //$this->db->where('categoryid',$serid);
+    $this->db->select('*');
+    $this->db->from('featureupdate');
+    $query = $this->db->get();
+    //echo $this->db->last_query();
+    return $query->result_array();
+
+}
+
+
+
 }
 ?>

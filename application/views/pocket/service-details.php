@@ -11,67 +11,16 @@
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
                 <a href="index.php" class="logo">
-                    <img src="assets/img/logo.png" class="logo-one" alt="Logo">
-                    <img src="assets/img/logo.png" class="logo-two" alt="Logo">
+                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-one" alt="Logo">
+                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-two" alt="Logo">
                 </a>
             </div>
 
             <!-- Menu For Desktop Device -->
             <div class="main-nav top-nav">
                 <div class="container">
-                    <nav class="navbar navbar-expand-md navbar-light ">
-                        <a class="navbar-brand" href="index.php">
-                            <img src="assets/img/logo.png" alt="Logo">
-                        </a>
-                        <a class="navbar-brand-sticky" href="index.php">
-                            <img src="assets/img/logo.png" alt="Logo">
-                        </a>
-
-                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent" style="display: block;">
-                            <ul class="navbar-nav m-auto">
-                                <li class="nav-item">
-                                    <a href="index.php" class="nav-link">
-                                        Home 
-                                        <i class="bx bxs-chevron-right"></i>
-                                    </a>
-                               
-                                </li>
-                                <li class="nav-item active">
-                                    <a href="about.php" class="nav-link">
-                                        About
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="service.php" class="nav-link ">
-                                        Services 
-                                        <i class="bx bxs-chevron-right"></i>
-                                    </a>
-                                   
-                                </li>
-                            
-                                <li class="nav-item">
-                                    <a href="blog.php" class="nav-link">
-                                        Blog 
-                                        <i class="bx bxs-chevron-right"></i>
-                                    </a>
-                                </li>
-                               
-                                
-                                <li class="nav-item">
-                                    <a href="contact.php" class="nav-link">
-                                        Contact
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="menu-btn">
-                                <a href="#" class="seo-btn mr-25"><i class='bx bx-search'></i> Search</a>
-                            </div>
-                            <div class="menu-btn">
-                                <a href="tel:+971585893348" target="_blank" class="seo-btn"><i class='bx bx-phone'></i> +971 585893348</a>
-                            </div>
-                        </div>
-                    </nav>
+                <?php include('menu.php');?>
+                    
                 </div>
             </div>
         </div>
@@ -128,9 +77,22 @@
                                             <i class='bx bxs-down-arrow'></i>
                                         </div>
                                     </a>
-                                  
+                                 
                                     <ul class="sidebar-menu-dropdown-content">
-                                        <li>
+                                        <?php 
+                                        
+                                        //print_r($servicedetails);
+                                        
+                                        foreach($servicedetails as $sd){ ?>
+                                            <li>
+                                            <a href="#">
+                                               <?php echo $sd['subcategoryname'];?>
+                                            </a>
+                                        </li>
+
+
+                                       <?php } ?>
+                                        <!--<li>
                                             <a href="#">
                                                 Logo Design
                                             </a>
@@ -174,7 +136,7 @@
                                             <a href="#">
                                                 Letter Head Design
                                             </a>
-                                        </li>
+                                        </li>-->
 
 
                                     </ul>
@@ -189,7 +151,7 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="bg-box">
                                         <div class="icon-block">
-                                            <img src="assets/img/icon/icon-5.png"/>
+                                            <img src="<?php echo base_url().'pockets/assets/img/icon/icon-5.png';?>"/>
                                         </div>
                                         <div class="content-block">
                                             <h4>Branding</h4>
@@ -206,7 +168,7 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="bg-box">
                                         <div class="icon-block">
-                                            <img src="assets/img/icon/icon-5.png"/>
+                                            <img src="<?php echo base_url().'pockets/assets/img/icon/icon-5.png';?>"/>
                                         </div>
                                         <div class="content-block">
                                             <h4>Branding</h4>
@@ -226,7 +188,7 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="bg-box">
                                         <div class="icon-block">
-                                            <img src="assets/img/icon/icon-5.png"/>
+                                            <img src="<?php echo base_url().'pockets/assets/img/icon/icon-5.png';?>"/>
                                         </div>
                                         <div class="content-block">
                                             <h4>Branding</h4>
@@ -243,7 +205,7 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="bg-box">
                                         <div class="icon-block">
-                                            <img src="assets/img/icon/icon-5.png"/>
+                                            <img src="<?php echo base_url().'pockets/assets/img/icon/icon-5.png';?>"/>
                                         </div>
                                         <div class="content-block">
                                             <h4>Branding</h4>
@@ -284,7 +246,7 @@
                                 <div class="portfolio-slider owl-carousel owl-theme">
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-img">
-                                            <img src="assets/img/service/icon-slider-1.png" alt="Testimonial Images">
+                                            <img src="<?php echo base_url().'pockets/assets/img/service/icon-slider-1.png';?>" alt="Testimonial Images">
                                         </div>
                                         <div class="testimonail-content">
                                             <h4>Latest Technology</h4>
@@ -300,7 +262,7 @@
     
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-img">
-                                            <img src="assets/img/service/icon-slider-2.png" alt="Testimonial Images">
+                                            <img src="<?php echo base_url().'pockets/assets/img/service/icon-slider-2.png';?>" alt="Testimonial Images">
                                         </div>
                                         <div class="testimonail-content">
                                             <h4>Latest Technology</h4>
@@ -316,7 +278,7 @@
     
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-img">
-                                            <img src="assets/img/service/icon-slider-1.png" alt="Testimonial Images">
+                                            <img src="<?php echo base_url().'pockets/assets/img/service/icon-slider-1.png';?>" alt="Testimonial Images">
                                         </div>
                                         <div class="testimonail-content">
                                             <h4>Latest Technology</h4>
@@ -332,7 +294,7 @@
 
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-img">
-                                            <img src="assets/img/service/icon-slider-2.png" alt="Testimonial Images">
+                                            <img src="<?php echo base_url().'pockets/assets/img/service/icon-slider-2.png';?>" alt="Testimonial Images">
                                         </div>
                                         <div class="testimonail-content service-details">
                                             <h4>Latest Technology</h4>
@@ -348,7 +310,7 @@
 
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-img">
-                                            <img src="assets/img/service/icon-slider-2.png" alt="Testimonial Images">
+                                            <img src="<?php echo base_url().'pockets/assets/img/service/icon-slider-2.png';?>" alt="Testimonial Images">
                                         </div>
                                         <div class="testimonail-content">
                                             <h4>Latest Technology</h4>
@@ -369,26 +331,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-      
-
-       
-       
-
-        
+        </section>     
 
     
-
-
-       
-
-
-   
-
-    
-
-
-
 
         <?php include_once("footer.php");?>
