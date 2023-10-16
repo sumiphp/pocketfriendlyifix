@@ -72,7 +72,7 @@
                     </button>
                     <h2 class="modal-title" id="myModalLabel2">
                         <a href="index.html">
-                            <img src="assets/img/logo.png" class="modal-logo1" alt="Logo">
+                            <img src="<?php echo base_url().'Pocket/assets/img/logo.png';?>" class="modal-logo1" alt="Logo">
                         </a>
                     </h2>
                 </div>

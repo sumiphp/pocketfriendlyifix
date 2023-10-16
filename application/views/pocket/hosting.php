@@ -11,15 +11,16 @@
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
                 <a href="index.php" class="logo">
-                    <img src="assets/img/logo.png" class="logo-one" alt="Logo">
-                    <img src="assets/img/logo.png" class="logo-two" alt="Logo">
+                    <img src="<?php echo base_url().'Pockets/assets/img/logo.png';?>" class="logo-one" alt="Logo">
+                    <img src="<?php echo base_url().'Pockets/assets/img/logo.png';?>" class="logo-two" alt="Logo">
                 </a>
             </div>
 
             <!-- Menu For Desktop Device -->
             <div class="main-nav top-nav">
                 <div class="container">
-                    <nav class="navbar navbar-expand-md navbar-light ">
+                <?php include('menu.php');?>
+                    <!--<nav class="navbar navbar-expand-md navbar-light ">
                         <a class="navbar-brand" href="index.php">
                             <img src="assets/img/logo.png" alt="Logo">
                         </a>
@@ -71,7 +72,7 @@
                                 <a href="tel:+971585893348" target="_blank" class="seo-btn"><i class='bx bx-phone'></i> +971 585893348</a>
                             </div>
                         </div>
-                    </nav>
+                    </nav>-->
                 </div>
             </div>
         </div>
@@ -95,8 +96,8 @@
                             </div>
                         </div>
                         <div class="share-sec-position">
-                            <a href="#" class="whatsapp-icon"><img src="assets/img/about/call-icon.png"></a>
-                            <a href="#" class="whatsapp-icon"><img src="assets/img/about/whataspp-icon.png"></a>
+                            <a href="#" class="whatsapp-icon"><img src="<?php echo base_url().'Pockets/assets/img/about/call-icon.png';?>"></a>
+                            <a href="#" class="whatsapp-icon"><img src="<?php echo base_url().'Pockets/assets/img/about/whataspp-icon.png';?>"></a>
                         </div>
                     </div>
             </div>
@@ -177,7 +178,7 @@
 
                             </div>
                             <div class="offer-img">
-                                <img src="assets/img/hosting-service.png"/>
+                                <img src="<?php echo base_url().'Pockets/assets/img/hosting-service.png';?>"/>
                             </div>
                         </div>
                     </div>
@@ -280,25 +281,25 @@
                     <div class="row hosting-sec">
                         <div class="col-lg-3 col-md-3">
                             <div class="icon-sec">
-                                <img src="assets/img/icon/ser-icon-1.png"/>
+                                <img src="<?php echo base_url().'Pockets/assets/img/icon/ser-icon-1.png';?>"/>
                                 <h6>Up To 20xFaster Turbo</h6>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="icon-sec">
-                                <img src="assets/img/icon/ser-icon-2.png"/>
+                                <img src="<?php echo base_url().'Pockets/assets/img/icon/ser-icon-2.png';?>"/>
                                 <h6>Guru Crew Support</h6>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="icon-sec">
-                                <img src="assets/img/icon/ser-icon-3.png"/>
+                                <img src="<?php echo base_url().'Pockets/assets/img/icon/ser-icon-3.png';?>"/>
                                 <h6>Free Web site Migration</h6>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="icon-sec">
-                                <img src="assets/img/icon/ser-icon-4.png"/>
+                                <img src="<?php echo base_url().'Pockets/assets/img/icon/ser-icon-4.png';?>"/>
                                 <h6>Money - Back Guarantee</h6>
                             </div>
                         </div>
@@ -339,7 +340,7 @@
                             <div class="icon-sec">
                                 <h6>Free SSL</h6>
                                 <div class="host-img">
-                                <img src="assets/img/icon/hosting-4.png"/>
+                                <img src="<?php echo base_url().'assets/img/icon/hosting-4.png';?>"/>
                                 </div>
                                
                             </div>
@@ -348,7 +349,7 @@
                             <div class="icon-sec">
                                 <h6>Free Google Map Intergeration</h6> 
                                 <div class="host-img">
-                                <img src="assets/img/icon/hosting-3.png"/>
+                                <img src="<?php echo base_url().'assets/img/icon/hosting-3.png';?>"/>
                                 </div>
                               
                             </div>
@@ -357,7 +358,7 @@
                             <div class="icon-sec">
                                 <h6>Free Email Account</h6>
                                 <div class="host-img">
-                                    <img src="assets/img/icon/hosting-2.png"/>
+                                    <img src="<?php echo base_url().'assets/img/icon/hosting-2.png';?>"/>
                                 </div>
                               
                                 
@@ -367,7 +368,7 @@
                             <div class="icon-sec">
                                 <h6>Free Whatsapp Intergeration</h6>
                                 <div class="host-img">
-                                <img src="assets/img/icon/hosting-1.png"/>
+                                <img src="<?php echo base_url().'assets/img/icon/hosting-1.png';?>"/>
                                 </div>
                              
                             </div>
@@ -375,24 +376,7 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-    
+        </section>  
        
-
-        
-
-    
-
-
-       
-
-
-   
-
-    
-
-
-
 
         <?php include_once("footer.php");?>

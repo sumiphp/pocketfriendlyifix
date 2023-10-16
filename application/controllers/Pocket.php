@@ -238,5 +238,15 @@ public function newslettersubscribe(){
 
 }
 
+public function hosting(){
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['featureupdate']=$this->sm->get_featureupdate();
+	$data['about']=$this->sm->get_aboutus();
+	//$data['contactus']=$this->sm->get_contactus();
+	$this->load->view('pocket/hosting.php',$data);
+
+}
+
 	
 }
