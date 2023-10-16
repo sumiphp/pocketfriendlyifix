@@ -124,7 +124,7 @@
                                                       <td> 
                                                         <ul class="action"> 
                                                           <!--<li class="edit"> <a href="#" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>--->
-                                                          <li class="delete"><a href="#" onclick="delfaq(<?php echo $res['testimonialid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
+                                                          <li class="delete"><a href="#" onclick="deltestimonials(<?php echo $res['testimonialid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
                                                           <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
                                                         </ul>
                                                       </td>
@@ -347,10 +347,10 @@
 
 
 <script>
-function delenquiries(id){
+function deltestimonials(id){
 $.ajax({
             type: 'GET',
-            url: "<?php echo base_url().'index.php/Welcome/deleteenquiries';?>",
+            url: "<?php echo base_url().'index.php/Welcome/deletetestimonials';?>",
             data:{id:id},
             success:function(data){
                 $("#"+id).remove();
