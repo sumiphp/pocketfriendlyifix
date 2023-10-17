@@ -216,7 +216,7 @@ $('#uploadsub').on('click', function (e) {
         form_data.append('date',date);
        
         $.ajax({
-            url: "<?php echo base_url().'Welcome/addtestimonialsprocess';?>", // point to server-side controller method
+            url: "<?php echo base_url().'Welcome/addblogcontentsprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server
             cache: false,
             contentType: false,

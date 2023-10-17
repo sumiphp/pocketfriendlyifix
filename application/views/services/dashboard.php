@@ -141,7 +141,7 @@
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/1.png';?>" alt="">
                                                             <div class="media-body pl-3">
-                                                                <h2>520</h2>
+                                                                <h2><?php echo $rowcountcat;?></h2>
                                                                 <h6 class="text-uppercase text-white">Category</h6>
                                                             </div>
                                                         </div>
@@ -156,7 +156,7 @@
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/2.png';?>" alt="">
                                                             <div class="media-body pl-3">
-                                                                <h2>520</h2>
+                                                                <h2><?php echo $rowcountsub;?></h2>
                                                                 <h6 class="text-uppercase text-white">Sub Category</h6>
                                                             </div>
                                                         </div>
@@ -171,7 +171,7 @@
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/3.png';?>" alt="">
                                                             <div class="media-body pl-3">
-                                                                <h2>520</h2>
+                                                                <h2><?php echo $rowcountblog;?></h2>
                                                                 <h6 class="text-uppercase text-white">ALL Products</h6>
                                                             </div>
                                                         </div>
@@ -201,7 +201,7 @@
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/3.png';?>" alt="">
                                                             <div class="media-body pl-3">
-                                                                <h2>520</h2>
+                                                                <h2><?php echo $rowcountblog;?></h2>
                                                                 <h6 class="text-uppercase text-white">Blog</h6>
                                                             </div>
                                                         </div>

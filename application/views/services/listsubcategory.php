@@ -103,10 +103,11 @@
                                                     <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
                                                   <thead>
                                                     <tr role="row">
-                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Sub Category Name</th>
-                                                      <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Subcategory Name</th>-->
-                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Sub Category Description</th>
-                                                           <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
+                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" >Sub Category Name</th>
+                                                     
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 520px;">Sub Category Description</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Subcategory Image</th>
+                                                           <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" >Action</th></tr>
                                                   </thead>
                                                   <tbody>
                                                     <?php 
@@ -118,9 +119,10 @@
                                                       <td class="sorting_1"><?php echo $res['subcategoryname'];?></td>
                                                       <!--<td>Indoor Lamps</td>-->
                                                       <td><?php echo $res['subcatdesc'];?></td>
+                                                      <td><img src=<?php echo base_url().'uploads/'.$res['subcategoryimage']?> width="80" height="80" /></td>
                                                       <td> 
                                                         <ul class="action"> 
-                                                          <li class="edit"> <a href="<?php echo base_url().'Welcome/editsubcategory/'.$res['categoryid'];?>"   data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
+                                                          <li class="edit"> <a href="<?php echo base_url().'Welcome/editsubcategory/'.$res['subcategoryid'];?>"   data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
                                                           <li class="delete"><a href="#" onclick="delsubcategoryrow(<?php echo $res['subcategoryid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
                                                           <li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>
                                                         </ul>

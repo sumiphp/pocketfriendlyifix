@@ -132,7 +132,7 @@
                                                       <td> <img src="<?php echo base_url().'uploads/blog/'.$res['contentimage'];?>" /></td>
                                                       <td> 
                                                         <ul class="action"> 
-                                                          <!--<li class="edit"> <a href="#" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>--->
+                                                        <li class="edit"> <a href="<?php echo base_url().'Welcome/editblogpage/'.$res['contentid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
                                                           <li class="delete"><a href="#" onclick="delblog(<?php echo $res['contentid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
                                                           <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
                                                         </ul>
@@ -156,7 +156,7 @@
                            
                                 <div class="row bg-row">
                                     <div class="col-md-5 col-lg-5 pocket-help">
-                                        <h2>Ask pocket Friendly for Help 24/7</h2>
+                                        <h2>Ask pocket Friendly for Help 24/7---</h2>
                                         <h6>Get In Touch : </h6>
                                       
                                         <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  

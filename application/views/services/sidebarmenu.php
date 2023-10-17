@@ -35,13 +35,13 @@
                               </div>
                               <ul class="sub-menu">
                                 <li><a class="link_name" href="#">Posts</a></li>
-                                <li><a href="#">Carousel</a></li>
+                                <!--<li><a href="#">Carousel</a></li>-->
                                 <li><a href="#">Home Page</a></li>
                                 <li><a href="<?php echo base_url().'Welcome/listaboutus';?>">About Us</a></li>
                                 <li><a href="<?php echo base_url().'Welcome/listservices';?>">Services</a></li>
                                 
-                                <li><a href="<?php echo base_url().'Welcome/listblog';?>">Blog Page</a></li>
-                                <li><a href="#">Download Page</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listblogpage';?>">Blog Page</a></li>
+                                <!--<li><a href="#">Download Page</a></li>-->
                                 <li><a href="<?php echo base_url().'Welcome/listcontactus';?>">Contact Page</a></li>
                                
                               </ul>
@@ -93,6 +93,22 @@
                                 <span class="link_name">Add Faq</span>
                               </a>
                               
+                            </li>
+
+                            <li>
+                              <div class="iocn-link">
+                                <a href="#">
+                                  <i class='bx bx-plug' ></i>
+                                  <span class="link_name">Newsletter</span>
+                                </a>
+                                <i class='bx bxs-chevron-down arrow' ></i>
+                              </div>
+                              <ul class="sub-menu">
+                                <li><a class="link_name" href="#">Plugins</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/newsletter';?>">Newsletter View</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/newslettersubscribers';?>">Newsletter Subscribers</a></li>
+                              
+                              </ul>
                             </li>
                            
                               <li>

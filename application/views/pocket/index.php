@@ -218,7 +218,7 @@
                                 <p><?php echo $res['subcatdesc'];?></p>
                             </div>
                             <div class="bg-btn">
-                                <a href="#" class="default-btn enquiry-btn">Enquiry</a>
+                                <a href="<?php echo base_url().'Pocket/contact';?>" class="default-btn enquiry-btn">Enquiry</a>
                             </div>
                             </div>
                         </div>
@@ -346,7 +346,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url().'assets/img/hos-icon/'.$res['categoryimage'];?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php echo base_url().'uploads/'.$res['categoryimage'];?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title"><a href="#"><?php echo $res['categoryname'];?></a></h3>
@@ -354,7 +354,7 @@
                                                 <p class="gt3-core-imagebox-description"><?php echo $res['categorydescription'];?></p>
                                             </div>
                                         </div>
-                                        <a href="#" class="plan-btn">View Plan</a>		
+                                        <a href="<?php echo base_url().'Pocket/servicedetails/'.$res['categoryid'];?>" class="plan-btn">View Plan</a>		
                                             </div>
                             </div>
                           

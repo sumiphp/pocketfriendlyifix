@@ -126,6 +126,7 @@
                                                       <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Category Name</th>
                                                       <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Subcategory Name</th>-->
                                                       <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Category Description</th>
+                                                       <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Category Image</th>
                                                            <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
                                                   </thead>
                                                   <tbody>
@@ -138,6 +139,7 @@
                                                       <td class="sorting_1"><?php echo $res['categoryname'];?></td>
                                                       <!--<td>Indoor Lamps</td>-->
                                                       <td><?php echo $res['categorydescription'];?></td>
+                                                      <td><img src=<?php echo base_url().'uploads/'.$res['categoryimage']?> width="80" height="80" /></td>
                                                       <td> 
                                                         <ul class="action"> 
                                                           <li class="edit"> <a href="<?php echo base_url().'Welcome/editcategory/'.$res['categoryid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>

@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="<?php echo base_url().'assets/css/theme-dark.css';?>">
 
         <!-- Title -->
-        <title>Pocket Frindly</title>
+        <title>Pocket Freindly</title>
 
         <!-- Favicon -->
         <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png"> -->
@@ -91,46 +91,14 @@
                 <div class="dashboard-innerbox">
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2>Category / Sub-Category Information </h2>
+                                <h2>Sub-Category Information </h2>
                                 <div class="row">
-                                    <!--<div class="col-lg-6 col-md-12 col-sm-12">
-                                        <div class="inner-card">
-                                            <div class="inner-card-body">
-                                                <span id="catmsg"></span><br>
-                                                <div class="product-info">
-                                                    <h5>Edit Category</h5>
-                                                    <form id="frmedit" method="post" action="<?php //echo base_url().'Welcome/categoryeditprocess';?>" >
-                                                        <div class="product-group">
-                                                          <div class="row"> 
-                                                            <div class="col-sm-12">
-                                                              <div class="mb-3">
-                                                                <label class="form-label">Product Category</label>
-                                                                <input class="form-control" placeholder="Enter Product Name" type="text" name="productcategory" value="<?php //echo $result->categoryname;?>" data-bs-original-title="" title="" required ><span class="text-danger"></span>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="row"> 
-                                                            <div class="col-sm-12">
-                                                              <div class="mb-3">
-                                                                <label class="form-label">Edit Product Category</label>
-                                                                <textarea class="form-control" placeholder="Enter Product Description"  name="productdescription" rows="5" value="" data-bs-original-title="" title="" required><?php echo $result->categorydescription;?></textarea><span class="text-danger"></span>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="row">
-                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php //echo base_url().'index.php/Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>
-                                                          </div>
-                                                        </div>
-                                                      </form>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>-->
-                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                   
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
+                                                  <?php //print_r($result);?>
                                                   <h5>Edit Sub-Category</h5>
                                                     <form id="subfrm" method="post" action="<?php echo base_url().'Welcome/subcategoryeditprocess';?>">
                                                         <div class="product-group">
@@ -144,7 +112,7 @@
                                                                 <?php                                              
                                                                                                      
                                                     foreach($cat_detail as $res){?>
-                                                    <option value="<?php echo $res['categoryid'];?>"><?php echo $res['categoryname'];?></option>
+                                                    <option value="<?php echo $res['categoryid'];?>" <?php if ($res['categoryid']==$result->categoryid){?> selected <?php } ?>><?php echo $res['categoryname'];?></option>
 
                                                     <?php } ?>
                                                                     
@@ -162,7 +130,8 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Product Sub-Category:</label>
-                                                                <input class="form-control" placeholder="Product Sub-Category" name="prdsubcat" id="prdsubcat" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                                <input type="hidden" name="subcatid" id="subcatid"  value="<?php echo $result->subcategoryid?>" />
+                                                                <input class="form-control" placeholder="Product Sub-Category" name="prdsubcat" id="prdsubcat" type="text" data-bs-original-title="" value="<?php echo $result->subcategoryname?>" title=""><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -170,7 +139,9 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Description:</label>
-                                                                <input class="form-control" placeholder="Description" name="prdsubdesc" id="prdsubdesc" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                                
+                                                                <textarea class="form-control" id="prdsubdesc" name="prdsubdesc" rows="4" placeholder="Enter Sub Category description"><?php echo $result->subcatdesc;?></textarea>
+
                                                               </div>
                                                             </div>
                                                           </div>
@@ -178,12 +149,15 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Select Product Sub-Category Image</label>
-                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="filesub"  name="productdescription"  data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                                <input class="form-control" placeholder="Select Product Sub-Category Image" name="file" type="file"  id="filesub"  name="productdescription"  data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                                <img src="<?php echo base_url().'uploads/subcategory/'.$result->subcategoryimage;?>" />
                                                               </div>
                                                             </div>
                                                           </div>
+
+
                                                           <div class="row">
-                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php echo base_url().'index.php/Welcome/listsubcategory';?>" data-bs-original-title="" title="">View and Edit </a><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>
+                                                            <div class="col-sm-12 text-end"><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>
                                                           </div>
                                                         </div>
                                                       </form>
@@ -238,8 +212,8 @@
                     $('input[type=text]').each(function() {
         $(this).val('');
     });
-    
-    
+    alert(response);
+    window.location.href ="<?php echo base_url().'Welcome/listcategory';?>";
                     //$("#catmsg").html(response);
                    
 
@@ -274,6 +248,47 @@
             });
         });
     });
+
+
+
+
+    $('#subfrm').on('submit', function (e) {
+      e.preventDefault(e);
+        var file_data = $('#filesub').prop('files')[0];
+        var prdcat=$('#prdcat').val();
+        var prdsubcat=$("#prdsubcat").val();
+        var prdsubdesc=$("#prdsubdesc").val();
+        var subcatid=$("#subcatid").val();
+        var form_data = new FormData();
+        form_data.append('filesub', file_data);
+        form_data.append('prdsubcat',prdsubcat);
+        form_data.append('prdcat',prdcat);
+        form_data.append('prdsubdesc',prdsubdesc);
+        form_data.append('subcatid',subcatid);
+       
+        $.ajax({
+            url: "<?php echo base_url().'Welcome/upload_filesubedit';?>", // point to server-side controller method
+            dataType: 'text', // what to expect back from the server
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function (response) {
+                $('#filesub').val('');
+                $('input[type=text]').each(function() {
+        $(this).val('');
+    });
+    window.location.href ="<?php echo base_url().'Welcome/listsubcategory';?>";
+            },
+            error: function (response) {
+              window.location.href ="<?php echo base_url().'Welcome/listsubcategory';?>";
+            }
+        });
+    });
+
+
+
 
 
 

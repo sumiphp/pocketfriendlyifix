@@ -143,7 +143,7 @@ return $query->result_array();
 
 function get_countcontactenquiries(){
     $this->db->select('*');
-    $this->db->from('enquiries');
+    $this->db->from('contactenquiries');
     $query = $this->db->get();
     return $rowcount = $query->num_rows();
 }
@@ -314,6 +314,45 @@ function get_featureupdate(){
     return $query->result_array();
 
 }
+
+
+function get_blogpagedetails(){
+    $this->db->select('*');
+    $this->db->from('blog');
+    $query = $this->db->get();
+    return $query->result_array();
+
+
+}
+
+function get_newsletterall(){
+    $this->db->select('*');
+    $this->db->from('newsletter');
+    $query = $this->db->get();
+    return $query->result_array();
+
+
+}
+
+
+function get_countnewslettersubscribers(){
+    $this->db->select('*');
+    $this->db->from('blogcontents');
+    $query = $this->db->get();
+    return $rowcount = $query->num_rows();
+
+
+}
+
+function get_newslettersubscribersall($limit,$start){
+    $this->db->limit($limit,$start);
+    $this->db->select('*');
+    $this->db->from('newslettersubscribe');
+    $query = $this->db->get();
+    return $query->result_array();
+
+}
+
 
 
 

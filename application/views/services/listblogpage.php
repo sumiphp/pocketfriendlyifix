@@ -91,57 +91,55 @@
                 <div class="dashboard-innerbox">
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2> View Contact Us  </h2>
+                                <h2> View Blog Contents  </h2>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                               <div class="table-responsive theme-scrollbar">
                                               <span id="msg"></span><br>
+                                              <?php echo $this->session->flashdata('flash_msg')?>;
                                                 <div id="data-source-1_wrapper" class="dataTables_wrapper">
 
                                                     <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
                                                   <thead>
                                                     <tr role="row">
-                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width:716px;">Frontpage description</th>
+                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Blog Page Title</th>
                               
-                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" >Company Name</th>
-                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Email</th>
-                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >City</th>
-                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Place</th>
-
-                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Image</th>
-                                                           <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" >Action</th></tr>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width:420px;">Description</th>
+                                                                              <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:132px;">Date</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Top Article</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Company Name</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Author Image</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Content Image</th>-->
+                                                           <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
                                                   </thead>
                                                   <tbody>
                                                     <?php 
-                                                    
-                                                    
                                                     //print_r($result);
-                                                    //foreach($result as $res){
-                                                        
-                                                        
-                                                        
-                                                        ?>
-                                                  <tr role="row" class="odd" id="<?php echo $result->contactusid;?>" >
-                                                      
+                                                    
+                                                    
+                                                    foreach($result as $res){?>
+                                                  <tr role="row" class="odd" id="<?php echo $res['blogid'];?>" >
+                                                      <td class="sorting_1"><?php echo $res['blogtitle'];?></td>
                                                       <!--<td>Indoor Lamps</td>-->
-                                                      <td><?php echo $result->contactusdescription;?></td>
-                                                      <td><?php echo $result->phoneno;?></td>
-                                                      <td><?php echo $result->emailid;?></td>
-                                                      <td><?php echo $result->city;?></td>
-                                                     
-                                                      <td><?php echo $result->country;?></td>
-                                                      <td>"<img src=<?php echo base_url()."uploads/contactus/$result->contactusimg";?>  /></td>
+                                                      <td><?php echo $res['blogdescription'];?></td>
+                                                      <!--<td><?php //echo $res['date'];?></td>
+                                                      <td><?php //echo $res['toparticle'];?></td>
+                                                      <td><?php //echo $res['companyname'];?></td>-->
+                                                      <!--<td>
+                                                    <img src="<?php //echo base_url().'uploads/blog/'.$res['autorimage'];?>" />
+                                                    </td>-->
+                                                      <!--<td> <img src="<?php //echo base_url().'uploads/blog/'.$res['contentimage'];?>" /></td>-->
                                                       <td> 
                                                         <ul class="action"> 
-                                                          <li class="edit"> <a href="#" onclick="editcontactus(<?php echo $result->contactusid;?>)" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
-                                                          <!--<li class="delete"><a href="#" onclick="delenquiries(<?php //echo $result->contactusid;?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>-->
+                                                          <li class="edit"> <a href="<?php echo base_url().'Welcome/editblogpage/'.$res['blogid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
+                                                          <!--<li class="delete"><a href="#" onclick="delblog(<?php //echo $res['blogid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>-->
                                                           <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
                                                         </ul>
                                                       </td>
                                                     </tr>
-                                                    <?php //} ?>
+                                                    <?php } ?>
                                                    
                                                   
                                                 </tbody>
@@ -175,18 +173,16 @@
 			</div>
 		</section>
 		<!-- End Sign In Area -->
-
-        <!-- Footer Area -->
         <?php include('footer1.php');?>
     </body>
 </html>
 
 
 <script>
-function delenquiries(id){
+function delblog(id){
 $.ajax({
             type: 'GET',
-            url: "<?php echo base_url().'index.php/Welcome/deleteenquiries';?>",
+            url: "<?php echo base_url().'index.php/Welcome/deleteblog';?>",
             data:{id:id},
             success:function(data){
                 $("#"+id).remove();

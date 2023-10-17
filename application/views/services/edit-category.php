@@ -91,9 +91,9 @@
                 <div class="dashboard-innerbox">
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2>Category / Sub-Category Information </h2>
+                                <h2>Category </h2>
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <span id="catmsg"></span><br>
@@ -105,7 +105,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Product Category</label>
-                                                                <input class="form-control" placeholder="Enter Product Name" type="text" name="productcategory" value="<?php echo $result->categoryname;?>" data-bs-original-title="" title="" required ><span class="text-danger"></span>
+                                                                <input class="form-control" placeholder="Enter Product Name" type="text" id="productcategory" name="productcategory" value="<?php echo $result->categoryname;?>" data-bs-original-title="" title="" required ><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -113,16 +113,19 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Edit Product Category</label>
-                                                                <textarea class="form-control" placeholder="Enter Product Description"  name="productdescription" rows="5" value="" data-bs-original-title="" title="" required><?php echo $result->categorydescription;?></textarea><span class="text-danger"></span>
+                                                                <textarea class="form-control" placeholder="Enter Product Description"  id="productdescription"  name="productdescription" rows="5" value="" data-bs-original-title="" title="" required><?php echo $result->categorydescription;?></textarea><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
+                                                          <input type="hidden" name="productcategoryid" id="productcategoryid" value="<?php echo $result->categoryid;?>" />
 
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Select Product Category Image</label>
-                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="file"  name="file"  data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                               
+                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="file"  name="file"  data-bs-original-title="" title="" ><span class="text-danger"></span>
+                                                                <img src="<?php echo base_url().'uploads/'.$result->categoryimage;?>" />
                                                               </div>
                                                             </div>
                                                           </div>
@@ -229,31 +232,44 @@
 
 
 <script>
-    $(function() {
-        $("#frmedit").on('submit', function(e) {
-            e.preventDefault();
+   
 
-            var Form = $(this);
 
-            $.ajax({
-                url: Form.attr('action'),
-                type: 'post',
-                data: Form.serialize(),
-                success: function(response){
-                    
-                    
-                    $('input[type=text]').each(function() {
+    $('#frmedit').on('submit', function (e) {
+      e.preventDefault();
+        var file_data = $('#file').prop('files')[0];
+        var productcategory=$('#productcategory').val();
+        var productdescription=$('#productdescription').val();
+        var productcategoryid=$('#productcategoryid').val();
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        form_data.append('productcategory',productcategory);
+        form_data.append('productdescription',productdescription);
+        form_data.append('productcategoryid',productcategoryid);
+       
+        $.ajax({
+            url: "<?php echo base_url().'Welcome/upload_filecatedit';?>", // point to server-side controller method
+            dataType: 'text', // what to expect back from the server
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function (response) {
+                $('#file').val('');
+                $('#productdescription').val('');
+                $('input[type=text]').each(function() {
         $(this).val('');
     });
-    window.location.href ="<?php echo base_url().'Welcome/listcategory';?>";
-                    //$("#catmsg").html(response);
-                   
-
-                }
-            });
+                //$('#catmsg').html(response); // display success response from the server
+                window.location.href ="<?php echo base_url().'Welcome/listcategory';?>";
+            },
+            error: function (response) {
+                //$('#catmsg').html(response); // display error response from the server
+                window.location.href ="<?php echo base_url().'Welcome/listcategory';?>";
+            }
         });
     });
-
 
 
     $(function() {

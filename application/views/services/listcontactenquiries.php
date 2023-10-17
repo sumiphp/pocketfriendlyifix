@@ -182,7 +182,7 @@
 function delenquiries(id){
 $.ajax({
             type: 'GET',
-            url: "<?php echo base_url().'index.php/Welcome/deleteenquiries';?>",
+            url: "<?php echo base_url().'index.php/Welcome/deletecontactenquiries';?>",
             data:{id:id},
             success:function(data){
                 $("#"+id).remove();

@@ -83,10 +83,10 @@
                                         
                                         //print_r($servicedetails);
                                         
-                                        foreach($servicedetails as $sd){ ?>
+                                        foreach($categories as $sd){ ?>
                                             <li>
                                             <a href="#">
-                                               <?php echo $sd['subcategoryname'];?>
+                                               <?php echo $sd['categoryname'];?>
                                             </a>
                                         </li>
 
@@ -148,47 +148,38 @@
                     <div class="col-lg-8 col-md-8">
                         <div class="package-details">
                             <div class="row">
+                                 <?php 
+                                        
+                                        //print_r($servicedetails);
+                                        
+                                        foreach($servicedetails as $sd){ ?>
                                 <div class="col-lg-6 col-md-12">
                                     <div class="bg-box">
                                         <div class="icon-block">
-                                            <img src="<?php echo base_url().'pockets/assets/img/icon/icon-5.png';?>"/>
+                                            <img src="<?php echo base_url().'uploads/subcategory/'.$sd['subcategoryimage'];?>"/>
                                         </div>
                                         <div class="content-block">
-                                            <h4>Branding</h4>
-                                            <p>Enhance your website with our professional single-page package</p>
-                                            <p>Enhance your website with our professional single-page package</p>
+                                            <h4><?php echo $sd['subcategoryname'];?></h4>
+                                            <p><?php echo $sd['subcatdesc'];?></p>
+                                            <!--<p>Enhance your website with our professional single-page package</p>
+                                            <p>Enhance your website with our professional single-page package</p>-->
                                             <span class="smallText">For just </span>
-                                            <h6>99 AED</h6>
+                                            <h6><?php echo $sd['price'];?> <?php echo $sd['currency'];?></h6>
                                         </div>
                                         <div class="btn-block bg-btn">
                                             <a href="#" class="default-btn enquiry-btn">Enquiry</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="bg-box">
-                                        <div class="icon-block">
-                                            <img src="<?php echo base_url().'pockets/assets/img/icon/icon-5.png';?>"/>
-                                        </div>
-                                        <div class="content-block">
-                                            <h4>Branding</h4>
-                                            <p>Enhance your website with our professional single-page package</p>
-                                            <p>Enhance your website with our professional single-page package</p>
-                                            <span class="smallText">For just </span>
-                                            <h6>99 AED</h6>
-                                        </div>
-                                        <div class="btn-block bg-btn">
-                                            <a href="#" class="default-btn enquiry-btn">Enquiry</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php } ?>
+                                
                             </div>
 
-                            <div class="row">
+                            <!--<div class="row">
                                 <div class="col-lg-6 col-md-12">
                                     <div class="bg-box">
                                         <div class="icon-block">
-                                            <img src="<?php echo base_url().'pockets/assets/img/icon/icon-5.png';?>"/>
+                                            <img src="<?php //echo base_url().'pockets/assets/img/icon/icon-5.png';?>"/>
                                         </div>
                                         <div class="content-block">
                                             <h4>Branding</h4>
@@ -205,7 +196,7 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="bg-box">
                                         <div class="icon-block">
-                                            <img src="<?php echo base_url().'pockets/assets/img/icon/icon-5.png';?>"/>
+                                            <img src="<?php //echo base_url().'pockets/assets/img/icon/icon-5.png';?>"/>
                                         </div>
                                         <div class="content-block">
                                             <h4>Branding</h4>
@@ -219,7 +210,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
                         </div>
                     </div>

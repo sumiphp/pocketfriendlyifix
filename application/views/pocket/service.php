@@ -76,7 +76,7 @@
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="<?php echo base_url().'Pocket/servicedetails';?>">
-                                                    <img src="<?php echo base_url().'assets/img/hos-icon/'.$res['categoryimage'];?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php echo base_url().'uploads/'.$res['categoryimage'];?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title secondary-title"><a href="#"><?php echo $res['categoryname'];?></a></h3>

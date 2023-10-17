@@ -30,7 +30,7 @@
                 <nav class="sidebar card py-2 mb-4">
                     <ul class="nav-links">
                         <li>
-                          <a href="#">
+                          <a href="<?php echo base_url().'Welcome/dashboard';?>">
                             <i class='bx bx-grid-alt' ></i>
                             <span class="link_name">Dashboard</span>
                           </a>
@@ -63,13 +63,13 @@
                           </div>
                           <ul class="sub-menu">
                             <li><a class="link_name" href="#">Posts</a></li>
-                                <li><a href="#">Carousel</a></li>
+                                <!--<li><a href="#">Carousel</a></li>-->
                                 <li><a href="#">Home Page</a></li>
                                 <li><a href="<?php echo base_url().'Welcome/listaboutus';?>">About Us</a></li>
                                 <li><a href="<?php echo base_url().'Welcome/listservices';?>">Services</a></li>
                                 
-                                <li><a href="<?php echo base_url().'Welcome/listblog';?>">Blog Page</a></li>
-                                <li><a href="#">Download Page</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listblogpage';?>">Blog Page</a></li>
+                                <!--<li><a href="#">Download Page</a></li>-->
                                 <li><a href="<?php echo base_url().'Welcome/listcontactus';?>">Contact Page</a></li>                          
                           </ul>
                         </li>               
@@ -88,13 +88,13 @@
                                 <li><a href="<?php echo base_url().'Welcome/addcategory';?>">Add Sub Category</a></li>
                           </ul>
                         </li>
-                        <li>
+                        <!--<li>
                           <a href="#">
                             <i class='bx bx-compass' ></i>
                             <span class="link_name">Add Client</span>
                           </a>
                           
-                        </li>
+                        </li>-->
                         <li>
                           <a href="<?php echo base_url().'Welcome/addblogcontent';?>">
                             <i class='bx bx-compass' ></i>

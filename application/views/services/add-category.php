@@ -99,7 +99,8 @@
                                                 <span id="catmsg"></span><br>
                                                 <div class="product-info">
                                                     <h5>Add Category</h5>
-                                                    <form id="frm" method="post" enctype="multipart/form-data" action="<?php echo base_url().'Welcome/categoryaddprocess';?>" >
+                                                    <form id="frm" method="post" enctype="multipart/form-data" action="#" >
+                                                    <!--<form id="frm" method="post" enctype="multipart/form-data" action="<?php //echo base_url().'Welcome/categoryaddprocess';?>" >-->
                                                         <div class="product-group">
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
@@ -113,7 +114,9 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Product Description</label>
-                                                                <input class="form-control" placeholder="Enter Product Description" id="productdescription" type="text" name="productdescription"  data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                                <!--<input class="form-control" placeholder="Enter Product Description" id="productdescription" type="text" name="productdescription"  data-bs-original-title="" title="" required><span class="text-danger"></span>-->
+                                                                <textarea class="form-control" id="productdescription" name="productdescription" rows="4" placeholder="Enter Category description"></textarea>
+
                                                               </div>
                                                             </div>
                                                           </div>
@@ -129,7 +132,7 @@
 
                                                           <div class="row">
                                                          
-                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a> <button class="btn btn-secondary" id="upload">Save</button><!--<button class="btn btn-secondary" data-bs-original-title="" title="">Save</button>--></div>
+                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a> <button class="btn btn-secondary"  id="upload">Save</button><!--<button class="btn btn-secondary" data-bs-original-title="" title="">Save</button>--></div>
                                                           </div>
                                                         </div>
                                                        
@@ -184,7 +187,9 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Description:</label>
-                                                                <input class="form-control" placeholder="Description" name="prdsubdesc" id="prdsubdesc" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                                <textarea class="form-control" id="prdsubdesc" name="prdsubdesc" rows="4" placeholder="Enter Sub Category description"></textarea>
+
+                                                                <!--<input class="form-control" placeholder="Description" name="prdsubdesc" id="prdsubdesc" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>-->
                                                               </div>
                                                             </div>
                                                           </div>
@@ -238,7 +243,7 @@
 
 <script>
    $(function() {
-        $("#frm").on('submit', function(e) {
+        $("#frm_err").on('submit', function(e) {
             e.preventDefault();
             var Form = $(this);
             $.ajax({
@@ -301,7 +306,8 @@
 </script>
 <script type="text/javascript">
 //$(document).ready(function(e){
-    $('#upload').on('click', function () {
+    $('#frm').on('submit', function (e) {
+      e.preventDefault();
         var file_data = $('#file').prop('files')[0];
         var productcategory=$('#productcategory').val();
         var productdescription=$('#productdescription').val();
@@ -320,6 +326,7 @@
             type: 'post',
             success: function (response) {
                 $('#file').val('');
+                $('#productdescription').val('');
                 $('input[type=text]').each(function() {
         $(this).val('');
     });

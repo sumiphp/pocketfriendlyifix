@@ -141,9 +141,9 @@ $data = array(
 	'businesswebsiteduration'=>"$businesswebsiteduration"
  );
  $this->db->insert('enquiries', $data);
- $from_email = "sumilaifix@gmail.com";
+ /*$from_email = "sumilaifix@gmail.com";
  $to_email = 'sumilaifix@gmail.com';
- //Load email library
+ 
  $config = Array(
     'protocol' => 'smtp',
     'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -160,12 +160,10 @@ $data = array(
  $this->email->message('The email send using codeigniter library');
  //Send mail
  if($this->email->send()){
-	 //$this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
- }
+	 
  else{
-	 //$this->session->set_flashdata("email_sent","You have encountered an error");
- //$this->load->view('contact_email_form');
-}
+	 
+}*/
 echo "Your enquiry send successfully";
 }
 
@@ -188,9 +186,9 @@ public function contactenquiryprocess(){
 		//'businesswebsiteduration'=>"$businesswebsiteduration"
 	 );
 	 $this->db->insert('contactenquiries',$data);
-	 $from_email = "sumilaifix@gmail.com";
+	 /*$from_email = "sumilaifix@gmail.com";
 	 $to_email = 'sumilaifix@gmail.com';
-	 //Load email library
+	 
 	 $config = Array(
 		'protocol' => 'smtp',
 		'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -207,12 +205,11 @@ public function contactenquiryprocess(){
 	 $this->email->message('The email send using codeigniter library');
 	 //Send mail
 	 if($this->email->send()){
-		 //$this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
+		
 	 }
 	 else{
-		 //$this->session->set_flashdata("email_sent","You have encountered an error");
-	 //$this->load->view('contact_email_form');
-	}
+		 
+	}*/
 	echo "Your enquiry send successfully";
 	}
 
@@ -225,6 +222,7 @@ public function servicedetails(){
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
 	$data['about']=$this->sm->get_aboutus();
+	$data['categories']=$this->sm->get_categoriesall();
 	$this->load->view('pocket/service-details.php',$data);
 
 }
