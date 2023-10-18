@@ -128,8 +128,7 @@
                     $('input[type=text]').each(function() {
         $(this).val('');
     });
-    //$("#note").val('');
-    //$("#package").val('');
+    
     $("#email").val('');
                     $("#msg").html(response);
                    

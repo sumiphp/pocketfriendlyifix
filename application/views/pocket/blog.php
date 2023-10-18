@@ -82,66 +82,23 @@
                                 </div>
                                 <div class="blog-details">
                             <p><?php echo $con['description'];?> </p>
-                            <p class="date">November 28, 2023</p>
+                            <p class="date"><?php $date=explode("-",$con['date']);
+                            //echo $mon=$date[1];
+                            $mon = date('F', strtotime($con['date']));
+                            //$monfull=Date('M',$mon);
+                            $dt=$date[2];
+                            $year=$date[0];
+                            echo $mon.' '.$dt.','.$year;
+                            ?></p>
                                 </div>
 
                             </div>
 
                         </div>
                         <?php } ?>
-                        <!--<div class="col-lg-6 col-md-6">
-                            <div class="blog-img">
-                                <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-inner.jpg';?>">
-                            </div>
-                            <div class="blog-content-inner">
-                                <div class="blog-author-img">
-                                    <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-icon.png';?>"/>
-
-                                </div>
-                                <div class="blog-details">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
-                            <p class="date">November 28, 2023</p>
-                                </div>
-
-                            </div>
-
-                        </div>-->
+                       
                         </div>
-                        <!--<div class="row row-padding">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="blog-img">
-                                <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-inner.jpg';?>">
-                            </div>
-                            <div class="blog-content-inner">
-                                <div class="blog-author-img">
-                                    <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-icon.png';?>"/>
-
-                                </div>
-                                <div class="blog-details">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
-                            <p class="date">November 28, 2023</p>
-                                </div>
-
-                            </div>
-
-                        </div>-->
-                        <!--<div class="col-lg-6 col-md-6">
-                            <div class="blog-img">
-                                <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-inner.jpg';?>">
-                            </div>
-                            <div class="blog-content-inner">
-                                <div class="blog-author-img">
-                                    <img src="<?php //echo base_url().'pockets/assets/img/blog/blog-icon.png';?>"/>
-
-                                </div>
-                                <div class="blog-details">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
-                            <p class="date">November 28, 2023</p>
-                                </div>
-
-                            </div>
-
-                        </div>-->
+                       
                     </div>
                     
                 </div>

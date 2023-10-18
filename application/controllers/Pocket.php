@@ -18,11 +18,7 @@ class Pocket extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	/*public function __construct()
-    {
-        parent::__construct();
-		$this->load->model('Servicesmodel.php');
-    }*/
+	
 	public function __construct(){
         parent::__construct();
 
@@ -223,6 +219,8 @@ public function servicedetails(){
 	$data['featureupdate']=$this->sm->get_featureupdate();
 	$data['about']=$this->sm->get_aboutus();
 	$data['categories']=$this->sm->get_categoriesall();
+	$data['lowestpackage']=$this->sm->get_lowestpackage($serid);
+	$data['easeyourproblems']=$this->sm->get_problems();
 	$this->load->view('pocket/service-details.php',$data);
 
 }

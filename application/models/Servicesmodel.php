@@ -1,6 +1,6 @@
 <?php class Servicesmodel extends CI_Model {
 
-        public $title;
+        /*public $title;
         public $content;
         public $date;
 
@@ -26,7 +26,7 @@
                 $this->date     = time();
 
                 $this->db->update('entries', $this, array('id' => $_POST['id']));
-        }
+        }*/
 
 public function get_user($username,$password){
 
@@ -221,7 +221,7 @@ function get_testimonial(){
 
 
 function get_contactus(){
-    //$this->db->where('toparticle',1);
+    
     $this->db->select('*');
     $this->db->from('contactus');
     $query = $this->db->get();
@@ -354,6 +354,23 @@ function get_newslettersubscribersall($limit,$start){
 }
 
 
+function get_lowestpackage($serid){
+   
+    $this->db->select('*');                
+    $this->db->order_by('price');
+    $this->db->limit(1);
+    $query = $this->db->get('subcategory');
+   
+ return $query->row();
+
+}
+function get_problems(){
+    $this->db->select('*');
+    $this->db->from('problems');
+    $query = $this->db->get();
+    return $query->result_array();
+
+}
 
 
 }

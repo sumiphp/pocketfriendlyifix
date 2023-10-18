@@ -301,6 +301,32 @@ function upload_filesub() {
 	} else {
 		echo 'Please choose a file';
 	}
+
+	if (isset($_FILES['filesubimg']['name'])) {
+		if (0 < $_FILES['filesubimg']['error']) {
+			echo 'Error during file upload' . $_FILES['filesubimg']['error'];
+		} else {
+			if (file_exists('uploads/subcategory' . $_FILES['filesubimg']['name'])) {
+				echo 'File already exists : uploads/' . $_FILES['filesubimg']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('filesubimg')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+
+
+
+
+
+
+
 	/*$productcategory=$this->input->post('productcategory');
 	$productdesc=$this->input->post('productdescription');
 	$productimg=$_FILES['file']['name'];
@@ -313,21 +339,27 @@ function upload_filesub() {
 	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product' : '<b>Product Category added Successfully</b>';
 	 */
 	$productimg=$_FILES['filesub']['name'];
+	$productimgsub=$_FILES['filesubimg']['name'];
 	 $productcategory=$this->input->post('prdcat');
 	 $prdsubcat=$this->input->post('prdsubcat');
 	 $prdsubdesc=$this->input->post('prdsubdesc');
+	 $price=$this->input->post('price');
+	 $subcatshortdesc=$this->input->post('prdsubshortdesc');
+	 //form_data.append('filesubimg',file_databanner);
+	// form_data.append('price',price);
 	 $data = array(
 		 'subcategoryname' =>"$prdsubcat",
 		 'categoryid' =>"$productcategory",
 		 'subcatdesc'=>"$prdsubdesc",
-		 'subcategoryimage'=>$productimg		
+		 'subcategoryimage'=>$productimg,
+		 		'subcatbannerimage'=>$productimgsub,
+				'subcatshortdesc'=>$subcatshortdesc,
+				'price'=>$price,
+				'currency'=>'AMD'
 	  );
 	  $this->db->insert('subcategory', $data);
 
 	  echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product Sub Category' : '<b>Product Sub Category added Successfully</b>';
-
-
-
 
 
 

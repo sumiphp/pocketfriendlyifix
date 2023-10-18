@@ -66,4 +66,14 @@
 
         <!-- Favicon -->
       <link rel="icon" type="image/png" href="<?php echo base_url().'pockets/assets/img/favicon.ico';?>"/>
+      <!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q1GCL7WC8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q1GCL7WC8');
+</script>
     </head>

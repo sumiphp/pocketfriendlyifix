@@ -183,6 +183,26 @@
                                                               </div>
                                                             </div>
                                                           </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Price:</label>
+                                                                <input class="form-control" placeholder="Price" name="price" id="price" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Short Description:</label>
+                                                                <textarea class="form-control" id="prdsubshortdesc" name="prdsubshortdesc" rows="4" placeholder="Enter Sub Category Short description"></textarea>
+
+                                                                <!--<input class="form-control" placeholder="Description" name="prdsubdesc" id="prdsubdesc" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>-->
+                                                              </div>
+                                                            </div>
+                                                          </div>
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
@@ -197,8 +217,17 @@
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
-                                                                <label class="form-label">Select Product Sub-Category Image</label>
-                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="filesub"  name="productdescription"  data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                                <label class="form-label"> Product Sub-Category Image</label>
+                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="filesub"  name="filesub"  data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label"> Product Sub-Category Banner Image</label>
+                                                                <input class="form-control" placeholder="Enter Product Sub-Category Banner Image" name="fileimg" type="file"  id="filesubimg"  name="filesubimg"  data-bs-original-title="" title="" required><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -268,7 +297,7 @@
 
 
     $(function() {
-        $("#subfrm").on('submit', function(e) {
+        $("#subfrm_err").on('submit', function(e) {
             e.preventDefault();
 
             var Form = $(this);
@@ -339,17 +368,23 @@
     });
 
 
-    $('#uploadsub').on('click', function () {
+    $('#subfrm').on('submit', function (e) {
+      e.preventDefault();
         var file_data = $('#filesub').prop('files')[0];
+        var file_databanner = $('#filesubimg').prop('files')[0];
         var prdcat=$('#prdcat').val();
         var prdsubcat=$("#prdsubcat").val();
         var prdsubdesc=$("#prdsubdesc").val();
-        //var productdescription=$('#productdescription').val();
+        var prdsubshortdesc=$('#prdsubshortdesc').val();
+        var price=$('#price').val();
         var form_data = new FormData();
         form_data.append('filesub', file_data);
         form_data.append('prdsubcat',prdsubcat);
         form_data.append('prdcat',prdcat);
         form_data.append('prdsubdesc',prdsubdesc);
+        form_data.append('prdsubshortdesc',prdsubshortdesc);
+        form_data.append('filesubimg',file_databanner);
+        form_data.append('price',price);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/upload_filesub';?>", // point to server-side controller method
