@@ -46,6 +46,26 @@ public function dashboard(){
 	$query = $this->db->get();
 	$data['rowcountblog'] = $query->num_rows();
 
+	$this->db->select('*');
+	$this->db->from('contactenquiries');
+	$query = $this->db->get();
+	$data['rowcountcontactenquiries'] = $query->num_rows();
+
+	$this->db->select('*');
+	$this->db->from('enquiries');
+	$query = $this->db->get();
+	$data['rowcountenquiries'] = $query->num_rows();
+
+	$this->db->select('*');
+	$this->db->from('testimonials');
+	$query = $this->db->get();
+	$data['rowcounttestimonials'] = $query->num_rows();
+
+
+	$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
+
 
 	if( $this->session->has_userdata('username')) {
 					
@@ -91,6 +111,9 @@ public function addcategory(){
 	$this->db->from('category');
     $query = $this->db->get();
     $data['result']=$query->result_array(); 
+	$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
 	$this->load->view('services/add-category',$data);
 }
 
@@ -109,6 +132,9 @@ public function editcategory(){
     $data['result']=$query->row();
 	
 	$data['cat_detail']=$this->sm->get_categoriesall();
+	$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
 	$this->load->view('services/edit-category',$data);
 }
 
@@ -127,6 +153,9 @@ public function editsubcategory(){
     $data['result']=$query->row();
 	
 	$data['cat_detail']=$this->sm->get_categoriesall();
+	$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
 	$this->load->view('services/edit-subcategory',$data);
 }
 
@@ -428,7 +457,10 @@ public function listcategory(){
 	$this->pagination->initialize($config);
 	$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 	$data["links"] = $this->pagination->create_links();	
-	$data['result']=$this->sm->get_categories($config["per_page"], $page);	
+	$data['result']=$this->sm->get_categories($config["per_page"], $page);
+	$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();	
 	$this->load->view('services/listcategory',$data);
 }
 
@@ -494,6 +526,9 @@ $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_enquiries($config["per_page"],$page);
+$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
 $this->load->view('services/listenquiries',$data);	
 }
 
@@ -527,7 +562,10 @@ $config["uri_segment"] = 3;
 $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
-$data['result']=$this->sm->get_contactenquiries($config["per_page"],$page);	
+$data['result']=$this->sm->get_contactenquiries($config["per_page"],$page);
+$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();	
 $this->load->view('services/listcontactenquiries',$data);
 }
 
@@ -905,6 +943,9 @@ $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_services($config["per_page"],$page);
+$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
 $this->load->view('services/listservices',$data);	
 
 
@@ -937,7 +978,31 @@ $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_aboutusadmin();
+$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
 $this->load->view('services/listaboutus',$data);	
+
+
+}
+
+public function listhomepage(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+$config = array();
+$config["base_url"] = base_url() . "Welcome/listhomepage";
+$config["total_rows"] = $this->sm->get_countservices();
+$config["per_page"] = 10;
+$config["uri_segment"] = 3;
+$this->pagination->initialize($config);
+$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+$data["links"] = $this->pagination->create_links();	
+$data['result']=$this->sm->get_homepageadmin();
+$this->load->view('services/listhomepage',$data);	
 
 
 }
@@ -949,6 +1014,9 @@ public function listcontactus(){
 	  redirect("welcome/services");
 	}
 	$data['result']=$this->sm->get_contactus();
+	$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
 	$this->load->view('services/listcontactus',$data);	
 
 }
@@ -990,6 +1058,9 @@ $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_blogadmin($config["per_page"],$page);
+$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
 $this->load->view('services/listblog',$data);	
 
 
@@ -1011,6 +1082,9 @@ $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_testimonialsadmin($config["per_page"],$page);
+$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
 $this->load->view('services/listtestimonials',$data);
 }
 
@@ -1358,6 +1432,9 @@ public function edittestimonialsprocess(){
 public function listblogpage(){
 
 	$data['result']=$this->sm->get_blogpagedetails();
+	$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
 
 	$this->load->view('services/listblogpage',$data);
 

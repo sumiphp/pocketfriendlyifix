@@ -380,7 +380,14 @@ function get_homepage(){
 
 
 }
+function get_homepageadmin(){
+    $this->db->select('*');
+    $this->db->from('homepage');
+    $query = $this->db->get();
+    return $query->result_array();
 
+
+}
 
 }
 ?>

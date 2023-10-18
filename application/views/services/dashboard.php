@@ -171,8 +171,8 @@
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/3.png';?>" alt="">
                                                             <div class="media-body pl-3">
-                                                                <h2><?php echo $rowcountblog;?></h2>
-                                                                <h6 class="text-uppercase text-white">ALL Products</h6>
+                                                                <h2><?php echo $rowcountenquiries;?></h2>
+                                                                <h6 class="text-uppercase text-white">Enquiries</h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -186,8 +186,8 @@
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/3.png';?>" alt="">
                                                             <div class="media-body pl-3">
-                                                                <h2>520</h2>
-                                                                <h6 class="text-uppercase text-white">Our Customers</h6>
+                                                                <h2><?php echo $rowcountcontactenquiries;?></h2>
+                                                                <h6 class="text-uppercase text-white">Contact Enquiries</h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -216,8 +216,8 @@
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/4.png';?>" alt="">
                                                             <div class="media-body pl-3">
-                                                                <h2>520</h2>
-                                                                <h6 class="text-uppercase text-white">Total Sales</h6>
+                                                                <h2><?php echo $rowcounttestimonials;?></h2>
+                                                                <h6 class="text-uppercase text-white">Testimonials</h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -232,7 +232,7 @@
                                         <h2>Ask pocket Friendly for Help 24/7</h2>
                                         <h6>Get In Touch : </h6>
                                       
-                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                        <div class="number-block"> <a href="tel:+ +<?php echo $resultphone->phoneno;?>"> +<?php echo $resultphone->phoneno;?> </a>  
                                            </div>
                                         </div>
                                   

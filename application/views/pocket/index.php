@@ -144,7 +144,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="about-content">
-                               <p><?php //echo $about->aboutcompany;?></p>
+                               <p><?php echo $about->aboutcompany;?></p>
                             
                             <h2><?php echo $resulthome->qualitytitle;?></h2>
                             <div class="row">
