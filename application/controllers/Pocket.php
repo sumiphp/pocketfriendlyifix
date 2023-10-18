@@ -43,6 +43,7 @@ class Pocket extends CI_Controller {
 		$data['contactus']=$this->sm->get_contactus();
 		$data['newsletter']=$this->sm->get_newsletter();
 		$data['featureupdate']=$this->sm->get_featureupdate();
+		$data['resulthome']=$this->sm->get_homepage();
 		$this->load->view('pocket/index.php',$data);
 	}
 
@@ -227,7 +228,7 @@ public function servicedetails(){
 
 public function newslettersubscribe(){
 	
-	$newsletteremailid=$this->input->post('EMAIL1');
+	$newsletteremailid=$this->input->post('emailidnews');
 	$data=array('subscribeemailid'=>$newsletteremailid);
 	$this->db->insert('newslettersubscribe', $data);
 	echo ($this->db->affected_rows() != 1) ? 'Error in Subscription' : 'Your emailid subscribed Successfully';

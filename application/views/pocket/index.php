@@ -33,9 +33,10 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-6 ">
                             <div class="start-business">
-                                <h2>START <br> YOUR BUSINESS</h2>
-                                <p>For AED $99</p>
-                                <img src="<?php echo base_url().'assets/img/home-img.png';?>">
+                                <!--<h2>START <br> YOUR BUSINESS</h2>-->
+                                <h2><?php echo $resulthome->title1;?></h2>
+                                <p><?php echo $resulthome->title2;?></p>
+                                <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->homepageimg1;?>">
 
                             </div>
                          </div>
@@ -135,7 +136,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="about-img-sec">
-                                <img src="<?php echo base_url().'pockets/assets/img/gif.gif';?>" class="w-100">
+                                <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->homepageimg2;?>" class="w-100">
                             </div>
                             <div class="about-img-sec taC">
                                 <img src="<?php echo base_url().'pockets/assets/img/about-img2.png';?>">
@@ -143,9 +144,9 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="about-content">
-                               <p><?php echo $about->aboutcompany;?></p>
+                               <p><?php //echo $about->aboutcompany;?></p>
                             
-                            <h2>Distinguishing Qualities that Set Us Apart</h2>
+                            <h2><?php echo $resulthome->qualitytitle;?></h2>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 about-list-sec">
                                     <p><i class='bx bxs-chevrons-right'></i> Excellence</p>
@@ -184,16 +185,16 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="service-content">
-                                <h2>Get the Families to Reach Your Business</h2>
-                                <h3 class="small_gradient_Text">ADE 99*</h3>
-                                <h1 class="gradient_Text">Only Web design Development & Implement</h1>
+                                <h2><?php echo $resulthome->servicetitle1;?></h2>
+                                <h3 class="small_gradient_Text"><?php echo $resulthome->servicetitle2;?></h3>
+                                <h1 class="gradient_Text"><?php echo $resulthome->servicetitle3;?></h1>
                                 
                             </div>
                            
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="service-img taC">
-                                <img src="<?php echo base_url().'assets/img/service-img.png';?>" >
+                                <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->serviceimg;?>" >
                             </div>
                         </div>
 

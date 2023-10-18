@@ -194,7 +194,7 @@ function get_blogcontents(){
 
 function get_blogcontentstop(){
 
-    $this->db->where('toparticle',1);
+    $this->db->where('toparticle','Yes');
     $this->db->select('*');
     $this->db->from('blogcontents');
     $query = $this->db->get();
@@ -369,6 +369,15 @@ function get_problems(){
     $this->db->from('problems');
     $query = $this->db->get();
     return $query->result_array();
+
+}
+
+function get_homepage(){
+    $this->db->select('*');
+    $this->db->from('homepage');
+    $query = $this->db->get();
+    return $query->row();
+
 
 }
 

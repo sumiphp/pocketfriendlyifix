@@ -258,17 +258,7 @@ function upload_filecatedit() {
 	 echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Category not edited') : $this->session->set_flashdata('flash_msg', 'Category edited successfully');
 
 
-
-
-
 }
-
-
-
-
-
-
-
 
 
 
@@ -323,21 +313,7 @@ function upload_filesub() {
 
 
 
-
-
-
-
-	/*$productcategory=$this->input->post('productcategory');
-	$productdesc=$this->input->post('productdescription');
-	$productimg=$_FILES['file']['name'];
-	$data = array(
-		'categoryname' =>"$productcategory",
-		'categorydescription' =>"$productdesc",
-		'categoryimage'=>$productimg		
-	 );
-	 $this->db->insert('category', $data);
-	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product' : '<b>Product Category added Successfully</b>';
-	 */
+	
 	$productimg=$_FILES['filesub']['name'];
 	$productimgsub=$_FILES['filesubimg']['name'];
 	 $productcategory=$this->input->post('prdcat');
@@ -432,30 +408,7 @@ function upload_filesubedit() {
 
 
 
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -623,7 +576,22 @@ function edittestimonials(){
 
 
 }
+function editblog(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$blogid=$this->uri->segment(3);
+	$this->load->model('Servicesmodel');
+	$this->db->where('contentid',$blogid);
+	$this->db->from('blogcontents');
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$this->load->view('services/editblogcontents',$data);
 
+
+}
 
 
 
@@ -643,7 +611,21 @@ function addblogcontent(){
 
 
 }
+function editblogcontent(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$blogid=$this->uri->segment(3);
+	$this->db->from('blogcontents');
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$this->load->view('services/editblogcontent',$data);
 
+
+}
 
 
 
@@ -1000,9 +982,9 @@ public function listblogcontents(){
 	  redirect("welcome/services");
 	}
 $config = array();
-$config["base_url"] = base_url() . "Welcome/listblog";
+$config["base_url"] = base_url() . "Welcome/listblogcontents";
 $config["total_rows"] = $this->sm->get_countblog();
-$config["per_page"] = 10;
+$config["per_page"] = 5;
 $config["uri_segment"] = 3;
 $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -1073,24 +1055,7 @@ public function addtestimonialsprocess(){
 	
 	
 
-	/*if (isset($_FILES['image2']['name'])) {
-		if (0 < $_FILES['image2']['error']) {
-			echo 'Error during file upload' . $_FILES['image2']['error'];
-		} else {
-			if (file_exists('uploads/' . $_FILES['image2']['name'])) {
-				echo 'File already exists : uploads/' . $_FILES['image2']['name'];
-			} else {
-				
-				if (!$this->upload->do_upload('image2')) {
-					//echo $this->upload->display_errors();
-				} else {
-					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
-				}
-			}
-		}
-	} else {
-		echo 'Please choose a file';
-	}*/
+	
 	$image1=$_FILES['image1']['name'];
 	//$image2=$_FILES['image2']['name'];
 
@@ -1141,7 +1106,7 @@ public function addblogcontentsprocess(){
 		if (0 < $_FILES['image1']['error']) {
 			echo 'Error during file upload' . $_FILES['image1']['error'];
 		} else {
-			if (file_exists('uploads/' . $_FILES['image1']['name'])) {
+			if (file_exists('uploads/blog' . $_FILES['image1']['name'])) {
 				echo 'File already exists : uploads/blog' . $_FILES['image1']['name'];
 			} else {
 				
@@ -1155,35 +1120,185 @@ public function addblogcontentsprocess(){
 	} else {
 		echo 'Please choose a file';
 	}
-	
+	if (isset($_FILES['image2']['name'])) {
+		if (0 < $_FILES['image2']['error']) {
+			echo 'Error during file upload' . $_FILES['image2']['error'];
+		} else {
+			if (file_exists('uploads/blog' . $_FILES['image2']['name'])) {
+				echo 'File already exists : uploads/blog' . $_FILES['image2']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image2')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
 	
 
 	
 	$image1=$_FILES['image1']['name'];
-	//$image2=$_FILES['image2']['name'];
+	$image2=$_FILES['image2']['name'];
 
-	 $testtitle=$this->input->post('testtitle');
-	 $rating=$this->input->post('rating');
+	 $blogtitle=$this->input->post('blogtitle');
+	 $toparticle=$this->input->post('toparticle');
 	 $description=$this->input->post('description');
 	 $name=$this->input->post('name');
-	  $toparticle=$this->input->post('toparticle');
+	 $place=$this->input->post('place');
+	  $companyname=$this->input->post('companyname');
 	  $date=$this->input->post('date');
 	 $data = array(
+		'place'=>"$place",
+		'companyname'=>$companyname,
 		 'description' =>"$description",
-		 //'rating' =>"$rating",
+		'toparticle' =>"$toparticle",
 		 'authorname'=>"$name",
-		 'autorimage'=>$image1,'toparticle'=>$toparticle,'date'=>$date,'title'=>$testtitle,'contentimage'=>$image1		
+		 'autorimage'=>$image1,'toparticle'=>$toparticle,'date'=>$date,'title'=>$blogtitle,'contentimage'=>$image2		
 	  );
-	  $id=$this->uri->segment(3); 
-	  $this->db->where('contentid',$id);
-	   $this->db->update('blogcontents', $data);
+	  //$id=$this->uri->segment(3); 
+	  //$this->db->where('contentid',$id);
+	   $this->db->insert('blogcontents', $data);
 
-	  echo ($this->db->affected_rows() != 1) ? 'Error in Editing Blogs' : '<b>Blogs Edited Successfully</b>';
+	  echo ($this->db->affected_rows() != 1) ? 'Error in Adding Blogs' : '<b>Blog Added Successfully</b>';
 
 
 
 
 }
+
+
+public function editblogcontentsprocess(){
+
+	$config['upload_path'] = 'uploads/blog';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/blog' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/blog' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+	if (isset($_FILES['image2']['name'])) {
+		if (0 < $_FILES['image2']['error']) {
+			echo 'Error during file upload' . $_FILES['image2']['error'];
+		} else {
+			if (file_exists('uploads/blog' . $_FILES['image2']['name'])) {
+				echo 'File already exists : uploads/blog' . $_FILES['image2']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image2')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+	
+
+	
+	$image1=$_FILES['image1']['name'];
+	$image2=$_FILES['image2']['name'];
+
+	 $blogtitle=$this->input->post('blogtitle');
+	 $toparticle=$this->input->post('toparticle');
+	 $description=$this->input->post('description');
+	 $name=$this->input->post('name');
+	 $place=$this->input->post('place');
+	  $companyname=$this->input->post('companyname');
+	  $date=$this->input->post('date');
+	  if (($image1!='') && ($image2!='')){
+
+		$data = array(
+			'place'=>"$place",
+			'companyname'=>$companyname,
+			 'description' =>"$description",
+			'toparticle' =>"$toparticle",
+			 'authorname'=>"$name",
+			 'autorimage'=>$image1,'toparticle'=>$toparticle,'date'=>$date,'title'=>$blogtitle,'contentimage'=>$image2		
+		  );
+
+	  }else if ($image2!=''){
+
+		$data = array(
+			'place'=>"$place",
+			'companyname'=>$companyname,
+			 'description' =>"$description",
+			'toparticle' =>"$toparticle",
+			 'authorname'=>"$name",
+			 'toparticle'=>$toparticle,'date'=>$date,'title'=>$blogtitle,'contentimage'=>$image2		
+		  );
+
+
+	  }else if ($image1!=''){
+		$data = array(
+			'place'=>"$place",
+			'companyname'=>$companyname,
+			 'description' =>"$description",
+			'toparticle' =>"$toparticle",
+			 'authorname'=>"$name",
+			 'toparticle'=>$toparticle,'date'=>$date,'title'=>$blogtitle,'autorimage'=>$image1		
+		  );
+
+
+	  }else{
+		$data = array(
+			'place'=>"$place",
+			'companyname'=>$companyname,
+			 'description' =>"$description",
+			'toparticle' =>"$toparticle",
+			 'authorname'=>"$name",
+			 'toparticle'=>$toparticle,'date'=>$date,'title'=>$blogtitle		
+		  );
+
+
+	  }
+	 
+	  $id=$this->input->post('blogid'); 
+	  $this->db->where('contentid',$id);
+	   $this->db->update('blogcontents', $data);
+	   //echo $this->db->last_query();
+
+	  echo ($this->db->affected_rows() != 1) ? 'Error in Editing Blogs' : '<b>Blog Edited Successfully</b>';
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 public function edittestimonialsprocess(){
@@ -1333,8 +1448,8 @@ function editblogpageprocess(){
 
 	 //echo ($this->db->affected_rows() != 1) ? 'Error in Editing Newsletter' : '<b>Newsletter Edited Successfully</b>';
 
-	 echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Blog page not edited') : $this->session->set_flashdata('flash_msg', 'Blog Page edited successfully');;
-
+	 //echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Blog page not edited') : $this->session->set_flashdata('flash_msg', 'Blog Page edited successfully');;
+	 echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Blog page not edited') : $this->session->set_flashdata('flash_msg', 'Blog Page edited successfully');
 
 }
 
@@ -1352,6 +1467,50 @@ function editblogpage(){
 
 
 }
+
+function editcontactus(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$blogid=$this->uri->segment(3);
+	$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$this->load->view('services/editcontactus',$data);
+
+
+}
+
+
+function contactusprocess(){
+	$description=$this->input->post('description');
+	$phoneno=$this->input->post('phoneno');
+	 $emailid=$this->input->post('emailid');
+	 $place=$this->input->post('place');
+	 $country=$this->input->post('country');
+	$data = array(
+		'contactusdescription' =>"$description",
+		'phoneno' =>"$phoneno",
+		'emailid'=>"$emailid",
+		//'image'=>$image1,
+		'city'=>$place,'country'=>$country,
+		//'title'=>$testtitle		
+	 );
+	 //$id=$this->uri->segment(3); 
+	 //$this->db->where('blogid',$id);
+	  $this->db->update('contactus', $data);
+
+	 //echo ($this->db->affected_rows() != 1) ? 'Error in Editing Newsletter' : '<b>Newsletter Edited Successfully</b>';
+
+	 //echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Blog page not edited') : $this->session->set_flashdata('flash_msg', 'Blog Page edited successfully');;
+	 echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Contact us page not edited') : $this->session->set_flashdata('flash_msg', 'Contact us Page edited successfully');
+
+}
+
+
 
 
 

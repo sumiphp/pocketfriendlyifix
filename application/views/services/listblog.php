@@ -111,6 +111,8 @@
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Company Name</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Author Image</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Content Image</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Author Name</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Place</th>
                                                            <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
                                                   </thead>
                                                   <tbody>
@@ -130,9 +132,13 @@
                                                     <img src="<?php echo base_url().'uploads/blog/'.$res['autorimage'];?>" />
                                                     </td>
                                                       <td> <img src="<?php echo base_url().'uploads/blog/'.$res['contentimage'];?>" /></td>
-                                                      <td> 
+                                                      <td> <?php echo $res['authorname'];?>
+                                                    </td>
+                                                    <td> <?php echo $res['place'];?>
+                                                    </td>
+                                                    <td>
                                                         <ul class="action"> 
-                                                        <li class="edit"> <a href="<?php echo base_url().'Welcome/editblogpage/'.$res['contentid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
+                                                        <li class="edit"> <a href="<?php echo base_url().'Welcome/editblogcontent/'.$res['contentid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
                                                           <li class="delete"><a href="#" onclick="delblog(<?php echo $res['contentid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
                                                           <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
                                                         </ul>
@@ -156,7 +162,7 @@
                            
                                 <div class="row bg-row">
                                     <div class="col-md-5 col-lg-5 pocket-help">
-                                        <h2>Ask pocket Friendly for Help 24/7---</h2>
+                                        <h2>Ask pocket Friendly for Help 24/7</h2>
                                         <h6>Get In Touch : </h6>
                                       
                                         <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  

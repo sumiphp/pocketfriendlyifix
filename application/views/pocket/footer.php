@@ -1,4 +1,11 @@
 <!-- Footer Area -->
+<style>
+.newsletter-form1{position: relative;
+  max-width: 370px;
+  border-radius: 50px;
+}
+
+</style>
 <footer id="footer" class="footer-area-bg">
             <div class="footer-newletter-area">
                 <div class="container">
@@ -11,7 +18,7 @@
                             <div class="newsletter-area">
                                 <span id="newsmsg"></span>
                                 <form class="newsletter-form" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
-                                    <input type="email" class="form-control" placeholder="Enter Your Email" name="EMAIL1" required />
+                                    <input type="email" class="form-control" placeholder="Enter Your Email" name="emailidnews"  id="emailnews" required />
                                     <button class="subscribe-btn" type="submit">
                                         Subscribe
                                     </button>
@@ -186,18 +193,19 @@
 
 
 <script>
-   $(function() {
-        $("#frmemail").on('submit', function(e) {
+   //$(function() {
+        $("#frmemail1").on('submit', function(e) {
+            alert("enter");
             e.preventDefault();
             var Form = $(this);
             $.ajax({
                 url: Form.attr('action'),
                 type: 'post',
                 data: Form.serialize(),
-                /*processData: false,
+                processData: false,
         contentType: false,
         cache:false,
-        async:false,*/
+        async:false,
                 success: function(response){                   
      $('input[type=email]').each(function() {
         $(this).val('');
@@ -207,6 +215,44 @@
                 }
             });
         });
+    //});
+
+    $('#frmemail').on('submit', function (e) {
+    e.preventDefault();
+    
+        var emailnews=$("#emailnews").val();
+        
+        var form_data = new FormData();
+       
+        form_data.append('emailidnews',emailnews);
+       
+       
+        $.ajax({
+            url: "<?php echo base_url().'Pocket/newslettersubscribe';?>", // point to server-side controller method
+            dataType: 'text', // what to expect back from the server
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function (response) {
+                //$('#image1').val('');
+                //$('#date').val('');
+                $('#emailnews').val('');
+                $('input[type=email]').each(function() {
+        $(this).val('');
+    });   
+      $("#newsmsg").html(response);  
+            },
+            error: function (response) {
+                //$('#testmsg').html(response); // display error response from the server
+                $("#newsmsg").html(response);  
+            }
+        });
     });
+
+
+
+
 
     </script>

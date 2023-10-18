@@ -83,16 +83,16 @@
                         </div>
                         </div>
 
-                        <div class="col-lg-2 col-md-2 col-sm-2">
+                        <!--<div class="col-lg-2 col-md-2 col-sm-2">
                             <div class="left-social-media menu-btn">
                                    <a href="https://www.linkedin.com/in/pocketfriendly-web/" class="seo-btn">Linkedin</a>
                                    <a href="https://instagram.com/pocketfriendlyweb?igshid=MmU2YjMzNjRlOQ==" class="seo-btn">Instagram</a>
                             </div>
                             <div class="share-sec">
-                                <a href="#" class="whatsapp-icon"><img src="<?php echo base_url().'pockets/assets/img/about/call-icon.png';?>"></a>
-                                <a href="#" class="whatsapp-icon"><img src="<?php echo base_url().'pockets/assets/img/about/whataspp-icon.png';?>"></a>
+                                <a href="#" class="whatsapp-icon"><img src="<?php //echo base_url().'pockets/assets/img/about/call-icon.png';?>"></a>
+                                <a href="#" class="whatsapp-icon"><img src="<?php //echo base_url().'pockets/assets/img/about/whataspp-icon.png';?>"></a>
                             </div>
-                        </div>
+                        </div>-->
 
                     </div>
                 </div>
@@ -142,8 +142,7 @@
             </div>
         </div>
     </section>
-
-    
+   
 
 
        

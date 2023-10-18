@@ -57,7 +57,7 @@
                 <div class="dashboard-innerbox">
                 
                             <div class="inner-page-sec">
-                            <span id="testmsg"></span><br>
+                            <span id="blogmsg"></span><br>
                               <div class="description-sec">
                                 <h2>Add Blog Contents</h2>
                                 <div class="row">
@@ -65,83 +65,68 @@
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
-                                                    <form id="addtestimonial" class="rounded-form" method="post" >
+                                                    <form id="addblogcontents" class="rounded-form" method="post" >
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Blog Content Title:</label>
-                                                              <input type="text" class="form-control" id="testtitle" name="testtitle" placeholder="Blog Content Title">
+                                                              <input type="text" class="form-control" id="blogtitle" name="blogtitle" placeholder="Blog Content Title" required>
                                           
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="company-logo" class="form-label text-primary">Author Image:</label>
-                                                              <input type="file" class="form-control" id="image1" name="image1">
+                                                              <input type="file" class="form-control" id="image1" name="image1" required>
                                                           </div>
                                                       </div>
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="contact-person" class="form-label text-primary">Top Article:</label>
-                                                              <input type="text" class="form-control" id="toparticle" name="toparticle" placeholder="Enter Top Article">
+                                                              <!--<input type="text" class="form-control" id="toparticle" name="toparticle" placeholder="Enter Top Article">-->
+                                                              <select class="form-control" id="toparticle" name="toparticle" required>
+                                                                <option value=''>Select</option>
+                                                                <option value='Yes'>Yes</option>
+                                                              <option value='No'>No</option>
+                                                            </select>
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Date Posted:</label>
-                                                              <input type="date" class="form-control" id="date" name="date">
+                                                              <input type="date" class="form-control" id="date" name="date" required>
                                                           </div>
                                                       </div>
                                                       <div class="row mb-3">
                                                       <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Name:</label>
-                                                              <input type="text" class="form-control" id="name" name="name">
+                                                              <input type="text" class="form-control" id="name" name="name" required>
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="contact-person" class="form-label text-primary">Place:</label>
-                                                              <input type="text" class="form-control" id="place" name="place" placeholder="Enter Place">
+                                                              <input type="text" class="form-control" id="place" name="place" placeholder="Enter Place" required>
                                                           </div>
                                                           
                                                       </div>
-                                                      <!--<div class="row mb-3">
+
+                                                      <div class="row mb-3">
                                                           <div class="col-md-6">
-                                                              <label for="contact-number-1" class="form-label text-primary">Contact Number 1:</label>
-                                                              <div class="input-group">
-                                                                  <input type="tel" class="form-control" id="contact-number-1" name="contact-number-1" placeholder="Enter contact number 1">
-                                                                  <div class="input-group-append">
-                                                                      <div class="form-check mx-3">
-                                                                          <input class="form-check-input" type="checkbox" id="whatsapp-1" name="whatsapp-1">
-                                                                          <label class="form-check-label" for="whatsapp-1">WhatsApp</label>
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
+                                                              <label for="company-name" class="form-label text-primary">Author Company Name:</label>
+                                                              <input type="text" class="form-control" id="companyname" name="companyname" placeholder="Company Name" required>
+                                          
                                                           </div>
                                                           <div class="col-md-6">
-                                                              <label for="contact-number-2" class="form-label text-primary">Contact Number 2:</label>
-                                                              <div class="input-group">
-                                                                  <input type="tel" class="form-control" id="contact-number-2" name="contact-number-2" placeholder="Enter contact number 2">
-                                                                  <div class="input-group-append">
-                                                                      <div class="form-check mx-3">
-                                                                          <input class="form-check-input" type="checkbox" id="whatsapp-2" name="whatsapp-2">
-                                                                          <label class="form-check-label" for="whatsapp-2">WhatsApp</label>
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
+                                                              <label for="company-logo" class="form-label text-primary">Article Image:</label>
+                                                              <input type="file" class="form-control" id="image2" name="image2" required>
                                                           </div>
-                                                      </div>-->
+                                                      </div>
+
+
+                                                      
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Blog description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Blog description"></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Blog description" required></textarea>
                                                       </div>
-                                                      <!---<div class="row mb-3">
-                                                          <div class="col-md-6">
-                                                              <label for="email" class="form-label text-primary">Email:</label>
-                                                              <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <label for="website" class="form-label text-primary">Website:</label>
-                                                              <input type="url" class="form-control" id="website" name="website" placeholder="Enter website">
-                                                          </div>
-                                                      </div>--->
+                                                      
                                                       
                                                       <a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listblogcontents';?>" data-bs-original-title="" title="">View/Edit  </a>
                                                       
-                                                      <button type="button" class="btn btn-primary" id="uploadsub" >Submit</button>
+                                                      <button type="submit" class="btn btn-primary" id="uploadsub" >Submit</button>
                                                   </form>
 
                                                 </div>
@@ -193,27 +178,29 @@
         <!-- Custom JS -->
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
         <script>
-$('#uploadsub').on('click', function (e) {
+$('#addblogcontents').on('submit', function (e) {
     e.preventDefault();
     //alert("enter");
         var file_data1 = $('#image1').prop('files')[0];
-        //var file_data2 = $('#image2').prop('files')[0];
-        var testtitle=$('#testtitle').val();
-        var rating=$("#rating").val();
+        var file_data2 = $('#image2').prop('files')[0];
+        var blogtitle=$('#blogtitle').val();
+        var toparticle=$("#toparticle").val();
         var description=$("#description").val();
         var name=$("#name").val();
         var place=$("#place").val();
         var date=$("#date").val();
+        var companyname=$("#companyname").val();
         
         var form_data = new FormData();
         form_data.append('image1', file_data1);
-        //form_data.append('image2', file_data2);
-        form_data.append('testtitle',testtitle);
-        form_data.append('rating',rating);
+        form_data.append('image2', file_data2);
+        form_data.append('blogtitle',blogtitle);
+        form_data.append('toparticle',toparticle);
         form_data.append('description',description);
         form_data.append('name',name);
         form_data.append('place',place);
         form_data.append('date',date);
+        form_data.append('companyname',companyname);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/addblogcontentsprocess';?>", // point to server-side controller method
@@ -225,15 +212,20 @@ $('#uploadsub').on('click', function (e) {
             type: 'post',
             success: function (response) {
                 $('#image1').val('');
+                $('#image2').val('');
+                $('#blogtitle').val('');
+                $('#toparticle').val('');
                 $('#date').val('');
+                $('#name').val('');
+                $('#place').val('');
                 $('#description').val('');
                 $('input[type=text]').each(function() {
         $(this).val('');
     });
-                $('#testmsg').html(response); // display success response from the server
+                $('#blogmsg').html(response); // display success response from the server
             },
             error: function (response) {
-                $('#testmsg').html(response); // display error response from the server
+                $('#blogmsg').html(response); // display error response from the server
             }
         });
     });

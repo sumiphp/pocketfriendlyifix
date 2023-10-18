@@ -17,7 +17,7 @@
                               <ul class="sub-menu">
                                 <li><a class="link_name" href="#">Category</a></li>
                                 <li><a href="#">Site Address Info </a></li>
-                                <li><a href="core-content-email.html">Site Emails / Contact Deatils </a></li>
+                                <li><a href="#">Site Emails / Contact Deatils </a></li>
                                 <li><a href="#">Social Media Links / Meta Tages</a></li>
                                 <li><a href="#"> Analytics Code / Assets / Js</a></li>
                               </ul>
@@ -65,7 +65,7 @@
                             </li>
 
                             <li>
-                                <a href="add-clients.php">
+                                <a href="#">
                                   <i class='bx bx-compass'></i>
                                   <span class="link_name">Add Client</span>
                                 </a>
