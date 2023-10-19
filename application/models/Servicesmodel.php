@@ -389,5 +389,23 @@ function get_homepageadmin(){
 
 }
 
+function get_countsolutions(){
+    $this->db->select('*');
+    $this->db->from('problems');
+    $query = $this->db->get();
+    return $rowcount = $query->num_rows();
+
+}
+
+function get_solutions($limit,$start){
+    $this->db->limit($limit,$start);
+    $this->db->select('*');
+    $this->db->from('problems');
+    $query = $this->db->get();
+    return $query->result_array();
+    
+}
+
+
 }
 ?>

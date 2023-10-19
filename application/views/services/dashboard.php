@@ -36,9 +36,9 @@
 
     <body>
         <!-- Start Preloader -->
-        <div class="preloader">
+        <!--<div class="preloader">
             <div class="preloader-wave"></div>
-        </div>
+        </div>-->
         <!-- End Preloader -->
 
 

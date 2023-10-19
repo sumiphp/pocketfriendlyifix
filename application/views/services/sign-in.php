@@ -36,9 +36,9 @@
 
     <body>
         <!-- Start Preloader -->
-        <div class="preloader">
+        <!--<div class="preloader">
             <div class="preloader-wave"></div>
-        </div>
+        </div>-->
         <!-- End Preloader -->
 
       
@@ -102,14 +102,14 @@
 								</button>
 							</div>
 
-							<div class="col-12">
+							<!--<div class="col-12">
                                 <div class="content">
                                     <p class="or">or Login</p>
                                   </div>
-								<!-- <p class="account-desc">
+								 <p class="account-desc">
 									Not a member?
 									<a href="#">Sign Up</a>
-								</p> -->
+								</p> 
 							</div>
 
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -123,7 +123,7 @@
                                     <i class='bx bxl-facebook-circle'></i>
                                     <p>Facebook</p> 
                                 </button>
-                            </div>
+                            </div>-->
 						</div>
 					</form>
 				</div>
@@ -142,7 +142,8 @@
 		<!-- End Sign In Area -->
 
         <!-- Footer Area -->
-        <footer id="footer" class="footer-area-bg">
+         <!-- Footer Area -->
+         <footer id="footer" class="footer-area-bg">
             <div class="footer-newletter-area">
                 <div class="container">
                     <div class="row">
@@ -168,16 +169,16 @@
                             <div class="footer-service-icon">
                                 <div class="row">
                                     <div class="col-md-3 col-lg-3 feature-updates">
-                                        <img src="<?php echo base_url().'assets/img/login-img.png';?>">
+                                        <img src="<?php echo base_url().'assets/img/footer-1.png';?>">
                                     </div>
                                     <div class="col-md-3 col-lg-3 feature-updates">
-                                        <img src="<?php echo base_url().'assets/img/login-img.png';?>">
+                                        <img src="<?php echo base_url().'assets/img/footer-2.png';?>">
                                     </div>
                                     <div class="col-md-3 col-lg-3 feature-updates">
-                                        <img src="<?php echo base_url().'assets/img/login-img.png';?>">
+                                        <img src="<?php echo base_url().'assets/img/footer-3.png';?>">
                                     </div>
                                     <div class="col-md-3 col-lg-3 feature-updates">
-                                        <img src="<?php echo base_url().'assets/img/login-img.png';?>">
+                                        <img src="<?php echo base_url().'assets/img/footer-4.png';?>">
                                     </div>
                                 </div>
                                 
@@ -197,11 +198,10 @@
                             <div class="footer-single">
                                 <div class="footer-single-content">
                                     <a href="#">
-                                        <img src="<?php echo base_url().'assets/img/login-img.png';?>
-                                        " alt="Logo">
+                                        <img src="<?php echo base_url().'assets/img/footer-logo.png';?>" alt="Logo">
                                     </a>
                                     <div class="share-icon">
-                                        <img src="<?php echo base_url().'assets/img/login-img.png';?>">
+                                        <img src="<?php echo base_url().'assets/img/share-icon.png';?>">
                                     </div>
                                    
                                 </div>
@@ -290,7 +290,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-12">
                            <div class="location-map">
-                            <img src="<?php echo base_url().'assets/img/location.png';?>">
+                            <img src="<?php echo base_url().'assets/img/location.png';?>" />
                            </div>
                         </div>
                     </div>
@@ -320,5 +320,8 @@
         <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
         <!-- Custom JS -->
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
+
+
+        
     </body>
 </html>

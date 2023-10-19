@@ -2765,3 +2765,11 @@ div.pagination strong {
   text-align: center;
   display: block;
 }
+
+.icon-main-area {
+  margin-bottom: 40px;
+}
+
+.elementor-element {
+  margin-bottom: 40px;
+}

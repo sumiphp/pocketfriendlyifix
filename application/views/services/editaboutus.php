@@ -35,7 +35,7 @@
 
     <body>
         <!-- Start Preloader -->
-         <!--<div class="preloader">
+        <!--<div class="preloader">
             <div class="preloader-wave"></div>
         </div>-->
         <!-- End Preloader -->
@@ -58,47 +58,112 @@
                 <span id="sermsg"></span><br>
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2>Edit Services</h2>
+                                <h2>Edit About Us</h2>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
-                                                    <form id="addservices" class="rounded-form" method="post" >
+                                                    <form id="editaboutus" class="rounded-form" method="post" >
                                                       <div class="row mb-3">
-                                                          <div class="col-md-6">
-                                                              <label for="company-name" class="form-label text-primary">Main Title:</label>
-                                                              <input type="text" class="form-control" id="maintitle" name="maintitle" required placeholder="Enter Main Title" value="<?php echo $result->maintitle;?>">
+                                                         <div class="col-md-6">
+                                                              <label for="company-name" class="form-label text-primary">About Us Title:</label>
+                                                              <input type="text" class="form-control" id="maintitle" name="maintitle" required placeholder="Enter About Us Title" value="<?php echo $result->title;?>">
                                           
                                                           </div>
                                                           <div class="col-md-6">
 
-                                                          <label for="contact-person" class="form-label text-primary">Subtitle:</label>
-                                                              <input type="text" class="form-control" id="subtitle" name="subtitle" required placeholder="Enter Sub Title" value="<?php echo $result->subtitle;?>">
-
-
-                                                             
+                                                          <label for="contact-person" class="form-label text-primary">About Us Banner :</label>
+                                                          <input type="file" class="form-control" id="aboutusbanner" name="aboutusbanner">
+                                                              <img src="<?php echo base_url().'uploads/aboutus/'.$result->aboutusbanner;?>" width="50" height="50" />                                                             
                                                           </div>
                                                       </div>
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
-                                                          <label for="company-logo" class="form-label text-primary">Image1:</label>
+                                                          <label for="company-logo" class="form-label text-primary">Mission Logo:</label>
                                                               <input type="file" class="form-control" id="image1" name="image1">
-                                                              <img src="<?php echo base_url().'uploads/'.$result->Image1;?>" width="50" height="50" />
+                                                              <img src="<?php echo base_url().'uploads/aboutus/'.$result->missionlogo;?>" width="50" height="50" />
 
 
                                                           </div>
                                                           <div class="col-md-6">
-                                                              <label for="designation" class="form-label text-primary">Image2:</label>
+                                                              <label for="designation" class="form-label text-primary">Vission Logo:</label>
                                                               <input type="file" class="form-control" id="image2" name="image2">
-                                                              <img src="<?php echo base_url().'uploads/'.$result->Image2;?>" width="50" height="50" />
+                                                              <img src="<?php echo base_url().'uploads/aboutus/'.$result->visionlogo;?>" width="50" height="50" />
                                                           </div>
                                                       </div>
+
+                                                     
                                                       
                                                       <div class="mb-3">
-                                                          <label for="address" class="form-label text-primary">Description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required><?php echo $result->description;?></textarea>
+                                                          <label for="address" class="form-label text-primary">About Company:</label>
+                                                          <textarea class="form-control" id="aboutcompany" name="aboutcompany" rows="3" placeholder="About Company" required><?php echo $result->aboutcompany;?></textarea>
                                                       </div>
+                                                      <div class="mb-3">
+                                                          <label for="address" class="form-label text-primary">Enter Mission:</label>
+                                                          <textarea class="form-control" id="aboutcompany" name="aboutcompany" rows="3" placeholder="About Company" required><?php echo $result->aboutcompany;?></textarea>
+                                                      </div>
+                                                      <div class="mb-3">
+                                                          <label for="address" class="form-label text-primary">Enter Vision:</label>
+                                                          <textarea class="form-control" id="aboutcompany" name="aboutcompany" rows="3" placeholder="About Company" required><?php echo $result->aboutcompany;?></textarea>
+                                                      </div>
+
+                                                      <div class="mb-3">
+                                                          <label for="address" class="form-label text-primary">About Company Short Description:</label>
+                                                          <textarea class="form-control" id="aboutcompany" name="aboutcompany" rows="3" placeholder="About Company Short Description" required><?php echo $result->aboutcompany;?></textarea>
+                                                      </div>
+
+
+
+                                                      <div class="row mb-3">
+                                                          <div class="col-md-6">
+                                                          <label for="company-logo" class="form-label text-primary">Enter Years of Experience :</label>
+                                                             
+
+                                                              <input type="text" class="form-control" id="yearsexperience" name="yearsexperience" placeholder="Enter Years of Experience">
+                                                              <!--<img src="<?php //echo base_url().'uploads/'.$result->missionlogo;?>" width="50" height="50" />-->
+
+
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                          <label for="company-logo" class="form-label text-primary">Enter Happy Clients :</label>
+                                                             
+
+                                                              <input type="text" class="form-control" id="yearsexperience" name="yearsexperience" placeholder="Enter Happy Clients">
+                                                              <!--<img src="<?php //echo base_url().'uploads/'.$result->missionlogo;?>" width="50" height="50" />-->
+
+
+                                                          </div>
+                                                      </div>
+
+
+                                                      
+
+                                                      <div class="row mb-3">
+                                                          <div class="col-md-6">
+                                                          <label for="company-logo" class="form-label text-primary"> 	Projects Done :</label>
+                                                             
+
+                                                              <input type="text" class="form-control" id="yearsexperience" name="yearsexperience" placeholder="Enter Years of Experience">
+                                                              <!--<img src="<?php //echo base_url().'uploads/'.$result->missionlogo;?>" width="50" height="50" />-->
+
+
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                          <label for="company-logo" class="form-label text-primary"> 	Expert Members :</label>
+                                                             
+
+                                                              <input type="text" class="form-control" id="expertmembers" name="expertmembers" placeholder="Enter Expert Members">
+                                                              <!--<img src="<?php //echo base_url().'uploads/'.$result->missionlogo;?>" width="50" height="50" />-->
+
+
+                                                          </div>
+                                                      </div>
+                                                     
+
+
+
+
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="email" class="form-label text-primary">Email:</label>
@@ -164,24 +229,36 @@
         <!-- Custom JS -->
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
         <script>
-$('#uploadser').on('click', function (e) {
+$('#editaboutus').on('submit', function (e) {
     e.preventDefault();
     //alert("enter");
         var file_data1 = $('#image1').prop('files')[0];
         var file_data2 = $('#image2').prop('files')[0];
         var maintitle=$('#maintitle').val();
-        var subtitle=$("#subtitle").val();
-        var description=$("#description").val();
+        var aboutcompany=$("#aboutcompany").val();
+        var mission=$("#mission").val();
+        var vision=$("#vision").val();
+        var yearsexperience=$("#yearsexperience").val();
+        var happyclients=$("#happyclients").val();
+        var expertmembers=$("#expertmembers").val(); 
+        var aboutusshortdesc=$("#aboutusshortdesc").val();
+        var projectsdone=$("#projectsdone").val();
         
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         form_data.append('image2', file_data2);
         form_data.append('maintitle',maintitle);
-        form_data.append('subtitle',subtitle);
-        form_data.append('description',description);
+        form_data.append('aboutcompany',aboutcompany);
+        form_data.append('mission',mission);
+        form_data.append('vision', vision);
+        form_data.append('yearsexperience',yearsexperience);
+        form_data.append('happyclients',happyclients);
+        form_data.append('expertmembers',expertmembers);
+        form_data.append('aboutusshortdesc',aboutusshortdesc);
+        form_data.append('projectsdone',projectsdone);
        
         $.ajax({
-            url: "<?php echo base_url().'Welcome/editservicesprocess';?>", // point to server-side controller method
+            url: "<?php echo base_url().'Welcome/editaboutusprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server
             cache: false,
             contentType: false,

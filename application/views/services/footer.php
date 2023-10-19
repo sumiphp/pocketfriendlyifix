@@ -54,10 +54,10 @@
                     <div class="footer-single">
                         <div class="footer-single-content">
                             <a href="#">
-                                <img src="assets/img/footer-logo.png" alt="Logo">
+                                <img src="<?php echo base_url().'assets/img/footer-logo.png';?>" alt="Logo">
                             </a>
                             <div class="share-icon">
-                                <img src="assets/img/share-icon.png">
+                                <img src="<?php echo base_url().'assets/img/share-icon.png';?>">
                             </div>
                            
                         </div>

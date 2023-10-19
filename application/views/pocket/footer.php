@@ -5,6 +5,35 @@
   border-radius: 50px;
 }
 
+.newsletter-form-email{
+    position: absolute;
+  top: 0px;
+  right: -60%;
+  margin: 0;
+  background: #dc3545;
+  color: #fff;
+  height: 46px;
+  line-height: 40px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 2px;
+  font-size: 14px;
+  width: 200px;
+
+
+}
+
+
+..newsletter-form-email .subscribe-btn:hover {
+  background: #070f4d;
+  color: #ffffff;
+}
+..newsletter-form-email .validation-danger {
+  font-size: 18px;
+  margin-top: 5px;
+  color: red;
+}
+
 </style>
 <footer id="footer" class="footer-area-bg">
             <div class="footer-newletter-area">
@@ -17,7 +46,7 @@
                             </div>
                             <div class="newsletter-area">
                                 <span id="newsmsg"></span>
-                                <form class="newsletter-form" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
+                                <form class="newsletter-form-email" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
                                     <input type="email" class="form-control" placeholder="Enter Your Email" name="emailidnews"  id="emailnews" required />
                                     <button class="subscribe-btn" type="submit">
                                         Subscribe

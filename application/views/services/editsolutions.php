@@ -55,50 +55,39 @@
  
 
                 <div class="dashboard-innerbox">
-                
+                <span id="solmsg"></span><br>
                             <div class="inner-page-sec">
-                            <span id="testmsg"></span><br>
                               <div class="description-sec">
-                                <h2>Add Testimonials</h2>
+                                <h2>Edit Problem Solutions</h2>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
-                                                    <form id="addtestimonial" class="rounded-form" method="post" >
+                                                    <form id="editsolutions" class="rounded-form" method="post" >
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
-                                                              <label for="company-name" class="form-label text-primary">Testimonial Title:</label>
-                                                              <input type="text" class="form-control" id="testtitle" name="testtitle" placeholder="Testimonial Title">
-                                          
+                                                              <label for="company-name" class="form-label text-primary">Title:</label>
+                                                              <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="<?php echo $result->title;?>"  required>
+                                                              <input type="hidden" class="form-control" id="problemid" name="problemid"  value="<?php echo $result->problemid;?>"  required>
                                                           </div>
                                                           <div class="col-md-6">
-                                                              <label for="company-logo" class="form-label text-primary">Image:</label>
-                                                              <input type="file" class="form-control" id="image1" name="image1">
+                                                              <label for="company-logo" class="form-label text-primary">Image1:</label>
+                                                              <input type="file" class="form-control" id="image1" name="image1" required>
+                                                              <img src="<?php echo base_url().'uploads/problems/'.$result->picture;?>" width="50" height="50" />
                                                           </div>
-                                                      </div>
-                                                      <div class="row mb-3">
-                                                          <div class="col-md-6">
-                                                              <label for="contact-person" class="form-label text-primary">Rating:</label>
-                                                              <input type="text" class="form-control" id="rating" name="rating" placeholder="Enter Rating">
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <label for="designation" class="form-label text-primary">Date Posted:</label>
-                                                              <input type="date" class="form-control" id="date" name="date">
-                                                          </div>
-                                                      </div>
-                                                      <div class="row mb-3">
-                                                      <div class="col-md-6">
-                                                              <label for="designation" class="form-label text-primary">Name:</label>
-                                                              <input type="text" class="form-control" id="name" name="name">
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <label for="contact-person" class="form-label text-primary">Place:</label>
-                                                              <input type="text" class="form-control" id="place" name="place" placeholder="Enter Place">
-                                                          </div>
-                                                          
                                                       </div>
                                                       <!--<div class="row mb-3">
+                                                          <div class="col-md-6">
+                                                              <label for="contact-person" class="form-label text-primary">Subtitle:</label>
+                                                              <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Enter Sub Title">
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                              <label for="designation" class="form-label text-primary">Image2:</label>
+                                                              <input type="file" class="form-control" id="image2" name="image2">
+                                                          </div>
+                                                      </div>
+                                                      <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="contact-number-1" class="form-label text-primary">Contact Number 1:</label>
                                                               <div class="input-group">
@@ -125,8 +114,8 @@
                                                           </div>
                                                       </div>-->
                                                       <div class="mb-3">
-                                                          <label for="address" class="form-label text-primary">Testimonial:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Testimonial"></textarea>
+                                                          <label for="address" class="form-label text-primary">Description:</label>
+                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description"><?php echo $result->description;?></textarea>
                                                       </div>
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">
@@ -139,9 +128,9 @@
                                                           </div>
                                                       </div>--->
                                                       
-                                                      <a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listtestimonials';?>" data-bs-original-title="" title="">View/Edit  </a>
+                                                      <!--<a class="btn btn-primary me-3" href="<?php //echo base_url().'Welcome/listsolutions';?>" data-bs-original-title="" title="">View/Edit  </a>-->
                                                       
-                                                      <button type="button" class="btn btn-primary" id="uploadsub" >Submit</button>
+                                                      <button type="submit" class="btn btn-primary" id="uploadsub" >Submit</button>
                                                   </form>
 
                                                 </div>
@@ -193,30 +182,25 @@
         <!-- Custom JS -->
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
         <script>
-$('#uploadsub').on('click', function (e) {
+$('#editsolutions').on('submit', function (e) {
     e.preventDefault();
-    //alert("enter");
+    
         var file_data1 = $('#image1').prop('files')[0];
         //var file_data2 = $('#image2').prop('files')[0];
-        var testtitle=$('#testtitle').val();
-        var rating=$("#rating").val();
+        var title=$('#title').val();
+        //alert("enter"+title);
+        var problemid=$("#problemid").val();
         var description=$("#description").val();
-        var name=$("#name").val();
-        var place=$("#place").val();
-        var date=$("#date").val();
         
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         //form_data.append('image2', file_data2);
-        form_data.append('testtitle',testtitle);
-        form_data.append('rating',rating);
+        form_data.append('maintitle',title);
+       form_data.append('problemid',problemid);
         form_data.append('description',description);
-        form_data.append('name',name);
-        form_data.append('place',place);
-        form_data.append('date',date);
        
         $.ajax({
-            url: "<?php echo base_url().'Welcome/addtestimonialsprocess';?>", // point to server-side controller method
+            url: "<?php echo base_url().'Welcome/editsolutionsprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server
             cache: false,
             contentType: false,
@@ -225,15 +209,17 @@ $('#uploadsub').on('click', function (e) {
             type: 'post',
             success: function (response) {
                 $('#image1').val('');
-                $('#date').val('');
-                $('#description').val('');
+                $('#image2').val('');
                 $('input[type=text]').each(function() {
         $(this).val('');
     });
-                $('#testmsg').html(response); // display success response from the server
+    $("#description").val('');
+                //$('#solmsg').html(response); // display success response from the server
+                window.location.href ="<?php echo base_url().'Welcome/listsolutions';?>";
             },
             error: function (response) {
-                $('#testmsg').html(response); // display error response from the server
+                //$('#solmsg').html(response); // display error response from the server
+                window.location.href ="<?php echo base_url().'Welcome/listsolutions';?>";
             }
         });
     });

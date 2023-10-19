@@ -11,7 +11,7 @@
                                 <li class="nav-item">
                                     <a href="<?php echo base_url();?>" class="nav-link active">
                                         Home 
-                                        <i class="bx bxs-chevron-right"></i>
+                                        <!--<i class="bx bxs-chevron-right"></i>-->
                                     </a>
                                
                                 </li>

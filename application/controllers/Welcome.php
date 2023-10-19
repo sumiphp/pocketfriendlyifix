@@ -722,6 +722,38 @@ function editservices(){
 
 }
 
+
+function edithomepage(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$this->db->from('services');
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$this->load->view('services/edithomepage',$data);
+
+}
+
+function editaboutus(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$this->db->from('aboutus');
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$this->load->view('services/editaboutus',$data);
+
+}
+
+
+
+
 public function addservicesprocess(){
 
 	$config['upload_path'] = 'uploads';
@@ -925,6 +957,116 @@ public function editservicesprocess(){
 
 
 }
+
+
+public function editaboutusprocess(){
+
+	$config['upload_path'] = 'uploads';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+		$image1=$_FILES['image1']['name'];
+	} else {
+		$image1='';
+	}
+	
+	
+
+	if (isset($_FILES['image2']['name'])) {
+		if (0 < $_FILES['image2']['error']) {
+			echo 'Error during file upload' . $_FILES['image2']['error'];
+		} else {
+			if (file_exists('uploads/' . $_FILES['image2']['name'])) {
+				echo 'File already exists : uploads/' . $_FILES['image2']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image2')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+		$image2=$_FILES['image2']['name'];
+	} else {
+		$image2='';
+	}
+	
+	
+	 $maintitle=$this->input->post('maintitle');
+	 $subtitle=$this->input->post('subtitle');
+	 $description=$this->input->post('description');
+	 if (($image1!='') && ($image2!='')){
+	 $data = array(
+		 'maintitle' =>"$maintitle",
+		 'subtitle' =>"$subtitle",
+		 'description'=>"$description",
+		 'Image1'=>$image1,'Image2'=>$image2		
+	  );
+	}
+	if (($image1!='') && ($image2=='')){
+		$data = array(
+			'maintitle' =>"$maintitle",
+			'subtitle' =>"$subtitle",
+			'description'=>"$description",
+			'Image1'=>$image1		
+		 );
+	   }
+	   if (($image1=='') && ($image2!='')){
+		$data = array(
+			'maintitle' =>"$maintitle",
+			'subtitle' =>"$subtitle",
+			'description'=>"$description",
+			//'Image1'=>$image1
+			'Image2'=>$image2		
+		 );
+	   }
+	   if (($image1=='') && ($image2=='')){
+		$data = array(
+			'maintitle' =>"$maintitle",
+			'subtitle' =>"$subtitle",
+			'description'=>"$description",
+			//'Image1'=>$image1
+			//'Image2'=>$image2		
+		 );
+	   }
+	  //print_r($data);
+	  $this->db->where('aboutusid',1);
+	  $this->db->update('aboutus', $data);
+
+	  echo ($this->db->affected_rows() != 1) ? 'Error in Editing About Us Contents' : '<b>About Us Contents added Successfully</b>';
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 public function listservices(){
@@ -1429,6 +1571,128 @@ public function edittestimonialsprocess(){
 }
 
 
+public function addsolutionsprocess(){
+
+	$config['upload_path'] = 'uploads/problems';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/problems' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/problems' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+
+	$image1=$_FILES['image1']['name'];
+	//$image2=$_FILES['image2']['name'];
+
+	 $title=$this->input->post('maintitle');
+	 //$rating=$this->input->post('rating');
+	 $description=$this->input->post('description');
+	 //$name=$this->input->post('name');
+	  //$place=$this->input->post('place');
+	  //$date=$this->input->post('date');
+	  
+	 $data = array(
+		 'description' =>"$description",
+		 //'rating' =>"$rating",
+		 'title'=>"$title",
+		 'picture'=>$image1
+		 //,'place'=>$place,'date'=>$date,'title'=>$testtitle		
+	  );
+	  //print_r($data);
+	  $id=$this->uri->segment(3); 
+	  //$this->db->where('testimonialid',$id);
+	   //$this->db->update('testimonials', $data);
+	   $this->db->insert('problems', $data);
+
+	  echo ($this->db->affected_rows() != 1) ? 'Error in Adding Solutions' : '<b>Solutions Added Successfully</b>';
+
+
+
+}
+
+
+public function editsolutionsprocess(){
+
+	$config['upload_path'] = 'uploads/problems';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/problems' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/problems' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+
+	$image1=$_FILES['image1']['name'];
+	//$image2=$_FILES['image2']['name'];
+
+	 $title=$this->input->post('maintitle');
+	 //$rating=$this->input->post('rating');
+	 $description=$this->input->post('description');
+	$problemid=$this->input->post('problemid');
+	  //$place=$this->input->post('place');
+	  //$date=$this->input->post('date');
+	  
+	 $data = array(
+		 'description' =>"$description",
+		 //'rating' =>"$problemid",
+		 'title'=>"$title",
+		 'picture'=>$image1
+		 //,'place'=>$place,'date'=>$date,'title'=>$testtitle		
+	  );
+	  //print_r($data);
+	  $id=$this->uri->segment(3); 
+	  $this->db->where('problemid',$problemid);
+	   $this->db->update('problems', $data);
+	   //$this->db->insert('problems', $data);
+
+	  //echo ($this->db->affected_rows() != 1) ? 'Error in Adding Solutions' : '<b>Solutions Added Successfully</b>';
+	  echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Solutions') : $this->session->set_flashdata('flash_msg', 'Solutions Edited Successfully');
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 public function listblogpage(){
 
 	$data['result']=$this->sm->get_blogpagedetails();
@@ -1588,6 +1852,74 @@ function contactusprocess(){
 }
 
 
+public function addservicesproblemsolutions(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$this->db->from('faq');
+    $query = $this->db->get();
+    $data['result']=$query->result_array(); 
+	$this->load->view('services/addsolutions',$data);
+
+
+
+}
+
+
+public function listsolutions(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$config = array();
+	$config["base_url"] = base_url() . "Welcome/listsolutions";
+	$config["total_rows"] = $this->sm->get_countsolutions();
+	$config["per_page"] = 5;
+	$config["uri_segment"] = 3;
+	$this->pagination->initialize($config);
+	$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+	$data["links"] = $this->pagination->create_links();	
+	$data['result']=$this->sm->get_solutions($config["per_page"], $page);
+	$this->db->from('problems');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();	
+	$this->load->view('services/listsolutions',$data);
+}
+
+
+public function deletesolution(){
+	$id=$_GET['prbid'];
+	$this->db->where('problemid',$id);
+	$this->db->delete('problems');
+	echo ($this->db->affected_rows() != 1) ? 'Error in deleting Solution' : 'Solution deleted Successfully';
+
+
+}
+
+public function editsolutions(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$id=$this->uri->segment(3);
+	$this->db->where('problemid',$id); 
+	$this->db->from('problems');
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$this->load->view('services/editsolutions',$data);
+
+
+
+}
 
 
 
