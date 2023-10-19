@@ -31,6 +31,23 @@ class Pocket extends CI_Controller {
 
     }
 
+	public function testindex(){
+
+		$data['result']=$this->sm->get_categoriesall();
+		$data['resultsub']=$this->sm->get_subcategoriesall();
+		$data['resultcontents']=$this->sm->get_blogcontents();
+		$data['resultfaq']=$this->sm->get_faq();
+		$data['resulttest']=$this->sm->get_testimonial();
+		$data['about']=$this->sm->get_aboutus();
+		$data['contactus']=$this->sm->get_contactus();
+		$data['newsletter']=$this->sm->get_newsletter();
+		$data['featureupdate']=$this->sm->get_featureupdate();
+		$data['resulthome']=$this->sm->get_homepage();
+		$this->load->view('pocket/indextest.php',$data);
+
+
+
+	}
 
 	public function index()
 	{
