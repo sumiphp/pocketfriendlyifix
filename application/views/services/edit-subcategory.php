@@ -145,12 +145,54 @@
                                                               </div>
                                                             </div>
                                                           </div>
+
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
-                                                                <label class="form-label">Select Product Sub-Category Image</label>
+                                                                <label class="form-label">Price:</label>
+                                                                <input class="form-control numericvalidate" placeholder="Price" name="price" id="price" type="text" data-bs-original-title="" title="" value="<?php echo $result->price;?>" ><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Short Description:</label>
+                                                                <textarea class="form-control" id="prdsubshortdesc" name="prdsubshortdesc" rows="4" placeholder="Enter Sub Category Short description"><?php echo $result->subcatshortdesc;?></textarea>
+
+                                                                <!--<input class="form-control" placeholder="Description" name="prdsubdesc" id="prdsubdesc" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>-->
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <!--<div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Description:</label>
+                                                                <textarea class="form-control" id="prdsubdesc" name="prdsubdesc" rows="4" placeholder="Enter Sub Category description"><?php //echo $result->subcatdesc;?></textarea>
+
+                                                               
+                                                              </div>
+                                                            </div>
+                                                          </div>-->
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label"> Product Sub-Category Image</label>
                                                                 <input class="form-control" placeholder="Select Product Sub-Category Image" name="file" type="file"  id="filesub"  name="productdescription"  data-bs-original-title="" title=""><span class="text-danger"></span>
-                                                                <img src="<?php echo base_url().'uploads/subcategory/'.$result->subcategoryimage;?>" />
+                                                                <span style="background-color:#ccc;"><img src="<?php echo base_url().'uploads/subcategory/'.$result->subcategoryimage;?>" width="50" height="50" /></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label"> Product Sub-Category Banner Image</label>
+                                                                <input class="form-control" placeholder="Enter Product Sub-Category Banner Image" name="filesubimg" type="file"  id="filesubimg"  name="filesubimg"  data-bs-original-title="" title="" ><span class="text-danger"></span>
+                                                                <img src="<?php echo base_url().'uploads/subcategory/'.$result->subcatbannerimage;?>" width="80" height="80" />
                                                               </div>
                                                             </div>
                                                           </div>
@@ -224,7 +266,7 @@
 
 
 
-    $(function() {
+    /*$(function() {
         $("#subfrm").on('submit', function(e) {
             e.preventDefault();
 
@@ -247,7 +289,7 @@
                 }
             });
         });
-    });
+    });*/
 
 
 
@@ -255,9 +297,12 @@
     $('#subfrm').on('submit', function (e) {
       e.preventDefault(e);
         var file_data = $('#filesub').prop('files')[0];
+        var file_databanner = $('#filesubimg').prop('files')[0];
         var prdcat=$('#prdcat').val();
         var prdsubcat=$("#prdsubcat").val();
         var prdsubdesc=$("#prdsubdesc").val();
+        var prdsubshortdesc=$('#prdsubshortdesc').val();
+        var price=$('#price').val();
         var subcatid=$("#subcatid").val();
         var form_data = new FormData();
         form_data.append('filesub', file_data);
@@ -265,6 +310,9 @@
         form_data.append('prdcat',prdcat);
         form_data.append('prdsubdesc',prdsubdesc);
         form_data.append('subcatid',subcatid);
+        form_data.append('prdsubshortdesc',prdsubshortdesc);
+        form_data.append('filesubimg',file_databanner);
+        form_data.append('price',price);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/upload_filesubedit';?>", // point to server-side controller method

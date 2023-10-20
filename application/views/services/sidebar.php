@@ -64,7 +64,7 @@
                           <ul class="sub-menu">
                             <li><a class="link_name" href="#">Posts</a></li>
                                 <!--<li><a href="#">Carousel</a></li>-->
-                                <li><a href="#">Home Page</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listhomepage';?>">Home Page</a></li>
                                 <li><a href="<?php echo base_url().'Welcome/listaboutus';?>">About Us</a></li>
                                 <li><a href="<?php echo base_url().'Welcome/listservices';?>">Services</a></li>
                                 

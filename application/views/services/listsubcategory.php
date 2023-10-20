@@ -97,7 +97,7 @@
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                               <div class="table-responsive theme-scrollbar">
-                                              <span id="catmsg"></span><br>
+                                              <span id="catmsg"> <?php echo $this->session->flashdata('flash_msg');?></span><br>
                                                 <div id="data-source-1_wrapper" class="dataTables_wrapper">
 
                                                     <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
@@ -131,8 +131,8 @@
                                                       <td><?php echo $res['subcatdesc'];?></td>
                                                       <td><?php echo $res['subcatshortdesc'];?></td>
                                                       <td><?php echo $res['price'];?> <?php echo $res['currency'];?></td>
-                                                      <td><img src=<?php echo base_url().'uploads/'.$res['subcategoryimage']?> width="50" height="50" /></td>
-                                                      <td><img src=<?php echo base_url().'uploads/'.$res['subcatbannerimage']?> width="50" height="50" /></td>
+                                                      <td ><span style="background-color:#ccc;"><img src=<?php echo base_url().'uploads/subcategory/'.$res['subcategoryimage']?> width="80" height="80" /></span></td>
+                                                      <td><img src=<?php echo base_url().'uploads/subcategory/'.$res['subcatbannerimage']?> width="50" height="50" /></td>
                                                       <td> 
                                                         <ul class="action"> 
                                                           <li class="edit"> <a href="<?php echo base_url().'Welcome/editsubcategory/'.$res['subcategoryid'];?>"   data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>

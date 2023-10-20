@@ -109,6 +109,7 @@
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:132px;">Homepage Image1</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Homepage Image2</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Qualitytitle</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Service</th>
                                                                               <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Servicetitle1</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Servicetitle2</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Servicetitle3</th>
@@ -129,7 +130,7 @@
                                                       <td><?php echo "<img src=".base_url().'uploads/homepage/'.$res['homepageimg1']." />";?></td>
                                                       <td><?php echo "<img src=".base_url().'uploads/homepage/'.$res['homepageimg2']." />";?></td>
                                                       <td><?php echo $res['qualitytitle'];?></td>
-                                                     
+                                                      <td><?php echo $res['servicetitle'];?></td>
                                                       <td><?php echo $res['servicetitle1'];?></td>
                                                       <td><?php echo $res['servicetitle2'];?></td>
                                                       <td><?php echo $res['servicetitle3']?></td>
@@ -184,21 +185,6 @@
 </html>
 
 
-<script>
-function delservices(id){
-$.ajax({
-            type: 'GET',
-            url: "<?php echo base_url().'index.php/Welcome/deleteservices';?>",
-            data:{id:id},
-            success:function(data){
-                $("#"+id).remove();
-                $("#msg").html(data);
-            }
-        });
-
-}
-    
-</script>
 
 
 

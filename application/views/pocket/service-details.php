@@ -2,9 +2,9 @@
 
     <body>
         <!-- Start Preloader -->
-        <div class="preloader">
+       <!--<div class="preloader">
             <div class="preloader-wave"></div>
-        </div>
+        </div>-->
         <!-- End Preloader -->
 
         <div class="navbar-area">
@@ -87,7 +87,7 @@
                                         
                                         foreach($categories as $sd){ ?>
                                             <li>
-                                            <a href="#">
+                                            <a href="<?php echo base_url().'Pocket/servicedetails/'.$sd['categoryid'];?>">
                                                <?php echo $sd['categoryname'];?>
                                             </a>
                                         </li>

@@ -75,7 +75,7 @@ public function dashboard(){
 			  else{
 				redirect("welcome/services");
 			  }
-
+			  $data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/dashboard',$data);
 } 
 
@@ -117,6 +117,7 @@ public function addcategory(){
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/add-category',$data);
 }
 
@@ -138,6 +139,8 @@ public function editcategory(){
 	$this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/edit-category',$data);
 }
 
@@ -159,6 +162,8 @@ public function editsubcategory(){
 	$this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/edit-subcategory',$data);
 }
 
@@ -396,7 +401,7 @@ function upload_filesubedit() {
 			echo 'Error during file upload' . $_FILES['filesub']['error'];
 		} else {
 			if (file_exists('uploads/subcategory' . $_FILES['filesub']['name'])) {
-				echo 'File already exists : uploads/' . $_FILES['filesub']['name'];
+				echo 'File already exists : uploads/subcategory' . $_FILES['filesub']['name'];
 			} else {
 				
 				if (!$this->upload->do_upload('filesub')) {
@@ -409,26 +414,84 @@ function upload_filesubedit() {
 	} else {
 		echo 'Please choose a file';
 	}
+
+
+	if (isset($_FILES['filesubimg']['name'])) {
+		if (0 < $_FILES['filesubimg']['error']) {
+			echo 'Error during file upload' . $_FILES['filesubimg']['error'];
+		} else {
+			if (file_exists('uploads/subcategory' . $_FILES['filesubimg']['name'])) {
+				echo 'File already exists : uploads/subcategory' . $_FILES['filesubimg']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('filesubimg')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+	
 	
 	$productimg=$_FILES['filesub']['name'];
+	 $productimgsub=$_FILES['filesubimg']['name'];
 	 $productcategory=$this->input->post('prdcat');
 	 $prdsubcat=$this->input->post('prdsubcat');
 	 $prdsubdesc=$this->input->post('prdsubdesc');
 	 $subcatid=$this->input->post('subcatid');
-	 if ($productimg!=''){
+	 //$prdsubdesc=$this->input->post('prdsubdesc');
+	 $price=$this->input->post('price');
+	 $subcatshortdesc=$this->input->post('prdsubshortdesc');
+	 if (($productimg!='') && ($productimgsub!='')){
 	 $data = array(
 		 'subcategoryname' =>"$prdsubcat",
 		 'categoryid' =>"$productcategory",
 		 'subcatdesc'=>"$prdsubdesc",
-		 'subcategoryimage'=>$productimg		
+		 'subcategoryimage'=>$productimg,
+		 'subcatbannerimage'=>$productimgsub,
+		 'subcatshortdesc'=>$subcatshortdesc,
+				'price'=>$price,
+				'currency'=>'AMD'		
 	  );
+	}else if (($productimg!='') && ($productimgsub=='')){
+		$data = array(
+			'subcategoryname' =>"$prdsubcat",
+			'categoryid' =>"$productcategory",
+			'subcatdesc'=>"$prdsubdesc",
+			'subcategoryimage'=>$productimg,
+			//'subcatbannerimage'=>$productimgsub,
+			'subcatshortdesc'=>$subcatshortdesc,
+				   'price'=>$price,
+				   'currency'=>'AMD'		
+		 );
+
+	}
+	else if (($productimg=='') && ($productimgsub!='')){
+		$data = array(
+			'subcategoryname' =>"$prdsubcat",
+			'categoryid' =>"$productcategory",
+			'subcatdesc'=>"$prdsubdesc",
+			//'subcategoryimage'=>$productimg,
+			'subcatbannerimage'=>$productimgsub,
+			'subcatshortdesc'=>$subcatshortdesc,
+				   'price'=>$price,
+				   'currency'=>'AMD'		
+		 );
+
+		 print_r($data);
+
 	}
 	else{
 		$data = array(
 			'subcategoryname' =>"$prdsubcat",
 			'categoryid' =>"$productcategory",
 			'subcatdesc'=>"$prdsubdesc",
-			//'subcategoryimage'=>$productimg		
+			'subcatshortdesc'=>$subcatshortdesc,
+				'price'=>$price,
+				'currency'=>'AMD'			
 		 );
 
 	}
@@ -465,6 +528,7 @@ public function listcategory(){
     $query = $this->db->get();
     $data['resultphone']=$query->row();	
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/listcategory',$data);
 }
 
@@ -485,6 +549,7 @@ public function listsubcategory(){
 	$data["links"] = $this->pagination->create_links();	
 	$data['result']=$this->sm->get_subcategories($config["per_page"], $page);
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/listsubcategory',$data);
 }
 
@@ -535,6 +600,7 @@ $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 $this->load->view('services/listenquiries',$data);	
 }
 
@@ -573,6 +639,7 @@ $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();	
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 $this->load->view('services/listcontactenquiries',$data);
 }
 
@@ -587,6 +654,7 @@ function addservices(){
     $query = $this->db->get();
     $data['result']=$query->result_array();
 	$data['contactus']=$this->sm->get_contactus(); 
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/addservices',$data);
 
 }
@@ -602,6 +670,7 @@ function addtestimonials(){
     $query = $this->db->get();
     $data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/addtestimonials',$data);
 
 
@@ -620,6 +689,7 @@ function edittestimonials(){
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/edittestimonials',$data);
 
 
@@ -637,6 +707,7 @@ function editblog(){
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/editblogcontents',$data);
 
 
@@ -657,6 +728,7 @@ function addblogcontent(){
     $query = $this->db->get();
     $data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/addblogcontents',$data);
 
 
@@ -673,6 +745,7 @@ function editblogcontent(){
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/editblogcontent',$data);
 
 
@@ -694,6 +767,7 @@ function addfaq(){
     $query = $this->db->get();
     $data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/addfaq',$data);
 
 }
@@ -713,6 +787,7 @@ function editfaq(){
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/editfaq',$data);
 
 }
@@ -734,6 +809,7 @@ function editservices(){
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/editservices',$data);
 
 }
@@ -746,10 +822,11 @@ function edithomepage(){
 	  redirect("welcome/services");
 	}
 	$this->load->model('Servicesmodel');
-	$this->db->from('services');
+	$this->db->from('homepage');
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/edithomepage',$data);
 
 }
@@ -765,6 +842,7 @@ function editaboutus(){
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/editaboutus',$data);
 
 }
@@ -995,6 +1073,147 @@ public function editservicesprocess(){
 }
 
 
+
+public function edithomepageprocess(){
+
+	$config['upload_path'] = 'uploads/homepage';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/homepage' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/homepage' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+		$image1=$_FILES['image1']['name'];
+	} else {
+		$image1='';
+	}
+	
+	
+
+	if (isset($_FILES['image2']['name'])) {
+		if (0 < $_FILES['image2']['error']) {
+			echo 'Error during file upload' . $_FILES['image2']['error'];
+		} else {
+			if (file_exists('uploads/homepage' . $_FILES['image2']['name'])) {
+				echo 'File already exists : uploads/homepage' . $_FILES['image2']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image2')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+		$image2=$_FILES['image2']['name'];
+	} else {
+		$image2='';
+	}
+	
+	if (isset($_FILES['image3']['name'])) {
+		if (0 < $_FILES['image3']['error']) {
+			echo 'Error during file upload' . $_FILES['image3']['error'];
+		} else {
+			if (file_exists('uploads/homepage' . $_FILES['image3']['name'])) {
+				echo 'File already exists : uploads/homepage' . $_FILES['image3']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image3')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+		$image3=$_FILES['image3']['name'];
+	} else {
+		$image3='';
+	}
+	
+
+
+
+
+	
+	 $maintitle=$this->input->post('maintitle');
+	 $subtitle=$this->input->post('subtitle');
+	 $description=$this->input->post('description');
+	 if (($image1!='') && ($image2!='')){
+	 $data = array(
+		 'maintitle' =>"$maintitle",
+		 'subtitle' =>"$subtitle",
+		 'description'=>"$description",
+		 'Image1'=>$image1,'Image2'=>$image2		
+	  );
+	}
+	if (($image1!='') && ($image2=='')){
+		$data = array(
+			'maintitle' =>"$maintitle",
+			'subtitle' =>"$subtitle",
+			'description'=>"$description",
+			'Image1'=>$image1		
+		 );
+	   }
+	   if (($image1=='') && ($image2!='')){
+		$data = array(
+			'maintitle' =>"$maintitle",
+			'subtitle' =>"$subtitle",
+			'description'=>"$description",
+			//'Image1'=>$image1
+			'Image2'=>$image2		
+		 );
+	   }
+	   if (($image1=='') && ($image2=='')){
+		$data = array(
+			'maintitle' =>"$maintitle",
+			'subtitle' =>"$subtitle",
+			'description'=>"$description",
+			//'Image1'=>$image1
+			//'Image2'=>$image2		
+		 );
+	   }
+	  //print_r($data);
+	  $this->db->where('homepageid',1);
+	  $this->db->update('homepage', $data);
+
+	  echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product Services' : '<b>Product Services added Successfully</b>';
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public function editaboutusprocess(){
 
 	$config['upload_path'] = 'uploads';
@@ -1125,6 +1344,7 @@ $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 $this->load->view('services/listservices',$data);	
 
 
@@ -1160,6 +1380,7 @@ $data['result']=$this->sm->get_aboutusadmin();
 $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
+	$data['newsletter']=$this->sm->get_newsletter();
 $this->load->view('services/listaboutus',$data);	
 
 
@@ -1182,6 +1403,7 @@ $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_homepageadmin();
 $data['contactus']=$this->sm->get_contactus();
+$data['newsletter']=$this->sm->get_newsletter();
 $this->load->view('services/listhomepage',$data);	
 
 
@@ -1198,6 +1420,7 @@ public function listcontactus(){
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/listcontactus',$data);	
 
 }
@@ -1219,6 +1442,7 @@ $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_faqadmin($config["per_page"],$page);
 $data['contactus']=$this->sm->get_contactus();
+$data['newsletter']=$this->sm->get_newsletter();
 $this->load->view('services/listfaq',$data);	
 
 
@@ -1242,6 +1466,7 @@ $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_qualityadmin($config["per_page"],$page);
 $data['contactus']=$this->sm->get_contactus();
+$data['newsletter']=$this->sm->get_newsletter();
 $this->load->view('services/listquality',$data);	
 
 
@@ -1270,6 +1495,7 @@ $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 $this->load->view('services/listblog',$data);	
 
 
@@ -1295,6 +1521,7 @@ $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 $this->load->view('services/listtestimonials',$data);
 }
 
@@ -1776,6 +2003,7 @@ public function listblogpage(){
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/listblogpage',$data);
 
 
@@ -1784,6 +2012,7 @@ public function listblogpage(){
 public function newsletter(){
 	$data['result']=$this->sm->get_newsletterall();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/listnewsletter',$data);
 }
 
@@ -1799,6 +2028,7 @@ $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 	$data['result']=$this->sm->get_newslettersubscribersall($config["per_page"],$page);
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/newslettersubscribers',$data);
 
 
@@ -1822,6 +2052,7 @@ function editnewsletter(){
     $query = $this->db->get();
     $data['result']=$query->row();
 	$data['contactus']=$this->sm->get_contactus(); 
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/editnewsletter',$data);
 
 
@@ -1884,6 +2115,7 @@ function editblogpage(){
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/editblogpagecontent',$data);
 
 
@@ -1901,6 +2133,7 @@ function editcontactus(){
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/editcontactus',$data);
 
 
@@ -1945,6 +2178,7 @@ public function addservicesproblemsolutions(){
     $query = $this->db->get();
     $data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/addsolutions',$data);
 
 
@@ -1971,7 +2205,8 @@ public function listsolutions(){
 	$this->db->from('problems');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
-	$data['contactus']=$this->sm->get_contactus();	
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();	
 	$this->load->view('services/listsolutions',$data);
 }
 
@@ -1999,6 +2234,7 @@ public function editsolutions(){
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/editsolutions',$data);
 
 
@@ -2016,6 +2252,7 @@ public function addhomepagequalities(){
     $query = $this->db->get();
     $data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/addqualities',$data);
 
 

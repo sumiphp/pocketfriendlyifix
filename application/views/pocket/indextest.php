@@ -2,9 +2,9 @@
 <?php include_once("header.php");?>
     <body>
         <!-- Start Preloader -->
-        <div class="preloader">
+        <!--<div class="preloader">
             <div class="preloader-wave"></div>
-        </div>
+        </div>-->
         <!-- End Preloader -->
 
         <div class="navbar-area">
