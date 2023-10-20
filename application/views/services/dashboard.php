@@ -98,12 +98,23 @@
 </div>
 <!-- End Sidebar Modal -->
 
-
+<?php date_default_timezone_set('Asia/Kolkata');?>
 
   <!-- End Sidebar-->
                             <div class="time-date-main">
                               
-                           <p><span class="icon"><i class='bx bx-time-five'></i> 10.41 pm </span> <span class="icon"><i class='bx bx-calendar'></i> November 16 ,2014 </span>  </p>
+                           <p><span class="icon"><i class='bx bx-time-five'></i> <?php echo date('h:i A');?>
+
+<!--10.41 pm--> </span> <span class="icon"><i class='bx bx-calendar'></i> <?php 
+$dt=Date('Y-m-d');
+$date=explode("-",$dt);
+                            //echo $mon=$date[1];
+                            $mon = date('F', strtotime($dt));
+                            //$monfull=Date('M',$mon);
+                            $dt=$date[2];
+                            $year=$date[0];
+                            echo $mon.' '.$dt.','.$year;
+                            ?><!--November 16 ,2014--> </span>  </p>
                             </div>
                             <div class="profile-sec">
                                 <div class="row">
@@ -114,7 +125,7 @@
                                             </div>
                                             <div class="author-info">
                                             <h6>Welcome</h6>
-                                            <span>Rabbi Islam Rony</span>
+                                            <span>Admin</span>
                                             </div>
                                             </div>
                                     </div>

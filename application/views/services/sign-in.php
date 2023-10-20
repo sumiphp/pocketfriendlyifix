@@ -143,7 +143,8 @@
 
         <!-- Footer Area -->
          <!-- Footer Area -->
-         <footer id="footer" class="footer-area-bg">
+         <?php include('footer1.php');?>
+         <!--<footer id="footer" class="footer-area-bg">
             <div class="footer-newletter-area">
                 <div class="container">
                     <div class="row">
@@ -297,31 +298,28 @@
                 </div>
             </div>
         </footer>
-        <!-- Footer Area End -->
-
-
-         <!-- Jquery Min JS -->
+       
         <script src="<?php echo base_url().'assets/js/jquery.min.js';?>"></script>
-        <!-- Bootstrap Bundle Min JS -->
+       
         <script src="<?php echo base_url().'assets/js/bootstrap.bundle.min.js';?>"></script>
-        <!-- Meanmenu JS -->
+     
         <script src="<?php echo base_url().'assets/js/meanmenu.min.js';?>"></script>
-        <!-- Owl Carousel JS -->
+        
         <script src="<?php echo base_url().'assets/js/owl.carousel.min.js';?>"></script>
-        <!-- Magnific Popup JS -->
+       
         <script src="<?php echo base_url().'assets/js/jquery.magnific-popup.min.js';?>"></script>
-        <!-- Wow JS -->
+       
         <script src="<?php echo base_url().'assets/js/wow.min.js';?>"></script>
-        <!-- Ajaxchimp Min JS -->
+       
         <script src="<?php echo base_url().'assets/js/jquery.ajaxchimp.min.js';?>"></script>
-        <!-- Form Validator Min JS -->
+       
         <script src="<?php echo base_url().'assets/js/form-validator.min.js';?>"></script>
-        <!-- Contact Form JS -->
+       
         <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
-        <!-- Custom JS -->
+       
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
 
 
         
     </body>
-</html>
+</html>-->

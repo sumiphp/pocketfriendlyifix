@@ -103,6 +103,14 @@
                             </li>
 
                             <li>
+                              <a href="<?php echo base_url().'Welcome/addhomepagequalities';?>">
+                                <i class='bx bx-compass' ></i>
+                                <span class="link_name">Add Home Page Qualities</span>
+                              </a>
+                              
+                            </li>
+
+                            <li>
                               <div class="iocn-link">
                                 <a href="#">
                                   <i class='bx bx-plug' ></i>

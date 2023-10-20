@@ -406,6 +406,35 @@ function get_solutions($limit,$start){
     
 }
 
+function get_countquality(){
+    $this->db->select('*');
+    $this->db->from('quality');
+    $query = $this->db->get();
+    return $rowcount = $query->num_rows();
+
+
+}
+
+function get_qualityadmin($limit,$start){
+    $this->db->limit($limit,$start);
+    $this->db->select('*');
+    $this->db->from('quality');
+    $query = $this->db->get();
+    return $query->result_array();
+    
+}
+
+function get_qualities(){
+    //$this->db->limit($limit,$start);
+    $this->db->order_by('orderno');
+    $this->db->select('*');
+    $this->db->from('quality');
+    $query = $this->db->get();
+    return $query->result_array();
+
+}
+
+
 
 }
 ?>

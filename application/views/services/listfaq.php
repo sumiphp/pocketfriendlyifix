@@ -150,7 +150,7 @@
                                         <h2>Ask pocket Friendly for Help 24/7</h2>
                                         <h6>Get In Touch : </h6>
                                       
-                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                        <div class="number-block"> <a href="tel:+ +<?php echo $contactus->phoneno;?>"> +<?php echo $contactus->phoneno;?> </a>  
                                            </div>
                                         </div>
                                 </div>

@@ -96,6 +96,13 @@
                           
                         </li>-->
                         <li>
+                                <a href="<?php echo base_url().'Welcome/addservicesproblemsolutions';?>">
+                                  <i class='bx bx-compass'></i>
+                                  <span class="link_name">Add Services Solutions</span>
+                                </a>
+                              
+                              </li>
+                        <li>
                           <a href="<?php echo base_url().'Welcome/addblogcontent';?>">
                             <i class='bx bx-compass' ></i>
                             <span class="link_name">Add Blog</span>
@@ -130,6 +137,15 @@
                               </a>
                               
                             </li>
+                            <li>
+                              <a href="<?php echo base_url().'Welcome/addhomepagequalities';?>">
+                                <i class='bx bx-compass' ></i>
+                                <span class="link_name">Add Home Page Qualities</span>
+                              </a>
+                              
+                            </li>
+
+
                         <li>
                                 <a href="<?php echo base_url().'index.php/Welcome/logout';?>">
                                   <i class='bx bx-history'></i>

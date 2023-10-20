@@ -23,7 +23,9 @@ class Welcome extends CI_Controller {
 
 public function services(){	
 	$this->load->model('Servicesmodel');
-	$this->load->view('services/sign-in');
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$this->load->view('services/sign-in',$data);
 } 
 
 
@@ -66,7 +68,7 @@ public function dashboard(){
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 
-
+	$data['contactus']=$this->sm->get_contactus();
 	if( $this->session->has_userdata('username')) {
 					
 			  }
@@ -114,6 +116,7 @@ public function addcategory(){
 	$this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/add-category',$data);
 }
 
@@ -461,6 +464,7 @@ public function listcategory(){
 	$this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();	
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/listcategory',$data);
 }
 
@@ -480,6 +484,7 @@ public function listsubcategory(){
 	$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 	$data["links"] = $this->pagination->create_links();	
 	$data['result']=$this->sm->get_subcategories($config["per_page"], $page);
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/listsubcategory',$data);
 }
 
@@ -520,7 +525,7 @@ public function listenquiries(){
 $config = array();
 $config["base_url"] = base_url() . "Welcome/listenquiries";
 $config["total_rows"] = $this->sm->get_countenquiries();
-$config["per_page"] = 2;
+$config["per_page"] = 10;
 $config["uri_segment"] = 3;
 $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -529,6 +534,7 @@ $data['result']=$this->sm->get_enquiries($config["per_page"],$page);
 $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();
 $this->load->view('services/listenquiries',$data);	
 }
 
@@ -566,6 +572,7 @@ $data['result']=$this->sm->get_contactenquiries($config["per_page"],$page);
 $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();	
+	$data['contactus']=$this->sm->get_contactus();
 $this->load->view('services/listcontactenquiries',$data);
 }
 
@@ -578,7 +585,8 @@ function addservices(){
 	$this->load->model('Servicesmodel');
 	$this->db->from('category');
     $query = $this->db->get();
-    $data['result']=$query->result_array(); 
+    $data['result']=$query->result_array();
+	$data['contactus']=$this->sm->get_contactus(); 
 	$this->load->view('services/addservices',$data);
 
 }
@@ -593,6 +601,7 @@ function addtestimonials(){
 	$this->db->from('testimonials');
     $query = $this->db->get();
     $data['result']=$query->result_array(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/addtestimonials',$data);
 
 
@@ -610,6 +619,7 @@ function edittestimonials(){
 	$this->db->from('testimonials');
     $query = $this->db->get();
     $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/edittestimonials',$data);
 
 
@@ -626,6 +636,7 @@ function editblog(){
 	$this->db->from('blogcontents');
     $query = $this->db->get();
     $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/editblogcontents',$data);
 
 
@@ -645,6 +656,7 @@ function addblogcontent(){
 	$this->db->from('blogcontents');
     $query = $this->db->get();
     $data['result']=$query->result_array(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/addblogcontents',$data);
 
 
@@ -660,6 +672,7 @@ function editblogcontent(){
 	$this->db->from('blogcontents');
     $query = $this->db->get();
     $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/editblogcontent',$data);
 
 
@@ -680,6 +693,7 @@ function addfaq(){
 	$this->db->from('faq');
     $query = $this->db->get();
     $data['result']=$query->result_array(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/addfaq',$data);
 
 }
@@ -698,6 +712,7 @@ function editfaq(){
 	$this->db->where('faqid',$id);
     $query = $this->db->get();
     $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/editfaq',$data);
 
 }
@@ -718,6 +733,7 @@ function editservices(){
 	$this->db->from('services');
     $query = $this->db->get();
     $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/editservices',$data);
 
 }
@@ -733,6 +749,7 @@ function edithomepage(){
 	$this->db->from('services');
     $query = $this->db->get();
     $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/edithomepage',$data);
 
 }
@@ -747,6 +764,7 @@ function editaboutus(){
 	$this->db->from('aboutus');
     $query = $this->db->get();
     $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/editaboutus',$data);
 
 }
@@ -836,6 +854,24 @@ public function addfaqprocess(){
 	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Faq' : '<b>Faq added Successfully</b>';
 }
 
+
+public function addqualityprocess(){
+	$title=$this->input->post('title');
+	//$subtitle=$this->input->post('subtitle');
+	$orderno=$this->input->post('orderno');
+	$data = array(
+		'quality' =>"$title",
+		//'subtitle' =>"$subtitle",
+		'orderno'=>"$orderno",
+		//'Image1'=>$image1,'Image2'=>$image2		
+	 );
+	 //print_r($data);
+	 $this->db->insert('quality', $data);
+
+	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Quality' : '<b>Quality added Successfully</b>';
+
+
+}
 
 public function editfaqprocess(){
 	$faqtitle=$this->input->post('faqtitle');
@@ -1088,6 +1124,7 @@ $data['result']=$this->sm->get_services($config["per_page"],$page);
 $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();
 $this->load->view('services/listservices',$data);	
 
 
@@ -1144,6 +1181,7 @@ $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_homepageadmin();
+$data['contactus']=$this->sm->get_contactus();
 $this->load->view('services/listhomepage',$data);	
 
 
@@ -1159,6 +1197,7 @@ public function listcontactus(){
 	$this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/listcontactus',$data);	
 
 }
@@ -1179,10 +1218,37 @@ $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 $data['result']=$this->sm->get_faqadmin($config["per_page"],$page);
+$data['contactus']=$this->sm->get_contactus();
 $this->load->view('services/listfaq',$data);	
 
 
 }
+
+
+public function listquality(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+$config = array();
+$config["base_url"] = base_url() . "Welcome/listquality";
+$config["total_rows"] = $this->sm->get_countquality();
+$config["per_page"] = 10;
+$config["uri_segment"] = 3;
+$this->pagination->initialize($config);
+$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+$data["links"] = $this->pagination->create_links();	
+$data['result']=$this->sm->get_qualityadmin($config["per_page"],$page);
+$data['contactus']=$this->sm->get_contactus();
+$this->load->view('services/listquality',$data);	
+
+
+}
+
+
+
 
 public function listblogcontents(){
 
@@ -1203,6 +1269,7 @@ $data['result']=$this->sm->get_blogadmin($config["per_page"],$page);
 $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();
 $this->load->view('services/listblog',$data);	
 
 
@@ -1227,6 +1294,7 @@ $data['result']=$this->sm->get_testimonialsadmin($config["per_page"],$page);
 $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();
 $this->load->view('services/listtestimonials',$data);
 }
 
@@ -1240,7 +1308,15 @@ function delfaq(){
 
 
 }
+function delql(){
 
+	$id=$_GET['id'];
+	$this->db->where('qualityid',$id);
+	$this->db->delete('quality');
+	echo ($this->db->affected_rows() != 1) ? 'Error in deleting Quality' : 'Quality deleted Successfully';
+
+
+}
 
 
 public function addtestimonialsprocess(){
@@ -1699,7 +1775,7 @@ public function listblogpage(){
 	$this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
-
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/listblogpage',$data);
 
 
@@ -1707,6 +1783,7 @@ public function listblogpage(){
 
 public function newsletter(){
 	$data['result']=$this->sm->get_newsletterall();
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/listnewsletter',$data);
 }
 
@@ -1721,6 +1798,7 @@ $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 $data["links"] = $this->pagination->create_links();	
 	$data['result']=$this->sm->get_newslettersubscribersall($config["per_page"],$page);
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/newslettersubscribers',$data);
 
 
@@ -1742,7 +1820,8 @@ function editnewsletter(){
 	$this->load->model('Servicesmodel');
 	$this->db->from('newsletter');
     $query = $this->db->get();
-    $data['result']=$query->row(); 
+    $data['result']=$query->row();
+	$data['contactus']=$this->sm->get_contactus(); 
 	$this->load->view('services/editnewsletter',$data);
 
 
@@ -1804,6 +1883,7 @@ function editblogpage(){
 	$this->db->from('blog');
     $query = $this->db->get();
     $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/editblogpagecontent',$data);
 
 
@@ -1820,6 +1900,7 @@ function editcontactus(){
 	$this->db->from('contactus');
     $query = $this->db->get();
     $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/editcontactus',$data);
 
 
@@ -1863,6 +1944,7 @@ public function addservicesproblemsolutions(){
 	$this->db->from('faq');
     $query = $this->db->get();
     $data['result']=$query->result_array(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/addsolutions',$data);
 
 
@@ -1888,7 +1970,8 @@ public function listsolutions(){
 	$data['result']=$this->sm->get_solutions($config["per_page"], $page);
 	$this->db->from('problems');
     $query = $this->db->get();
-    $data['resultphone']=$query->row();	
+    $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();	
 	$this->load->view('services/listsolutions',$data);
 }
 
@@ -1915,12 +1998,28 @@ public function editsolutions(){
 	$this->db->from('problems');
     $query = $this->db->get();
     $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('services/editsolutions',$data);
 
 
 
 }
 
+public function addhomepagequalities(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$this->db->from('quality');
+    $query = $this->db->get();
+    $data['result']=$query->result_array(); 
+	$data['contactus']=$this->sm->get_contactus();
+	$this->load->view('services/addqualities',$data);
+
+
+}
 
 
 

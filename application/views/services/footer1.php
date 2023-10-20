@@ -8,15 +8,16 @@
                         <div class="col-md-6 col-lg-6">
                             <div class="subscribe-area">
                                 <h2>News Letter</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                <p><?php echo $newsletter->newsletterdescription;?></p>
                             </div>
                             <div class="newsletter-area">
-                                <form class="newsletter-form" data-toggle="validator">
-                                    <input type="email" class="form-control" placeholder="Enter Your Email" name="EMAIL" required autocomplete="off">
+                            <form class="newsletter-form-email" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
+                            <input type="email" class="form-control" placeholder="Enter Your Email" name="emailidnews"  id="emailnews" required />
+                            <button class="subscribe-btn" type="submit">
                                     <button class="subscribe-btn" type="submit">
                                         Subscribe
                                     </button>
-                                    <div id="validator-newsletter" class="form-result"></div>
+                                   <!--<div id="validator-newsletter" class="form-result"></div>-->
                                 </form>
                             </div>
                         </div>
@@ -115,11 +116,11 @@
                                 <ul>
                                     <li>
                                         <i class='bx bxs-map'></i>
-                                          Dubai,UAE
+                                        <?php echo $contactus->city;?>,<?php echo $contactus->country;?>
                                     </li>
                                     <li>
                                         <i class='bx bxs-phone'></i>
-                                        <a href="tel:+971 585893348">+971 585893348</a>
+                                        <a href="tel:+<?php echo $contactus->phoneno;?>">+<?php echo $contactus->phoneno;?></a>
                                     </li>
                                     <li>
                                         <i class='bx bx-envelope'></i>
@@ -178,3 +179,61 @@
         <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
        
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
+<script>
+        $(".numericvalidate").keypress(function(event){
+        var keycode = event.which;
+        if (!(keycode >= 48 && keycode <= 57)) {
+            event.preventDefault();
+        }
+    });
+
+
+
+    $('#frmemail').on('submit', function (e) {
+    e.preventDefault();
+    
+        var emailnews=$("#emailnews").val();
+        
+        var form_data = new FormData();
+       
+        form_data.append('emailidnews',emailnews);
+       
+       
+        $.ajax({
+            url: "<?php echo base_url().'Pocket/newslettersubscribe';?>", // point to server-side controller method
+            dataType: 'text', // what to expect back from the server
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function (response) {
+                //$('#image1').val('');
+                //$('#date').val('');
+                $('#emailnews').val('');
+                $('input[type=email]').each(function() {
+        $(this).val('');
+    });   
+      $("#newsmsg").html(response);  
+            },
+            error: function (response) {
+                //$('#testmsg').html(response); // display error response from the server
+                $("#newsmsg").html(response);  
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>

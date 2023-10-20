@@ -81,7 +81,7 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="contact-person" class="form-label text-primary">Rating:</label>
-                                                              <input type="text" class="form-control" id="rating" name="rating" placeholder="Enter Rating" value="<?php echo $result->rating;?>">
+                                                              <input type="text" class="form-control numericvalidate" id="rating" name="rating" placeholder="Enter Rating" value="<?php echo $result->rating;?>">
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Date Posted:</label>

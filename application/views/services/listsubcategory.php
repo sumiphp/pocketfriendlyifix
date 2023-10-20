@@ -104,9 +104,12 @@
                                                   <thead>
                                                     <tr role="row">
                                                       <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" >Sub Category Name</th>
-                                                     
-                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 520px;">Sub Category Description</th>
-                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Subcategory Image</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" >Category Name</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width:520px;">Sub Category Description</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending">Sub Category short Description</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending">Price</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Subcategory Image</th>
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Subcategory Banner Image</th>
                                                            <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" >Action</th></tr>
                                                   </thead>
                                                   <tbody>
@@ -117,14 +120,24 @@
                                                     foreach($result as $res){?>
                                                   <tr role="row" class="odd" id="<?php echo $res['subcategoryid'];?>" >
                                                       <td class="sorting_1"><?php echo $res['subcategoryname'];?></td>
+                                                      <td class="sorting_1"><?php 
+                                                      $catid=$res['categoryid'];
+                                                      $this->db->from('category');
+                                                      $query = $this->db->get();
+                                                      $catdt=$query->row();                                                     
+                                                      
+                                                      echo $catdt->categoryname;?></td>
                                                       <!--<td>Indoor Lamps</td>-->
                                                       <td><?php echo $res['subcatdesc'];?></td>
-                                                      <td><img src=<?php echo base_url().'uploads/'.$res['subcategoryimage']?> width="80" height="80" /></td>
+                                                      <td><?php echo $res['subcatshortdesc'];?></td>
+                                                      <td><?php echo $res['price'];?> <?php echo $res['currency'];?></td>
+                                                      <td><img src=<?php echo base_url().'uploads/'.$res['subcategoryimage']?> width="50" height="50" /></td>
+                                                      <td><img src=<?php echo base_url().'uploads/'.$res['subcatbannerimage']?> width="50" height="50" /></td>
                                                       <td> 
                                                         <ul class="action"> 
                                                           <li class="edit"> <a href="<?php echo base_url().'Welcome/editsubcategory/'.$res['subcategoryid'];?>"   data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
                                                           <li class="delete"><a href="#" onclick="delsubcategoryrow(<?php echo $res['subcategoryid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
-                                                          <li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>
+                                                          <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
                                                         </ul>
                                                       </td>
                                                     </tr>
@@ -158,7 +171,7 @@
                                         <h2>Ask pocket Friendly for Help 24/7</h2>
                                         <h6>Get In Touch : </h6>
                                       
-                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                        <div class="number-block"> <a href="tel:+ +<?php echo $contactus->phoneno;?>"> +<?php echo $contactus->phoneno;?> </a>  
                                            </div>
                                         </div>
                                 </div>

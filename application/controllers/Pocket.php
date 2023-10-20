@@ -61,6 +61,7 @@ class Pocket extends CI_Controller {
 		$data['newsletter']=$this->sm->get_newsletter();
 		$data['featureupdate']=$this->sm->get_featureupdate();
 		$data['resulthome']=$this->sm->get_homepage();
+		$data['qualities']=$this->sm->get_qualities();
 		$this->load->view('pocket/index.php',$data);
 	}
 

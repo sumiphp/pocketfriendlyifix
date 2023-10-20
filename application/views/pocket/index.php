@@ -153,20 +153,47 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="about-content">
-                               <p>At PocketFriendlyWeb, we provide comprehensive solutions to elevate your business's online presence. From branding and social media management to SEO, content marketing, advertising, and viral campaigns, we are your one-stop destination for effective and impactful online strategies. Our expertise extends to website development, ensuring your digital journey is engaging and successful.</p>
+                               <p><?php echo $about->aboutcompany;?></p>
                             
-                            <h2>Distinguishing Qualities that Set Us Apart</h2>
+                            <h2><?php echo $resulthome->qualitytitle;?></h2>
                             <div class="row">
+
+                            <?php $count=count($qualities);
+                            $half=$count/2;
+                            
+                            
+                            ?>
                                 <div class="col-lg-6 col-md-6 col-sm-6 about-list-sec">
-                                    <p><i class='bx bxs-chevrons-right'></i> Excellence</p>
-                                    <p><i class='bx bxs-chevrons-right'></i> Innovation</p>
+                                    <?php 
+                                    $i=0;
+                                    foreach($qualities as $quali){
+                                        if ($i <=$half){
+                                        
+                                        ?> 
+                                    <p><i class='bx bxs-chevrons-right'></i><?php echo $quali['quality'];?></p>
+                                    <?php } 
+                                $i++;
+                                } ?>
+                                    <!--<p><i class='bx bxs-chevrons-right'></i> Innovation</p>
                                     <p><i class='bx bxs-chevrons-right'></i> Affordability</p>
-                                    <p><i class='bx bxs-chevrons-right'></i> Expertise </p>
+                                    <p><i class='bx bxs-chevrons-right'></i> Expertise </p>-->
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 about-list-sec">
-                                    <p><i class='bx bxs-chevrons-right'></i> Effectiveness</p>
+                                <?php 
+                                $i=$half;
+                                $i=0;
+                                foreach($qualities as $quali){
+                                      if ($i >$half){
+                                    
+                                    ?> 
+                                    <p><i class='bx bxs-chevrons-right'></i><?php echo $quali['quality'];?></p>
+                                    <?php } 
+                                           $i++;
+                                
+                                } ?>
+                                    <!--<p><i class='bx bxs-chevrons-right'></i> Effectiveness</p>
                                     <p><i class='bx bxs-chevrons-right'></i> Reliability </p>
-                                    <p><i class='bx bxs-chevrons-right'></i> Professionalism</p>
+                                    <p><i class='bx bxs-chevrons-right'></i> Professionalism</p>-->
                                 </div>
                             </div>
                           

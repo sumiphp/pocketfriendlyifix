@@ -1146,12 +1146,12 @@ Footer Section
 .footer-newletter-area .newsletter-area {
   margin-top: 25px;
 }
-.footer-newletter-area .newsletter-area .newsletter-form {
+.footer-newletter-area .newsletter-area .newsletter-form-email{
   position: relative;
   max-width: 370px;
   border-radius: 50px;
 }
-.footer-newletter-area .newsletter-area .newsletter-form .form-control {
+.footer-newletter-area .newsletter-area .newsletter-form-email .form-control {
   background: #fff;
   height: 45px;
   line-height: 55px;
@@ -1160,12 +1160,12 @@ Footer Section
   border: none;
   padding: 0 25px;
 }
-.footer-newletter-area .newsletter-area .newsletter-form .form-control:focus {
+.footer-newletter-area .newsletter-area .newsletter-form-email .form-control:focus {
   outline: none;
   box-shadow: none;
   border: none;
 }
-.footer-newletter-area .newsletter-area .newsletter-form .subscribe-btn {
+.footer-newletter-area .newsletter-area .newsletter-form-email .subscribe-btn {
   position: absolute;
   top: 0px;
   right: -60%;
@@ -1180,11 +1180,11 @@ Footer Section
   font-size: 14px;
   width: 200px;
 }
-.footer-newletter-area .newsletter-area .newsletter-form .subscribe-btn:hover {
+.footer-newletter-area .newsletter-area .newsletter-form-email .subscribe-btn:hover {
   background: #070f4d;
   color: #ffffff;
 }
-.footer-newletter-area .newsletter-area .newsletter-form .validation-danger {
+.footer-newletter-area .newsletter-area .newsletter-form-email .validation-danger {
   font-size: 18px;
   margin-top: 5px;
   color: red;
@@ -1322,7 +1322,7 @@ Footer Section End
 }
 
 .inner-banner-sec {
-  /*background: url(../img/about/bannerif.png);
+ /*background: url(../img/about/bannerif.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

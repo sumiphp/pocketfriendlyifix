@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="form-field-section get-touch-form">
-                            <span id="msg" style="font-color:#fff;font-weight:bold;"></span>
+                          
                             <form class="row" method="post" id="frmcontact"  action="<?php echo base_url().'Pocket/contactenquiryprocess';?>">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -82,6 +82,7 @@
                                                 Send
                                             </button>
                                     </div>
+                                    <span id="msg" style="font-color:green;font-weight:bold;text-align:center;padding-top:15px"></span>
                                    
                                 </form>
 

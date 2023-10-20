@@ -39,7 +39,8 @@
             </div>
             </div>
             <?php //print_r($about);?>
-            <div class="inner-banner-sec" style="background:url(<?php echo base_url().'uploads/aboutus/'.$about->aboutusbanner?>) !important;repeat:no-repeat!important;">
+            <div class="inner-banner-sec">
+            <div class="inner-banner-sec" style="background:url(<?php echo base_url().'uploads/aboutus/'.$about->aboutusbanner?>)!important;background-repeat:no-repeat!important;background-position:center !important;">
                 <div class="container">
             </div>
             </div>
@@ -62,7 +63,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-5 col-mg-5 colsm-5">
+                        <div class="col-lg-6 col-mg-6 colsm-6">
                             <div class="our-mission-block">
                             <div class="main-title text-left">
                                 <h2>Our Mission <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/'.$about->missionlogo;?>"> </span>  </h2>
@@ -72,7 +73,7 @@
                             </div>
                         </div>
                         </div>
-                        <div class="col-lg-5 col-mg-5 colsm-5">
+                        <div class="col-lg-6 col-mg-6 colsm-6">
                             <div class="our-mission-block">
                             <div class="main-title text-left">
                                 <h2>Our Vision <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/'.$about->visionlogo;?>"></span> </h2>

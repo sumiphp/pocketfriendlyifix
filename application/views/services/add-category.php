@@ -188,7 +188,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Price:</label>
-                                                                <input class="form-control" placeholder="Price" name="price" id="price" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                                <input class="form-control numericvalidate" placeholder="Price" name="price" id="price" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -252,7 +252,7 @@
                                         <h2>Ask pocket Friendly for Help 24/7</h2>
                                         <h6>Get In Touch : </h6>
                                       
-                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                        <div class="number-block"> <a href="tel:+ +<?php echo $contactus->phoneno;?>"> +<?php echo $contactus->phoneno;?> </a>  
                                            </div>
                                         </div>
                                 </div>
@@ -399,6 +399,18 @@
                 $('input[type=text]').each(function() {
         $(this).val('');
     });
+
+   $('#filesub').val('');
+       $('#filesubimg').val('')
+       $('#prdcat').val('');
+       $("#prdsubcat").val('');
+        $("#prdsubdesc").val('');
+        $('#prdsubshortdesc').val('');
+       $('#price').val('');
+
+
+
+
                 $('#catsubmsg').html(response); // display success response from the server
             },
             error: function (response) {
