@@ -795,6 +795,62 @@ function editfaq(){
 
 
 
+function addmenu(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$this->db->from('menus');
+    $query = $this->db->get();
+    $data['result']=$query->result_array(); 
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$this->load->view('services/addmenu',$data);
+
+}
+
+function editmenu(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$id=$this->uri->segment(3);
+	//echo $id;
+	//die;
+	$this->load->model('Servicesmodel');
+	$this->db->from('menus');
+	$this->db->where('menuid',$id);
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$this->load->view('services/editmenu',$data);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1195,25 +1251,6 @@ public function edithomepageprocess(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public function editaboutusprocess(){
 
 	$config['upload_path'] = 'uploads';
@@ -1312,18 +1349,6 @@ public function editaboutusprocess(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 public function listservices(){
 
 	if( $this->session->has_userdata('username')) {					
@@ -1381,6 +1406,7 @@ $this->db->from('contactus');
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['contactus']=$this->sm->get_contactus();
 $this->load->view('services/listaboutus',$data);	
 
 
@@ -1447,6 +1473,36 @@ $this->load->view('services/listfaq',$data);
 
 
 }
+
+public function listmenus(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+$config = array();
+$config["base_url"] = base_url() . "Welcome/listmenus";
+$config["total_rows"] = $this->sm->get_countmenu();
+$config["per_page"] = 10;
+$config["uri_segment"] = 3;
+$this->pagination->initialize($config);
+$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+$data["links"] = $this->pagination->create_links();	
+$data['result']=$this->sm->get_menuadmin($config["per_page"],$page);
+$data['contactus']=$this->sm->get_contactus();
+$data['newsletter']=$this->sm->get_newsletter();
+$this->load->view('services/listmenus',$data);	
+
+
+}
+
+
+
+
+
+
+
 
 
 public function listquality(){
@@ -1532,6 +1588,16 @@ function delfaq(){
 	$this->db->where('faqid',$id);
 	$this->db->delete('faq');
 	echo ($this->db->affected_rows() != 1) ? 'Error in deleting Faq' : 'Faq deleted Successfully';
+
+
+}
+
+function delmenu(){
+
+	$id=$_GET['id'];
+	$this->db->where('menuid',$id);
+	$this->db->delete('menus');
+	echo ($this->db->affected_rows() != 1) ? 'Error in deleting Menu' : 'Menu deleted Successfully';
 
 
 }

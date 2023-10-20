@@ -101,6 +101,13 @@
                               </a>
                               
                             </li>
+                            <li>
+                              <a href="<?php echo base_url().'Welcome/addmenu';?>">
+                                <i class='bx bx-compass' ></i>
+                                <span class="link_name">Add Menu</span>
+                              </a>
+                              
+                            </li>
 
                             <li>
                               <a href="<?php echo base_url().'Welcome/addhomepagequalities';?>">

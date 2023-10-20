@@ -261,6 +261,28 @@ function get_faqadmin($limit,$start){
     return $query->result_array(); 
     }
 
+    function get_countmenu(){
+        $this->db->select('*');
+        $this->db->from('menus');
+        $query = $this->db->get();
+        return $rowcount = $query->num_rows();
+    
+    }
+    
+    
+    function get_menuadmin($limit,$start){
+        $this->db->limit($limit,$start);
+        $this->db->select('*');
+        $this->db->from('menus');
+        $query = $this->db->get();
+        return $query->result_array(); 
+        }
+
+
+
+
+
+
     function get_countblog(){
         $this->db->select('*');
         $this->db->from('blogcontents');
@@ -431,6 +453,25 @@ function get_qualities(){
     $this->db->from('quality');
     $query = $this->db->get();
     return $query->result_array();
+
+}
+
+function get_menus(){
+    $this->db->where('status',1);
+    $this->db->select('*');
+    $this->db->from('menus');
+    $query = $this->db->get();
+    return $query->result_array();
+
+}
+
+
+function get_siteinf(){
+
+    $this->db->select('*');
+    $this->db->from('siteinformation');
+    $query = $this->db->get();
+    return $query->row();
 
 }
 

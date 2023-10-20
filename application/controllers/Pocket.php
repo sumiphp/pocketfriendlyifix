@@ -31,7 +31,7 @@ class Pocket extends CI_Controller {
 
     }
 
-	public function testindex(){
+	/*public function testindex(){
 
 		$data['result']=$this->sm->get_categoriesall();
 		$data['resultsub']=$this->sm->get_subcategoriesall();
@@ -47,7 +47,7 @@ class Pocket extends CI_Controller {
 
 
 
-	}
+	}*/
 
 	public function index()
 	{
@@ -62,6 +62,8 @@ class Pocket extends CI_Controller {
 		$data['featureupdate']=$this->sm->get_featureupdate();
 		$data['resulthome']=$this->sm->get_homepage();
 		$data['qualities']=$this->sm->get_qualities();
+		$data['menus']=$this->sm->get_menus();
+		$data['siteinf']=$this->sm->get_siteinf();
 		$this->load->view('pocket/index.php',$data);
 	}
 
@@ -72,6 +74,8 @@ class Pocket extends CI_Controller {
 		$data['about']=$this->sm->get_aboutus();
 		$data['newsletter']=$this->sm->get_newsletter();
 		$data['featureupdate']=$this->sm->get_featureupdate();
+		$data['menus']=$this->sm->get_menus();
+		$data['siteinf']=$this->sm->get_siteinf();
 		$this->load->view('pocket/about.php',$data);
 	}
 
@@ -83,6 +87,8 @@ public function service(){
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
 	$data['about']=$this->sm->get_aboutus();
+	$data['menus']=$this->sm->get_menus();
+	$data['siteinf']=$this->sm->get_siteinf();
     $this->load->view('pocket/service.php',$data);
 }
 public function blog(){
@@ -93,11 +99,14 @@ public function blog(){
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
 	$data['about']=$this->sm->get_aboutus();
+	$data['menus']=$this->sm->get_menus();
+	$data['siteinf']=$this->sm->get_siteinf();
     $this->load->view('pocket/blog.php',$data);
 }
 
 public function services(){
-	
+	$data['menus']=$this->sm->get_menus();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->model('Servicesmodel');
 	$this->load->view('services/sign-in');
 	
@@ -105,10 +114,12 @@ public function services(){
 } 
 
 public function contact(){
+	$data['menus']=$this->sm->get_menus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['about']=$this->sm->get_aboutus();
+	$data['siteinf']=$this->sm->get_siteinf();
     $this->load->view('pocket/contact.php',$data);
 
 
@@ -240,6 +251,8 @@ public function servicedetails(){
 	$data['categories']=$this->sm->get_categoriesall();
 	$data['lowestpackage']=$this->sm->get_lowestpackage($serid);
 	$data['easeyourproblems']=$this->sm->get_problems();
+	$data['menus']=$this->sm->get_menus();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('pocket/service-details.php',$data);
 
 }
@@ -258,6 +271,8 @@ public function hosting(){
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
 	$data['about']=$this->sm->get_aboutus();
+	$data['menus']=$this->sm->get_menus();
+	$data['siteinf']=$this->sm->get_siteinf();
 	//$data['contactus']=$this->sm->get_contactus();
 	$this->load->view('pocket/hosting.php',$data);
 

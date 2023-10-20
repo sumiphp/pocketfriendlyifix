@@ -1,22 +1,23 @@
 <nav class="navbar navbar-expand-md navbar-light ">
                         <a class="navbar-brand" href="index.php">
-                            <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" alt="Logo">
+                            <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" alt="Logo">
                         </a>
                         <a class="navbar-brand-sticky" href="index.php">
-                            <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" alt="Logo">
+                            <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" alt="Logo">
                         </a>
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent" style="display: block;">
                             <ul class="navbar-nav m-auto">
-                            <?php foreach($menus as $mn){?>
+                                <?php foreach($menu as $mn){?>
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url().$mn['url'];?>" class="nav-link active">
-                                    <?php echo $mn['menuname'];?>
+                                    <a href="<?php echo base_url().$mn['menuname'];?>" class="nav-link active">
+                                   
                                   
                                     </a>
                                
                                 </li>
                                 <?php } ?>
+                              
                             </ul>
 
                             <div class="menu-btn">
