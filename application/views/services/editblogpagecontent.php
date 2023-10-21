@@ -73,7 +73,10 @@
                                                           <textarea class="form-control" id="description" name="description" rows="7" placeholder="Enter Newsletter"><?php echo $result->blogdescription;?></textarea>
                                                       </div>
                                                      
-                                                      
+                                                      <div class="mb-3">
+                                                          <label for="address" class="form-label text-primary">Meta Tag:</label>
+                                                          <textarea class="form-control" id="metatag" name="metatag" rows="20" placeholder="Enter Meta Tage"><?php echo $result->metatag;?></textarea>
+                                                      </div>
                                                       
                                                       
                                                       <button type="button" class="btn btn-primary" id="uploadsub" >Submit</button>
@@ -136,7 +139,7 @@ $('#uploadsub').on('click', function (e) {
         //var testtitle=$('#testtitle').val();
         //var rating=$("#rating").val();
         var description=$("#description").val();
-        //var name=$("#name").val();
+       var metatag=$("#metatag").val();
         //var place=$("#place").val();
         //var date=$("#date").val();
         
@@ -146,7 +149,7 @@ $('#uploadsub').on('click', function (e) {
         //form_data.append('testtitle',testtitle);
         //form_data.append('rating',rating);
         form_data.append('description',description);
-        //form_data.append('name',name);
+        form_data.append('metatag',metatag);
         //form_data.append('place',place);
         //form_data.append('date',date);
        

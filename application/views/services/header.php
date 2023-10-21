@@ -31,5 +31,5 @@
         <title>Pocket Frindly</title>
 
         <!-- Favicon -->
-        <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png"> -->
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">
     </head>

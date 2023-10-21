@@ -1,4 +1,8 @@
-<?php include_once("header.php");?>
+
+<?php //include_once("header.php");
+echo $about->metatag;
+
+?>
 
     <body>
         <!-- Start Preloader -->
@@ -10,9 +14,9 @@
         <div class="navbar-area">
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
-                <a href="index.php" class="logo">
-                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-one" alt="Logo">
-                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-two" alt="Logo">
+                <a href="<?php echo base_url().'Pockets/index';?>" class="logo">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="Logo">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="Logo">
                 </a>
             </div>
 

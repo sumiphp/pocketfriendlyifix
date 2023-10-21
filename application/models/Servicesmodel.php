@@ -476,6 +476,30 @@ function get_siteinf(){
 }
 
 
+function get_subcategoriesrand(){
+    $this->db->order_by('id','RANDOM');
+    $this->db->limit(8);
+    //$this->db->where('status',1);
+    $this->db->select('*');
+    $this->db->from('subcategory');
+    $query = $this->db->get();
+    return $query->result_array();
+
+
+}
+
+function get_quality($id){
+    $this->db->where('qualityid',$id);
+    $this->db->select('*');
+    $this->db->from('quality');
+    $query = $this->db->get();
+    return $query->row();
+
+
+
+}
+
+
 
 }
 ?>

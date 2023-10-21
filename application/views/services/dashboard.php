@@ -76,7 +76,7 @@
                         </span>
                     </button>
                     <h2 class="modal-title" id="myModalLabel2">
-                        <a href="index.html">
+                        <a href="<?php echo base_url().'Welcome/dashboard';?>">
                             <img src="<?php echo base_url().'assets/img/logo.png';?>" class="modal-logo1" alt="Logo">
                         </a>
                     </h2>
@@ -147,7 +147,7 @@ $date=explode("-",$dt);
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6 col-sm-6" >
                                                 <div class="card">
-                                                    <a href="#" target="_blank">
+                                                    <a href="<?php echo base_url().'Welcome/addcategory';?>" target="_blank">
                                                     <div class="card-body rounded gradient-1">
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/1.png';?>" alt="">
@@ -162,7 +162,7 @@ $date=explode("-",$dt);
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-sm-6" >
                                                 <div class="card">
-                                                    <a href="#" target="_blank">
+                                                    <a href="<?php echo base_url().'Welcome/addcategory';?>" target="_blank">
                                                     <div class="card-body rounded gradient-2">
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/2.png';?>" alt="">
@@ -177,7 +177,7 @@ $date=explode("-",$dt);
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-sm-6" >
                                                 <div class="card">
-                                                    <a href="#" target="_blank">
+                                                    <a href="<?php echo base_url().'Welcome/listenquiries';?>" target="_blank">
                                                     <div class="card-body rounded gradient-3">
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/3.png';?>" alt="">
@@ -192,7 +192,7 @@ $date=explode("-",$dt);
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-sm-6" >
                                                 <div class="card">
-                                                    <a href="#" target="_blank">
+                                                    <a href="<?php echo base_url().'Welcome/listcontactenquiries';?>" target="_blank">
                                                     <div class="card-body rounded gradient-4">
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/3.png';?>" alt="">
@@ -207,7 +207,7 @@ $date=explode("-",$dt);
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-sm-6" >
                                                 <div class="card">
-                                                    <a href="#" target="_blank">
+                                                    <a href="<?php echo base_url().'Welcome/addblogcontent';?>" target="_blank">
                                                     <div class="card-body rounded gradient-5">
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/3.png';?>" alt="">
@@ -222,7 +222,7 @@ $date=explode("-",$dt);
                                             </div>
                                             <div class="col-lg-4 col-md-6 col-sm-6" >
                                                 <div class="card">
-                                                    <a href="#" target="_blank">
+                                                    <a href="<?php echo base_url().'Welcome/addtestimonials';?>" target="_blank">
                                                     <div class="card-body rounded gradient-6">
                                                         <div class="media  align-items-center">
                                                             <img class="mr-3 mt-2" src="<?php echo base_url().'/assets/img/dashborad-icon/4.png';?>" alt="">

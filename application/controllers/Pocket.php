@@ -52,7 +52,8 @@ class Pocket extends CI_Controller {
 	public function index()
 	{
 		$data['result']=$this->sm->get_categoriesall();
-		$data['resultsub']=$this->sm->get_subcategoriesall();
+		//$data['resultsub']=$this->sm->get_subcategoriesall();
+		$data['resultsub']=$this->sm->get_subcategoriesrand();
 		$data['resultcontents']=$this->sm->get_blogcontents();
 		$data['resultfaq']=$this->sm->get_faq();
 		$data['resulttest']=$this->sm->get_testimonial();

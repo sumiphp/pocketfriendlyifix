@@ -55,11 +55,12 @@
  
 
                 <div class="dashboard-innerbox">
-                <span id="solmsg"></span><br>
+               
                             <div class="inner-page-sec">
                               <div class="description-sec">
                                 <h2>Add Problem Solutions</h2>
                                 <div class="row">
+                                <span id="solmsg"></span><br>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
@@ -76,56 +77,22 @@
                                                               <input type="file" class="form-control" id="image1" name="image1" required>
                                                           </div>
                                                       </div>
-                                                      <!--<div class="row mb-3">
-                                                          <div class="col-md-6">
-                                                              <label for="contact-person" class="form-label text-primary">Subtitle:</label>
-                                                              <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Enter Sub Title">
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <label for="designation" class="form-label text-primary">Image2:</label>
-                                                              <input type="file" class="form-control" id="image2" name="image2">
-                                                          </div>
-                                                      </div>
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
-                                                              <label for="contact-number-1" class="form-label text-primary">Contact Number 1:</label>
-                                                              <div class="input-group">
-                                                                  <input type="tel" class="form-control" id="contact-number-1" name="contact-number-1" placeholder="Enter contact number 1">
-                                                                  <div class="input-group-append">
-                                                                      <div class="form-check mx-3">
-                                                                          <input class="form-check-input" type="checkbox" id="whatsapp-1" name="whatsapp-1">
-                                                                          <label class="form-check-label" for="whatsapp-1">WhatsApp</label>
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
+                                                              <label for="contact-person" class="form-label text-primary">Link:</label>
+                                                              <input type="text" class="form-control" id="link" name="link" placeholder="Enter Link" required>
                                                           </div>
-                                                          <div class="col-md-6">
-                                                              <label for="contact-number-2" class="form-label text-primary">Contact Number 2:</label>
-                                                              <div class="input-group">
-                                                                  <input type="tel" class="form-control" id="contact-number-2" name="contact-number-2" placeholder="Enter contact number 2">
-                                                                  <div class="input-group-append">
-                                                                      <div class="form-check mx-3">
-                                                                          <input class="form-check-input" type="checkbox" id="whatsapp-2" name="whatsapp-2">
-                                                                          <label class="form-check-label" for="whatsapp-2">WhatsApp</label>
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                      </div>-->
+                                                          <!--<div class="col-md-6">
+                                                              <label for="designation" class="form-label text-primary">Image2:</label>
+                                                              <input type="file" class="form-control" id="image2" name="image2">
+                                                          </div>-->
+                                                      </div>
+                                                     
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description"></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required></textarea>
                                                       </div>
-                                                      <!---<div class="row mb-3">
-                                                          <div class="col-md-6">
-                                                              <label for="email" class="form-label text-primary">Email:</label>
-                                                              <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <label for="website" class="form-label text-primary">Website:</label>
-                                                              <input type="url" class="form-control" id="website" name="website" placeholder="Enter website">
-                                                          </div>
-                                                      </div>--->
+                                                    
                                                       
                                                       <a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listsolutions';?>" data-bs-original-title="" title="">View/Edit  </a>
                                                       
@@ -190,10 +157,10 @@ $('#addsolutions').on('submit', function (e) {
         //alert("enter"+title);
         //var subtitle=$("#subtitle").val();
         var description=$("#description").val();
-        
+        var link =$("#link").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
-        //form_data.append('image2', file_data2);
+        form_data.append('link', link);
         form_data.append('maintitle',title);
         //form_data.append('subtitle',subtitle);
         form_data.append('description',description);

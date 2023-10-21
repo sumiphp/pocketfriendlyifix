@@ -834,26 +834,6 @@ function editmenu(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function editservices(){
 	if( $this->session->has_userdata('username')) {					
 	}
@@ -1374,6 +1354,38 @@ $this->load->view('services/listservices',$data);
 
 
 }
+
+
+public function listsiteinformation(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+$config = array();
+$config["base_url"] = base_url() . "Welcome/listsiteinformation";
+/*$config["total_rows"] = $this->sm->get_countservices();
+$config["per_page"] = 10;
+$config["uri_segment"] = 3;
+$this->pagination->initialize($config);
+$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+$data["links"] = $this->pagination->create_links();	
+$data['result']=$this->sm->get_services($config["per_page"],$page);*/
+$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
+$this->load->view('services/listsiteinformation',$data);	
+
+
+}
+
+
+
+
 
 
 
@@ -1970,7 +1982,7 @@ public function addsolutionsprocess(){
 	//$image2=$_FILES['image2']['name'];
 
 	 $title=$this->input->post('maintitle');
-	 //$rating=$this->input->post('rating');
+	$link=$this->input->post('link');
 	 $description=$this->input->post('description');
 	 //$name=$this->input->post('name');
 	  //$place=$this->input->post('place');
@@ -1978,7 +1990,7 @@ public function addsolutionsprocess(){
 	  
 	 $data = array(
 		 'description' =>"$description",
-		 //'rating' =>"$rating",
+		 'link' =>"$link",
 		 'title'=>"$title",
 		 'picture'=>$image1
 		 //,'place'=>$place,'date'=>$date,'title'=>$testtitle		
@@ -2026,19 +2038,31 @@ public function editsolutionsprocess(){
 	//$image2=$_FILES['image2']['name'];
 
 	 $title=$this->input->post('maintitle');
-	 //$rating=$this->input->post('rating');
+	 $link=$this->input->post('link');
 	 $description=$this->input->post('description');
 	$problemid=$this->input->post('problemid');
 	  //$place=$this->input->post('place');
 	  //$date=$this->input->post('date');
-	  
+	  if ($image1==''){
+		$data = array(
+			'description' =>"$description",
+			//'rating' =>"$problemid",
+			'title'=>"$title",
+			//'picture'=>$image1,
+			'link' =>"$link",
+			//,'place'=>$place,'date'=>$date,'title'=>$testtitle		
+		 );
+
+	  }else {
 	 $data = array(
 		 'description' =>"$description",
 		 //'rating' =>"$problemid",
 		 'title'=>"$title",
-		 'picture'=>$image1
+		 'picture'=>$image1,
+		 'link' =>"$link",
 		 //,'place'=>$place,'date'=>$date,'title'=>$testtitle		
 	  );
+	}
 	  //print_r($data);
 	  $id=$this->uri->segment(3); 
 	  $this->db->where('problemid',$problemid);
@@ -2150,12 +2174,12 @@ function editnewsletterprocess(){
 
 function editblogpageprocess(){
 	$description=$this->input->post('description');
-	/*$name=$this->input->post('name');
-	 $place=$this->input->post('place');
+	$metatag=$this->input->post('metatag');
+	/* $place=$this->input->post('place');
 	 $date=$this->input->post('date');*/
 	$data = array(
 		'blogdescription' =>"$description",
-		//'rating' =>"$rating",
+		'metatag' =>"$metatag",
 		//'name'=>"$name",
 		//'image'=>$image1,'place'=>$place,'date'=>$date,'title'=>$testtitle		
 	 );
@@ -2206,18 +2230,23 @@ function editcontactus(){
 }
 
 
+
+	
+
 function contactusprocess(){
 	$description=$this->input->post('description');
 	$phoneno=$this->input->post('phoneno');
 	 $emailid=$this->input->post('emailid');
 	 $place=$this->input->post('place');
 	 $country=$this->input->post('country');
+	 $metatag=$this->input->post('metatag');
 	$data = array(
 		'contactusdescription' =>"$description",
 		'phoneno' =>"$phoneno",
 		'emailid'=>"$emailid",
 		//'image'=>$image1,
 		'city'=>$place,'country'=>$country,
+		'metatag' =>"$metatag",
 		//'title'=>$testtitle		
 	 );
 	 //$id=$this->uri->segment(3); 
@@ -2262,7 +2291,7 @@ public function listsolutions(){
 	$config = array();
 	$config["base_url"] = base_url() . "Welcome/listsolutions";
 	$config["total_rows"] = $this->sm->get_countsolutions();
-	$config["per_page"] = 5;
+	$config["per_page"] = 10;
 	$config["uri_segment"] = 3;
 	$this->pagination->initialize($config);
 	$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -2324,6 +2353,50 @@ public function addhomepagequalities(){
 
 }
 
+
+public function edithomepagequalities(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$id=$this->uri->segment(3);
+	$this->db->where('qualityid',$id);
+	$this->db->from('quality');
+    $query = $this->db->get();
+    $data['result']=$query->result_array(); 
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['quality']=$this->sm->get_quality($id);
+	//print_r($data['quality']);
+	//die;
+	 
+	$this->load->view('services/editqualities',$data);
+
+
+}
+
+
+public function editqualityprocess(){
+	$title=$this->input->post('title');
+	$qualityid=$this->input->post('qualityid');
+	$orderno=$this->input->post('orderno');
+	$data = array(
+		'quality' =>"$title",
+		//'subtitle' =>"$subtitle",
+		'orderno'=>"$orderno",
+		//'Image1'=>$image1,'Image2'=>$image2		
+	 );
+	 //print_r($data);
+	 $this->db->where('qualityid',$qualityid);
+	 $this->db->update('quality', $data);
+
+	 //echo ($this->db->affected_rows() != 1) ? 'Error in Adding Quality' : '<b>Quality added Successfully</b>';
+	 echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Quality') : $this->session->set_flashdata('flash_msg', 'Quality Edited Successfully');
+
+
+}
 
 
 

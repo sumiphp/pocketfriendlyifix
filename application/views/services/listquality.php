@@ -97,7 +97,7 @@
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                               <div class="table-responsive theme-scrollbar">
-                                              <span id="msg"></span><br>
+                                              <span id="msg"><?php echo $this->session->flashdata('flash_msg');?></span><br>
                                                 <div id="data-source-1_wrapper" class="dataTables_wrapper">
 
                                                     <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
@@ -123,7 +123,7 @@
                                                       
                                                       <td> 
                                                         <ul class="action"> 
-                                                          <li class="edit"> <a href="<?php echo base_url().'Welcome/editquality/'.$res['qualityid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
+                                                          <li class="edit"> <a href="<?php echo base_url().'Welcome/edithomepagequalities/'.$res['qualityid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
                                                           <li class="delete"><a href="#" onclick="delql(<?php echo $res['qualityid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
                                                           <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
                                                         </ul>

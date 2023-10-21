@@ -20,7 +20,7 @@
                     </span>
                 </button>
                 <h2 class="modal-title" id="myModalLabel2">
-                    <a href="index.html">
+                    <a href="<?php echo base_url().'Welcome/dashboard';?>">
                         <img src="assets/img/logo.png" class="modal-logo1" alt="Logo">
                     </a>
                 </h2>
@@ -47,7 +47,7 @@
                           <ul class="sub-menu">
                             <li><a class="link_name" href="#">Category</a></li>
                             <li><a href="core-content.html">Primary Info / Logo & Favicon </a></li>
-                            <li><a href="#">Site Address Info </a></li>
+                            <li><a href="<?php echo base_url().'Welcome/listhomepage';?>">Site Address Info </a></li>
                             <li><a href="core-content-email.html">Site Emails / Contact Deatils </a></li>
                             <li><a href="#">Social Media Links / Meta Tages</a></li>
                             <li><a href="#"> Analytics Code / Assets / Js</a></li>

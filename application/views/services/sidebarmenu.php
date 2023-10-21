@@ -16,7 +16,7 @@
                               </div>
                               <ul class="sub-menu">
                                 <li><a class="link_name" href="#">Category</a></li>
-                                <li><a href="#">Site Address Info </a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listsiteinformation';?>">Site Address Info </a></li>
                                 <li><a href="#">Site Emails / Contact Deatils </a></li>
                                 <li><a href="#">Social Media Links / Meta Tages</a></li>
                                 <li><a href="#"> Analytics Code / Assets / Js</a></li>

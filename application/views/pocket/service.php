@@ -1,4 +1,8 @@
-<?php include_once("header.php");?>
+
+<?php //include_once("header.php");
+echo $service->metatag;
+
+?>
 
     <body>
         <!-- Start Preloader -->
@@ -10,9 +14,9 @@
         <div class="navbar-area">
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
-                <a href="index.php" class="logo">
-                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-one" alt="Logo">
-                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-two" alt="Logo">
+             <a href="<?php echo base_url().'Pockets/index';?>" class="logo">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="Logo">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="Logo">
                 </a>
             </div>
 
@@ -75,11 +79,11 @@
                                         <div class="gt3-core-imagebox-content">
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
-                                                <a href="<?php echo base_url().'Pocket/servicedetails';?>">
+                                                <a href="<?php echo base_url().'Pocket/servicedetails/'.$res['categoryid'];?>">
                                                     <img src="<?php echo base_url().'uploads/'.$res['categoryimage'];?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
-                                                    <h3 class="gt3-core-imagebox-title secondary-title"><a href="#"><?php echo $res['categoryname'];?></a></h3>
+                                                    <h3 class="gt3-core-imagebox-title secondary-title"><a href="<?php echo base_url().'Pocket/servicedetails/'.$res['categoryid'];?>"><?php echo $res['categoryname'];?></a></h3>
                                                 </div>
                                                 <p class="gt3-core-imagebox-description"><?php echo $res['categorydescription'];?></p>
                                             </div>

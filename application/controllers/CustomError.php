@@ -22,6 +22,8 @@ class CustomError extends CI_Controller {
 		$data['featureupdate']=$this->sm->get_featureupdate();
 		$data['resulthome']=$this->sm->get_homepage();
 		$data['qualities']=$this->sm->get_qualities();
+        $data['menus']=$this->sm->get_menus();
+		$data['siteinf']=$this->sm->get_siteinf();
        $this -> load -> view('pocket/errorpage.php',$data); 
     } 
 }

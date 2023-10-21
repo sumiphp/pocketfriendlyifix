@@ -110,6 +110,10 @@
                                                           <label for="address" class="form-label text-primary">Front Page Contact Us description:</label>
                                                           <textarea class="form-control" id="description" name="description" rows="10" placeholder="Enter Blog description" required><?php echo $result->contactusdescription;?></textarea>
                                                       </div>
+                                                      <div class="mb-3">
+                                                          <label for="address" class="form-label text-primary">Meta Tag:</label>
+                                                          <textarea class="form-control" id="metatag" name="metatag" rows="20" placeholder="Enter Meta Tage"><?php echo $result->metatag;?></textarea>
+                                                      </div>
                                                       
                                                       
                                                       <!--<a class="btn btn-primary me-3" href="<?php //echo base_url().'Welcome/listblogcontents';?>" data-bs-original-title="" title="">View/Edit  </a>-->
@@ -178,7 +182,7 @@ $('#editcontactus').on('submit', function (e) {
         //var place=$("#place").val();
         //var date=$("#date").val();
        var description=$("#description").val();
-        //var blogid=$("#blogid").val();
+       var metatag=$("#metatag").val();
         
         var form_data = new FormData();
         form_data.append('image1', file_data1);
@@ -188,7 +192,7 @@ $('#editcontactus').on('submit', function (e) {
         form_data.append('place',place);
         form_data.append('country',country);
         form_data.append('description',description);
-        //form_data.append('date',date);
+        form_data.append('metatag',metatag);
        // form_data.append('companyname',companyname);
         //form_data.append('blogid',blogid);
        
