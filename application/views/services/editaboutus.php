@@ -101,16 +101,16 @@
                                                       </div>
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Enter Mission:</label>
-                                                          <textarea class="form-control" id="aboutcompany" name="aboutcompany" rows="3" placeholder="About Company" required><?php echo $result->aboutcompany;?></textarea>
+                                                          <textarea class="form-control" id="mission" name="mission" rows="3" placeholder="About Company" required><?php echo $result->aboutcompany;?></textarea>
                                                       </div>
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Enter Vision:</label>
-                                                          <textarea class="form-control" id="aboutcompany" name="aboutcompany" rows="3" placeholder="About Company" required><?php echo $result->aboutcompany;?></textarea>
+                                                          <textarea class="form-control" id="vision" name="vision" rows="3" placeholder="About Company" required><?php echo $result->aboutcompany;?></textarea>
                                                       </div>
 
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">About Company Short Description:</label>
-                                                          <textarea class="form-control" id="aboutcompany" name="aboutcompany" rows="3" placeholder="About Company Short Description" required><?php echo $result->aboutcompany;?></textarea>
+                                                          <textarea class="form-control" id="shortdesc" name="shortdesc" rows="3" placeholder="About Company Short Description" required><?php echo $result->aboutcompany;?></textarea>
                                                       </div>
 
 
@@ -120,7 +120,7 @@
                                                           <label for="company-logo" class="form-label text-primary">Enter Years of Experience :</label>
                                                              
 
-                                                              <input type="text" class="form-control" id="yearsexperience" name="yearsexperience" placeholder="Enter Years of Experience">
+                                                              <input type="text" class="form-control" id="yearsexperience" name="yearsexperience" placeholder="Enter Years of Experience" value="<?php echo $result->yearsexperience;?>" >
                                                               <!--<img src="<?php //echo base_url().'uploads/'.$result->missionlogo;?>" width="50" height="50" />-->
 
 
@@ -129,7 +129,7 @@
                                                           <label for="company-logo" class="form-label text-primary">Enter Happy Clients :</label>
                                                              
 
-                                                              <input type="text" class="form-control" id="yearsexperience" name="yearsexperience" placeholder="Enter Happy Clients">
+                                                              <input type="text" class="form-control" id="happyclients" name="happyclients" placeholder="Enter Happy Clients"  value="<?php echo $result->happyclients;?>">
                                                               <!--<img src="<?php //echo base_url().'uploads/'.$result->missionlogo;?>" width="50" height="50" />-->
 
 
@@ -144,7 +144,7 @@
                                                           <label for="company-logo" class="form-label text-primary"> 	Projects Done :</label>
                                                              
 
-                                                              <input type="text" class="form-control" id="yearsexperience" name="yearsexperience" placeholder="Enter Years of Experience">
+                                                              <input type="text" class="form-control" id="projectsdone" name="projectsdone" placeholder="Enter Years of Experience"  value="<?php echo $result->projectsdone;?>">
                                                               <!--<img src="<?php //echo base_url().'uploads/'.$result->missionlogo;?>" width="50" height="50" />-->
 
 
@@ -153,7 +153,7 @@
                                                           <label for="company-logo" class="form-label text-primary"> 	Expert Members :</label>
                                                              
 
-                                                              <input type="text" class="form-control" id="expertmembers" name="expertmembers" placeholder="Enter Expert Members">
+                                                              <input type="text" class="form-control" id="expertmembers" name="expertmembers" placeholder="Enter Expert Members" value="<?php echo $result->expertmembers;?>">
                                                               <!--<img src="<?php //echo base_url().'uploads/'.$result->missionlogo;?>" width="50" height="50" />-->
 
 
@@ -177,7 +177,7 @@
                                                       
                                                       <!--<a class="btn btn-primary me-3" href="<?php //echo base_url().'Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a>-->
                                                       
-                                                      <button type="button" class="btn btn-primary" id="uploadser" >Update</button>
+                                                      <button type="submit" class="btn btn-primary" id="uploadser" >Update</button>
                                                   </form>
 
                                                 </div>
@@ -227,25 +227,25 @@
         <!-- Contact Form JS -->
         <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
         <!-- Custom JS -->
-        <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/custom.js';?>"></script>
         <script>
 $('#editaboutus').on('submit', function (e) {
     e.preventDefault();
-    //alert("enter");
+   alert("enter");
         var file_data1 = $('#image1').prop('files')[0];
         var file_data2 = $('#image2').prop('files')[0];
         var maintitle=$('#maintitle').val();
-        var aboutcompany=$("#aboutcompany").val();
+       var aboutcompany=$("#aboutcompany").val();
         var mission=$("#mission").val();
         var vision=$("#vision").val();
         var yearsexperience=$("#yearsexperience").val();
         var happyclients=$("#happyclients").val();
         var expertmembers=$("#expertmembers").val(); 
-        var aboutusshortdesc=$("#aboutusshortdesc").val();
+        var aboutusshortdesc=$("#shortdesc").val();
         var projectsdone=$("#projectsdone").val();
         
         var form_data = new FormData();
-        form_data.append('image1', file_data1);
+      form_data.append('image1', file_data1);
         form_data.append('image2', file_data2);
         form_data.append('maintitle',maintitle);
         form_data.append('aboutcompany',aboutcompany);
@@ -272,11 +272,11 @@ $('#editaboutus').on('submit', function (e) {
         $(this).val('');
     });
                 //$('#sermsg').html(response); // display success response from the server
-                window.location.href ="<?php echo base_url().'Welcome/listservices';?>";
+                window.location.href ="<?php echo base_url().'Welcome/listaboutus';?>";
             },
             error: function (response) {
                // $('#sermsg').html(response); // display error response from the server
-               window.location.href ="<?php echo base_url().'Welcome/listservices';?>";
+               window.location.href ="<?php echo base_url().'Welcome/listaboutus';?>";
             }
         });
     });

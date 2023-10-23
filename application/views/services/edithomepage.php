@@ -139,12 +139,17 @@
                                                           </div>
                                                       </div>
 
+                                                      <div class="mb-3">
+                                                          <label for="address" class="form-label text-primary">Meta Tag:</label>
+                                                          <textarea class="form-control" id="metatag" name="metatag" rows="20" placeholder="Enter Meta Tage"><?php echo $result->metatag;?></textarea>
+                                                      </div>
+
 
 
                                                       
                                                       <!--<a class="btn btn-primary me-3" href="<?php //echo base_url().'Welcome/listcategory';?>" data-bs-original-title="" title="">View/Edit  </a>-->
                                                       
-                                                      <button type="button" class="btn btn-primary" id="uploadser" >Update</button>
+                                                      <button type="submit" class="btn btn-primary" id="uploadser" >Update</button>
                                                   </form>
 
                                                 </div>
@@ -175,45 +180,52 @@
             
 
 
-         <!-- Jquery Min JS -->
-        <script src="<?php echo base_url().'assets/js/jquery.min.js';?>"></script>
-        <!-- Bootstrap Bundle Min JS -->
-        <script src="<?php echo base_url().'assets/js/bootstrap.bundle.min.js';?>"></script>
-        <!-- Meanmenu JS -->
+        
+       <script src="<?php echo base_url().'assets/js/jquery.min.js';?>"></script>
+       
+      <script src="<?php echo base_url().'assets/js/bootstrap.bundle.min.js';?>"></script>
+       
         <script src="<?php echo base_url().'assets/js/meanmenu.min.js';?>"></script>
-        <!-- Owl Carousel JS -->
+      
         <script src="<?php echo base_url().'assets/js/owl.carousel.min.js';?>"></script>
-        <!-- Magnific Popup JS -->
+      
         <script src="<?php echo base_url().'assets/js/jquery.magnific-popup.min.js';?>"></script>
-        <!-- Wow JS -->
+      
         <script src="<?php echo base_url().'assets/js/wow.min.js';?>"></script>
-        <!-- Ajaxchimp Min JS -->
+        
         <script src="<?php echo base_url().'assets/js/jquery.ajaxchimp.min.js';?>"></script>
-        <!-- Form Validator Min JS -->
+        
         <script src="<?php echo base_url().'assets/js/form-validator.min.js';?>"></script>
-        <!-- Contact Form JS -->
+      
         <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
-        <!-- Custom JS -->
+    
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
-        <script>
+        
+
+    </body>
+    <?php include_once("footer.php");?>
+
+
+    <script>
 $('#edithomepage').on('submit', function (e) {
     e.preventDefault();
-    //alert("enter");
+alert("enter");
         var file_data1 = $('#image1').prop('files')[0];
         var file_data2 = $('#image2').prop('files')[0];
         var file_data3 = $('#image3').prop('files')[0];
         var maintitle=$('#maintitle').val();
-        var subtitle=$("#subtitle").val();
+      var subtitle=$("#subtitle").val();
         var servicetitle1=$("#servicetitle1").val();
         var servicetitle2=$("#servicetitle2").val();
         var servicetitle3=$("#servicetitle3").val();
         var servicetitle=$("#servicetitle").val();
         var qualitytitle=$("#qualitytitle").val();
+        var metatag=$("#metatag").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         form_data.append('image2', file_data2);
         form_data.append('image3', file_data3);
-        form_data.append('image2', file_data2);
+       
         form_data.append('maintitle',maintitle);
         form_data.append('subtitle',subtitle);
         form_data.append('servicetitle',servicetitle);
@@ -221,6 +233,7 @@ $('#edithomepage').on('submit', function (e) {
         form_data.append('servicetitle2',servicetitle2);
         form_data.append('servicetitle3',servicetitle3);
         form_data.append('qualitytitle',qualitytitle);
+        form_data.append('metatag',metatag);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/edithomepageprocess';?>", // point to server-side controller method
@@ -253,6 +266,3 @@ $('#edithomepage').on('submit', function (e) {
 
 
 </script>
-
-    </body>
-    <?php include_once("footer.php");?>

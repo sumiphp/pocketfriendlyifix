@@ -1111,6 +1111,16 @@ public function editservicesprocess(){
 
 
 public function edithomepageprocess(){
+	$this->db->select('*');
+    $this->db->from('homepage');
+    $query = $this->db->get();
+   $imgdetails=$query->row();
+   $image1=$imgdetails->homepageimg1;
+   $image2=$imgdetails->homepageimg2;
+   $image3=$imgdetails->serviceimg;
+
+
+
 
 	$config['upload_path'] = 'uploads/homepage';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
@@ -1134,7 +1144,7 @@ public function edithomepageprocess(){
 		}
 		$image1=$_FILES['image1']['name'];
 	} else {
-		$image1='';
+		$image1='$image1';
 	}
 	
 	
@@ -1156,7 +1166,7 @@ public function edithomepageprocess(){
 		}
 		$image2=$_FILES['image2']['name'];
 	} else {
-		$image2='';
+		$image2='$image2';
 	}
 	
 	if (isset($_FILES['image3']['name'])) {
@@ -1176,23 +1186,37 @@ public function edithomepageprocess(){
 		}
 		$image3=$_FILES['image3']['name'];
 	} else {
-		$image3='';
+		$image3='$image3';
 	}
 	
-
-
-
-
-	
+	$servicetitle1=$this->input->post('servicetitle1');
+	$servicetitle2=$this->input->post('servicetitle2');
+	$servicetitle3=$this->input->post('servicetitle3');
+	$servicetitle=$this->input->post('servicetitle');
+	$qualitytitle=$this->input->post('qualitytitle');	
 	 $maintitle=$this->input->post('maintitle');
 	 $subtitle=$this->input->post('subtitle');
-	 $description=$this->input->post('description');
-	 if (($image1!='') && ($image2!='')){
+	 $metatag=$this->input->post('metatag');
+
+	 $data = array(
+		'metatag'=>$metatag,
+		'maintitle' =>"$maintitle",
+		'subtitle' =>"$subtitle",
+		'description'=>"$description",
+		'servicetitle1'=>'$servicetitle1', 'servicetitle2'=>'$servicetitle2','servicetitle3'=>'$servicetitle3',
+		'Image1'=>'$image1','Image2'=>'$image2','serviceimg'=>'$image3','servicetitle'=>'$servicetitle','qualitytitle'=>'$qualitytitle'		
+	 );
+
+
+
+
+	/* if (($image1!='') && ($image2!='')){
 	 $data = array(
 		 'maintitle' =>"$maintitle",
 		 'subtitle' =>"$subtitle",
 		 'description'=>"$description",
-		 'Image1'=>$image1,'Image2'=>$image2		
+		 'servicetitle1'=>'$servicetitle1', 'servicetitle2'=>'$servicetitle2','servicetitle3'=>'$servicetitle3',
+		 'Image1'=>$image1,'Image2'=>$image2,'servicetitle'=>'$servicetitle','qualitytitle'=>'$qualitytitle'		
 	  );
 	}
 	if (($image1!='') && ($image2=='')){
@@ -1200,7 +1224,8 @@ public function edithomepageprocess(){
 			'maintitle' =>"$maintitle",
 			'subtitle' =>"$subtitle",
 			'description'=>"$description",
-			'Image1'=>$image1		
+			'Image1'=>$image1, 'servicetitle1'=>'$servicetitle1', 'servicetitle2'=>'$servicetitle2','servicetitle3'=>'$servicetitle3',
+			'Image1'=>$image1,'Image2'=>$image2,'servicetitle'=>'$servicetitle','qualitytitle'=>'$qualitytitle'		
 		 );
 	   }
 	   if (($image1=='') && ($image2!='')){
@@ -1208,25 +1233,25 @@ public function edithomepageprocess(){
 			'maintitle' =>"$maintitle",
 			'subtitle' =>"$subtitle",
 			'description'=>"$description",
-			//'Image1'=>$image1
-			'Image2'=>$image2		
+			
+			'Image2'=>$image2, 'Image1'=>$image1,'Image2'=>$image2,'servicetitle'=>'$servicetitle','qualitytitle'=>'$qualitytitle','servicetitle1'=>'$servicetitle1', 'servicetitle2'=>'$servicetitle2','servicetitle3'=>'$servicetitle3',		
 		 );
 	   }
 	   if (($image1=='') && ($image2=='')){
 		$data = array(
 			'maintitle' =>"$maintitle",
 			'subtitle' =>"$subtitle",
-			'description'=>"$description",
-			//'Image1'=>$image1
-			//'Image2'=>$image2		
+			'description'=>"$description", 'Image1'=>$image1,'Image2'=>$image2,'servicetitle'=>'$servicetitle','qualitytitle'=>'$qualitytitle','servicetitle1'=>'$servicetitle1', 'servicetitle2'=>'$servicetitle2','servicetitle3'=>'$servicetitle3',
+				
 		 );
-	   }
-	  //print_r($data);
-	  $this->db->where('homepageid',1);
+	   }*/
+	  print_r($data);
+	  $this->db->where('homepageid',2);
 	  $this->db->update('homepage', $data);
-
-	  echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product Services' : '<b>Product Services added Successfully</b>';
-
+echo $this->db->last_query();
+die;
+	  //echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product Services' : '<b>Product Services added Successfully</b>';
+	  echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Home Page') : $this->session->set_flashdata('flash_msg', 'Home Page Edited Successfully');
 
 }
 
@@ -1283,8 +1308,19 @@ public function editaboutusprocess(){
 	
 	 $maintitle=$this->input->post('maintitle');
 	 $subtitle=$this->input->post('subtitle');
-	 $description=$this->input->post('description');
-	 if (($image1!='') && ($image2!='')){
+	 $description=$this->input->post('aboutcompany');
+	 $maintitle=$this->input->post('maintitle');
+	 $subtitle=$this->input->post('subtitle');
+	 $description=$this->input->post('aboutcompany');
+
+
+	 $data = array(
+		'title' =>"$maintitle",
+		'subtitle' =>"$subtitle",
+		'aboutcompany'=>"$description",
+		//'Image1'=>$image1,'Image2'=>$image2		
+	 );
+	 /*if (($image1!='') && ($image2!='')){
 	 $data = array(
 		 'maintitle' =>"$maintitle",
 		 'subtitle' =>"$subtitle",
@@ -1305,7 +1341,7 @@ public function editaboutusprocess(){
 			'maintitle' =>"$maintitle",
 			'subtitle' =>"$subtitle",
 			'description'=>"$description",
-			//'Image1'=>$image1
+			
 			'Image2'=>$image2		
 		 );
 	   }
@@ -1314,15 +1350,14 @@ public function editaboutusprocess(){
 			'maintitle' =>"$maintitle",
 			'subtitle' =>"$subtitle",
 			'description'=>"$description",
-			//'Image1'=>$image1
-			//'Image2'=>$image2		
+				
 		 );
-	   }
+	   }*/
 	  //print_r($data);
 	  $this->db->where('aboutusid',1);
 	  $this->db->update('aboutus', $data);
-
-	  echo ($this->db->affected_rows() != 1) ? 'Error in Editing About Us Contents' : '<b>About Us Contents added Successfully</b>';
+	  echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing About Us') : $this->session->set_flashdata('flash_msg', 'About Us Edited Successfully');
+	  //echo ($this->db->affected_rows() != 1) ? 'Error in Editing About Us Contents' : '<b>About Us Contents added Successfully</b>';
 
 
 }
