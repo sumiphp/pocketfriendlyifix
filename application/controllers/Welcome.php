@@ -1143,6 +1143,120 @@ public function editservicesprocess(){
 }
 
 
+public function editsiteinformation(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$this->db->from('siteinformation');
+    $query = $this->db->get();
+    $data['result']=$query->row();
+	$data['contactus']=$this->sm->get_contactus(); 
+	$data['newsletter']=$this->sm->get_newsletter();
+	$this->load->view('services/editsiteinformation',$data);
+
+
+
+
+}
+
+public function siteinfeditprocess(){
+	$this->db->select('*');
+    $this->db->from('siteinformation');
+    $query = $this->db->get();
+   $imgdetails=$query->row();
+   $image11=$imgdetails->faviconimg;
+   $image22=$imgdetails->logoimg;
+   //$image3=$imgdetails->serviceimg;
+
+   $config['upload_path'] = 'uploads/logo';
+   $config['allowed_types'] = 'gif|jpg|png|jpeg';	
+   $config['max_size'] = '1024'; //1 MB
+   $this->load->library('upload', $config);
+   $this->upload->initialize($config);
+   if (isset($_FILES['image1']['name'])) {
+	   if (0 < $_FILES['image1']['error']) {
+		   echo 'Error during file upload' . $_FILES['image1']['error'];
+	   } else {
+		   if (file_exists('uploads/logo' . $_FILES['image1']['name'])) {
+			   echo 'File already exists : uploads/logo' . $_FILES['image1']['name'];
+		   } else {
+			   
+			   if (!$this->upload->do_upload('image1')) {
+				   //echo $this->upload->display_errors();
+			   } else {
+				   //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+			   }
+		   }
+	   }
+	   $image1=$_FILES['image1']['name'];
+   } else {
+	   $image1=$image11;
+   }
+   
+
+   if (isset($_FILES['image2']['name'])) {
+	   if (0 < $_FILES['image2']['error']) {
+		   echo 'Error during file upload' . $_FILES['image2']['error'];
+	   } else {
+		   if (file_exists('uploads/logo' . $_FILES['image2']['name'])) {
+			   echo 'File already exists : uploads/logo' . $_FILES['image2']['name'];
+		   } else {
+			   
+			   if (!$this->upload->do_upload('image2')) {
+				   //echo $this->upload->display_errors();
+			   } else {
+				   //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+			   }
+		   }
+	   }
+	   $image2=$_FILES['image2']['name'];
+   } else {
+	   $image2=$image22;
+   }
+   if ($image1==''){
+	$image1=$image11;
+   }
+   if ($image2==''){
+	$image2=$image22;
+   }
+
+   $sitedescription=$this->input->post('sitedescription');
+   $sitename=$this->input->post('sitename');
+   /*$servicetitle3=$this->input->post('servicetitle3');
+   $servicetitle=$this->input->post('servicetitle');
+   $qualitytitle=$this->input->post('qualitytitle');	
+	$maintitle=$this->input->post('maintitle');
+	$subtitle=$this->input->post('subtitle');
+	$metatag=$this->input->post('metatag');*/
+
+
+
+   
+   $data = array(
+	'sitedescription' =>"$sitedescription",
+	'sitename' =>"$sitename",
+	//'description'=>"$description",
+	//'metatag'=>"$metatag",
+	//'alttagimg1'=>"$alttag1",
+	//'alttagimg2'=>"$alttag2",
+	'faviconimg'=>$image2
+	,'logoimg'=>$image1
+			
+ );
+
+ $this->db->where('siteinfid',1);
+ $this->db->update('siteinformation', $data);
+ echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Site Information') : $this->session->set_flashdata('flash_msg', 'Site Information Edited Successfully');
+
+ redirect("welcome/editsiteinformation");
+
+
+
+}
 
 public function edithomepageprocess(){
 	$this->db->select('*');

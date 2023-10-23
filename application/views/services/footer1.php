@@ -124,7 +124,7 @@
                                     </li>
                                     <li>
                                         <i class='bx bx-envelope'></i>
-                                        <a href="mailto:info@ifixcomapnyonline">info@ifixcomapnyonline</a>
+                                        <a href="mailto:<?php echo $contactus->emailid;?>"><?php echo $contactus->emailid;?></a>
                                     </li>
                                   
                                     

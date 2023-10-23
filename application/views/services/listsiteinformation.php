@@ -108,7 +108,7 @@
                                                       <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Subtitle</th>-->
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:132px;">Logo</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Favicon</th>
-                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Site Description</th>
+                                                                              <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Site Description</th>-->
                                                                               
                                                            <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
                                                   </thead>
@@ -125,7 +125,7 @@
                                                       
                                                       <td><?php echo "<img src=".base_url().'uploads/logo/'.$siteinf->logoimg." />";?></td>
                                                       <td><?php echo "<img src=".base_url().'uploads/logo/'.$siteinf->faviconimg." />";?></td>
-                                                      <td><?php echo $siteinf->sitedescription;?></td>
+                                                      <!--<td><?php //echo $siteinf->sitedescription;?></td>-->
                                                       <!--<td><?php //echo $res['businesswebsiteduration'];?></td>-->
                                                       <!--<td><?php //echo $res['note'];?></td>-->
                                                       <td> 
