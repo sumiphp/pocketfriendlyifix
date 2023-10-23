@@ -500,6 +500,16 @@ function get_quality($id){
 }
 
 
+function get_servicesdetails(){
+    $this->db->select('*');
+    $this->db->from('servicedetails');
+    $query = $this->db->get();
+    return $query->row();
+
+
+}
+
+
 
 }
 ?>

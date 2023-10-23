@@ -1430,8 +1430,8 @@ public function editaboutusprocess(){
 		if (0 < $_FILES['image1']['error']) {
 			echo 'Error during file upload' . $_FILES['image1']['error'];
 		} else {
-			if (file_exists('uploads/' . $_FILES['image1']['name'])) {
-				echo 'File already exists : uploads/' . $_FILES['image1']['name'];
+			if (file_exists('uploads/aboutus' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/aboutus' . $_FILES['image1']['name'];
 			} else {
 				
 				if (!$this->upload->do_upload('image1')) {
@@ -1452,8 +1452,8 @@ public function editaboutusprocess(){
 		if (0 < $_FILES['image2']['error']) {
 			echo 'Error during file upload' . $_FILES['image2']['error'];
 		} else {
-			if (file_exists('uploads/' . $_FILES['image2']['name'])) {
-				echo 'File already exists : uploads/' . $_FILES['image2']['name'];
+			if (file_exists('uploads/aboutus' . $_FILES['image2']['name'])) {
+				echo 'File already exists : uploads/aboutus' . $_FILES['image2']['name'];
 			} else {
 				
 				if (!$this->upload->do_upload('image2')) {
@@ -1582,7 +1582,24 @@ $this->load->view('services/listsiteinformation',$data);
 }
 
 
+public function listservicesdetails(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
 
+$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
+	$data['result']=$this->sm->get_servicesdetails();
+$this->load->view('services/listservicesdetails',$data);	
+
+
+}
 
 
 
@@ -2595,6 +2612,53 @@ public function editqualityprocess(){
 
 
 }
+
+
+public function editservicedetails(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$id=$this->uri->segment(3);
+	//$this->db->where('qualityid',$id);
+	$this->db->from('servicedetails');
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['quality']=$this->sm->get_quality($id);
+	//print_r($data['quality']);
+	//die;
+	 
+	$this->load->view('services/editservicesdetails',$data);
+
+
+}
+
+public function editservicesdetailsprocess(){
+	$title=$this->input->post('title');
+	$solution=$this->input->post('solution');
+	$data = array(
+		'servicedttitle' =>"$title",
+		//'subtitle' =>"$subtitle",
+		'servicedtsolution'=>"$solution",
+		//'Image1'=>$image1,'Image2'=>$image2		
+	 );
+	 //print_r($data);
+	 //$this->db->where('qualityid',$qualityid);
+	 $this->db->update('servicedetails', $data);
+
+	 //echo ($this->db->affected_rows() != 1) ? 'Error in Adding Quality' : '<b>Quality added Successfully</b>';
+	 ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Service details') : $this->session->set_flashdata('flash_msg', 'Service details Edited Successfully');
+	 redirect("welcome/listservicesdetails");
+
+}
+
+
+
+
 
 
 

@@ -37,7 +37,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="main-title">
-                            <h2>Service Details</h2>
+                            <h2><?php echo $result->servicedttitle;?></h2>
                         </div>
                        
                     </div>
@@ -154,7 +154,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="main-title text-left">
-                            <h2>Ease Your Problems with us Free</h2>
+                            <h2><?php echo $result->servicedtsolution;?></h2>
                         </div>
                     </div>
                     

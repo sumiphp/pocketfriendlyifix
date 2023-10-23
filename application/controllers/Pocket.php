@@ -254,6 +254,8 @@ public function servicedetails(){
 	$data['easeyourproblems']=$this->sm->get_problems();
 	$data['menus']=$this->sm->get_menus();
 	$data['siteinf']=$this->sm->get_siteinf();
+	$data['result']=$this->sm->get_servicesdetails();
+
 	$this->load->view('pocket/service-details.php',$data);
 
 }
