@@ -160,7 +160,10 @@
                                                           </div>
                                                       </div>
                                                      
-
+                                                      <div class="mb-3">
+                                                          <label for="address" class="form-label text-primary">Meta Tag:</label>
+                                                          <textarea class="form-control" id="metatag" name="metatag" rows="20" placeholder="Enter Meta Tage"><?php echo $result->metatag;?></textarea>
+                                                      </div>
 
 
 
@@ -231,9 +234,10 @@
         <script>
 $('#editaboutus').on('submit', function (e) {
     e.preventDefault();
-   alert("enter");
+   //alert("enter");
         var file_data1 = $('#image1').prop('files')[0];
         var file_data2 = $('#image2').prop('files')[0];
+        var file_data3 = $('#aboutusbanner').prop('files')[0];
         var maintitle=$('#maintitle').val();
        var aboutcompany=$("#aboutcompany").val();
         var mission=$("#mission").val();
@@ -243,6 +247,7 @@ $('#editaboutus').on('submit', function (e) {
         var expertmembers=$("#expertmembers").val(); 
         var aboutusshortdesc=$("#shortdesc").val();
         var projectsdone=$("#projectsdone").val();
+        var metatag=$("#metatag").val();
         
         var form_data = new FormData();
       form_data.append('image1', file_data1);
@@ -256,6 +261,8 @@ $('#editaboutus').on('submit', function (e) {
         form_data.append('expertmembers',expertmembers);
         form_data.append('aboutusshortdesc',aboutusshortdesc);
         form_data.append('projectsdone',projectsdone);
+        form_data.append('image3',file_data3);
+        form_data.append('metatag',metatag);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/editaboutusprocess';?>", // point to server-side controller method

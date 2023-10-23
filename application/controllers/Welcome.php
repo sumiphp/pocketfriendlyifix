@@ -1420,8 +1420,14 @@ public function edithomepageprocess(){
 
 
 public function editaboutusprocess(){
-
-	$config['upload_path'] = 'uploads';
+	$this->db->select('*');
+    $this->db->from('aboutus');
+    $query = $this->db->get();
+   $imgdetails=$query->row();
+   $image11=$imgdetails->missionlogo;
+   $image22=$imgdetails->visionlogo;
+   $image33=$imgdetails->aboutusbanner;
+	$config['upload_path'] = 'uploads/aboutus';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
 	$this->load->library('upload', $config);
@@ -1443,7 +1449,7 @@ public function editaboutusprocess(){
 		}
 		$image1=$_FILES['image1']['name'];
 	} else {
-		$image1='';
+		$image1=$image11;
 	}
 	
 	
@@ -1465,22 +1471,52 @@ public function editaboutusprocess(){
 		}
 		$image2=$_FILES['image2']['name'];
 	} else {
-		$image2='';
+		$image2=$image22;
 	}
 	
+	if (isset($_FILES['image3']['name'])) {
+		if (0 < $_FILES['image3']['error']) {
+			echo 'Error during file upload' . $_FILES['image3']['error'];
+		} else {
+			if (file_exists('uploads/aboutus' . $_FILES['image3']['name'])) {
+				echo 'File already exists : uploads/aboutus' . $_FILES['image3']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image3')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+		$image3=$_FILES['image3']['name'];
+	} else {
+		$image3=$image33;
+	}
 	
 	 $maintitle=$this->input->post('maintitle');
-	 $subtitle=$this->input->post('subtitle');
-	 $description=$this->input->post('aboutcompany');
-	 $maintitle=$this->input->post('maintitle');
-	 $subtitle=$this->input->post('subtitle');
-	 $description=$this->input->post('aboutcompany');
-
-
+	 $mission=$this->input->post('mission');
+	 $vision=$this->input->post('vision');
+	 $yearsexperience=$this->input->post('yearsexperience');
+	 $happyclients=$this->input->post('happyclients');
+	 $expertmembers=$this->input->post('expertmembers');
+	 $aboutusshortdesc=$this->input->post('aboutusshortdesc');
+	 $projectsdone=$this->input->post('projectsdone');
+	 $aboutcompany=$this->input->post('aboutcompany');
+	 $metatag=$this->input->post('metatag');
 	 $data = array(
+		'metatag'=>$metatag,
 		'title' =>"$maintitle",
-		'subtitle' =>"$subtitle",
-		'aboutcompany'=>"$description",
+		'mission' =>"$mission",
+		'aboutcompany'=>"$aboutcompany",
+		'vision'=>$vision,
+		'mission'=>$mission,
+		'yearsexperience'=>$yearsexperience,
+		'happyclients'=>$happyclients,
+		'expertmembers'=>$expertmembers,
+		'aboutusshortdesc'=>$aboutusshortdesc,
+		'projectsdone'=>$projectsdone,'missionlogo'=>$image1,'visionlogo'=>$image2,'aboutusbanner'=>$image3,
+
 		//'Image1'=>$image1,'Image2'=>$image2		
 	 );
 	 /*if (($image1!='') && ($image2!='')){
