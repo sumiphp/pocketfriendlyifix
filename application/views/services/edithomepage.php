@@ -95,6 +95,21 @@
                                                           </div>
                                                       </div>
 
+                                                      <div class="row mb-3">
+                                                          <div class="col-md-6">
+                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">
+                                          
+                                                          </div>
+                                                          <div class="col-md-6">
+
+                                                          <label for="contact-person" class="form-label text-primary">Alt Tag Image2:</label>
+                                                              <input type="text" class="form-control" id="alttagimg2" name="alttagimg2" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg2;?>">
+
+
+                                                             
+                                                          </div>
+                                                      </div>
 
                                                       
                                                       <!--<div class="mb-3">
@@ -138,6 +153,20 @@
                                                               <img src="<?php echo base_url().'uploads/homepage/'.$result->serviceimg;?>" width="50" height="50" />
                                                           </div>
                                                       </div>
+
+                                                      <div class="row mb-3">
+                                                          <div class="col-md-6">
+                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image3:</label>
+                                                              <input type="text" class="form-control" id="alttagimg3" name="alttagimg3" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg3;?>">
+                                          
+                                                          </div>
+                                                          
+                                                      </div>
+
+
+
+
+                                                      
 
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Meta Tag:</label>
@@ -209,7 +238,7 @@
     <script>
 $('#edithomepage').on('submit', function (e) {
     e.preventDefault();
-alert("enter");
+//alert("enter");
         var file_data1 = $('#image1').prop('files')[0];
         var file_data2 = $('#image2').prop('files')[0];
         var file_data3 = $('#image3').prop('files')[0];
@@ -220,6 +249,9 @@ alert("enter");
         var servicetitle3=$("#servicetitle3").val();
         var servicetitle=$("#servicetitle").val();
         var qualitytitle=$("#qualitytitle").val();
+        var alttagimg1=$("#alttagimg1").val();
+        var alttagimg2=$("#alttagimg2").val();
+        var alttagimg3=$("#alttagimg3").val();
         var metatag=$("#metatag").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
@@ -231,9 +263,12 @@ alert("enter");
         form_data.append('servicetitle',servicetitle);
         form_data.append('servicetitle1',servicetitle1);
         form_data.append('servicetitle2',servicetitle2);
-        form_data.append('servicetitle3',servicetitle3);
-        form_data.append('qualitytitle',qualitytitle);
+        form_data.append('alttag1',alttagimg1);
+        form_data.append('alttag2',alttagimg2);
+        form_data.append('alttag3',alttagimg3);
         form_data.append('metatag',metatag);
+        form_data.append('qualitytitle',qualitytitle);
+        form_data.append('servicetitle3',servicetitle3);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/edithomepageprocess';?>", // point to server-side controller method

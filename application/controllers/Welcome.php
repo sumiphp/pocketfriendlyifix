@@ -1263,9 +1263,10 @@ public function edithomepageprocess(){
     $this->db->from('homepage');
     $query = $this->db->get();
    $imgdetails=$query->row();
-   $image1=$imgdetails->homepageimg1;
-   $image2=$imgdetails->homepageimg2;
-   $image3=$imgdetails->serviceimg;
+   $image11=$imgdetails->homepageimg1;
+   $image22=$imgdetails->homepageimg2;
+   $image33=$imgdetails->serviceimg;
+
 
 
 
@@ -1292,7 +1293,7 @@ public function edithomepageprocess(){
 		}
 		$image1=$_FILES['image1']['name'];
 	} else {
-		$image1='$image1';
+		$image1=$image11;
 	}
 	
 	
@@ -1314,7 +1315,7 @@ public function edithomepageprocess(){
 		}
 		$image2=$_FILES['image2']['name'];
 	} else {
-		$image2='$image2';
+		$image2=$image22;
 	}
 	
 	if (isset($_FILES['image3']['name'])) {
@@ -1334,9 +1335,18 @@ public function edithomepageprocess(){
 		}
 		$image3=$_FILES['image3']['name'];
 	} else {
-		$image3='$image3';
+		$image3=$image33;
 	}
-	
+	if ($image1==''){
+		$image1=$image11;
+	   }
+	   if ($image2==''){
+		$image2=$image22;
+	   }
+	   if ($image3==''){
+		$image3=$image33;
+	   }
+
 	$servicetitle1=$this->input->post('servicetitle1');
 	$servicetitle2=$this->input->post('servicetitle2');
 	$servicetitle3=$this->input->post('servicetitle3');
@@ -1345,14 +1355,19 @@ public function edithomepageprocess(){
 	 $maintitle=$this->input->post('maintitle');
 	 $subtitle=$this->input->post('subtitle');
 	 $metatag=$this->input->post('metatag');
-
+	 $alttag1=$this->input->post('alttag1');
+	 $alttag2=$this->input->post('alttag2');
+	 $alttag3=$this->input->post('alttag3');
 	 $data = array(
+		'alttagimg1'=>"$alttag1",
+		'alttagimg2'=>"$alttag2",
+		'alttagimg3'=>"$alttag3",
 		'metatag'=>$metatag,
-		'maintitle' =>"$maintitle",
-		'subtitle' =>"$subtitle",
-		'description'=>"$description",
-		'servicetitle1'=>'$servicetitle1', 'servicetitle2'=>'$servicetitle2','servicetitle3'=>'$servicetitle3',
-		'Image1'=>'$image1','Image2'=>'$image2','serviceimg'=>'$image3','servicetitle'=>'$servicetitle','qualitytitle'=>'$qualitytitle'		
+		'title1' =>"$maintitle",
+		'title2' =>"$subtitle",
+		//'description'=>"$description",
+		'servicetitle1'=>$servicetitle1, 'servicetitle2'=>$servicetitle2,'servicetitle3'=>$servicetitle3,
+		'homepageimg1'=>$image1,'homepageimg2'=>$image2,'serviceimg'=>$image3,'servicetitle'=>$servicetitle,'qualitytitle'=>$qualitytitle		
 	 );
 
 
@@ -1393,13 +1408,13 @@ public function edithomepageprocess(){
 				
 		 );
 	   }*/
-	  print_r($data);
+	  //print_r($data);
 	  $this->db->where('homepageid',2);
 	  $this->db->update('homepage', $data);
-echo $this->db->last_query();
-die;
+//echo $this->db->last_query();
+//die;
 	  //echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product Services' : '<b>Product Services added Successfully</b>';
-	  echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Home Page') : $this->session->set_flashdata('flash_msg', 'Home Page Edited Successfully');
+	 ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Home Page') : $this->session->set_flashdata('flash_msg', 'Home Page Edited Successfully');
 
 }
 
