@@ -481,7 +481,7 @@ function upload_filesubedit() {
 				   'currency'=>'AMD'		
 		 );
 
-		 print_r($data);
+		 //print_r($data);
 
 	}
 	else{
@@ -1504,7 +1504,13 @@ public function editaboutusprocess(){
 	 $projectsdone=$this->input->post('projectsdone');
 	 $aboutcompany=$this->input->post('aboutcompany');
 	 $metatag=$this->input->post('metatag');
+	 $alttag1=$this->input->post('alttag1');
+	 $alttag2=$this->input->post('alttag2');
+	 $alttag3=$this->input->post('alttag3');
 	 $data = array(
+		'alttagimg1'=>"$alttag1",
+		'alttagimg2'=>"$alttag2",
+		'alttagimg3'=>"$alttag3",
 		'metatag'=>$metatag,
 		'title' =>"$maintitle",
 		'mission' =>"$mission",
