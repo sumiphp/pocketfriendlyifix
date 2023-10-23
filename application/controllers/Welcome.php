@@ -1014,17 +1014,34 @@ public function editfaqprocess(){
 
 public function editservicesprocess(){
 
-	$config['upload_path'] = 'uploads';
+	$this->db->where('serviceid',1);
+	$this->db->select('*');
+    $this->db->from('services');
+    $query = $this->db->get();
+   $imgdetails=$query->row();
+   $image1old=$imgdetails->Image1;
+   $image2old=$imgdetails->Image2;
+   //$image3=$imgdetails->serviceimg;
+
+   //$image1=time().$_FILES['image1']['name'];
+   //$image2=time().$_FILES['image2']['name'];
+	$config['upload_path'] = 'uploads/services';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
+	//$config['file_name'] = $image1;
+	$config1['upload_path'] = 'uploads/services';
+	$config1['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config1['max_size'] = '1024'; //1 MB
+	//$config1['file_name'] = $image2;
+
 	$this->load->library('upload', $config);
 	$this->upload->initialize($config);
 	if (isset($_FILES['image1']['name'])) {
 		if (0 < $_FILES['image1']['error']) {
 			echo 'Error during file upload' . $_FILES['image1']['error'];
 		} else {
-			if (file_exists('uploads/' . $_FILES['image1']['name'])) {
-				echo 'File already exists : uploads/' . $_FILES['image1']['name'];
+			if (file_exists('uploads/services' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/services' . $_FILES['image1']['name'];
 			} else {
 				
 				if (!$this->upload->do_upload('image1')) {
@@ -1034,19 +1051,22 @@ public function editservicesprocess(){
 				}
 			}
 		}
-		$image1=$_FILES['image1']['name'];
+		//$image1=time().$_FILES['image1']['name'];
+
+			$image1=$_FILES['image1']['name'];
 	} else {
-		$image1='';
+	$image1=$image1old;
 	}
 	
-	
+	$this->load->library('upload', $config1);
+	$this->upload->initialize($config1);
 
 	if (isset($_FILES['image2']['name'])) {
 		if (0 < $_FILES['image2']['error']) {
 			echo 'Error during file upload' . $_FILES['image2']['error'];
 		} else {
-			if (file_exists('uploads/' . $_FILES['image2']['name'])) {
-				echo 'File already exists : uploads/' . $_FILES['image2']['name'];
+			if (file_exists('uploads/services' . $_FILES['image2']['name'])) {
+				echo 'File already exists : uploads/services' . $_FILES['image2']['name'];
 			} else {
 				
 				if (!$this->upload->do_upload('image2')) {
@@ -1058,14 +1078,28 @@ public function editservicesprocess(){
 		}
 		$image2=$_FILES['image2']['name'];
 	} else {
-		$image2='';
+		$image2=$image2old;
 	}
 	
 	
 	 $maintitle=$this->input->post('maintitle');
 	 $subtitle=$this->input->post('subtitle');
 	 $description=$this->input->post('description');
-	 if (($image1!='') && ($image2!='')){
+	 $metatag=$this->input->post('metatag');
+	 $alttag1=$this->input->post('alttag1');
+	 $alttag2=$this->input->post('alttag2');
+	 $data = array(
+		'maintitle' =>"$maintitle",
+		'subtitle' =>"$subtitle",
+		'description'=>"$description",
+		'metatag'=>"$metatag",
+		'alttagimg1'=>"$alttag1",
+		'alttagimg2'=>"$alttag2",
+		'Image1'=>$image1
+		,'Image2'=>$image2
+				
+	 );
+	 /*if (($image1!='') && ($image2!='')){
 	 $data = array(
 		 'maintitle' =>"$maintitle",
 		 'subtitle' =>"$subtitle",
@@ -1086,7 +1120,7 @@ public function editservicesprocess(){
 			'maintitle' =>"$maintitle",
 			'subtitle' =>"$subtitle",
 			'description'=>"$description",
-			//'Image1'=>$image1
+			
 			'Image2'=>$image2		
 		 );
 	   }
@@ -1095,15 +1129,15 @@ public function editservicesprocess(){
 			'maintitle' =>"$maintitle",
 			'subtitle' =>"$subtitle",
 			'description'=>"$description",
-			//'Image1'=>$image1
-			//'Image2'=>$image2		
+					
 		 );
-	   }
+	   }*/
 	  //print_r($data);
+	  //die;
 	  $this->db->where('serviceid',1);
 	  $this->db->update('services', $data);
-
-	  echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product Services' : '<b>Product Services added Successfully</b>';
+	  echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Services') : $this->session->set_flashdata('flash_msg', 'Services Edited Successfully');
+	  //echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product Services' : '<b>Product Services added Successfully</b>';
 
 
 }

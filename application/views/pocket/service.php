@@ -42,7 +42,9 @@ echo $service->metatag;
                     </div>
             </div>
             </div>
-            <div class="inner-service-banner">
+
+            <div class="inner-service-banner" style="background:url(<?php echo base_url().'uploads/services/'.$service->Image1?>)!important;background-repeat:no-repeat!important;background-position:center !important;">
+            <!--<div class="inner-service-banner">-->
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-mg-6 col-sm-6">
@@ -111,7 +113,7 @@ echo $service->metatag;
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="our-service-block-img">
-                                <img src="<?php echo base_url().'uploads/'.$service->Image2;?>">
+                                <img src="<?php echo base_url().'uploads/services/'.$service->Image2;?>" alt="<?php echo $service->alttagimg2;?>">
                             </div>
                         </div>
                     </div>

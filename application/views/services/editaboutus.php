@@ -227,7 +227,7 @@
         <!-- Contact Form JS -->
         <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
         <!-- Custom JS -->
-        <script src="<?php //echo base_url().'assets/js/custom.js';?>"></script>
+        <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
         <script>
 $('#editaboutus').on('submit', function (e) {
     e.preventDefault();

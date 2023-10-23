@@ -84,20 +84,43 @@
                                                           <div class="col-md-6">
                                                           <label for="company-logo" class="form-label text-primary">Image1:</label>
                                                               <input type="file" class="form-control" id="image1" name="image1">
-                                                              <img src="<?php echo base_url().'uploads/'.$result->Image1;?>" width="50" height="50" />
+                                                              <img src="<?php echo base_url().'uploads/services/'.$result->Image1;?>" width="50" height="50" />
 
 
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Image2:</label>
                                                               <input type="file" class="form-control" id="image2" name="image2">
-                                                              <img src="<?php echo base_url().'uploads/'.$result->Image2;?>" width="50" height="50" />
+                                                              <img src="<?php echo base_url().'uploads/services/'.$result->Image2;?>" width="50" height="50" />
                                                           </div>
                                                       </div>
+
+                                                      <div class="row mb-3">
+                                                          <div class="col-md-6">
+                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">
+                                          
+                                                          </div>
+                                                          <div class="col-md-6">
+
+                                                          <label for="contact-person" class="form-label text-primary">Alt Tag Image2:</label>
+                                                              <input type="text" class="form-control" id="alttagimg2" name="alttagimg2" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg2;?>">
+
+
+                                                             
+                                                          </div>
+                                                      </div>
+
+
+
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Description:</label>
                                                           <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required><?php echo $result->description;?></textarea>
+                                                      </div>
+                                                      <div class="mb-3">
+                                                          <label for="address" class="form-label text-primary">Meta Tag:</label>
+                                                          <textarea class="form-control" id="metatag" name="metatag" rows="20" placeholder="Enter Meta Tage" required><?php echo $result->metatag;?></textarea>
                                                       </div>
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">
@@ -172,6 +195,9 @@ $('#uploadser').on('click', function (e) {
         var maintitle=$('#maintitle').val();
         var subtitle=$("#subtitle").val();
         var description=$("#description").val();
+        var metatag=$("#metatag").val();
+        var alttagimg1=$("#alttagimg1").val();
+        var alttagimg2=$("#alttagimg2").val();
         
         var form_data = new FormData();
         form_data.append('image1', file_data1);
@@ -179,6 +205,9 @@ $('#uploadser').on('click', function (e) {
         form_data.append('maintitle',maintitle);
         form_data.append('subtitle',subtitle);
         form_data.append('description',description);
+        form_data.append('metatag',metatag);
+        form_data.append('alttag1',alttagimg1);
+        form_data.append('alttag2',alttagimg2);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/editservicesprocess';?>", // point to server-side controller method

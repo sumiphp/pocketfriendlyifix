@@ -123,8 +123,8 @@
                                                       <!--<td>Indoor Lamps</td>-->
                                                       <td><?php echo $res['subtitle'];?></td>
                                                       
-                                                      <td><?php echo "<img src=".base_url().'uploads/'.$res['Image1']." />";?></td>
-                                                      <td><?php echo "<img src=".base_url().'uploads/'.$res['Image2']." />";?></td>
+                                                      <td><?php echo "<img src=".base_url().'uploads/services/'.$res['Image1']." />";?></td>
+                                                      <td><?php echo "<img src=".base_url().'uploads/services/'.$res['Image2']." />";?></td>
                                                       <td><?php echo $res['description'];?></td>
                                                       <!--<td><?php //echo $res['businesswebsiteduration'];?></td>-->
                                                       <!--<td><?php //echo $res['note'];?></td>-->

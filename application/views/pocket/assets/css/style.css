@@ -1486,11 +1486,11 @@ a.map-icon i, a.what-icon i {
 }
 
 .inner-service-banner {
-  background: url(../img/service/service-banner.png);
+  /*background: url(../img/service/service-banner.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  height: 100vh;
+  height: 100vh;*/
 }
 .inner-service-banner .left-banner-content {
   padding-top: 25%;
