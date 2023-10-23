@@ -43,8 +43,8 @@ echo $service->metatag;
             </div>
             </div>
 
-            <div class="inner-service-banner" style="background:url(<?php echo base_url().'uploads/services/'.$service->Image1?>)!important;background-repeat:no-repeat!important;background-position:center !important;">
-            <!--<div class="inner-service-banner">-->
+            <!--<div class="inner-service-banner" style="background:url(<?php //echo base_url().'uploads/services/'.$service->Image1?>)!important;background-repeat:no-repeat!important;background-position:center !important;">-->
+            <div class="inner-service-banner">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-mg-6 col-sm-6">

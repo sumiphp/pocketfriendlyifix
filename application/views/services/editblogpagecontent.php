@@ -130,10 +130,27 @@
         <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
         <!-- Custom JS -->
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+
+        <script>
+$(document).ready(function(){
+  /*$("#save").click(function(){
+    var description = CKEDITOR.instances['description'].getData();
+    alert(description);
+  });*/
+  //CKEDITOR.replace('description');
+});
+</script>
+
+
+
+
+
         <script>
 $('#uploadsub').on('click', function (e) {
     e.preventDefault();
-    //alert("enter");
+  
         //var file_data1 = $('#image1').prop('files')[0];
         //var file_data2 = $('#image2').prop('files')[0];
         //var testtitle=$('#testtitle').val();
@@ -142,7 +159,7 @@ $('#uploadsub').on('click', function (e) {
        var metatag=$("#metatag").val();
         //var place=$("#place").val();
         //var date=$("#date").val();
-        
+        //alert("enter"+description);
         var form_data = new FormData();
         //form_data.append('image1', file_data1);
         //form_data.append('image2', file_data2);

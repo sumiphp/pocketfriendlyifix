@@ -127,6 +127,21 @@
         <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
         <!-- Custom JS -->
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+
+
+<script>
+$(document).ready(function(){
+  /*$("#save").click(function(){
+    var description = CKEDITOR.instances['description'].getData();
+    alert(description);
+  });*/
+  CKEDITOR.replace('description');
+});
+</script>
+
+
         <script>
 $('#uploadsub').on('click', function (e) {
     e.preventDefault();
