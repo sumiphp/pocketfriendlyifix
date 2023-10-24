@@ -121,7 +121,7 @@ public function contact(){
 	$data['contactus']=$this->sm->get_contactus();
 	$data['about']=$this->sm->get_aboutus();
 	$data['siteinf']=$this->sm->get_siteinf();
-    $this->load->view('pocket/contact1.php',$data);
+    $this->load->view('pocket/contact.php',$data);
 
 
 }

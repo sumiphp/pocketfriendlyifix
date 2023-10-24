@@ -59,25 +59,26 @@
                             <div class="inner-page-sec">
                             <span id="menumsg" style="color:green"></span><br>
                               <div class="description-sec">
-                                <h2>Add Menu</h2>
+                                <h2>Edit Menu</h2>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
-                                                    <form id="menufrm" class="rounded-form" method="post"  action="<?php echo base_url().'Welcome/addmenuprocess';?>" >
+                                                    <form id="menufrm" class="rounded-form" method="post"  action="<?php echo base_url().'Welcome/editmenuprocess';?>" >
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Menu Name:</label>
-                                                              <input type="text" class="form-control" id="menuname" name="menuname" placeholder="Enter Menu Name" required>
+                                                              <input type="hidden" class="form-control" id="menuid" name="menuid" value="<?php echo $result->menuid;?>" placeholder="Enter Menu Name" required>
+                                                              <input type="text" class="form-control" id="menuname" name="menuname" value="<?php echo $result->menuname;?>" placeholder="Enter Menu Name" required>
                                           
                                                           </div>
                                                           <div class="col-md-6">
                                                           <label for="designation" class="form-label text-primary">Select Menu Type:</label>
                                                           <select class="form-control" placeholder="Product Category Name" name="menutype" id="menutype"  data-bs-original-title="" title="" required>
                                                                 <option value=''>Select Menu Type</option>
-                                                                <option value="1">Top Menu </option>
-                                                                <option value="2">Sub Menu </option>
+                                                                <option value="1" <?php if ($result->menutype=='1'){?> selected <?php }?>>Top Menu </option>
+                                                                <option value="2" <?php if ($result->menutype=='2'){?> selected <?php }?>>Sub Menu </option>
 </select>
                                                                 
                                                                
@@ -87,15 +88,15 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="contact-person" class="form-label text-primary">Menu Url:</label>
-                                                              <input type="text" class="form-control" id="menuurl" name="menuurl" placeholder="Enter Menu Url">
+                                                              <input type="text" class="form-control" id="menuurl" name="menuurl" placeholder="Enter Menu Url" value="<?php echo $result->url;?>">
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="status" class="form-label text-primary">Status:</label>
                                                               
                                                               <select class="form-control" placeholder="Select Status" name="status" id="status"  data-bs-original-title="" title="" required>
                                                                 <option value=''>Select Status</option>
-                                                                <option value="1">Active </option>
-                                                                <option value="0">Inactive </option>
+                                                                <option value="1" <?php if ($result->status=='1'){?> selected <?php }?>>Active </option>
+                                                                <option value="0" <?php if ($result->status=='0'){?> selected <?php }?>>Inactive </option>
 </select>
 
 
@@ -113,9 +114,9 @@
                                                           <label for="address" class="form-label text-primary">Parent Menu:</label>
                                                           <select class="form-control"  name="pmenu" id="pmenu"  data-bs-original-title="" title="" required>
                                                                 <option value=''>Select Parent Menu</option>
-                                                                <option value='-1'>No Parent Menu</option>
+                                                                <option value='-1' <?php if ($result->parentmenuid=='-1'){?> selected <?php }?>>No Parent Menu</option>
                                                                <?php foreach($pmenus as $menu){?>
-                                                                <option value="<?php echo $menu['menuid'];?>"><?php echo $menu['menuname'];?></option>
+                                                                <option value="<?php echo $menu['menuid'];?>" <?php if ($result->parentmenuid==$menu['menuid']){?> selected <?php }?>><?php echo $menu['menuname'];?></option>
                                                             
                                                             <?php }?></select>
 </div>
@@ -185,7 +186,7 @@
         <!-- Custom JS -->
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
         <script>
-$('#menufrm').on('submit', function (e) {
+$('#menufrm1').on('submit', function (e) {
     e.preventDefault();
    alert("enter");
         //var file_data1 = $('#image1').prop('files')[0];

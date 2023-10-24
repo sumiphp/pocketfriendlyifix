@@ -45,42 +45,42 @@ echo $resulthome->metatag;
                                 <form class="row" method="post" id="frm"  action="<?php echo base_url().'Pocket/enquiryprocess';?>">
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" name="firstname" placeholder="First Name"  required="">
+                                                <input type="text" class="form-control" name="firstname" placeholder="First Name"  >
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" name="lastname" placeholder="Last Name" required="">
+                                                <input type="text" class="form-control" name="lastname" placeholder="Last Name" >
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="">
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" >
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" id="phone" name="phone" maxlength="12" placeholder="Phone" required="">
+                                                <input type="text" class="form-control" id="phone" name="phone" maxlength="12" placeholder="Phone" >
                                             </div>
                                         </div>
                                        
                                         <div class="col-md-12">
                                             <label class="label-box">WHAT IS THE NATURE OF YOUR BUSINESS ?*</label>
                                             <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="natureofbusiness" required="">
+                                            <input type="text" class="form-control" name="natureofbusiness" >
                                         </div>
                                     </div>
                                         
                                         <div class="col-md-12">
                                                 <label class="label-box">HOW QUICKLY WOULD YOU LIKE TO SET UP YOUR BUSINESS WEBSITE ?*</label>
                                                 <div class="input-group mb-3">
-                                                <input type="text" class="form-control" required="" name="businesswebsiteduration" >
+                                                <input type="text" class="form-control" " name="businesswebsiteduration" >
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <label class="label-box">CHOOSE YOUR PACKAGE</label>
                                             <div class="input-group mb-3">
-                                            <select name="package" id="package" required>
+                                            <select name="package" id="package" >
                                                 <option value="">Select</option>
                                                 <?php foreach($resultsub as $res){?>
                                               <option value="<?php echo $res['subcategoryid'];?>"><?php echo $res['subcategoryname'];?></option>
@@ -553,11 +553,11 @@ echo $resulthome->metatag;
 
         <?php include_once("footer.php");?>
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
 
 
 <script>
-    $(function() {
+   /* $(function() {
         $("#frm").on('submit', function(e) {
             e.preventDefault();
 
@@ -582,7 +582,7 @@ echo $resulthome->metatag;
                 }
             });
         });
-    });
+    });*/
 
 
     $("#phone").keypress(function(event){
@@ -597,7 +597,7 @@ echo $resulthome->metatag;
 
 
 
-    $('form[id="enqmsg"]').validate({  
+    $('form[id="frm"]').validate({  
     rules: {  
       firstname: 'required',  
       lastname: 'required',

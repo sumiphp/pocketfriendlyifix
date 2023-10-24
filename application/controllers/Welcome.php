@@ -821,6 +821,8 @@ function addmenu(){
     $data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['pmenus']=$this->sm->get_parentmenus();
+	//print_r($data['pmenus']);
 	$this->load->view('services/addmenu',$data);
 
 }
@@ -841,6 +843,7 @@ function editmenu(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['pmenus']=$this->sm->get_parentmenus();
 	$this->load->view('services/editmenu',$data);
 
 }
@@ -981,6 +984,59 @@ public function addfaqprocess(){
 
 	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Faq' : '<b>Faq added Successfully</b>';
 }
+
+public function addmenuprocess(){
+
+
+	$menuname=$this->input->post('menuname');
+	$menutype=$this->input->post('menutype');
+	$menuurl=$this->input->post('menuurl');
+	$status=$this->input->post('status');
+	$pmenu=$this->input->post('pmenu');
+	$data = array(
+		'menuname' =>"$menuname",
+		'menutype' =>"$menutype",
+		'url'=>"$menuurl",
+		'status'=>$status,'parentmenuid'=>$pmenu		
+	 );
+	 //print_r($data);
+	 $this->db->insert('menus', $data);
+
+	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Menu' : '<b>Menu added Successfully</b>';
+
+
+}
+
+public function editmenuprocess(){
+
+	$menuid=$this->input->post('menuid');
+	$menuname=$this->input->post('menuname');
+	$menutype=$this->input->post('menutype');
+	$menuurl=$this->input->post('menuurl');
+	$status=$this->input->post('status');
+	$pmenu=$this->input->post('pmenu');
+	$data = array(
+		'menuname' =>"$menuname",
+		'menutype' =>"$menutype",
+		'url'=>"$menuurl",
+		'status'=>$status,'parentmenuid'=>$pmenu		
+	 );
+	 //print_r($data);
+	 $this->db->where('menuid',$menuid);
+	 $this->db->update('menus', $data);
+
+	  ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Menu') : $this->session->set_flashdata('flash_msg', 'Menu Edited Successfully');
+
+ redirect("welcome/listmenus");
+
+
+}
+
+
+
+
+
+
 
 
 public function addqualityprocess(){

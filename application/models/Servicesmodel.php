@@ -508,6 +508,14 @@ function get_servicesdetails(){
 
 
 }
+function get_parentmenus(){
+    $this->db->where('status',1);
+    $this->db->where('menutype',1);
+    $this->db->select('*');
+    $this->db->from('menus');
+    $query = $this->db->get();
+    return $query->result_array();
+}
 
 
 
