@@ -15,8 +15,8 @@ echo $service->metatag;
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
              <a href="<?php echo base_url().'Pockets/index';?>" class="logo">
-                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="Logo">
-                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="Logo">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="<?php echo $siteinf->alttagimg1;?>">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="<?php echo $siteinf->alttagimg1;?>">
                 </a>
             </div>
 
@@ -82,7 +82,7 @@ echo $service->metatag;
                                             <div class="gt3-core-imagebox-title">
                                             <figure class="gt3-core-imagebox-img gt3-core-imagebox-img_hover">
                                                 <a href="<?php echo base_url().'Pocket/servicedetails/'.$res['categoryid'];?>">
-                                                    <img src="<?php echo base_url().'uploads/'.$res['categoryimage'];?>" class="attachment-full size-full wp-image-7930" alt="" decoding="async" loading="lazy" title="service1">
+                                                    <img src="<?php echo base_url().'uploads/'.$res['categoryimage'];?>" class="attachment-full size-full wp-image-7930" alt="<?php echo $res['alttagimg1'];?>" decoding="async" loading="lazy" title="service1">
                                                     </a>
                                                 </figure>
                                                     <h3 class="gt3-core-imagebox-title secondary-title"><a href="<?php echo base_url().'Pocket/servicedetails/'.$res['categoryid'];?>"><?php echo $res['categoryname'];?></a></h3>

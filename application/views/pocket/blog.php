@@ -15,8 +15,8 @@ echo $result->metatag;
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
              <a href="<?php echo base_url().'Pockets/index';?>" class="logo">
-                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="Logo">
-                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="Logo">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="<?php echo $siteinf->alttagimg1;?>">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="<?php echo $siteinf->alttagimg1;?>">
                 </a>
             </div>
 
@@ -77,11 +77,11 @@ echo $result->metatag;
                         <?php foreach($resultcontents as $con){?>
                         <div class="col-lg-6 col-md-6">
                             <div class="blog-img">
-                                <img src="<?php echo base_url().'uploads/blog/'.$con['contentimage'];?>">
+                                <img src="<?php echo base_url().'uploads/blog/'.$con['contentimage'];?>"  alt="<?php echo $con['alttagimg2'];?>">
                             </div>
                             <div class="blog-content-inner">
                                 <div class="blog-author-img">
-                                    <img src="<?php echo base_url().'uploads/blog/'.$con['autorimage'];?>"/>
+                                    <img src="<?php echo base_url().'uploads/blog/'.$con['autorimage'];?>" alt="<?php echo $con['alttagimg1'];?>"/>
 
                                 </div>
                                 <div class="blog-details">

@@ -15,8 +15,8 @@ echo $about->metatag;
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
                 <a href="<?php echo base_url().'Pockets/index';?>" class="logo">
-                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="Logo">
-                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="Logo">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="<?php echo $siteinf->alttagimg1;?>">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="<?php echo $siteinf->alttagimg1;?>">
                 </a>
             </div>
 
@@ -36,7 +36,7 @@ echo $about->metatag;
                 <div class="container">
                     <div class="row">
                         <div class="main-title">
-                            <h2>About Us</h2>
+                            <h2><?php echo $about->title;?></h2>
                         </div>
                        
                     </div>
@@ -59,7 +59,7 @@ echo $about->metatag;
                   
                     <div class="row">
                         <div class="main-title text-left">
-                            <h2>About Company</h2>
+                            <h2><?php echo $about->title;?></h2>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="about-content">
@@ -70,7 +70,7 @@ echo $about->metatag;
                         <div class="col-lg-6 col-mg-6 colsm-6">
                             <div class="our-mission-block">
                             <div class="main-title text-left">
-                                <h2>Our Mission <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/'.$about->missionlogo;?>"> </span>  </h2>
+                                <h2>Our Mission <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/'.$about->missionlogo;?>" alt="<?php echo $about->alttagimg1;?>"> </span>  </h2>
                             </div>
                             <div class="our-mission">
                                 <p><?php echo $about->mission;?></p>
@@ -80,7 +80,7 @@ echo $about->metatag;
                         <div class="col-lg-6 col-mg-6 colsm-6">
                             <div class="our-mission-block">
                             <div class="main-title text-left">
-                                <h2>Our Vision <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/'.$about->visionlogo;?>"></span> </h2>
+                                <h2>Our Vision <span class="icon-box"><img src="<?php echo base_url().'uploads/aboutus/'.$about->visionlogo;?>" alt="<?php echo $about->alttagimg2;?>"></span> </h2>
                             </div>
                             <div class="our-mission">
                                 <p><?php echo $about->vision;?></p>
@@ -88,16 +88,7 @@ echo $about->metatag;
                         </div>
                         </div>
 
-                        <!--<div class="col-lg-2 col-md-2 col-sm-2">
-                            <div class="left-social-media menu-btn">
-                                   <a href="https://www.linkedin.com/in/pocketfriendly-web/" class="seo-btn">Linkedin</a>
-                                   <a href="https://instagram.com/pocketfriendlyweb?igshid=MmU2YjMzNjRlOQ==" class="seo-btn">Instagram</a>
-                            </div>
-                            <div class="share-sec">
-                                <a href="#" class="whatsapp-icon"><img src="<?php //echo base_url().'pockets/assets/img/about/call-icon.png';?>"></a>
-                                <a href="#" class="whatsapp-icon"><img src="<?php //echo base_url().'pockets/assets/img/about/whataspp-icon.png';?>"></a>
-                            </div>
-                        </div>-->
+                       
 
                     </div>
                 </div>

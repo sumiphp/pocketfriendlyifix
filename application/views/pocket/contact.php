@@ -16,8 +16,8 @@ echo $contactus->metatag;
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
                 <a href="index.php" class="logo">
-                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-one" alt="Logo">
-                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-two" alt="Logo">
+                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-one" alt="<?php echo $siteinf->alttagimg1;?>">
+                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-two" alt="<?php echo $siteinf->alttagimg1;?>">
                 </a>
             </div>
 

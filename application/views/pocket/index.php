@@ -10,8 +10,8 @@ echo $resulthome->metatag;
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
              <a href="<?php echo base_url().'Pockets/index';?>" class="logo">
-                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="Logo">
-                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="Logo">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="<?php echo $siteinf->alttagimg1;?>">
+                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="<?php echo $siteinf->alttagimg1;?>">
                 </a>
             </div>
 
@@ -247,7 +247,7 @@ echo $resulthome->metatag;
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="icon-main-area">
                             <div class="icon-sec">
-                                <img src="<?php echo base_url().'uploads/subcategory/'.$res['subcategoryimage'];?>">
+                                <img src="<?php echo base_url().'uploads/subcategory/'.$res['subcategoryimage'];?>" alt="<?php echo $res['alttagimg1'];?>">
                             </div>
                             <div class="content-area">
                                 <h3><?php echo $res['subcategoryname'];?></h3>
@@ -695,7 +695,7 @@ echo $resulthome->metatag;
                                 <?php foreach($resulttest as $test){?>
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-img">
-                                            <img src="<?php echo base_url().'uploads/testimonial/'.$test['image'];?>"  alt="Testimonial Images">
+                                            <img src="<?php echo base_url().'uploads/testimonial/'.$test['image'];?>"  alt="<?php echo $test['alttagimg1'];?>">
                                         </div>
                                         <div class="testimonail-content">
                                             <p>
