@@ -222,10 +222,11 @@ $('#uploadsub').on('click', function (e) {
         var name=$("#name").val();
         var place=$("#place").val();
         var date=$("#date").val();
+        var alttagimg1=$("#alttagimg1").val();
         
         var form_data = new FormData();
         form_data.append('image1', file_data1);
-        //form_data.append('image2', file_data2);
+        form_data.append('alttag1',alttagimg1);
         form_data.append('testtitle',testtitle);
         form_data.append('rating',rating);
         form_data.append('description',description);

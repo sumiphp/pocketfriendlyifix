@@ -139,7 +139,7 @@ $(document).ready(function(){
     var description = CKEDITOR.instances['description'].getData();
     alert(description);
   });*/
-  //CKEDITOR.replace('description');
+CKEDITOR.replace('description');
 });
 </script>
 

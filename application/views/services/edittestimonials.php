@@ -99,6 +99,22 @@
                                                           </div>
                                                           
                                                       </div>
+                                                      
+                                                      <div class="row mb-3">
+                                                          <div class="col-md-6">
+                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">
+                                          
+                                                          </div>
+                                                          <!--<div class="col-md-6">
+
+                                                          <label for="contact-person" class="form-label text-primary">Alt Tag Image2:</label>
+                                                              <input type="text" class="form-control" id="alttagimg2" name="alttagimg2" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg2;?>">
+
+
+                                                             
+                                                          </div>-->
+                                                      </div>
                                                       <!--<div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="contact-number-1" class="form-label text-primary">Contact Number 1:</label>
@@ -205,7 +221,7 @@ $('#uploadsub').on('click', function (e) {
         var name=$("#name").val();
         var place=$("#place").val();
         var date=$("#date").val();
-        
+        var alttagimg1=$("#alttagimg1").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         //form_data.append('image2', file_data2);
@@ -215,6 +231,7 @@ $('#uploadsub').on('click', function (e) {
         form_data.append('name',name);
         form_data.append('place',place);
         form_data.append('date',date);
+        form_data.append('alttag1',alttagimg1);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/edittestimonialsprocess/'.$this->uri->segment(3);?>", // point to server-side controller method

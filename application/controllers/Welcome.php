@@ -225,11 +225,12 @@ function upload_file() {
 	}
 	$productcategory=$this->input->post('productcategory');
 	$productdesc=$this->input->post('productdescription');
+	$alttag1=$this->input->post('alttag1');
 	$productimg=$_FILES['file']['name'];
 	$data = array(
 		'categoryname' =>"$productcategory",
 		'categorydescription' =>"$productdesc",
-		'categoryimage'=>$productimg		
+		'categoryimage'=>$productimg,'alttagimg1'=>"$alttag1"		
 	 );
 	 $this->db->insert('category', $data);
 	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product' : '<b>Product Category added Successfully</b>';
@@ -271,6 +272,8 @@ function upload_filecatedit() {
 	} else {
 		echo 'Please choose a file';
 	}
+
+	$alttag1=$this->input->post('alttag1');
 	$productcategory=$this->input->post('productcategory');
 	$productcategoryid=$this->input->post('productcategoryid');
 	$productdesc=$this->input->post('productdescription');
@@ -280,14 +283,15 @@ function upload_filecatedit() {
 		$data = array(
 			'categoryname' =>"$productcategory",
 			'categorydescription' =>"$productdesc",
-			//'categoryimage'=>$productimg		
+			'alttagimg1'=>"$alttag1"	
 		 );
 
 	}else{
 	$data = array(
 		'categoryname' =>"$productcategory",
 		'categorydescription' =>"$productdesc",
-		'categoryimage'=>$productimg		
+		'categoryimage'=>$productimg,
+		'alttagimg1'=>"$alttag1"		
 	 );
 	}
 	 $this->db->where('categoryid',$productcategoryid);
@@ -358,6 +362,8 @@ function upload_filesub() {
 	 $prdsubdesc=$this->input->post('prdsubdesc');
 	 $price=$this->input->post('price');
 	 $subcatshortdesc=$this->input->post('prdsubshortdesc');
+	 $alttag1=$this->input->post('alttag1');
+	 $alttag2=$this->input->post('alttag2');
 	 //form_data.append('filesubimg',file_databanner);
 	// form_data.append('price',price);
 	 $data = array(
@@ -368,7 +374,8 @@ function upload_filesub() {
 		 		'subcatbannerimage'=>$productimgsub,
 				'subcatshortdesc'=>$subcatshortdesc,
 				'price'=>$price,
-				'currency'=>'AMD'
+				'currency'=>'AMD','alttagimg1'=>"$alttag1",
+				'alttagimg2'=>"$alttag2",
 	  );
 	  $this->db->insert('subcategory', $data);
 
@@ -445,6 +452,8 @@ function upload_filesubedit() {
 	 //$prdsubdesc=$this->input->post('prdsubdesc');
 	 $price=$this->input->post('price');
 	 $subcatshortdesc=$this->input->post('prdsubshortdesc');
+	 $alttag1=$this->input->post('alttag1');
+	 $alttag2=$this->input->post('alttag2');
 	 if (($productimg!='') && ($productimgsub!='')){
 	 $data = array(
 		 'subcategoryname' =>"$prdsubcat",
@@ -454,7 +463,8 @@ function upload_filesubedit() {
 		 'subcatbannerimage'=>$productimgsub,
 		 'subcatshortdesc'=>$subcatshortdesc,
 				'price'=>$price,
-				'currency'=>'AMD'		
+				'currency'=>'AMD','alttagimg1'=>"$alttag1",
+				'alttagimg2'=>"$alttag2",		
 	  );
 	}else if (($productimg!='') && ($productimgsub=='')){
 		$data = array(
@@ -465,7 +475,8 @@ function upload_filesubedit() {
 			//'subcatbannerimage'=>$productimgsub,
 			'subcatshortdesc'=>$subcatshortdesc,
 				   'price'=>$price,
-				   'currency'=>'AMD'		
+				   'currency'=>'AMD','alttagimg1'=>"$alttag1",
+				   'alttagimg2'=>"$alttag2",		
 		 );
 
 	}
@@ -478,7 +489,8 @@ function upload_filesubedit() {
 			'subcatbannerimage'=>$productimgsub,
 			'subcatshortdesc'=>$subcatshortdesc,
 				   'price'=>$price,
-				   'currency'=>'AMD'		
+				   'currency'=>'AMD','alttagimg1'=>"$alttag1",
+				   'alttagimg2'=>"$alttag2",		
 		 );
 
 		 //print_r($data);
@@ -491,7 +503,8 @@ function upload_filesubedit() {
 			'subcatdesc'=>"$prdsubdesc",
 			'subcatshortdesc'=>$subcatshortdesc,
 				'price'=>$price,
-				'currency'=>'AMD'			
+				'currency'=>'AMD','alttagimg1'=>"$alttag1",
+				'alttagimg2'=>"$alttag2",			
 		 );
 
 	}
@@ -741,6 +754,7 @@ function editblogcontent(){
 	}
 	$this->load->model('Servicesmodel');
 	$blogid=$this->uri->segment(3);
+	$this->db->where('contentid',$blogid);
 	$this->db->from('blogcontents');
     $query = $this->db->get();
     $data['result']=$query->row(); 
@@ -1883,7 +1897,7 @@ function delql(){
 
 public function addtestimonialsprocess(){
 
-	$config['upload_path'] = 'uploads';
+	$config['upload_path'] = 'uploads/testimonial';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
 	$this->load->library('upload', $config);
@@ -1892,8 +1906,8 @@ public function addtestimonialsprocess(){
 		if (0 < $_FILES['image1']['error']) {
 			echo 'Error during file upload' . $_FILES['image1']['error'];
 		} else {
-			if (file_exists('uploads/' . $_FILES['image1']['name'])) {
-				echo 'File already exists : uploads/' . $_FILES['image1']['name'];
+			if (file_exists('uploads/testimonial/' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/testimonial/' . $_FILES['image1']['name'];
 			} else {
 				
 				if (!$this->upload->do_upload('image1')) {
@@ -1911,7 +1925,7 @@ public function addtestimonialsprocess(){
 
 	
 	$image1=$_FILES['image1']['name'];
-	//$image2=$_FILES['image2']['name'];
+	$alttag1=$this->input->post('alttag1');
 
 	 $testtitle=$this->input->post('testtitle');
 	 $rating=$this->input->post('rating');
@@ -1923,7 +1937,7 @@ public function addtestimonialsprocess(){
 		 'testimonial' =>"$testtitle",
 		 'rating' =>"$rating",
 		 'name'=>"$name",
-		 'image'=>$image1,'place'=>$place,'date'=>$date		
+		 'image'=>$image1,'place'=>$place,'date'=>$date,'alttagimg1'=>"$alttag1"		
 	  );
 	  
 	  	  $this->db->insert('testimonials', $data);
@@ -2005,7 +2019,11 @@ public function addblogcontentsprocess(){
 	 $place=$this->input->post('place');
 	  $companyname=$this->input->post('companyname');
 	  $date=$this->input->post('date');
+	  $alttag1=$this->input->post('alttag1');
+	 $alttag2=$this->input->post('alttag2');
 	 $data = array(
+		'alttagimg1'=>"$alttag1",
+		'alttagimg2'=>"$alttag2",
 		'place'=>"$place",
 		'companyname'=>$companyname,
 		 'description' =>"$description",
@@ -2081,9 +2099,13 @@ public function editblogcontentsprocess(){
 	 $place=$this->input->post('place');
 	  $companyname=$this->input->post('companyname');
 	  $date=$this->input->post('date');
+	  $alttag1=$this->input->post('alttag1');
+	 $alttag2=$this->input->post('alttag2');
 	  if (($image1!='') && ($image2!='')){
 
 		$data = array(
+			'alttagimg1'=>"$alttag1",
+		'alttagimg2'=>"$alttag2",
 			'place'=>"$place",
 			'companyname'=>$companyname,
 			 'description' =>"$description",
@@ -2095,6 +2117,8 @@ public function editblogcontentsprocess(){
 	  }else if ($image2!=''){
 
 		$data = array(
+			'alttagimg1'=>"$alttag1",
+		'alttagimg2'=>"$alttag2",
 			'place'=>"$place",
 			'companyname'=>$companyname,
 			 'description' =>"$description",
@@ -2106,6 +2130,8 @@ public function editblogcontentsprocess(){
 
 	  }else if ($image1!=''){
 		$data = array(
+			'alttagimg1'=>"$alttag1",
+		'alttagimg2'=>"$alttag2",
 			'place'=>"$place",
 			'companyname'=>$companyname,
 			 'description' =>"$description",
@@ -2117,6 +2143,8 @@ public function editblogcontentsprocess(){
 
 	  }else{
 		$data = array(
+			'alttagimg1'=>"$alttag1",
+		'alttagimg2'=>"$alttag2",
 			'place'=>"$place",
 			'companyname'=>$companyname,
 			 'description' =>"$description",
@@ -2166,7 +2194,7 @@ public function edittestimonialsprocess(){
 		if (0 < $_FILES['image1']['error']) {
 			echo 'Error during file upload' . $_FILES['image1']['error'];
 		} else {
-			if (file_exists('uploads/' . $_FILES['image1']['name'])) {
+			if (file_exists('uploads/testimonial' . $_FILES['image1']['name'])) {
 				echo 'File already exists : uploads/testimonial' . $_FILES['image1']['name'];
 			} else {
 				
@@ -2193,8 +2221,10 @@ public function edittestimonialsprocess(){
 	 $name=$this->input->post('name');
 	  $place=$this->input->post('place');
 	  $date=$this->input->post('date');
+	  $alttag1=$this->input->post('alttag1');
+
 	 $data = array(
-		 'testimonial' =>"$description",
+		 'testimonial' =>"$description",'alttagimg1'=>"$alttag1",
 		 'rating' =>"$rating",
 		 'name'=>"$name",
 		 'image'=>$image1,'place'=>$place,'date'=>$date,'title'=>$testtitle		
@@ -2241,7 +2271,7 @@ public function addsolutionsprocess(){
 	 $title=$this->input->post('maintitle');
 	$link=$this->input->post('link');
 	 $description=$this->input->post('description');
-	 //$name=$this->input->post('name');
+	 $alttag1=$this->input->post('alttag1');
 	  //$place=$this->input->post('place');
 	  //$date=$this->input->post('date');
 	  
@@ -2249,8 +2279,8 @@ public function addsolutionsprocess(){
 		 'description' =>"$description",
 		 'link' =>"$link",
 		 'title'=>"$title",
-		 'picture'=>$image1
-		 //,'place'=>$place,'date'=>$date,'title'=>$testtitle		
+		 'picture'=>$image1,
+		 'alttagimg1'=>"$alttag1"		
 	  );
 	  //print_r($data);
 	  $id=$this->uri->segment(3); 
@@ -2298,12 +2328,12 @@ public function editsolutionsprocess(){
 	 $link=$this->input->post('link');
 	 $description=$this->input->post('description');
 	$problemid=$this->input->post('problemid');
-	  //$place=$this->input->post('place');
+	$alttag1=$this->input->post('alttag1');
 	  //$date=$this->input->post('date');
 	  if ($image1==''){
 		$data = array(
 			'description' =>"$description",
-			//'rating' =>"$problemid",
+			'alttagimg1'=>"$alttag1",
 			'title'=>"$title",
 			//'picture'=>$image1,
 			'link' =>"$link",
@@ -2313,7 +2343,7 @@ public function editsolutionsprocess(){
 	  }else {
 	 $data = array(
 		 'description' =>"$description",
-		 //'rating' =>"$problemid",
+		 'alttagimg1'=>"$alttag1",
 		 'title'=>"$title",
 		 'picture'=>$image1,
 		 'link' =>"$link",
@@ -2497,6 +2527,8 @@ function contactusprocess(){
 	 $place=$this->input->post('place');
 	 $country=$this->input->post('country');
 	 $metatag=$this->input->post('metatag');
+	 $alttag1=$this->input->post('alttag1');
+	 $alttag2=$this->input->post('alttag2');
 	$data = array(
 		'contactusdescription' =>"$description",
 		'phoneno' =>"$phoneno",
@@ -2504,6 +2536,8 @@ function contactusprocess(){
 		//'image'=>$image1,
 		'city'=>$place,'country'=>$country,
 		'metatag' =>"$metatag",
+		'alttagimg1'=>"$alttag1",
+		'alttagimg2'=>"$alttag2",
 		//'title'=>$testtitle		
 	 );
 	 //$id=$this->uri->segment(3); 

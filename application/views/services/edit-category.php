@@ -125,12 +125,19 @@
                                                                 <label class="form-label">Select Product Category Image</label>
                                                                
                                                                 <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="file"  name="file"  data-bs-original-title="" title="" ><span class="text-danger"></span>
-                                                                <img src="<?php echo base_url().'uploads/'.$result->categoryimage;?>" />
+                                                                <img src="<?php echo base_url().'uploads/'.$result->categoryimage;?>" width="100" height="100" />
                                                               </div>
                                                             </div>
                                                           </div>
 
-
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Enter image1 Alt Tag</label>
+                                                                <input class="form-control" placeholder="Enter image1 Alt Tag" type="text" id="alttagimg1" name="alttagimg2" value="<?php echo $result->alttagimg1;?>" data-bs-original-title="" title="" required ><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
 
 
                                                           <div class="row">
@@ -241,11 +248,17 @@
         var productcategory=$('#productcategory').val();
         var productdescription=$('#productdescription').val();
         var productcategoryid=$('#productcategoryid').val();
+        var alttagimg1=$("#alttagimg1").val();
+        var alttagimg2=$("#alttagimg2").val();
         var form_data = new FormData();
         form_data.append('file', file_data);
         form_data.append('productcategory',productcategory);
         form_data.append('productdescription',productdescription);
         form_data.append('productcategoryid',productcategoryid);
+        form_data.append('alttag1',alttagimg1);
+        form_data.append('alttag2',alttagimg2);
+        
+ //form_data.append('alttag1',alttagimg1);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/upload_filecatedit';?>", // point to server-side controller method

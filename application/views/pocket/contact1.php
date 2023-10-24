@@ -1,3 +1,4 @@
+<?php //include_once("header.php");?>
 
 <?php //include_once("header.php");
 echo $contactus->metatag;
@@ -14,9 +15,9 @@ echo $contactus->metatag;
         <div class="navbar-area">
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
-             <a href="<?php echo base_url().'Pockets/index';?>" class="logo">
-                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="Logo">
-                    <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-two" alt="Logo">
+                <a href="index.php" class="logo">
+                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-one" alt="Logo">
+                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-two" alt="Logo">
                 </a>
             </div>
 
@@ -47,52 +48,41 @@ echo $contactus->metatag;
                             <form class="row" method="post" id="frmcontact"  action="<?php echo base_url().'Pocket/contactenquiryprocess';?>">
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <label id="name-error" class="error" for="name" style='padding-top:0px'>ccccc</label>
+                                        <label id="name-error" class="error" for="name" style='padding-top:0px'></label>
                                             <div class="input-group mb-3">
-                                            
                                                 <input type="text" id="name" name="name" class="form-control" placeholder="NAME" aria-label="Username" aria-describedby="basic-addon1" >
-                                               
                                             </div>
-                                           
                                         </div>
                                         <div class="col-md-6">
-                                        <label id="companyname-error" class="error" for="companyname"></label>
+                                        <label id="companyname-error1" class="error" for="companyname" style='padding-top:0px'>asdasdasf</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" id="companyname" name="companyname" class="form-control" placeholder="Company Name" aria-label="Username" aria-describedby="basic-addon1" >
+                                                <input type="text" id="companyname" id="companyname" class="form-control" placeholder="Company Name" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
-                                           
-                                    
                                         </div>
-</div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                       <label id="name-email" class="error" for="email" style='line-height:.5';></label></span>
+                                        <label id="email-error" class="error" for="email" style='padding-bottom:0px'>cccc</label>
                                             <div class="input-group mb-3">
-                                                <input type="email" id="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" ><br>
-                                                <!--<label id="name-email" class="error" for="email" style='padding-top:0px;float:left;clear:both'></label>-->
+                                                <input type="email" id="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" >
                                             </div>
-                                                                                   
-                                        
                                         </div>
                                         <div class="col-md-6">
-                                        <label id="name-phone" class="error" for="phone" ></label></span>
+                                        <label id="email-error1" class="error" for="phone" style='padding-bottom:0px'>vvvvv</label>
                                             <div class="input-group mb-3">
                                                 <input type="text" id="phone"  maxlength="12" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1" >
                                             </div>
-                                           
-                                       
-                                       
+                                        </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                        <label id="name-message" class="error" for="message" ></label>
+                                        <label id="message-error" class="error" for="message" style='padding-bottom:0px'>cccc</label>
                                             <div class="input-group mb-3">
                                                 <textarea class="form-control" rows="4" cols="50" placeholder="Message..." id="message" name="message" ></textarea>
                                                
                                             </div>
-                                           
                                         </div>
                                       
                                     </div>
@@ -128,8 +118,8 @@ echo $contactus->metatag;
 		
 		<!-- End home Area -->
         <?php include_once("footer.php");?>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
         <script>
            
     /*$(function() {
@@ -166,6 +156,10 @@ echo $contactus->metatag;
             event.preventDefault();
         }
     });
+
+
+
+
 
 
     $('form[id="frmcontact"]').validate({  
@@ -235,7 +229,20 @@ echo $contactus->metatag;
       //form.submit();  
    // }  
   });  
-//});  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

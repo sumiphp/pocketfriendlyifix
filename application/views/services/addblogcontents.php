@@ -205,6 +205,8 @@ $('#addblogcontents').on('submit', function (e) {
         var place=$("#place").val();
         var date=$("#date").val();
         var companyname=$("#companyname").val();
+        var alttagimg1=$("#alttagimg1").val();
+        var alttagimg2=$("#alttagimg2").val();
         
         var form_data = new FormData();
         form_data.append('image1', file_data1);
@@ -216,6 +218,8 @@ $('#addblogcontents').on('submit', function (e) {
         form_data.append('place',place);
         form_data.append('date',date);
         form_data.append('companyname',companyname);
+        form_data.append('alttag1',alttagimg1);
+        form_data.append('alttag2',alttagimg2);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/addblogcontentsprocess';?>", // point to server-side controller method

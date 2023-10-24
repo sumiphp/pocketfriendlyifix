@@ -97,11 +97,11 @@
                                                               <input type="text" class="form-control" id="country" name="country" placeholder="Country" required value="<?php echo $result->country;?>">
                                           
                                                           </div>
-                                                          <!--<div class="col-md-6">
-                                                              <label for="company-logo" class="form-label text-primary">Contact Us Image:</label>
-                                                              <input type="file" class="form-control" id="image2" name="image2" >
-                                                              <img src="<?php //echo base_url().'uploads/blog/'.$result->contentimage;?>" width="100" height="100" />
-                                                          </div>-->
+                                                          <div class="col-md-6">
+                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">
+                                          
+                                                          </div>
                                                       </div>
 
 
@@ -183,7 +183,8 @@ $('#editcontactus').on('submit', function (e) {
         //var date=$("#date").val();
        var description=$("#description").val();
        var metatag=$("#metatag").val();
-        
+       var alttagimg1=$("#alttagimg1").val();
+        var alttagimg2=$("#alttagimg2").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         //form_data.append('image2', file_data2);
@@ -193,8 +194,8 @@ $('#editcontactus').on('submit', function (e) {
         form_data.append('country',country);
         form_data.append('description',description);
         form_data.append('metatag',metatag);
-       // form_data.append('companyname',companyname);
-        //form_data.append('blogid',blogid);
+        form_data.append('alttag1',alttagimg1);
+        form_data.append('alttag2',alttagimg2);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/contactusprocess';?>", // point to server-side controller method

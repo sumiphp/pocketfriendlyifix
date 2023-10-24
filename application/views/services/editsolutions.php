@@ -82,10 +82,10 @@
                                                               <label for="contact-person" class="form-label text-primary">Link:</label>
                                                               <input type="text" class="form-control" id="link" name="link" placeholder="Enter Link" required  value="<?php echo $result->link;?>">
                                                           </div>
-                                                          <!--<div class="col-md-6">
-                                                              <label for="designation" class="form-label text-primary">Image2:</label>
-                                                              <input type="file" class="form-control" id="image2" name="image2">
-                                                          </div>-->
+                                                          <div class="col-md-6">
+                                                              <label for="designation" class="form-label text-primary">Alt Tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">
+                                                          </div>
                                                       </div>
                                                       
                                                       <div class="mb-3">
@@ -157,14 +157,14 @@ $('#editsolutions').on('submit', function (e) {
         //alert("enter"+title);
         var problemid=$("#problemid").val();
         var description=$("#description").val();
-        
+        var alttagimg1=$("#alttagimg1").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         form_data.append('link', link);
         form_data.append('maintitle',title);
        form_data.append('problemid',problemid);
         form_data.append('description',description);
-       
+        form_data.append('alttag1',alttagimg1);
         $.ajax({
             url: "<?php echo base_url().'Welcome/editsolutionsprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server

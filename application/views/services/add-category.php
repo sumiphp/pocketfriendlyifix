@@ -129,6 +129,15 @@
                                                             </div>
                                                           </div>
 
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
 
                                                           <div class="row">
                                                          
@@ -214,6 +223,8 @@
                                                             </div>
                                                           </div>
 
+                                                          
+
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
@@ -226,8 +237,25 @@
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
+                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
                                                                 <label class="form-label"> Product Sub-Category Banner Image</label>
                                                                 <input class="form-control" placeholder="Enter Product Sub-Category Banner Image" name="fileimg" type="file"  id="filesubimg"  name="filesubimg"  data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image2:</label>
+                                                              <input type="text" class="form-control" id="alttagimg2" name="alttagimg2" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
                                                               </div>
                                                             </div>
                                                           </div>
@@ -340,10 +368,14 @@
         var file_data = $('#file').prop('files')[0];
         var productcategory=$('#productcategory').val();
         var productdescription=$('#productdescription').val();
+        var alttagimg1=$("#alttagimg1").val();
+        var alttagimg2=$("#alttagimg2").val();
         var form_data = new FormData();
         form_data.append('file', file_data);
         form_data.append('productcategory',productcategory);
         form_data.append('productdescription',productdescription);
+        form_data.append('alttag1',alttagimg1);
+        form_data.append('alttag2',alttagimg2);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/upload_file';?>", // point to server-side controller method
@@ -377,6 +409,8 @@
         var prdsubdesc=$("#prdsubdesc").val();
         var prdsubshortdesc=$('#prdsubshortdesc').val();
         var price=$('#price').val();
+        var alttagimg1=$("#alttagimg1").val();
+        var alttagimg2=$("#alttagimg2").val();
         var form_data = new FormData();
         form_data.append('filesub', file_data);
         form_data.append('prdsubcat',prdsubcat);
@@ -385,6 +419,8 @@
         form_data.append('prdsubshortdesc',prdsubshortdesc);
         form_data.append('filesubimg',file_databanner);
         form_data.append('price',price);
+        form_data.append('alttag1',alttagimg1);
+        form_data.append('alttag2',alttagimg2);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/upload_filesub';?>", // point to server-side controller method

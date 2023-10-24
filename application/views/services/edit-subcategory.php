@@ -165,16 +165,7 @@
                                                               </div>
                                                             </div>
                                                           </div>
-                                                          <!--<div class="row"> 
-                                                            <div class="col-sm-12">
-                                                              <div class="mb-3">
-                                                                <label class="form-label">Description:</label>
-                                                                <textarea class="form-control" id="prdsubdesc" name="prdsubdesc" rows="4" placeholder="Enter Sub Category description"><?php //echo $result->subcatdesc;?></textarea>
-
-                                                               
-                                                              </div>
-                                                            </div>
-                                                          </div>-->
+                                                          
 
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
@@ -186,6 +177,17 @@
                                                             </div>
                                                           </div>
 
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                              <label class="form-label"> Enter Alt attribute1</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute1" value="<?php echo $result->alttagimg1;?>">
+
+                                                               
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
 
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
@@ -193,6 +195,17 @@
                                                                 <label class="form-label"> Product Sub-Category Banner Image</label>
                                                                 <input class="form-control" placeholder="Enter Product Sub-Category Banner Image" name="filesubimg" type="file"  id="filesubimg"  name="filesubimg"  data-bs-original-title="" title="" ><span class="text-danger"></span>
                                                                 <img src="<?php echo base_url().'uploads/subcategory/'.$result->subcatbannerimage;?>" width="80" height="80" />
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                              <label class="form-label"> Enter Alt attribute2</label>
+                                                              <input type="text" class="form-control" id="alttagimg2" name="alttagimg2" required placeholder="Enter Alt attribute2" value="<?php echo $result->alttagimg2;?>">
+
+                                                               
                                                               </div>
                                                             </div>
                                                           </div>
@@ -304,6 +317,8 @@
         var prdsubshortdesc=$('#prdsubshortdesc').val();
         var price=$('#price').val();
         var subcatid=$("#subcatid").val();
+        var alttagimg1=$("#alttagimg1").val();
+        var alttagimg2=$("#alttagimg2").val();
         var form_data = new FormData();
         form_data.append('filesub', file_data);
         form_data.append('prdsubcat',prdsubcat);
@@ -313,6 +328,8 @@
         form_data.append('prdsubshortdesc',prdsubshortdesc);
         form_data.append('filesubimg',file_databanner);
         form_data.append('price',price);
+        form_data.append('alttag1',alttagimg1);
+        form_data.append('alttag2',alttagimg2);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/upload_filesubedit';?>", // point to server-side controller method
