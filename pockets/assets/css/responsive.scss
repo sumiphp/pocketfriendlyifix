@@ -51,6 +51,12 @@
     }
     /* Default CSS End */
 
+    .hidden-xs
+    {
+        display: none;
+    }
+
+
     /* Home Page One */
 
     /*-------responsive -login-- page-------------*/
@@ -1063,7 +1069,10 @@
 
 @media only screen and (min-width : 576px) and (max-width : 767px) {
 
-    
+    .hidden-xs
+    {
+        display: none;
+    }
 /*login-page*/
 .feature-updates
 {
@@ -1228,6 +1237,10 @@
 }
 
 @media only screen and (min-width : 768px) and (max-width : 991px) {
+    .hidden-md
+    {
+        display: none;
+    }
      /* Default CSS */
      body {
         font-size: 14px;
@@ -2217,6 +2230,10 @@
 }
 
 @media only screen and (min-width : 820px) and (max-width : 992px) {
+    .hidden-lg
+    {
+        display: none;
+    }
     .inner-service-banner
     {
         height: 40vh;
@@ -2233,7 +2250,10 @@
 }
 
 @media only screen and (min-width : 992px) and (max-width : 1199px) {
-
+    .hidden-lg
+    {
+        display: none;
+    }
 /*responsive tab view*/
 .feature-updates img
 {
@@ -2511,7 +2531,10 @@
 }
 
 @media only screen and (min-width : 1800px) {
-    
+    .hidden-lg
+    {
+        display: none;
+    }
     /* Home Page One */
     .banner-shape-1 {
         img {
@@ -2615,7 +2638,10 @@
     }
 }
 @media only screen and (min-width : 1200px) and (max-width : 1349px){
-  
+    .hidden-lg
+    {
+        display: none;
+    }
     .container{
         max-width: 1170px !important;
     } 
@@ -2636,6 +2662,10 @@
 }
 
 @media only screen and (min-width : 1350px) and (max-width : 1699px) {
+    .hidden-lg
+    {
+        display: none;
+    }
     .container{
         max-width: 1320px !important;
     } 
@@ -2697,7 +2727,10 @@
    
 }
 @media only screen and (min-width : 1700px) {
-    
+    .hidden-lg
+    {
+        display: none;
+    }
     .container{
         max-width: 1440px !important;
     } 

@@ -251,6 +251,62 @@ public function contactenquiryprocess(){
 	echo "Your enquiry send successfully";
 	}
 
+
+
+	public function contactenquiryprocesspopup(){
+		$name=$this->input->post('name');
+		$companyname=$this->input->post('companyname');
+		$email=$this->input->post('email');
+		$phone=$this->input->post('phone');
+		$message=$this->input->post('message');	
+		$business=$this->input->post('business');
+		$package=$this->input->post('package');
+		$natureofbusiness=$this->input->post('business');
+		$data = array(
+			'name' =>"$name",
+			'companyname' =>"$companyname",
+			'email' =>"$email",
+			'phone' =>"$phone",
+			'message' =>"$message",
+			'packageid'=>"$package",
+			'natureofbusiness'=>"$natureofbusiness",
+			//'businesswebsiteduration'=>"$businesswebsiteduration"
+		 );
+		 $this->db->insert('contactenquiries',$data);
+		 /*$from_email = "sumilaifix@gmail.com";
+		 $to_email = 'sumilaifix@gmail.com';
+		 
+		 $config = Array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'sumilaifix@gmail.com',
+			'smtp_pass' => 'sumila@2023',
+			'mailtype'  => 'html', 
+			'charset'   => 'iso-8859-1'
+		);
+		 $this->load->library('email',$config);
+		 $this->email->from($from_email,"$name");
+		 $this->email->to($to_email);
+		 $this->email->subject('Pocket Friendly Enquiries');
+		 $this->email->message('The email send using codeigniter library');
+		 //Send mail
+		 if($this->email->send()){
+			
+		 }
+		 else{
+			 
+		}*/
+		echo "Your enquiry send successfully";
+		}
+
+
+
+
+
+
+
+
 public function servicedetails(){
 
     $serid=$this->uri->segment(3);

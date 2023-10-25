@@ -511,31 +511,12 @@ Navbar Area
 }
 .main-nav nav .navbar-nav .nav-item .dropdown-menu li a:hover {
   background-color: #f3f3f3;
+  color: #ff4a35;
 }
 .main-nav nav .navbar-nav .nav-item .dropdown-menu li a.active {
   background-color: #f3f3f3;
   border-radius: 0.25rem;
   color: #ff4a35 !important;
-}
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li a::before {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: #ff4a35;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li a:hover::before {
-  width: 100%;
-}
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li a:hover, .main-nav nav .navbar-nav .nav-item .dropdown-menu li a :focus, .main-nav nav .navbar-nav .nav-item .dropdown-menu li a .active {
-  color: #ff4a35 !important;
-  letter-spacing: 0.5px;
-  background-color: #f3f3f3;
-  border-radius: 0.25rem;
 }
 .main-nav nav .navbar-nav .nav-item .dropdown-menu li.active {
   color: #ff4a35 !important;
@@ -594,6 +575,61 @@ Navbar Area
   bottom: 0;
   background-color: #4356d6;
   color: #fff;
+}
+
+/*mega menu*/
+/* mega menu*/
+.open .dropdown-menu {
+  display: block;
+}
+
+.mega_menuDropdown {
+  min-width: 1070px;
+  padding-right: 15px;
+  top: 32px;
+  left: -537px;
+}
+
+.productMenu-dropdown {
+  min-width: 1100px;
+  left: -380px !important;
+}
+
+.main-nav nav .navbar-nav .nav-item .mega_menuDropdown {
+  padding: 20px 15px;
+}
+
+.megamenu-list li {
+  background: #FFF 0% 0% no-repeat padding-box;
+  border-radius: 6px;
+  opacity: 1;
+  padding: 10px 5px !important;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 9px rgba(102, 102, 102, 0.1019607843);
+  margin-bottom: 15px;
+}
+
+.main-nav nav .navbar-nav .nav-item .mega_menuDropdown .megamenu-list li a {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  font-size: 13px !important;
+  text-decoration: none !important;
+}
+
+.megamenu-list li a img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.menu-image-title-after.menu-image-not-hovered img, .menu-image-hovered.menu-image-title-after .menu-image-hover-wrapper, .menu-image-title-before.menu-image-title {
+  padding-right: 10px;
+}
+
+.hidden-lg {
+  display: none;
 }
 
 /* Mobile Nav */
@@ -1146,7 +1182,7 @@ Footer Section
 .footer-newletter-area .newsletter-area {
   margin-top: 25px;
 }
-.footer-newletter-area .newsletter-area .newsletter-form-email{
+.footer-newletter-area .newsletter-area .newsletter-form-email {
   position: relative;
   max-width: 370px;
   border-radius: 50px;
@@ -1322,11 +1358,10 @@ Footer Section End
 }
 
 .inner-banner-sec {
- /*background: url(../img/about/bannerif.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  height: 100vh;*/
+  height: 100vh;
 }
 
 .about-sec-inner {
@@ -1486,9 +1521,6 @@ a.map-icon i, a.what-icon i {
 }
 
 .inner-service-banner {
-  background: url(../img/service/service-banner.png);
-  background-repeat: no-repeat;
-  background-size: contain;
   background-position: center;
   height: 100vh;
 }
@@ -1572,10 +1604,14 @@ Inner Service Page  End
 /*=================================
   Inner Service Details Page  Start
   ====================================*/
+.left-banner-content {
+  padding: 50px;
+}
+.left-banner-content h2 {
+  font-size: 30px;
+}
+
 .service-detail-banner {
-  background: url(../img/service-detail-banner.png);
-  background-repeat: no-repeat;
-  background-size: contain;
   background-position: center;
   height: 100vh;
 }
@@ -1780,10 +1816,6 @@ Inner Blog Page
 Contact Page 
 ===================================*/
 .contact-banner-sec {
-  background: url(../img/banner-contact.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   height: 135vh;
   padding: 40px 50px;
 }
@@ -1810,6 +1842,52 @@ Contact Page
 }
 .contact-banner-sec .address-sec h4 img {
   padding: 20px;
+}
+
+.service-details-page {
+  padding: 50px 0;
+}
+
+.button__cover {
+  position: fixed;
+  right: 20px;
+  bottom: 75px;
+  z-index: 9999;
+}
+
+.button__cover a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: linear-gradient(90deg, rgb(121, 10, 180) 30%, rgb(64, 69, 217) 100%);
+  background-color: #4356d6;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  box-shadow: 0 0 15px #4356d6;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+  transition: 0.9s;
+  -webkit-transition: 0.9s;
+  margin-bottom: 20px;
+}
+
+/*==================================
+Model Popup area
+===================================*/
+select#package {
+  border: 1px solid #ced4da;
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.modal-dialog {
+  width: 660px;
 }
 
 /*==================================
@@ -1874,7 +1952,7 @@ Back To Top Button
 }
 
 .top-btn {
-  background-color: #4356d6;
+  background: linear-gradient(90deg, rgb(121, 10, 180) 30%, rgb(64, 69, 217) 100%);
   color: #fff;
   width: 50px;
   height: 50px;
@@ -1888,8 +1966,7 @@ Back To Top Button
   -webkit-transition: 0.9s;
 }
 .top-btn:hover {
-  background: #ff4a35;
-  box-shadow: 0 0 15px #ff4a35;
+  background-color: #4356d6;
   color: #fff;
   animation: none;
 }
@@ -2153,11 +2230,3 @@ Animation CSS
 /*==================================
 Animation CSS End
 ====================================*/
-
-.icon-main-area {
-  margin-bottom: 40px;
-}
-
-.elementor-element {
-  margin-bottom: 40px;
-}

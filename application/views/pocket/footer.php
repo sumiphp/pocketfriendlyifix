@@ -3,6 +3,7 @@
 
 
 </style>
+
 <footer id="footer" class="footer-area-bg">
             <div class="footer-newletter-area">
                 <div class="container">
@@ -152,7 +153,10 @@
                     </div>
                 </div>
             </div>
-
+            <div class="button__cover">
+            <a href="#" target="blank"><i class="bx bxl-whatsapp"></i></a>
+            <a href="#" target="_blank"> <i class="bx bxs-map"></i> </a>
+        </div>
             <div class="footer-bottom">
                 <div class="container">
                     <div class="row align-items-center">

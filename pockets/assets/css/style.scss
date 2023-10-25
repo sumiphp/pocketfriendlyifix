@@ -526,32 +526,14 @@ Navbar Area
                             font-weight: 400;
                             &:hover {
                                 background-color: #f3f3f3;
+                                color: $main-color;
                             }
                             &.active{
                                 background-color: #f3f3f3;
                                 border-radius: .25rem; 
                                 color: $main-color !important;
                             }
-                            &::before {
-                                content: "";
-                                position: absolute;
-                                bottom: -1px;
-                                left: 0;
-                                width: 0;
-                                height: 1px;
-                                background-color: $main-color;
-                                -webkit-transition: all 0.5s;
-                                transition: all 0.5s;
-                            }
-                            &:hover::before {
-                                width: 100%;
-                            }
-                            &:hover, :focus, .active{
-                                color: $main-color !important;
-                                letter-spacing: 0.5px;
-                                background-color: #f3f3f3;
-                                border-radius: .25rem;
-                            }
+                          
                         }
                         &.active{
                            color: $main-color !important;
@@ -617,6 +599,65 @@ Navbar Area
         }
     }
 }
+
+/*mega menu*/
+
+/* mega menu*/
+
+.open .dropdown-menu {
+    display: block;
+}
+.mega_menuDropdown {
+    min-width: 1070px;
+    padding-right: 15px;
+    top: 32px;
+    left: -537px;
+}
+.productMenu-dropdown {
+    min-width: 1100px;
+    left: -380px !important;
+}
+
+.main-nav nav .navbar-nav .nav-item .mega_menuDropdown
+{
+padding: 20px 15px;
+}
+
+.megamenu-list li {
+    background: #FFF 0% 0% no-repeat padding-box;
+    border-radius: 6px;
+    opacity: 1;
+    padding: 10px 5px !important;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 9px #6666661a;
+    margin-bottom: 15px;
+}
+
+.main-nav nav .navbar-nav .nav-item .mega_menuDropdown .megamenu-list li a {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    font-size: 13px!important;
+    text-decoration: none!important;
+    
+}
+.megamenu-list li a img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.menu-image-title-after.menu-image-not-hovered img, .menu-image-hovered.menu-image-title-after .menu-image-hover-wrapper, .menu-image-title-before.menu-image-title {
+    padding-right: 10px;
+}
+
+.hidden-lg {
+    display: none;
+}
+
+
+
 /* Mobile Nav */
 .mobile-nav {
     .mean-container {
@@ -646,6 +687,7 @@ Navbar Area
 /*=================================
 Navbar Area
 ====================================*/
+
 /*=================================
 404 error page Area
 ====================================*/
@@ -1359,7 +1401,7 @@ Footer Section
 
     .newsletter-area {
         margin-top: 25px;
-        .newsletter-form {
+        .newsletter-form-email {
             position: relative;
             max-width: 370px;
             border-radius: 50px;
@@ -1560,7 +1602,7 @@ Footer Section End
 
 .inner-banner-sec
 {
-    background: url(../img/about/about-banner.png);
+    // background: url(../img/about/about-banner.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -1764,9 +1806,9 @@ a.map-icon,a.what-icon {
 
 .inner-service-banner
 {
-    background: url(../img/service/service-banner.png);
-    background-repeat: no-repeat;
-    background-size: contain;
+    // background: url(../img/service/service-banner.png);
+    // background-repeat: no-repeat;
+    // background-size: contain;
     background-position: center;
     height: 100vh;
     .left-banner-content
@@ -1877,11 +1919,18 @@ a.map-icon,a.what-icon {
 /*=================================
   Inner Service Details Page  Start
   ====================================*/
+  .left-banner-content {
+    padding: 50px;
+    h2
+    {
+        font-size: 30px;
+    }
+}
   .service-detail-banner
   {
-      background: url(../img/service-detail-banner.png);
-      background-repeat: no-repeat;
-      background-size: contain;
+    //   background: url(../img/service-detail-banner.png);
+    //   background-repeat: no-repeat;
+    //   background-size: contain;
       background-position: center;
       height: 100vh;
       .right-banner-content
@@ -2197,10 +2246,10 @@ background-image: -webkit-linear-gradient(left, #cfc4ff, #d18fff);
 
 .contact-banner-sec
 {
-    background: url(../img/banner-contact.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    // background: url(../img/banner-contact.png);
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
     height: 135vh;
 
     padding: 40px 50px;
@@ -2241,6 +2290,54 @@ background-image: -webkit-linear-gradient(left, #cfc4ff, #d18fff);
             }
         }
     }
+}
+.service-details-page {
+    padding: 50px 0;
+}
+
+.button__cover {
+    position: fixed;
+    right: 20px;
+    bottom: 75px;
+    z-index: 9999;
+}
+
+.button__cover a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background:linear-gradient(90deg, rgb(121, 10, 180) 30%, rgb(64, 69, 217) 100%);
+    background-color: #4356d6;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    box-shadow: 0 0 15px #4356d6;
+    font-size: 24px;
+    text-align: center;
+    line-height: 50px;
+    transition: 0.9s;
+    -webkit-transition: 0.9s;
+    margin-bottom: 20px;
+}
+
+  /*==================================
+  Model Popup area
+  ===================================*/
+
+select#package
+{
+    border: 1px solid #ced4da;
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.modal-dialog
+{
+    width: 660px;
 }
 
   /*==================================
@@ -2324,7 +2421,8 @@ Back To Top Button
     z-index: 99;
 } 
 .top-btn {
-    background-color: $color-blue;
+    background:linear-gradient(90deg, rgb(121, 10, 180) 30%, rgb(64, 69, 217) 100%);
+    
     color: $color-white;
     width: 50px;
     height: 50px;
@@ -2337,8 +2435,8 @@ Back To Top Button
     transition: .9s;
     -webkit-transition: .9s;
     &:hover{
-        background: $main-color;
-        box-shadow: 0 0 15px $main-color;
+        background-color: #4356d6;
+       
         color: #fff;
         animation:none;
     }
