@@ -474,7 +474,13 @@ function get_siteinf(){
     return $query->row();
 
 }
+function get_socialmedialinks(){
+    $this->db->select('*');
+    $this->db->from('socialmedialinks');
+    $query = $this->db->get();
+    return $query->row();
 
+}
 
 function get_subcategoriesrand(){
     $this->db->order_by('id','RANDOM');

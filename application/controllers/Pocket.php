@@ -114,6 +114,18 @@ public function services(){
 
 } 
 
+public function contact1(){
+	$data['menus']=$this->sm->get_menus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['featureupdate']=$this->sm->get_featureupdate();
+	$data['contactus']=$this->sm->get_contactus();
+	$data['about']=$this->sm->get_aboutus();
+	$data['siteinf']=$this->sm->get_siteinf();
+    //$this->load->view('pocket/contact.php',$data);
+ $this->load->view('pocket/contact1.php',$data);
+
+}
+
 public function contact(){
 	$data['menus']=$this->sm->get_menus();
 	$data['newsletter']=$this->sm->get_newsletter();
@@ -121,11 +133,10 @@ public function contact(){
 	$data['contactus']=$this->sm->get_contactus();
 	$data['about']=$this->sm->get_aboutus();
 	$data['siteinf']=$this->sm->get_siteinf();
-    $this->load->view('pocket/contact.php',$data);
-
+    //$this->load->view('pocket/contact.php',$data);
+ $this->load->view('pocket/contact.php',$data);
 
 }
-
 
 public function dashboard(){
 	

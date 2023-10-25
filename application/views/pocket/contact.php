@@ -5,6 +5,19 @@ echo $contactus->metatag;
 
 ?>
 
+<style>
+.error {
+  position: absolute;
+
+  bottom: 0;
+}
+.input-group input{
+margin-bottom:35px;
+}
+.input-group textarea{
+margin-bottom:35px;
+}
+</style>
     <body>
         <!-- Start Preloader -->
         <!--<div class="preloader">
@@ -16,8 +29,8 @@ echo $contactus->metatag;
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
                 <a href="index.php" class="logo">
-                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-one" alt="<?php echo $siteinf->alttagimg1;?>">
-                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-two" alt="<?php echo $siteinf->alttagimg1;?>">
+                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-one" alt="Logo">
+                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-two" alt="Logo">
                 </a>
             </div>
 
@@ -48,46 +61,56 @@ echo $contactus->metatag;
                             <form class="row" method="post" id="frmcontact"  action="<?php echo base_url().'Pocket/contactenquiryprocess';?>">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <input type="text" id="name" name="name" class="form-control" placeholder="NAME" aria-label="Username" aria-describedby="basic-addon1" required="required">
+                                        
+                                            <div class="input-group">
+                                            
+                                                <input type="text" id="name" name="name" class="form-control" placeholder="NAME" aria-label="Username" aria-describedby="basic-addon1" >
+                                                <label id="name-error" class="error" for="name" style='padding-top:0px'></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <input type="text" id="companyname" id="companyname" class="form-control" placeholder="Company Name" aria-label="Username" aria-describedby="basic-addon1" required="required">
+                                        
+                                            <div class="input-group ">
+                                                <input type="text" id="companyname" name="companyname" class="form-control" placeholder="Company Name" aria-label="Username" aria-describedby="basic-addon1">
+                                                <label id="companyname-error" class="error" for="companyname" style='padding-top:0px'></label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <input type="email" id="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required="required">
+                                        
+                                            <div class="input-group">
+                                                <input type="email" id="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" >
+                                                <label id="email-error" class="error" for="email" style='padding-bottom:0px'></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <input type="text" id="phone"  maxlength="12" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1" required="required">
+                                        
+                                            <div class="input-group ">
+                                                <input type="text" id="phone"  maxlength="12" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1" >
+                                                <label id="phone-error1" class="error" for="phone" style='padding-bottom:0px'></label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-12">
+                                       
                                             <div class="input-group mb-3">
-                                                <textarea class="form-control" rows="4" cols="50" placeholder="Message..." id="message" name="message" required="required"></textarea>
-                                               
+                                                <textarea class="form-control" rows="4" cols="50" placeholder="Message..." id="message" name="message" ></textarea>
+                                                <label id="message-error" class="error" for="message" style='padding-bottom:0px'></label>
                                             </div>
                                         </div>
-                                      
+                                        <span id="msg" style="font-color:green;font-weight:bold;text-align:center;padding-top:15px"></span>
                                     </div>
-
+                                    
                                     <div class="btn-sec text-center">
                                             <button type="submit" class="default-btn submit-btn ">
                                                 Send
                                             </button>
                                     </div>
-                                    <span id="msg" style="font-color:green;font-weight:bold;text-align:center;padding-top:15px"></span>
+                                   
                                    
                                 </form>
 
@@ -114,10 +137,10 @@ echo $contactus->metatag;
 		<!-- End home Area -->
         <?php include_once("footer.php");?>
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
         <script>
            
-    $(function() {
+    /*$(function() {
         $("#frmcontact").on('submit', function(e) {
             e.preventDefault();
 
@@ -142,7 +165,7 @@ echo $contactus->metatag;
                 }
             });
         });
-    });
+    });*/
 
 
     $("#phone").keypress(function(event){
@@ -151,6 +174,102 @@ echo $contactus->metatag;
             event.preventDefault();
         }
     });
+
+
+
+
+
+
+    $('form[id="frmcontact"]').validate({  
+    rules: {  
+      name: 'required',  
+      companyname: 'required',
+      phone:'required',  
+      email: {  
+        required: true,  
+        email: true,  
+      }, 
+      message:"required", 
+      /*psword: {  
+        required: true,  
+        minlength: 8,  
+      }*/  
+    },  
+    messages: {  
+      name: 'Name is required',  
+      companyname: 'Company Name is required',  
+      phone: 'Enter a valid Phone',
+      email: 'Enter a valid Email',  
+      /*psword: {  
+        minlength: 'Password must be at least 8 characters long'  
+      } */
+      message:'Please enter Message' 
+    },  
+    submitHandler: function(form) { 
+       // form.preventDefault();
+       /* $.ajax({
+                url: contactForm1.attr('action'),
+                type: 'post',
+                data: contactForm1.serialize(),
+                success: function(response){
+                    
+                    
+                    $('input[type=text]').each(function() {
+        $(this).val('');
+    });
+    
+    $("#email").val('');
+                    $("#msg").html(response);
+                   
+
+                }
+            });*/
+
+            $.ajax({
+	url: form.action,
+	type: form.method,
+	data: $(form).serialize(),
+	success: function(response) {
+        $('input[type=text]').each(function() {
+        $(this).val('');
+    });
+    
+    $("#email").val('');
+    $("#message").val('');
+    
+		$('#msg').html(response);
+	}            
+      });		
+}
+
+
+
+
+
+      //form.submit();  
+   // }  
+  });  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

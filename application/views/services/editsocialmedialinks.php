@@ -53,28 +53,28 @@
                 <div class="dashboard-innerbox">
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2>Edit Site Information </h2>
+                                <h2>Edit Social Media Links </h2>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
-                                                    <h5>Primary Information</h5>
+                                                    <h5>Social Media Links </h5>
                                                     <form  id="editsiteinf" class="rounded-form" method="post" action="<?php echo base_url().'Welcome/siteinfeditprocess';?>" enctype="multipart/form-data" >
                                                         <div class="product-group">
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
-                                                                <label class="form-label">Site Name</label>
-                                                                <input class="form-control" placeholder="Enter Site Name" name="sitename" type="text" data-bs-original-title="" title=""  value="<?php echo $result->sitename;?>"><span class="text-danger" ></span>
+                                                                <label class="form-label">Whatsuplink</label>
+                                                                <input class="form-control" placeholder="Enter Site Name" name="sitename" type="text" data-bs-original-title="" title=""  value="<?php echo $result->whatsuplink;?>"><span class="text-danger" ></span>
                                                               </div>
                                                             </div>
                                                           </div>
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
-                                                                <label class="form-label">Site Description</label>
-                                                                <input class="form-control" placeholder="Enter Site Description" name="sitedescription" type="text"  value="<?php echo $result->sitedescription;?>" data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                                <label class="form-label">Linkldn link</label>
+                                                                <input class="form-control" placeholder="Enter Linkldn link" name="sitedescription" type="text"  value="<?php echo $result->linkldn;?>" data-bs-original-title="" title=""><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -92,15 +92,15 @@
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
-                                                    <h5>Logo & Favicon</h5>
+                                                    <h5>Social Media Links </h5>
                                                     <form>
                                                         <div class="product-group">
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
-                                                                <label class="form-label">Logo</label>
-                                                                <input class="form-control" placeholder="Enter Logo" type="file" data-bs-original-title="" title="" id="image1" name="image1" ><span class="text-danger" ></span>
-                                                                <img src="<?php echo base_url().'uploads/logo/'.$result->logoimg;?>" width="50" height="50" />
+                                                                <label class="form-label">Youtube Link</label>
+                                                                <input class="form-control" placeholder="Enter youtube Link" type="file" data-bs-original-title="" title="" id="image1" name="image1" ><span class="text-danger" ></span>
+                                                                <!--<img src="<?php //echo base_url().'uploads/logo/'.$result->youtube;?>" width="50" height="50" />-->
 
                                                               </div>
                                                             </div>
@@ -108,9 +108,9 @@
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
-                                                                <label class="form-label">Favicon</label>
-                                                                <input class="form-control" placeholder="Enter Favicon" type="file" id="image2" name="image2"  data-bs-original-title="" title=""><span class="text-danger" ></span>
-                                                                <img src="<?php echo base_url().'uploads/logo/'.$result->faviconimg;?>" width="50" height="50" />
+                                                                <label class="form-label">Facebook Link</label>
+                                                                <input class="form-control" placeholder="Enter Facebook Link" type="text" id="image2" name="image2"  data-bs-original-title="" title=""><span class="text-danger" ></span>
+                                                                <!--<img src="<?php //echo base_url().'uploads/logo/'.$result->facebook;?>" width="50" height="50" />-->
 
                                                               </div>
                                                             </div>

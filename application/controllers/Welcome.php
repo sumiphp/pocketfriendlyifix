@@ -1694,6 +1694,53 @@ $this->load->view('services/listsiteinformation',$data);
 }
 
 
+
+
+public function listsocialmedialinks(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+$config = array();
+$config["base_url"] = base_url() . "Welcome/listsiteinformation";
+/*$config["total_rows"] = $this->sm->get_countservices();
+$config["per_page"] = 10;
+$config["uri_segment"] = 3;
+$this->pagination->initialize($config);
+$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+$data["links"] = $this->pagination->create_links();	
+$data['result']=$this->sm->get_services($config["per_page"],$page);*/
+$this->db->from('contactus');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
+	$data['socialmedia']=$this->sm->get_socialmedialinks();
+$this->load->view('services/listsocialmedialinks',$data);	
+
+
+}
+
+public function editsocialmedialinks(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$this->db->from('socialmedialinks');
+    $query = $this->db->get();
+    $data['result']=$query->row();
+	$data['contactus']=$this->sm->get_contactus(); 
+	$data['newsletter']=$this->sm->get_newsletter();
+	$this->load->view('services/editsocialmedialinks',$data);
+
+
+}
+
+
 public function listservicesdetails(){
 	if( $this->session->has_userdata('username')) {					
 	}

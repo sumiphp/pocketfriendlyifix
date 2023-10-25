@@ -16,8 +16,8 @@ echo $contactus->metatag;
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
                 <a href="index.php" class="logo">
-                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-one" alt="Logo">
-                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-two" alt="Logo">
+                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-one" alt="<?php echo $siteinf->alttagimg1;?>">
+                    <img src="<?php echo base_url().'pockets/assets/img/logo.png';?>" class="logo-two" alt="<?php echo $siteinf->alttagimg1;?>">
                 </a>
             </div>
 
@@ -48,39 +48,34 @@ echo $contactus->metatag;
                             <form class="row" method="post" id="frmcontact"  action="<?php echo base_url().'Pocket/contactenquiryprocess';?>">
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <label id="name-error" class="error" for="name" style='padding-top:0px'></label>
                                             <div class="input-group mb-3">
-                                                <input type="text" id="name" name="name" class="form-control" placeholder="NAME" aria-label="Username" aria-describedby="basic-addon1" >
+                                                <input type="text" id="name" name="name" class="form-control" placeholder="NAME" aria-label="Username" aria-describedby="basic-addon1" required="required">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                        <label id="companyname-error1" class="error" for="companyname" style='padding-top:0px'>asdasdasf</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" id="companyname" id="companyname" class="form-control" placeholder="Company Name" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" id="companyname" id="companyname" class="form-control" placeholder="Company Name" aria-label="Username" aria-describedby="basic-addon1" required="required">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <label id="email-error" class="error" for="email" style='padding-bottom:0px'>cccc</label>
                                             <div class="input-group mb-3">
-                                                <input type="email" id="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" >
+                                                <input type="email" id="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required="required">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                        <label id="email-error1" class="error" for="phone" style='padding-bottom:0px'>vvvvv</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" id="phone"  maxlength="12" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1" >
+                                                <input type="text" id="phone"  maxlength="12" name="phone" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1" required="required">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                        <label id="message-error" class="error" for="message" style='padding-bottom:0px'>cccc</label>
                                             <div class="input-group mb-3">
-                                                <textarea class="form-control" rows="4" cols="50" placeholder="Message..." id="message" name="message" ></textarea>
+                                                <textarea class="form-control" rows="4" cols="50" placeholder="Message..." id="message" name="message" required="required"></textarea>
                                                
                                             </div>
                                         </div>
@@ -119,10 +114,10 @@ echo $contactus->metatag;
 		<!-- End home Area -->
         <?php include_once("footer.php");?>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
+
         <script>
            
-    /*$(function() {
+    $(function() {
         $("#frmcontact").on('submit', function(e) {
             e.preventDefault();
 
@@ -147,7 +142,7 @@ echo $contactus->metatag;
                 }
             });
         });
-    });*/
+    });
 
 
     $("#phone").keypress(function(event){
@@ -156,100 +151,6 @@ echo $contactus->metatag;
             event.preventDefault();
         }
     });
-
-
-
-
-
-
-    $('form[id="frmcontact"]').validate({  
-    rules: {  
-      name: 'required',  
-      companyname: 'required',
-      phone:'required',  
-      email: {  
-        required: true,  
-        email: true,  
-      }, 
-      message:"required", 
-      /*psword: {  
-        required: true,  
-        minlength: 8,  
-      }*/  
-    },  
-    messages: {  
-      name: 'Name is required',  
-      companyname: 'Company Name is required',  
-      phone: 'Enter a valid Phone',
-      email: 'Enter a valid Email',  
-      /*psword: {  
-        minlength: 'Password must be at least 8 characters long'  
-      } */
-      message:'Please enter Message' 
-    },  
-    submitHandler: function(form) { 
-       // form.preventDefault();
-       /* $.ajax({
-                url: contactForm1.attr('action'),
-                type: 'post',
-                data: contactForm1.serialize(),
-                success: function(response){
-                    
-                    
-                    $('input[type=text]').each(function() {
-        $(this).val('');
-    });
-    
-    $("#email").val('');
-                    $("#msg").html(response);
-                   
-
-                }
-            });*/
-
-            $.ajax({
-	url: form.action,
-	type: form.method,
-	data: $(form).serialize(),
-	success: function(response) {
-        $('input[type=text]').each(function() {
-        $(this).val('');
-    });
-    
-    $("#email").val('');
-		$('#msg').html(response);
-	}            
-      });		
-}
-
-
-
-
-
-      //form.submit();  
-   // }  
-  });  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

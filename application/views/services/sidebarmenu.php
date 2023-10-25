@@ -18,7 +18,7 @@
                                 <li><a class="link_name" href="#">Category</a></li>
                                 <li><a href="<?php echo base_url().'Welcome/listsiteinformation';?>">Site Address Info </a></li>
                                <!-- <li><a href="#">Site Emails / Contact Details </a></li>-->
-                                <li><a href="#">Social Media Links / Meta Tages</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/listsocialmedialinks';?>">Social Media Links / Meta Tages</a></li>
                                 <li><a href="<?php echo base_url().'Welcome/editgoogleanalyics';?>"> Analytics Code / Assets / Js</a></li>
                               </ul>
                             </li>
