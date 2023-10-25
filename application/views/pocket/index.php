@@ -3,6 +3,26 @@
 echo $resulthome->metatag;
 
 ?>
+
+<style>
+.error {
+  position: absolute;
+
+  bottom: 0;
+}
+.input-group input{
+margin-bottom:25px;
+}
+.input-group textarea{
+margin-bottom:25px;
+}
+.input-group select{
+margin-bottom:25px;
+}
+.error{
+    text-color:#fff !important;
+}
+</style>
     <body>
        
 
@@ -45,22 +65,26 @@ echo $resulthome->metatag;
                                 <form class="row" method="post" id="frm"  action="<?php echo base_url().'Pocket/enquiryprocess';?>">
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" name="firstname" placeholder="First Name"  required="">
+                                                <input type="text" class="form-control" name="firstname" placeholder="First Name"  >
+                                                <label id="firstname-error" class="error" for="firstname" style='padding-top:0px'></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
                                                 <input type="text" class="form-control" name="lastname" placeholder="Last Name" required="">
+                                                <label id="lastname-error" class="error" for="lastname" style='padding-top:0px'></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
                                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="">
+                                                <label id="email-error" class="error" for="email" style='padding-top:0px'></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
                                                 <input type="text" class="form-control" id="phone" name="phone" maxlength="12" placeholder="Phone" required="">
+                                                <label id="phone-error" class="error" for="phone" style='padding-top:0px'></label>
                                             </div>
                                         </div>
                                        
@@ -68,6 +92,7 @@ echo $resulthome->metatag;
                                             <label class="label-box">WHAT IS THE NATURE OF YOUR BUSINESS ?*</label>
                                             <div class="input-group mb-3">
                                             <input type="text" class="form-control" name="natureofbusiness" required="">
+                                            <label id="natureofbusiness-error" class="error" for="natureofbusiness" style='padding-top:0px'></label>
                                         </div>
                                     </div>
                                         
@@ -75,6 +100,7 @@ echo $resulthome->metatag;
                                                 <label class="label-box">HOW QUICKLY WOULD YOU LIKE TO SET UP YOUR BUSINESS WEBSITE ?*</label>
                                                 <div class="input-group mb-3">
                                                 <input type="text" class="form-control" required="" name="businesswebsiteduration" >
+                                                <label id="businesswebsiteduration-error" class="error" for="businesswebsiteduration" style='padding-top:0px'></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -87,6 +113,7 @@ echo $resulthome->metatag;
                                               <?php } ?>
                                              
                                             </select>
+                                            <label id="package-error" class="error" for="package" style='padding-top:0px'></label>
                                         </div>
                                     </div>
                                        
@@ -94,6 +121,7 @@ echo $resulthome->metatag;
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
                                                 <textarea class="textarea" id="note" name="note" rows="4" cols="50" placeholder="Note"></textarea>
+                                                <label id="note-error" class="error" for="note" style='padding-top:0px'></label>
                                             </div>
                                         </div>
                                       
@@ -552,12 +580,12 @@ echo $resulthome->metatag;
 
 
         <?php include_once("footer.php");?>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
 
 
 
 <script>
-    $(function() {
+    /*$(function() {
         $("#frm").on('submit', function(e) {
             e.preventDefault();
 
@@ -582,7 +610,7 @@ echo $resulthome->metatag;
                 }
             });
         });
-    });
+    });*/
 
 
     $("#phone").keypress(function(event){
@@ -597,7 +625,7 @@ echo $resulthome->metatag;
 
 
 
-    $('form[id="enqmsg"]').validate({  
+    $('form[id="frm"]').validate({  
     rules: {  
       firstname: 'required',  
       lastname: 'required',
