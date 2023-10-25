@@ -4,7 +4,17 @@
 echo $contactus->metatag;
 
 ?>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q1GCL7WC8"></script>
+<?php $this->db->select('*');
+    $this->db->from('googleanalyticscode');
+    $query = $this->db->get();
+    $gcdt=$query->row();?>
 
+
+<script>
+  
+  <?php echo $gcdt->googleanalytics;?>
+</script>
 <style>
 .error {
   position: absolute;

@@ -60,13 +60,13 @@
                                             <div class="inner-card-body">
                                                 <div class="product-info">
                                                     <h5>Social Media Links </h5>
-                                                    <form  id="editsiteinf" class="rounded-form" method="post" action="<?php echo base_url().'Welcome/siteinfeditprocess';?>" enctype="multipart/form-data" >
+                                                    <form  id="editsiteinf" class="rounded-form" method="post" action="<?php echo base_url().'Welcome/socialmedialinksprocess';?>" enctype="multipart/form-data" >
                                                         <div class="product-group">
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Whatsuplink</label>
-                                                                <input class="form-control" placeholder="Enter Site Name" name="sitename" type="text" data-bs-original-title="" title=""  value="<?php echo $result->whatsuplink;?>"><span class="text-danger" ></span>
+                                                                <input class="form-control" placeholder="Enter Whatsuplink Link" name="whatsuplink" type="text" data-bs-original-title="" title=""  value="<?php echo $result->whatsuplink;?>"><span class="text-danger" ></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -74,7 +74,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Linkldn link</label>
-                                                                <input class="form-control" placeholder="Enter Linkldn link" name="sitedescription" type="text"  value="<?php echo $result->linkldn;?>" data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                                <input class="form-control" placeholder="Enter Linkldn link" name="linkldn" type="text"  value="<?php echo $result->linkldn;?>" data-bs-original-title="" title=""><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -82,6 +82,17 @@
                                                             <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="#" data-bs-original-title="" title="">ADD </a><a class="btn btn-secondary" data-bs-original-title="" title="">Update</a></div>
                                                           </div>-->
                                                         </div>
+
+                                                        <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Instagram Link</label>
+                                                                <input class="form-control" placeholder="Enter Instagram Link" type="text" id="instagram" name="instagram"   value="<?php echo $result->instagram;?>" data-bs-original-title="" title=""><span class="text-danger" ></span>
+                                                                <!--<img src="<?php //echo base_url().'uploads/logo/'.$result->facebook;?>" width="50" height="50" />-->
+
+                                                              </div>
+                                                            </div>
+                                                          </div>
                                                       <!--</form>-->
 
                                                 </div>
@@ -93,13 +104,30 @@
                                             <div class="inner-card-body">
                                                 <div class="product-info">
                                                     <h5>Social Media Links </h5>
-                                                    <form>
+                                                   
                                                         <div class="product-group">
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Youtube Link</label>
-                                                                <input class="form-control" placeholder="Enter youtube Link" type="file" data-bs-original-title="" title="" id="image1" name="image1" ><span class="text-danger" ></span>
+                                                                <input class="form-control" placeholder="Enter youtube Link" type="text" data-bs-original-title="" title="" id="youtube" name="youtube"  value="<?php echo $result->youtube;?>" ><span class="text-danger" ></span>
+                                                                <!--<img src="<?php //echo base_url().'uploads/logo/'.$result->youtube;?>" width="50" height="50" />-->
+
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                         
+                                                          <!--<div class="row">
+                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="#" data-bs-original-title="" title="">ADD </a>  <button type="submit" class="btn btn-primary" id="uploadser" >Update</button></div>
+                                                          </div>
+                                                        </div>-->
+
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Twitter Link</label>
+                                                                <input class="form-control" placeholder="Enter twitter Link" type="text" data-bs-original-title="" title="" id="twitter" name="twitter"  value="<?php echo $result->twitter;?>" ><span class="text-danger" ></span>
                                                                 <!--<img src="<?php //echo base_url().'uploads/logo/'.$result->youtube;?>" width="50" height="50" />-->
 
                                                               </div>
@@ -109,7 +137,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Facebook Link</label>
-                                                                <input class="form-control" placeholder="Enter Facebook Link" type="text" id="image2" name="image2"  data-bs-original-title="" title=""><span class="text-danger" ></span>
+                                                                <input class="form-control" placeholder="Enter Facebook Link" type="text" id="facebook" name="facebook"   value="<?php echo $result->facebook;?>" data-bs-original-title="" title=""><span class="text-danger" ></span>
                                                                 <!--<img src="<?php //echo base_url().'uploads/logo/'.$result->facebook;?>" width="50" height="50" />-->
 
                                                               </div>
@@ -119,6 +147,10 @@
                                                             <div class="col-sm-12 text-end"><!--<a class="btn btn-primary me-3" href="#" data-bs-original-title="" title="">ADD </a>-->  <button type="submit" class="btn btn-primary" id="uploadser" >Update</button></div>
                                                           </div>
                                                         </div>
+
+
+
+
                                                       </form>
 
                                                 </div>

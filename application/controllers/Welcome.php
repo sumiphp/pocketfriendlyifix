@@ -1723,6 +1723,43 @@ $this->load->view('services/listsocialmedialinks',$data);
 
 }
 
+
+public function socialmedialinksprocess(){
+
+	$whatsuplink=$this->input->post('whatsuplink');
+	$linkldn=$this->input->post('linkldn');
+	$youtube=$this->input->post('youtube');
+	$facebook=$this->input->post('facebook');
+	$instagram=$this->input->post('instagram');
+	$twitter=$this->input->post('twitter');
+
+
+
+	$data = array(
+		'whatsuplink'=>"$whatsuplink",
+	'linkldn'=>"$linkldn",
+		'youtube'=>"$youtube",
+		'facebook'=>$facebook,
+		 'instagram' =>"$instagram",
+		'twitter' =>"$twitter"
+		 //'authorname'=>"$name",
+		 //'toparticle'=>$toparticle,'date'=>$date,'title'=>$blogtitle		
+	  );
+
+
+  //}
+ 
+  //$id=$this->input->post('blogid'); 
+  //$this->db->where('contentid',$id);
+   $this->db->update('socialmedialinks', $data);
+
+  ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Social media Links') : $this->session->set_flashdata('flash_msg', 'Social media Links Edited Successfully');
+
+  redirect("welcome/listsocialmedialinks");
+
+
+}
+
 public function editsocialmedialinks(){
 	if( $this->session->has_userdata('username')) {					
 	}

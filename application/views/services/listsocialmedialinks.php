@@ -97,6 +97,7 @@
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                               <div class="table-responsive theme-scrollbar">
+                                              <?php echo $this->session->flashdata('flash_msg');?>
                                               <span id="msg"></span><br>
                                                 <div id="data-source-1_wrapper" class="dataTables_wrapper">
 

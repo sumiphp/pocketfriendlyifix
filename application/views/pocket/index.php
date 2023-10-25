@@ -3,7 +3,17 @@
 echo $resulthome->metatag;
 
 ?>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q1GCL7WC8"></script>
+<?php $this->db->select('*');
+    $this->db->from('googleanalyticscode');
+    $query = $this->db->get();
+    $gcdt=$query->row();?>
 
+
+<script>
+  
+  <?php echo $gcdt->googleanalytics;?>
+</script>
 <style>
 .error {
   position: absolute;
@@ -64,35 +74,35 @@ margin-bottom:25px;
                                 <div class="form-field-section">
                                 <form class="row" method="post" id="frm"  action="<?php echo base_url().'Pocket/enquiryprocess';?>">
                                         <div class="col-md-6">
-                                            <div class="input-group mb-3">
+                                            <div class="input-group">
                                                 <input type="text" class="form-control" name="firstname" placeholder="First Name"  >
-                                                <label id="firstname-error" class="error" for="firstname" style='padding-top:0px'></label>
+                                                <label id="firstname-error" class="error" for="firstname" style='padding-top:0px;color:#fff'></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="input-group mb-3">
+                                            <div class="input-group">
                                                 <input type="text" class="form-control" name="lastname" placeholder="Last Name" required="">
-                                                <label id="lastname-error" class="error" for="lastname" style='padding-top:0px'></label>
+                                                <label id="lastname-error" class="error" for="lastname" style='padding-top:0px;color:#fff'></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="input-group mb-3">
+                                            <div class="input-group">
                                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="">
-                                                <label id="email-error" class="error" for="email" style='padding-top:0px'></label>
+                                                <label id="email-error" class="error" for="email" style='padding-top:0px;color:#fff'></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="input-group mb-3">
+                                            <div class="input-group">
                                                 <input type="text" class="form-control" id="phone" name="phone" maxlength="12" placeholder="Phone" required="">
-                                                <label id="phone-error" class="error" for="phone" style='padding-top:0px'></label>
+                                                <label id="phone-error" class="error" for="phone" style='padding-top:0px;color:#fff'></label>
                                             </div>
                                         </div>
                                        
                                         <div class="col-md-12">
                                             <label class="label-box">WHAT IS THE NATURE OF YOUR BUSINESS ?*</label>
-                                            <div class="input-group mb-3">
+                                            <div class="input-group">
                                             <input type="text" class="form-control" name="natureofbusiness" required="">
-                                            <label id="natureofbusiness-error" class="error" for="natureofbusiness" style='padding-top:0px'></label>
+                                            <label id="natureofbusiness-error" class="error" for="natureofbusiness" style='padding-top:0px;color:#fff'></label>
                                         </div>
                                     </div>
                                         
@@ -100,7 +110,7 @@ margin-bottom:25px;
                                                 <label class="label-box">HOW QUICKLY WOULD YOU LIKE TO SET UP YOUR BUSINESS WEBSITE ?*</label>
                                                 <div class="input-group mb-3">
                                                 <input type="text" class="form-control" required="" name="businesswebsiteduration" >
-                                                <label id="businesswebsiteduration-error" class="error" for="businesswebsiteduration" style='padding-top:0px'></label>
+                                                <label id="businesswebsiteduration-error" class="error" for="businesswebsiteduration" style='padding-top:0px;color:#fff'></label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -641,10 +651,10 @@ margin-bottom:25px;
       }*/ 
       businesswebsiteduration:"required",
       package:"required", 
-      note:"required",   
+      //note:"required",   
     },  
     messages: {  
-      name: 'First Name is required',  
+      firstname: 'First Name is required',  
       lastname: 'Last Name is required',  
       phone: 'Enter a valid Phone',
       email: 'Enter a valid Email',  
@@ -652,9 +662,9 @@ margin-bottom:25px;
         minlength: 'Password must be at least 8 characters long'  
       } */
       natureofbusiness:'Please enter Nature of business', 
-      businesswebsiteduration:"Please enter businesswebsiteduration",
+      businesswebsiteduration:"Please enter Business Website Duration",
       package:"Please select package", 
-      note:"Please enter note",  
+      //note:"Please enter note",  
     },  
     submitHandler: function(form) { 
        // form.preventDefault();
