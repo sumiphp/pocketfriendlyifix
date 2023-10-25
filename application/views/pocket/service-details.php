@@ -43,9 +43,9 @@
                     </div>
             </div>
             </div>
-           <div class="service-detail-banner">
-           <!--<div class="service-detail-banner" style="background:url(<?php //echo base_url().'uploads/'.$lowestpackage->subcatbannerimage;?>) !important;background-repeat: no-repeat;background-size: cover; background-position: center;height:100vh;">-->
-           <!--<div class="service-detail-banner" style="background:url(<?php //echo base_url().'uploads/subcategory/'.$lowestpackage->subcatbannerimage?>)!important;background-repeat:no-repeat!important;background-position:center !important;background-size:cover !important;height:100vh;">-->
+             <!--<div class="service-detail-banner">
+         <div class="service-detail-banner" style="background:url(<?php //echo base_url().'uploads/'.$lowestpackage->subcatbannerimage;?>) !important;background-repeat: no-repeat;background-size: cover; background-position: center;height:100vh;">-->
+           <div class="service-detail-banner" style="background:url(<?php echo base_url().'uploads/subcategory/'.$lowestpackage->subcatbannerimage?>)!important;background-repeat:no-repeat!important;background-position:center !important;background-size:cover !important;height:100vh;">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 col-mg-5 col-sm-5">
