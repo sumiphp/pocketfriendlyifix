@@ -45,7 +45,10 @@
                 </div>
             </div>
 
-
+            <?php $this->db->select('*');
+    $this->db->from('socialmedialinks');
+    $query = $this->db->get();
+    $footerdt=$query->row();?>
             <div class="footer-area-top">
                 <div class="container">
                     <div class="row">
@@ -60,13 +63,13 @@
                                     <div class="share-icon">
                                         <ul class="social-icon-part">
                                             <li><a href="#"><img src="<?php echo base_url().'pockets/assets/img/whatsapp.png';?>"></a></li>
-                                            <li><a href="https://www.linkedin.com/in/pocketfriendly-web/" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/linked-in.png';?>"></a></li>
-                                            <li><a href="https://www.youtube.com/@pocketfriendlyweb" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/youtube-icon.png';?>"></a></li>
+                                            <li><a href="<?php echo $footerdt->linkldn;?>" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/linked-in.png';?>"></a></li>
+                                            <li><a href="<?php echo $footerdt->youtube;?>" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/youtube-icon.png';?>"></a></li>
                                         </ul>
                                         <ul class="social-icon-part">
-                                            <li><a href="https://www.facebook.com/pocketfriendlywebfze/" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/facebook-icon.png';?>"></a></li>
-                                            <li><a href="https://instagram.com/pocketfriendlyweb?igshid=MmU2YjMzNjRlOQ==" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/insta-icon.png';?>"></a></li>
-                                            <li><a href="https://twitter.com/Pocketfrie99946" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/twitter.png';?>"></a></li>
+                                            <li><a href="<?php echo $footerdt->facebook;?>" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/facebook-icon.png';?>"></a></li>
+                                            <li><a href="<?php echo $footerdt->instagram;?>" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/insta-icon.png';?>"></a></li>
+                                            <li><a href="<?php echo $footerdt->twitter;?>" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/twitter.png';?>"></a></li>
                                         </ul>
                                     </div>
                                    
