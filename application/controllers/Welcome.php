@@ -2492,6 +2492,56 @@ function editnewsletter(){
 }
 
 
+
+function editgoogleanalyics(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$this->db->from('googleanalyticscode');
+    $query = $this->db->get();
+    $data['result']=$query->row();
+	$data['contactus']=$this->sm->get_contactus(); 
+	$data['newsletter']=$this->sm->get_newsletter();
+	$this->load->view('services/editgoogleanalytics',$data);
+
+
+}
+
+
+function editgaprocess(){
+
+	//$data['upgoogleanalytics']=$this->sm->upgoogleanalytics();
+	$description=$this->input->post('description');
+	/*$name=$this->input->post('name');
+	 $place=$this->input->post('place');
+	 $date=$this->input->post('date');*/
+	$data = array(
+		'googleanalytics' =>"$description",
+		//'rating' =>"$rating",
+		//'name'=>"$name",
+		//'image'=>$image1,'place'=>$place,'date'=>$date,'title'=>$testtitle		
+	 );
+	 //$id=$this->uri->segment(3); 
+	 //$this->db->where('newsletterid',$id);
+	  $this->db->update('googleanalyticscode', $data);
+
+	 //echo ($this->db->affected_rows() != 1) ? 'Error in Editing Newsletter' : '<b>Newsletter Edited Successfully</b>';
+
+	 ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Google analytics not edited') : $this->session->set_flashdata('flash_msg', 'Google analytics  edited successfully');;
+
+	 redirect("welcome/editgoogleanalyics");
+
+
+
+
+
+}
+
+
+
 function editnewsletterprocess(){
 	$description=$this->input->post('description');
 	/*$name=$this->input->post('name');

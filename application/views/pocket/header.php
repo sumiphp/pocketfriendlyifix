@@ -69,11 +69,18 @@
       <!-- Google tag (gtag.js) -->
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q1GCL7WC8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<?php $this->db->select('*');
+    $this->db->from('googleanalyticscode');
+    $query = $this->db->get();
+    $gcdt=$query->row();?>
 
-  gtag('config', 'G-6Q1GCL7WC8');
+
+<script>
+  //window.dataLayer = window.dataLayer || [];
+  //function gtag(){dataLayer.push(arguments);}
+  //gtag('js', new Date());
+
+  //gtag('config', 'G-6Q1GCL7WC8');-->
+  <?php echo $gcdt->googleanalytics;?>
 </script>
     </head>
