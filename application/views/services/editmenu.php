@@ -121,7 +121,28 @@
                                                             
                                                             <?php }?></select>
 </div>
-                                                      </div></div>
+
+<div class="col-md-6">
+                                                              <label for="company-logo" class="form-label text-primary">Image1:</label>
+                                                              <input type="file" class="form-control" id="image1" name="image1">
+                                                              <img src="<?php echo base_url().'uploads/menu/'.$result->menuimg;?>" width="50" height="50" />
+                                                          </div> 
+                                                      </div>
+
+
+                                                      <div class="row mb-3">
+                                                          <!--<div class="col-md-6">
+                                                              <label for="contact-person" class="form-label text-primary">Link:</label>
+                                                              <input type="text" class="form-control" id="link" name="link" placeholder="Enter Link" required>
+                                                          </div>-->
+                                                          <div class="col-md-6">
+                                                              <label for="alttagimg1" class="form-label text-primary">Alt tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1"  placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">
+                                                          </div>
+                                                      </div>
+                                                      </div>
+
+
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="email" class="form-label text-primary">Email:</label>
@@ -226,6 +247,8 @@ $('#menufrm1').on('submit', function (e) {
         $(this).val('');
     });
     $("#description").val('');
+    $('#pmenu').val('');
+    $('#menutype').val('');
                 $('#menumsg').html(response); // display success response from the server
             },
             error: function (response) {

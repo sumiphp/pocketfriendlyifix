@@ -987,6 +987,38 @@ public function addfaqprocess(){
 
 public function addmenuprocess(){
 
+	if (isset($_FILES['image1']['name'])){
+	$config['upload_path'] = 'uploads/menu';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/menu' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/menu' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		//echo 'Please choose a file';
+	}
+
+	$image1=$_FILES['image1']['name'];
+}else{
+	$image1='';
+}
+
+
+	$alttag1=$this->input->post('alttag1');
 
 	$menuname=$this->input->post('menuname');
 	$menutype=$this->input->post('menutype');
@@ -997,7 +1029,7 @@ public function addmenuprocess(){
 		'menuname' =>"$menuname",
 		'menutype' =>"$menutype",
 		'url'=>"$menuurl",
-		'status'=>$status,'parentmenuid'=>$pmenu		
+		'status'=>$status,'parentmenuid'=>$pmenu,'menuimg'=>$image1,'alttagimg1'=>$alttag1		
 	 );
 	 //print_r($data);
 	 $this->db->insert('menus', $data);
@@ -1009,18 +1041,58 @@ public function addmenuprocess(){
 
 public function editmenuprocess(){
 
+	$config['upload_path'] = 'uploads/menu';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/menu' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/menu' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		//echo 'Please choose a file';
+	}
+
+	$image1=$_FILES['image1']['name'];
+
+
+	$alttag1=$this->input->post('alttagimg1');
 	$menuid=$this->input->post('menuid');
 	$menuname=$this->input->post('menuname');
 	$menutype=$this->input->post('menutype');
 	$menuurl=$this->input->post('menuurl');
 	$status=$this->input->post('status');
 	$pmenu=$this->input->post('pmenu');
+	if ($image1!=''){
+		$data = array(
+			'menuname' =>"$menuname",
+			'menutype' =>"$menutype",
+			'url'=>"$menuurl",
+			'status'=>$status,'parentmenuid'=>$pmenu,'menuimg'=>$image1,'alttagimg1'=>$alttag1		
+		 );
+
+
+
+	}else{
 	$data = array(
 		'menuname' =>"$menuname",
 		'menutype' =>"$menutype",
 		'url'=>"$menuurl",
-		'status'=>$status,'parentmenuid'=>$pmenu		
+		'status'=>$status,'parentmenuid'=>$pmenu,'alttagimg1'=>$alttag1		
 	 );
+	}
 	 //print_r($data);
 	 $this->db->where('menuid',$menuid);
 	 $this->db->update('menus', $data);
@@ -2074,7 +2146,8 @@ public function addtestimonialsprocess(){
 	  $place=$this->input->post('place');
 	  $date=$this->input->post('date');
 	 $data = array(
-		 'testimonial' =>"$testtitle",
+		'title'=>"$testtitle",
+		 'testimonial' =>"$description",
 		 'rating' =>"$rating",
 		 'name'=>"$name",
 		 'image'=>$image1,'place'=>$place,'date'=>$date,'alttagimg1'=>"$alttag1"		
@@ -2362,13 +2435,22 @@ public function edittestimonialsprocess(){
 	  $place=$this->input->post('place');
 	  $date=$this->input->post('date');
 	  $alttag1=$this->input->post('alttag1');
+if ($image1==''){
+	$data = array(
+		'testimonial' =>"$description",'alttagimg1'=>"$alttag1",
+		'rating' =>"$rating",
+		'name'=>"$name",
+		'place'=>$place,'date'=>$date,'title'=>$testtitle		
+	 );
 
+}else{
 	 $data = array(
 		 'testimonial' =>"$description",'alttagimg1'=>"$alttag1",
 		 'rating' =>"$rating",
 		 'name'=>"$name",
 		 'image'=>$image1,'place'=>$place,'date'=>$date,'title'=>$testtitle		
 	  );
+	}
 	  $id=$this->uri->segment(3); 
 	  $this->db->where('testimonialid',$id);
 	   $this->db->update('testimonials', $data);

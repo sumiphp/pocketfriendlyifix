@@ -457,6 +457,7 @@ function get_qualities(){
 }
 
 function get_menus(){
+    $this->db->where('menutype',1);
     $this->db->where('status',1);
     $this->db->select('*');
     $this->db->from('menus');

@@ -632,6 +632,26 @@ Navbar Area
   display: none;
 }
 
+.mega_menuDropdown .col-megamenu {
+  padding: 50px 0;
+  width: 100%;
+  float: left;
+}
+
+.mega_menuDropdown .col-megamenu {
+  padding: 50px 0;
+  width: 100%;
+  float: left;
+}
+
+.megamenu-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
 /* Mobile Nav */
 .mobile-nav .mean-container .mean-nav ul li a .active {
   color: #ff4a35;

@@ -18,6 +18,108 @@
                                 </li>
                              
                                 <?php } ?>
+
+
+                                <li class="nav-item dropdown show hidden-xs hidden-md" id="service">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="dropdown-menu mega_menuDropdown productMenu-dropdown">
+                                        <div class="row">
+
+                                            <div class="col-lg-3 col-md-3 col-sm-3 sm-hidden md-hidden text-center firs-menu-box">
+                                                <div class="col-megamenu">
+                                                    <h3 class="megamenu_title"><span>Services</span></h3>
+                                                
+                                                    <picture>
+                                                        <img src="<?php echo base_url().'assets/img/service-img.png';?>" class="img-fluid mRight mTop70" alt="TruckLogics Products" loading="lazy" width="300" height="191" />
+                                                    </picture>
+                                                </div>
+                                               
+                                            </div>
+
+                                            <?php 
+    $this->db->where('parentmenuid',18);                                        
+    $this->db->where('menutype',2);
+    $this->db->where('status',1);
+    $this->db->select('*');
+    $this->db->from('menus');
+    $query = $this->db->get();
+    $submenulist=$query->result_array();?>
+
+                                            <div class="col-lg-9 col-md-9 col-sm-9 menu-Submenu-list secnd-menu-box">
+                                                <div class="col-megamenu">
+                                                    <ul class="megamenu-list">
+                                                    <?php foreach($submenulist as $sm){?>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                            <a href="#" class="menu-image-title-after menu-image-not-hovered">
+                                                                <img width="40" height="40" src="<?php echo base_url().'uploads/menu/'.$sm['menuimg'];?>" class="menu-image menu-image-title-after" alt="<?php echo $sm['alttagimg1'];?>" decoding="async" />
+                                                                <span class="menu-image-title-after menu-image-title">  <?php echo $sm['menuname'];?> </span>
+                                                            </a>
+                                                        </li>
+                                                        <?php } ?>
+                                                        <!--<li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                            <a href="#" class="menu-image-title-after menu-image-not-hovered">
+                                                                <img width="40" height="40" src="./assets/img/icon/submenu-icon-4.png" class="menu-image menu-image-title-after" alt="" decoding="async" />
+                                                                <span class="menu-image-title-after menu-image-title"> Mobile App Development</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                            <a href="#" class="menu-image-title-after menu-image-not-hovered">
+                                                                <img width="40" height="40" src="./assets/img/icon/submenu-icon-5.png" class="menu-image menu-image-title-after" alt="" decoding="async" />
+                                                                <span class="menu-image-title-after menu-image-title"> Search Engine Optimization – SEO</span>
+                                                            </a>
+                                                        </li>
+
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                            <a href="#" class="menu-image-title-after menu-image-not-hovered">
+                                                                <img width="40" height="40" src="./assets/img/icon/submenu-icon-6.png" class="menu-image menu-image-title-after" alt="" decoding="async" />
+                                                                <span class="menu-image-title-after menu-image-title"> Website Development</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                            <a href="#" class="menu-image-title-after menu-image-not-hovered">
+                                                                <img width="40" height="40" src="./assets/img/icon/submenu-icon-3.png" class="menu-image menu-image-title-after" alt="" decoding="async" />
+                                                                <span class="menu-image-title-after menu-image-title"> eCommerce Web Development</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                            <a href="#" class="menu-image-title-after menu-image-not-hovered">
+                                                                <img width="40" height="40" src="./assets/img/icon/submenu-icon-4.png" class="menu-image menu-image-title-after" alt="" decoding="async" />
+                                                                <span class="menu-image-title-after menu-image-title"> New Media Solution</span>
+                                                            </a>
+                                                        </li>
+
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                            <a href="#" class="menu-image-title-after menu-image-not-hovered">
+                                                                <img width="40" height="40" src="./assets/img/icon/submenu-icon-6.png" class="menu-image menu-image-title-after" alt="" decoding="async" />
+                                                                <span class="menu-image-title-after menu-image-title"> Website Development</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                            <a href="#" class="menu-image-title-after menu-image-not-hovered">
+                                                                <img width="40" height="40" src="./assets/img/icon/ecommerce-icon.png" class="menu-image menu-image-title-after" alt="" decoding="async" />
+                                                                <span class="menu-image-title-after menu-image-title"> eCommerce Web Development</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                            <a href="#" class="menu-image-title-after menu-image-not-hovered">
+                                                                <img width="40" height="40" src="./assets/img/submenu-icon-4.png" class="menu-image menu-image-title-after" alt="" decoding="async" />
+                                                                <span class="menu-image-title-after menu-image-title"> New Media Solution</span>
+                                                            </a>
+                                                        </li>-->
+                                                     
+
+                                                        </ul>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </ul>
+                                  
+                                </li>
+
+
+
+
                                 <!--<li class="nav-item dropdown show hidden-xs hidden-md" id="service">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="dropdown-menu mega_menuDropdown productMenu-dropdown">

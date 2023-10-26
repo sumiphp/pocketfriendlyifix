@@ -156,25 +156,25 @@
 </footer>
 <!-- Footer Area End -->
 
-<script src="<?php echo base_url().'assets/js/jquery.min.js';?>"></script>
+<script src="<?php echo base_url().'services/assets/js/jquery.min.js';?>"></script>
        
-        <script src="<?php echo base_url().'assets/js/bootstrap.bundle.min.js';?>"></script>
+        <script src="<?php echo base_url().'services/assets/js/bootstrap.bundle.min.js';?>"></script>
         
-        <script src="<?php echo base_url().'assets/js/meanmenu.min.js';?>"></script>
+        <script src="<?php echo base_url().'services/assets/js/meanmenu.min.js';?>"></script>
         
-        <script src="<?php echo base_url().'assets/js/owl.carousel.min.js';?>"></script>
+        <script src="<?php echo base_url().'services/assets/js/owl.carousel.min.js';?>"></script>
        
-        <script src="<?php echo base_url().'assets/js/jquery.magnific-popup.min.js';?>"></script>
+        <script src="<?php echo base_url().'services/assets/js/jquery.magnific-popup.min.js';?>"></script>
         
-        <script src="<?php echo base_url().'assets/js/wow.min.js';?>"></script>
+        <script src="<?php echo base_url().'services/assets/js/wow.min.js';?>"></script>
        
-        <script src="<?php echo base_url().'assets/js/jquery.ajaxchimp.min.js';?>"></script>
+        <script src="<?php echo base_url().'services/assets/js/jquery.ajaxchimp.min.js';?>"></script>
         
-        <script src="<?php echo base_url().'assets/js/form-validator.min.js';?>"></script>
+        <script src="<?php echo base_url().'services/assets/js/form-validator.min.js';?>"></script>
         
-        <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
+        <script src="<?php echo base_url().'services/assets/js/contact-form-script.js';?>"></script>
        
-        <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
+        <script src="<?php echo base_url().'services/assets/js/custom.js';?>"></script>
 
 <script>
         $(".numericvalidate").keypress(function(event){

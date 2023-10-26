@@ -420,26 +420,26 @@ $date=explode("-",$dt);
             </div>
         </footer>-->
        
-        <!--<script src="<?php echo base_url().'assets/js/jquery.min.js';?>"></script>
+        <!--<script src="<?php //echo base_url().'assets/js/jquery.min.js';?>"></script>
        
-        <script src="<?php echo base_url().'assets/js/bootstrap.bundle.min.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/bootstrap.bundle.min.js';?>"></script>
        
-        <script src="<?php echo base_url().'assets/js/meanmenu.min.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/meanmenu.min.js';?>"></script>
         
-        <script src="<?php echo base_url().'assets/js/owl.carousel.min.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/owl.carousel.min.js';?>"></script>
        
-        <script src="<?php echo base_url().'assets/js/jquery.magnific-popup.min.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/jquery.magnific-popup.min.js';?>"></script>
        
-        <script src="<?php echo base_url().'assets/js/wow.min.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/wow.min.js';?>"></script>
        
-        <script src="<?php echo base_url().'assets/js/jquery.ajaxchimp.min.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/jquery.ajaxchimp.min.js';?>"></script>
         
-        <script src="<?php echo base_url().'assets/js/form-validator.min.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/form-validator.min.js';?>"></script>
         
-        <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/contact-form-script.js';?>"></script>
         
-        <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>-->
-        <?php //include('footer1.php');?>
-        <?php include('footer.php');?>
+        <script src="<?php //echo base_url().'assets/js/custom.js';?>"></script>-->
+        <?php include('footer1.php');?>
+        <?php //include('footer.php');?>
     </body>
 </html>

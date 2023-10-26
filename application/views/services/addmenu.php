@@ -119,8 +119,28 @@
                                                                 <option value="<?php echo $menu['menuid'];?>"><?php echo $menu['menuname'];?></option>
                                                             
                                                             <?php }?></select>
-</div>
-                                                      </div></div>
+                                                             </div>
+                                                             <div class="col-md-6">
+                                                              <label for="company-logo" class="form-label text-primary">Image1:</label>
+                                                              <input type="file" class="form-control" id="image1" name="image1">
+                                                          </div>   
+                                                      </div>
+                                                    
+                                                      <div class="row mb-3">
+                                                          <!--<div class="col-md-6">
+                                                              <label for="contact-person" class="form-label text-primary">Link:</label>
+                                                              <input type="text" class="form-control" id="link" name="link" placeholder="Enter Link" required>
+                                                          </div>-->
+                                                          <div class="col-md-6">
+                                                              <label for="alttagimg1" class="form-label text-primary">Alt tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1"  placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
+                                                          </div>
+                                                      </div>
+                                                                    
+                                                    
+                                                    
+                                                    
+                                                    </div>
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="email" class="form-label text-primary">Email:</label>
@@ -190,7 +210,7 @@
         <script>
 $('#menufrm').on('submit', function (e) {
     e.preventDefault();
-   alert("enter");
+   //alert("enter");
         //var file_data1 = $('#image1').prop('files')[0];
         //var file_data2 = $('#image2').prop('files')[0];
         var menuname=$('#menuname').val();
@@ -200,7 +220,8 @@ $('#menufrm').on('submit', function (e) {
         //var menutype=$("#menutype").val();
         var pmenu=$("#pmenu").val();
         //var menutype=$("#menutype").val();
-        
+        var file_data1 = $('#image1').prop('files')[0];
+        var alttagimg1=$("#alttagimg1").val();
         var form_data = new FormData();
         //form_data.append('image1', file_data1);
         //form_data.append('image2', file_data2);
@@ -209,6 +230,8 @@ $('#menufrm').on('submit', function (e) {
         form_data.append('menuurl',menuurl);
         form_data.append('status',status);
         form_data.append('pmenu',pmenu);
+        form_data.append('image1', file_data1);
+        form_data.append('alttag1',alttagimg1);
        
        
         $.ajax({
@@ -225,6 +248,10 @@ $('#menufrm').on('submit', function (e) {
                 $('input[type=text]').each(function() {
         $(this).val('');
     });
+    $('#image1').val('');
+    $("#description").val('');
+    $('#pmenu').val('');
+    $('#menutype').val('');
     $("#description").val('');
                 $('#menumsg').html(response); // display success response from the server
             },
