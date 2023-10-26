@@ -146,7 +146,7 @@ bottom:4px;
                                 <div class="col-lg-6 col-md-12">
                                     <div class="bg-box">
                                         <div class="icon-block">
-                                            <img src="<?php echo base_url().'uploads/subcategory/'.$sd['subcategoryimage'];?>"/>
+                                            <img src="<?php echo base_url().'uploads/subcategory/'.$sd['subcategoryimage'];?>" alt="<?php echo $sd['alttagimg1'];?>" />
                                         </div>
                                         <div class="content-block">
                                             <h4><?php echo $sd['subcategoryname'];?></h4>
@@ -196,7 +196,7 @@ bottom:4px;
                                 <?php foreach($easeyourproblems as $easeprob){?>
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-img">
-                                            <img src="<?php echo base_url().'uploads/problems/'.$easeprob['picture'];?>" alt="Testimonial Images">
+                                            <img src="<?php echo base_url().'uploads/problems/'.$easeprob['picture'];?>" alt="<?php echo $easeprob['alttagimg1'];?>">
                                         </div>
                                         <div class="testimonail-content">
                                             <h4><?php echo $easeprob['title'];?></h4>

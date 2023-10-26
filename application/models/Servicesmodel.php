@@ -553,7 +553,12 @@ function get_servicessteps($limit,$start){
 }
 
 
-
+function get_steps(){
+    $this->db->select('*');
+    $this->db->from('solutionsteps');
+    $query = $this->db->get();
+    return $query->result_array();
+}
 
 
 

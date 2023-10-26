@@ -90,6 +90,7 @@ public function service(){
 	$data['about']=$this->sm->get_aboutus();
 	$data['menus']=$this->sm->get_menus();
 	$data['siteinf']=$this->sm->get_siteinf();
+	$data['steps']=$this->sm->get_steps();
     $this->load->view('pocket/service.php',$data);
 }
 public function blog(){

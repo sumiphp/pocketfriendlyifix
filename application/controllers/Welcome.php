@@ -2941,8 +2941,8 @@ public function editsteps(){
 	}
 	$this->load->model('Servicesmodel');
 	$id=$this->uri->segment(3);
-	$this->db->where('problemid',$id); 
-	$this->db->from('problems');
+	$this->db->where('stepid',$id); 
+	$this->db->from('solutionsteps');
     $query = $this->db->get();
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
@@ -2952,6 +2952,77 @@ public function editsteps(){
 
 
 }
+
+
+
+public function editservicesstepsprocess(){
+	$config['upload_path'] = 'uploads/servicessteps';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/servicessteps' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/servicessteps' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+
+	$image1=$_FILES['image1']['name'];
+	//$image2=$_FILES['image2']['name'];
+
+	 $title=$this->input->post('maintitle');
+	 //$link=$this->input->post('link');
+	 $description=$this->input->post('description');
+	$stepid=$this->input->post('stepid');
+	$alttag1=$this->input->post('alttag1');
+	  //$date=$this->input->post('date');
+	  if ($image1==''){
+		$data = array(
+			'description' =>"$description",
+			'alttagimg1'=>"$alttag1",
+			'title'=>"$title",
+			//'picture'=>$image1,
+			//'link' =>"$link",
+			//,'place'=>$place,'date'=>$date,'title'=>$testtitle		
+		 );
+
+	  }else {
+	 $data = array(
+		 'description' =>"$description",
+		 'alttagimg1'=>"$alttag1",
+		 'title'=>"$title",
+		 'picture'=>$image1,
+		 'link' =>"$link",
+		 //,'place'=>$place,'date'=>$date,'title'=>$testtitle		
+	  );
+	}
+	  //print_r($data);
+	  $id=$this->uri->segment(3); 
+	  $this->db->where('stepid',$stepid);
+	   $this->db->update('solutionsteps', $data);
+	   //$this->db->insert('problems', $data);
+
+	  //echo ($this->db->affected_rows() != 1) ? 'Error in Adding Solutions' : '<b>Solutions Added Successfully</b>';
+	  echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Steps') : $this->session->set_flashdata('flash_msg', 'Steps Edited Successfully');
+
+}
+
+
+
+
 
 
 

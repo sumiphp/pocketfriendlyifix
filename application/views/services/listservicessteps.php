@@ -141,7 +141,7 @@
                                                       <!--<td><?php //echo $res['link'];?></td>-->
                                                      
                                                       <td><?php echo $res['description'];?></td>
-                                                      <td><img src=<?php echo base_url().'uploads/problems/'.$res['picture']?> width="80" height="80" /></td>
+                                                      <td><img src=<?php echo base_url().'uploads/servicessteps/'.$res['picture']?> width="80" height="80" /></td>
                                                       <td> 
                                                         <ul class="action"> 
                                                           <li class="edit"> <a href="<?php echo base_url().'Welcome/editsteps/'.$res['stepid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>

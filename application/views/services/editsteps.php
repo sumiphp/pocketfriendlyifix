@@ -58,30 +58,30 @@
                 <span id="solmsg"></span><br>
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2>Edit Problem Solutions</h2>
+                                <h2>Edit Services Steps</h2>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
-                                                    <form id="editsolutions" class="rounded-form" method="post" >
+                                                    <form id="editsteps" class="rounded-form" method="post" >
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Title:</label>
                                                               <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="<?php echo $result->title;?>"  required>
-                                                              <input type="hidden" class="form-control" id="problemid" name="problemid"  value="<?php echo $result->problemid;?>"  required>
+                                                              <input type="hidden" class="form-control" id="problemid" name="problemid"  value="<?php echo $result->stepid;?>"  required>
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="company-logo" class="form-label text-primary">Image1:</label>
                                                               <input type="file" class="form-control" id="image1" name="image1" >
-                                                              <img src="<?php echo base_url().'uploads/problems/'.$result->picture;?>" width="50" height="50" />
+                                                              <img src="<?php echo base_url().'uploads/servicessteps/'.$result->picture;?>" width="50" height="50" />
                                                           </div>
                                                       </div>
                                                       <div class="row mb-3">
-                                                          <div class="col-md-6">
+                                                          <!--<div class="col-md-6">
                                                               <label for="contact-person" class="form-label text-primary">Link:</label>
-                                                              <input type="text" class="form-control" id="link" name="link" placeholder="Enter Link" required  value="<?php echo $result->link;?>">
-                                                          </div>
+                                                              <input type="text" class="form-control" id="link" name="link" placeholder="Enter Link" required  value="<?php //echo $result->link;?>">
+                                                          </div>-->
                                                           <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Alt Tag Image1:</label>
                                                               <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">
@@ -151,7 +151,7 @@
     </body>
     <?php include_once("footer.php");?>
         <script>
-$('#editsolutions').on('submit', function (e) {
+$('#editsteps').on('submit', function (e) {
     e.preventDefault();
     
         var file_data1 = $('#image1').prop('files')[0];
@@ -165,11 +165,11 @@ $('#editsolutions').on('submit', function (e) {
         form_data.append('image1', file_data1);
         form_data.append('link', link);
         form_data.append('maintitle',title);
-       form_data.append('problemid',problemid);
+       form_data.append('stepid',problemid);
         form_data.append('description',description);
         form_data.append('alttag1',alttagimg1);
         $.ajax({
-            url: "<?php echo base_url().'Welcome/editsolutionsprocess';?>", // point to server-side controller method
+            url: "<?php echo base_url().'Welcome/editservicesstepsprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server
             cache: false,
             contentType: false,
@@ -184,11 +184,11 @@ $('#editsolutions').on('submit', function (e) {
     });
     $("#description").val('');
                 //$('#solmsg').html(response); // display success response from the server
-                window.location.href ="<?php echo base_url().'Welcome/listsolutions';?>";
+                window.location.href ="<?php echo base_url().'Welcome/listservicessteps';?>";
             },
             error: function (response) {
                 //$('#solmsg').html(response); // display error response from the server
-                window.location.href ="<?php echo base_url().'Welcome/listsolutions';?>";
+                window.location.href ="<?php echo base_url().'Welcome/listservicessteps';?>";
             }
         });
     });

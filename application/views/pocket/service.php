@@ -143,42 +143,44 @@ echo $service->metatag;
             <div class="three-plan-sec bg-section pt-100 pb-70">
                 <div class="container">
                     <div class="row">
+                    <?php foreach($steps as $st){?>
                         <div class="col-lg-4 col-md-4">
                             <div class="inner-block">
                                 <div class="icon-block">
-                                    <img src="<?php echo base_url().'pockets/assets/img/service/plan-icon.png';?>">
+                                    <img src="<?php echo base_url().'uploads/servicessteps/'.$st['picture'];?>">
                                 </div>
                                 <div class="content-block">
-                                    <h4><?php echo $service->box1title;?></h4>
-                                    <p><?php echo $service->box1description;?></p>
+                                    <h4><?php echo $st['title'];?></h4>
+                                    <p><?php echo $st['description'];?></p>
                                 </div>
 
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4">
+                        <?php } ?>
+                       <!--  <div class="col-lg-4 col-md-4">
                             <div class="inner-block">
                                 <div class="icon-block">
-                                    <img src="<?php echo base_url().'pockets/assets/img/service/design-icon.png';?>">
+                                    <img src="<?php //echo base_url().'pockets/assets/img/service/design-icon.png';?>">
                                 </div>
                                 <div class="content-block">
-                                    <h4><?php echo $service->box2title;?></h4>
-                                    <p><?php echo $service->box2description;?></p>
+                                    <h4><?php //echo $service->box2title;?></h4>
+                                    <p><?php //echo $service->box2description;?></p>
                                 </div>
 
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4">
+                       <div class="col-lg-4 col-md-4">
                             <div class="inner-block">
                                 <div class="icon-block">
-                                    <img src="<?php echo base_url().'pockets/assets/img/service/delivary-icon.png';?>">
+                                    <img src="<?php //echo base_url().'pockets/assets/img/service/delivary-icon.png';?>">
                                 </div>
                                 <div class="content-block">
-                                    <h4><?php echo $service->box3title;?></h4>
-                                    <p><?php echo $service->box3description;?></p>
+                                    <h4><?php //echo $service->box3title;?></h4>
+                                    <p><?php //echo $service->box3description;?></p>
                                 </div>
 
                             </div>
-                        </div>
+                        </div>-->
                         
                     </div>
                 </div>
