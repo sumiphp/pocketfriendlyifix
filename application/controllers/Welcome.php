@@ -44,7 +44,7 @@ public function dashboard(){
 
 
 	$this->db->select('*');
-	$this->db->from('blog');
+	$this->db->from('blogcontents');
 	$query = $this->db->get();
 	$data['rowcountblog'] = $query->num_rows();
 
@@ -531,7 +531,7 @@ public function listcategory(){
 	$config = array();
 	$config["base_url"] = base_url() . "Welcome/listcategory";
 	$config["total_rows"] = $this->sm->get_count();
-	$config["per_page"] = 5;
+	$config["per_page"] = 10;
 	$config["uri_segment"] = 3;
 	$this->pagination->initialize($config);
 	$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -555,7 +555,7 @@ public function listsubcategory(){
     $config = array();
 	$config["base_url"] = base_url() . "Welcome/listsubcategory";
 	$config["total_rows"] = $this->sm->get_countsub();
-	$config["per_page"] = 2;
+	$config["per_page"] = 10;
 	$config["uri_segment"] = 3;
 	$this->pagination->initialize($config);
 	$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -642,7 +642,7 @@ public function listcontactenquiries(){
 $config = array();
 $config["base_url"] = base_url() . "Welcome/listcontactenquiries";
 $config["total_rows"] = $this->sm->get_countcontactenquiries();
-$config["per_page"] = 2;
+$config["per_page"] = 10;
 $config["uri_segment"] = 3;
 $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -1320,9 +1320,9 @@ public function siteinfeditprocess(){
 
  $this->db->where('siteinfid',1);
  $this->db->update('siteinformation', $data);
- echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Site Information') : $this->session->set_flashdata('flash_msg', 'Site Information Edited Successfully');
+($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing Site Information') : $this->session->set_flashdata('flash_msg', 'Site Information Edited Successfully');
 
- redirect("welcome/editsiteinformation");
+ redirect("welcome/listsiteinformation");
 
 
 
@@ -1631,7 +1631,7 @@ public function editaboutusprocess(){
 	  //print_r($data);
 	  $this->db->where('aboutusid',1);
 	  $this->db->update('aboutus', $data);
-	  echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing About Us') : $this->session->set_flashdata('flash_msg', 'About Us Edited Successfully');
+	  ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Error in Editing About Us') : $this->session->set_flashdata('flash_msg', 'About Us Edited Successfully');
 	  //echo ($this->db->affected_rows() != 1) ? 'Error in Editing About Us Contents' : '<b>About Us Contents added Successfully</b>';
 
 
@@ -1884,7 +1884,7 @@ public function listfaq(){
 $config = array();
 $config["base_url"] = base_url() . "Welcome/listfaq";
 $config["total_rows"] = $this->sm->get_countfaq();
-$config["per_page"] = 2;
+$config["per_page"] = 10;
 $config["uri_segment"] = 3;
 $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -1938,7 +1938,7 @@ public function listquality(){
 $config = array();
 $config["base_url"] = base_url() . "Welcome/listquality";
 $config["total_rows"] = $this->sm->get_countquality();
-$config["per_page"] = 10;
+$config["per_page"] = 1;
 $config["uri_segment"] = 3;
 $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -1964,7 +1964,7 @@ public function listblogcontents(){
 $config = array();
 $config["base_url"] = base_url() . "Welcome/listblogcontents";
 $config["total_rows"] = $this->sm->get_countblog();
-$config["per_page"] = 5;
+$config["per_page"] = 10;
 $config["uri_segment"] = 3;
 $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -2538,7 +2538,7 @@ public function newslettersubscribers(){
 	$config = array();
 $config["base_url"] = base_url() . "Welcome/newslettersubscribers";
 $config["total_rows"] = $this->sm->get_countnewslettersubscribers();
-$config["per_page"] = 5;
+$config["per_page"] = 10;
 $config["uri_segment"] = 3;
 $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -2651,6 +2651,7 @@ function editnewsletterprocess(){
 
 function editblogpageprocess(){
 	$description=$this->input->post('description');
+	//die;
 	$metatag=$this->input->post('metatag');
 	/* $place=$this->input->post('place');
 	 $date=$this->input->post('date');*/
@@ -2661,14 +2662,14 @@ function editblogpageprocess(){
 		//'image'=>$image1,'place'=>$place,'date'=>$date,'title'=>$testtitle		
 	 );
 	 $id=$this->uri->segment(3); 
-	 $this->db->where('blogid',$id);
+	 //$this->db->where('blogid',$id);
 	  $this->db->update('blog', $data);
 
 	 //echo ($this->db->affected_rows() != 1) ? 'Error in Editing Newsletter' : '<b>Newsletter Edited Successfully</b>';
 
 	 //echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Blog page not edited') : $this->session->set_flashdata('flash_msg', 'Blog Page edited successfully');;
-	 echo ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Blog page not edited') : $this->session->set_flashdata('flash_msg', 'Blog Page edited successfully');
-
+	 ($this->db->affected_rows() != 1) ? $this->session->set_flashdata('flash_msg', 'Blog page not edited') : $this->session->set_flashdata('flash_msg', 'Blog Page edited successfully');
+	 redirect("Welcome/listblogpage");
 }
 
 function editblogpage(){

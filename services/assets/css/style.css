@@ -1465,13 +1465,13 @@ Footer Section
 .footer-newletter-area .newsletter-area {
   margin-top: 25px;
 }
-.footer-newletter-area .newsletter-area .newsletter-form-email {
+.footer-newletter-area .newsletter-area .newsletter-form {
   position: relative;
   max-width: 370px;
   border-radius: 50px;
   z-index: 999;
 }
-.footer-newletter-area .newsletter-area .newsletter-form-email .form-control {
+.footer-newletter-area .newsletter-area .newsletter-form .form-control {
   background: #fff;
   height: 45px;
   line-height: 55px;
@@ -1480,12 +1480,12 @@ Footer Section
   border: none;
   padding: 0 25px;
 }
-.footer-newletter-area .newsletter-area .newsletter-form-email .form-control:focus {
+.footer-newletter-area .newsletter-area .newsletter-form .form-control:focus {
   outline: none;
   box-shadow: none;
   border: none;
 }
-.footer-newletter-area .newsletter-area .newsletter-form-email .subscribe-btn {
+.footer-newletter-area .newsletter-area .newsletter-form .subscribe-btn {
   position: absolute;
   top: 0px;
   right: -60%;
@@ -1501,11 +1501,11 @@ Footer Section
   width: 200px;
   z-index: 9999;
 }
-.footer-newletter-area .newsletter-area .newsletter-form-email .subscribe-btn:hover {
+.footer-newletter-area .newsletter-area .newsletter-form .subscribe-btn:hover {
   background: #070f4d;
   color: #ffffff;
 }
-.footer-newletter-area .newsletter-area .newsletter-form-email .validation-danger {
+.footer-newletter-area .newsletter-area .newsletter-form .validation-danger {
   font-size: 18px;
   margin-top: 5px;
   color: red;
@@ -2715,23 +2715,6 @@ Animation CSS End
 .inner-page-sec .table-responsive .pagination {
   float: right;
 }
-div.pagination strong {
-  border: none;
-  text-align: center;
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 0;
-  color: rgba(0, 0, 0, 0.4);
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  margin-right: 4px;
-  -webkit-box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
-  -moz-box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
-  box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
-  margin-top: 20px;
-}
 .inner-page-sec .table-responsive .pagination a {
   border: none;
   text-align: center;
@@ -2749,7 +2732,6 @@ div.pagination strong {
   box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
   margin-top: 20px;
 }
-
 .inner-page-sec .table-responsive .pagination a:hover {
   background: #3e64ff;
   color: #fff;
@@ -2766,10 +2748,20 @@ div.pagination strong {
   display: block;
 }
 
-.icon-main-area {
-  margin-bottom: 40px;
-}
-
-.elementor-element {
-  margin-bottom: 40px;
+.pagination strong {
+  border: none;
+  text-align: center;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 0;
+  color: rgba(0, 0, 0, 0.4);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-right: 4px;
+  -webkit-box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
+  box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
+  margin-top: 20px;
 }

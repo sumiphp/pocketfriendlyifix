@@ -52,7 +52,7 @@ class Pocket extends CI_Controller {
 	public function index()
 	{
 		$data['result']=$this->sm->get_categoriesall();
-		//$data['resultsub']=$this->sm->get_subcategoriesall();
+		$data['resultsuball']=$this->sm->get_subcategoriesall();
 		$data['resultsub']=$this->sm->get_subcategoriesrand();
 		$data['resultcontents']=$this->sm->get_blogcontents();
 		$data['resultfaq']=$this->sm->get_faq();
@@ -322,6 +322,7 @@ public function servicedetails(){
 	$data['menus']=$this->sm->get_menus();
 	$data['siteinf']=$this->sm->get_siteinf();
 	$data['result']=$this->sm->get_servicesdetails();
+	$data['resultsub']=$this->sm->get_subcategoriesall();
 
 	$this->load->view('pocket/service-details.php',$data);
 

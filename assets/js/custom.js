@@ -55,7 +55,7 @@
     // Portfolio Slider 
     $('.portfolio-slider').owlCarousel({
         loop: true,
-        items: 2,
+        margin: 30,
         dots: false,
         autoplay: true,
         autoplayHoverPause: true,
@@ -89,6 +89,22 @@
             "<i class='bx bx-left-arrow-alt'></i>",
             "<i class='bx bx-right-arrow-alt'></i>"
         ],
+   
+    })
+
+    // Service Slider 
+    $('.service-slider').owlCarousel({
+        center: true,
+        loop: true,
+        margin: 30,
+        dots: false,
+        autoplay: true,
+        autoplayHoverPause: true,
+        nav: true,
+        navText: [
+            "<i class='bx bx-left-arrow-alt'></i>",
+            "<i class='bx bx-right-arrow-alt'></i>"
+        ],
         responsive:{
             0:{
                 items: 1
@@ -100,11 +116,7 @@
                 items: 3
             }
         }
-   
     })
-
-  
-
 
     // Tabs
     $('#tabs-item li a').on('click', function(e) {
@@ -204,8 +216,14 @@
         $("#validator-newsletter").removeClass().addClass(msgClasses).text(msg);
     }
         
-    // AJAX MailChimp
-  
+   //sub-menu
+   let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
 
     // Back To Top Js
     $('body').append('<div id="toTop" class="top-btn"><i class="bx bx-chevrons-up"></i></div>');
@@ -235,9 +253,35 @@
 
 })(jQuery);
 
+// function to set a given theme/color-scheme
+function setTheme(themeName) {
+    localStorage.setItem('bonsa_theme', themeName);
+    document.documentElement.className = themeName;
+}
+
+// function to toggle between light and dark theme
+function toggleTheme() {
+    if (localStorage.getItem('bonsa_theme') === 'theme-dark') {
+        setTheme('theme-light');
+    } else {
+        setTheme('theme-dark');
+    }
+}
+
+//
 
 
 
+// Immediately invoked function to set the theme on initial load
+(function () {
+    if (localStorage.getItem('bonsa_theme') === 'theme-dark') {
+        setTheme('theme-dark');
+        document.getElementById('slider').checked = false;
+    } else {
+        setTheme('theme-light');
+      document.getElementById('slider').checked = true;
+    }
+})();
 
 
   

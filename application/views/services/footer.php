@@ -10,7 +10,7 @@
                     </div>
                     <div class="newsletter-area">
                     <span id="newsmsg"></span>
-                         <form class="newsletter-form-email" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
+                         <form class="newsletter-form" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
                          <input type="email" class="form-control" placeholder="Enter Your Email" name="emailidnews"  id="emailnews" required />
                             <button class="subscribe-btn" type="submit">
                                 Subscribe
@@ -155,6 +155,26 @@
     </div>
 </footer>
 <!-- Footer Area End -->
+
+<script src="<?php echo base_url().'assets/js/jquery.min.js';?>"></script>
+       
+        <script src="<?php echo base_url().'assets/js/bootstrap.bundle.min.js';?>"></script>
+        
+        <script src="<?php echo base_url().'assets/js/meanmenu.min.js';?>"></script>
+        
+        <script src="<?php echo base_url().'assets/js/owl.carousel.min.js';?>"></script>
+       
+        <script src="<?php echo base_url().'assets/js/jquery.magnific-popup.min.js';?>"></script>
+        
+        <script src="<?php echo base_url().'assets/js/wow.min.js';?>"></script>
+       
+        <script src="<?php echo base_url().'assets/js/jquery.ajaxchimp.min.js';?>"></script>
+        
+        <script src="<?php echo base_url().'assets/js/form-validator.min.js';?>"></script>
+        
+        <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
+       
+        <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
 
 <script>
         $(".numericvalidate").keypress(function(event){

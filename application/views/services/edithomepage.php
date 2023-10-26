@@ -5,26 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.min.css';?>"> 
+      
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/bootstrap.min.css';?>"> 
         <!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'assets/css/owl.theme.default.min.css';?>">
-        <link rel="stylesheet" href="<?php echo base_url().'assets/css/owl.carousel.min.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/owl.theme.default.min.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/owl.carousel.min.css';?>">
         <!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'assets/css/magnific-popup.min.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/magnific-popup.min.css';?>">
         <!-- Animate Min CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'assets/css/animate.min.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/animate.min.css';?>">
         <!-- Boxicons CSS --> 
-        <link rel="stylesheet" href="<?php echo base_url().'assets/css/boxicons.min.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/boxicons.min.css';?>">
         <!-- Flaticon CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'assets/fonts/flaticon.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/fonts/flaticon.css';?>">
         <!-- Meanmenu CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'assets/css/meanmenu.min.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/meanmenu.min.css';?>">
         <!-- Style CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'assets/css/style.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/style.css';?>">
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'assets/css/responsive.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/responsive.css';?>">
         <!-- Theme Dark CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'assets/css/theme-dark.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/theme-dark.css';?>">
 
         <!-- Title -->
         <title>Pocket Frindly </title>
@@ -209,26 +211,26 @@
             
 
 
-        
-       <script src="<?php echo base_url().'assets/js/jquery.min.js';?>"></script>
        
-      <script src="<?php echo base_url().'assets/js/bootstrap.bundle.min.js';?>"></script>
-       
-        <script src="<?php echo base_url().'assets/js/meanmenu.min.js';?>"></script>
+        <!---<script src="<?php //echo base_url().'assets/js/jquery.min.js';?>"></script>
       
-        <script src="<?php echo base_url().'assets/js/owl.carousel.min.js';?>"></script>
-      
-        <script src="<?php echo base_url().'assets/js/jquery.magnific-popup.min.js';?>"></script>
-      
-        <script src="<?php echo base_url().'assets/js/wow.min.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/bootstrap.bundle.min.js';?>"></script>
         
-        <script src="<?php echo base_url().'assets/js/jquery.ajaxchimp.min.js';?>"></script>
-        
-        <script src="<?php echo base_url().'assets/js/form-validator.min.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/meanmenu.min.js';?>"></script>
       
-        <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/owl.carousel.min.js';?>"></script>
+     
+        <script src="<?php //echo base_url().'assets/js/jquery.magnific-popup.min.js';?>"></script>
+      
+        <script src="<?php //echo base_url().'assets/js/wow.min.js';?>"></script>
     
-        <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
+        <script src="<?php //echo base_url().'assets/js/jquery.ajaxchimp.min.js';?>"></script>
+        
+        <script src="<?php //echo base_url().'assets/js/form-validator.min.js';?>"></script>
+      
+        <script src="<?php //echo base_url().'assets/js/contact-form-script.js';?>"></script>
+       
+        <script src="<?php //echo base_url().'assets/js/custom.js';?>"></script>-->
         
 
     </body>

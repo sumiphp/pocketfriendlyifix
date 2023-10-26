@@ -11,7 +11,8 @@
                                 <p><?php echo $newsletter->newsletterdescription;?></p>
                             </div>
                             <div class="newsletter-area">
-                            <form class="newsletter-form-email" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
+                            <!--<form class="newsletter-form-email" name="frmemail" id="frmemail" action="<?php //echo base_url().'Pocket/newslettersubscribe';?>" method="post">-->
+                            <form class="newsletter-form" name="frmemail" id="frmemail" action="<?php //echo base_url().'Pocket/newslettersubscribe';?>" method="post">
                             <input type="email" class="form-control" placeholder="Enter Your Email" name="emailidnews"  id="emailnews" required />
                             <button class="subscribe-btn" type="submit">
                                     <button class="subscribe-btn" type="submit">

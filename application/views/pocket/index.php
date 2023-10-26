@@ -125,12 +125,12 @@ bottom:4px;
                                             <div class="input-group mb-3">
                                             <select name="package" id="package" required>
                                                 <option value="">Select</option>
-                                                <?php foreach($resultsub as $res){?>
+                                                <?php foreach($resultsuball as $res){?>
                                               <option value="<?php echo $res['subcategoryid'];?>"><?php echo $res['subcategoryname'];?></option>
                                               <?php } ?>
                                              
                                             </select>
-                                            <label id="package-error" class="error" for="package" style='padding-top:0px'></label>
+                                            <label id="package-error" class="error" for="package" style='padding-top:0px;color:#fff'></label>
                                         </div>
                                     </div>
                                        
@@ -252,7 +252,7 @@ bottom:4px;
                 <div class="container">
                     <div class="row">
                         <div class="main-title">
-                            <h2>Service</h2>
+                            <h2><?php echo $resulthome->servicetitle;?></h2>
                         </div>
                     </div>
                     <div class="row">
@@ -292,7 +292,7 @@ bottom:4px;
                                 <p><?php echo $res['subcatdesc'];?></p>
                             </div>
                             <div class="bg-btn">
-                                <a href="#" class="default-btn enquiry-btn" data-bs-toggle="modal" data-bs-target="#myModal">Enquiry</a>
+                                <a href="#" onclick=setval(<?php echo $res['subcategoryid'];?>); class="default-btn enquiry-btn" data-bs-toggle="modal" data-bs-target="#myModal">Enquiry</a>
                             </div>
 
                             <!--<a type="button" class="default-btn enquiry-btn" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -650,7 +650,7 @@ margin-bottom:45px;
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="input-group">
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" >
+                                <input type="email" id="email1" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" >
                                                 <label id="email-error" class="error errpopup" for="email" style='padding-bottom:0px'></label>
                                 </div>
                             </div>
@@ -673,9 +673,9 @@ margin-bottom:45px;
                         <div class="col-md-6">
                             <label class="label-box">CHOOSE YOUR PACKAGE</label>
                             <div class="input-group">
-                            <select name="package" id="package" class="form-control">
+                            <select name="package" id="package1" class="form-control">
                             <option value="">Please select</option>
-                            <?php foreach($resultsub as $res){?>
+                            <?php foreach($resultsuball as $res){?>
                                               <option value="<?php echo $res['subcategoryid'];?>"><?php echo $res['subcategoryname'];?></option>
                                               <?php } ?>
                             </select>
@@ -730,7 +730,17 @@ margin-bottom:45px;
 
 
 <script>
-    /*$(function() {
+
+    function setval(id){
+        //var id=10;
+    //$("#package1").get(0).selectedIndex=id;
+    $("#package1 option[value="+id+"]").attr("selected","selected");
+
+    }
+   $(function() {
+
+    //var id = $('#HdnOrganizationId').val()
+    
         $("#frm").on('submit', function(e) {
             e.preventDefault();
 
@@ -755,7 +765,7 @@ margin-bottom:45px;
                 }
             });
         });
-    });*/
+    });
 
 
     $("#phone").keypress(function(event){
@@ -842,7 +852,7 @@ margin-bottom:45px;
         $("#note").val('');
     $("#package").val('');
     $("#email").val('');
- $("#enqmsgpopup").html(response);
+ $("#enqmsg").html(response);
 
 
 	}            
@@ -929,10 +939,11 @@ $("#phone1").keypress(function(event){
         $(this).val('');
     });
     
-    $("#email").val('');
+    $("#email1").val('');
     $("#message").val('');
+    $("#package1").val('');
     
-		$('#msg').html(response);
+		$('#enqmsgpopup').html(response);
 	}            
       });		
 }
