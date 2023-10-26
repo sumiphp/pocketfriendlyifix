@@ -2751,9 +2751,9 @@ public function addservicesproblemsolutions(){
 	  redirect("welcome/services");
 	}
 	$this->load->model('Servicesmodel');
-	$this->db->from('faq');
-    $query = $this->db->get();
-    $data['result']=$query->result_array(); 
+	//$this->db->from('faq');
+    //$query = $this->db->get();
+    //$data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$this->load->view('services/addsolutions',$data);
@@ -2797,6 +2797,19 @@ public function deletesolution(){
 
 }
 
+
+public function deletesteps(){
+	$id=$_GET['prbid'];
+	$this->db->where('stepid',$id);
+	$this->db->delete('solutionsteps');
+	echo ($this->db->affected_rows() != 1) ? 'Error in deleting Services Steps' : 'Services Steps deleted Successfully';
+
+
+}
+
+
+
+
 public function editsolutions(){
 
 	if( $this->session->has_userdata('username')) {					
@@ -2817,6 +2830,133 @@ public function editsolutions(){
 
 
 }
+
+
+
+public function addservicessteps(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	//this->db->from('faq');
+    //$query = $this->db->get();
+    //$data['result']=$query->result_array(); 
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$this->load->view('services/addservicessteps',$data);
+
+
+
+}
+
+public function addservicesstepsprocess(){
+	$config['upload_path'] = 'uploads/servicessteps';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/servicessteps' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/servicessteps' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+
+	$image1=$_FILES['image1']['name'];
+	//$image2=$_FILES['image2']['name'];
+
+	 $title=$this->input->post('maintitle');
+	//$link=$this->input->post('link');
+	 $description=$this->input->post('description');
+	 $alttag1=$this->input->post('alttag1');
+	  //$place=$this->input->post('place');
+	  //$date=$this->input->post('date');
+	  
+	 $data = array(
+		 'description' =>"$description",
+		 //'link' =>"$link",
+		 'title'=>"$title",
+		 'picture'=>$image1,
+		 'alttagimg1'=>"$alttag1"		
+	  );
+	  //print_r($data);
+	  $id=$this->uri->segment(3); 
+	  //$this->db->where('testimonialid',$id);
+	   //$this->db->update('testimonials', $data);
+	   $this->db->insert('solutionsteps', $data);
+
+	  echo ($this->db->affected_rows() != 1) ? 'Error in Adding Services Steps' : '<b>Services Steps Added Successfully</b>';
+
+}
+
+public function listservicessteps(){
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$config = array();
+	$config["base_url"] = base_url() . "Welcome/listservicessteps";
+	$config["total_rows"] = $this->sm->get_countservicessteps();
+	$config["per_page"] = 10;
+	$config["uri_segment"] = 3;
+	$this->pagination->initialize($config);
+	$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+	$data["links"] = $this->pagination->create_links();	
+	$data['result']=$this->sm->get_servicessteps($config["per_page"], $page);
+	$this->db->from('problems');
+    $query = $this->db->get();
+    $data['resultphone']=$query->row();
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();	
+	$this->load->view('services/listservicessteps',$data);
+
+
+
+}
+
+
+public function editsteps(){
+
+	if( $this->session->has_userdata('username')) {					
+	}
+	else{
+	  redirect("welcome/services");
+	}
+	$this->load->model('Servicesmodel');
+	$id=$this->uri->segment(3);
+	$this->db->where('problemid',$id); 
+	$this->db->from('problems');
+    $query = $this->db->get();
+    $data['result']=$query->row(); 
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$this->load->view('services/editsteps',$data);
+
+
+
+}
+
+
+
+
+
 
 public function addhomepagequalities(){
 	if( $this->session->has_userdata('username')) {					

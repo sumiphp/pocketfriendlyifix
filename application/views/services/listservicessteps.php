@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zxx">
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/bootstrap.min.css';?>"> 
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/owl.theme.default.min.css';?>">
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/owl.carousel.min.css';?>">
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/magnific-popup.min.css';?>">
+        <!-- Animate Min CSS -->
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/animate.min.css';?>">
+        <!-- Boxicons CSS --> 
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/boxicons.min.css';?>">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/fonts/flaticon.css';?>">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/meanmenu.min.css';?>">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/style.css';?>">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/responsive.css';?>">
+        <!-- Theme Dark CSS -->
+        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/theme-dark.css';?>">
+
+        <!-- Title -->
+        <title>Pocket Frindly</title>
+
+        <!-- Favicon -->
+        <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png"> -->
+        <style>
+            .pagination strong {
+  border: none;
+  text-align: center;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 0;
+  color: rgba(0, 0, 0, 0.4);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-right: 4px;
+  -webkit-box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
+  box-shadow: 0px 10px 27px -20px rgba(0, 0, 0, 0.33);
+  margin-top: 20px;
+}
+        </style>
+    </head>
+
+    <body>
+        <!-- Start Preloader -->
+         <!--<div class="preloader">
+            <div class="preloader-wave"></div>
+        </div>-->
+        <!-- End Preloader -->
+
+
+      
+
+        <!-- Start Sign In Area -->
+		<section class="sign-in-area ptb-50">
+			<div class="container">
+              <div class="dashboard-bgarea">
+                     
+                 <!-- ======= Sidebar ======= -->
+   <div class="other-side">
+
+    <div class="modal-menu">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#myModal2">
+            <i class="flaticon-menu"></i>
+        </a>
+    </div>
+</div>
+
+ <!-- Start Sidebar Modal -->
+ <div class="sidebar-modal">  
+    <div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            <i class="bx bx-x"></i>
+                        </span>
+                    </button>
+                    <h2 class="modal-title" id="myModalLabel2">
+                        <a href="<?php echo base_url().'Welcome/dashboard';?>">
+                            <img src="assets/img/logo.png" class="modal-logo1" alt="Logo">
+                        </a>
+                    </h2>
+                </div>
+                
+                <div class="modal-body" id="navbarSupportedContent">
+                    <nav class="sidebar card py-2 mb-4">
+                    <?php include('sidebarmenu.php');?>
+                        </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Sidebar Modal -->
+
+                <div class="dashboard-innerbox">
+                            <div class="inner-page-sec">
+                              <div class="description-sec">
+                                <h2> View Services Steps </h2>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                              <div class="table-responsive theme-scrollbar">
+                                              <span id="prbmsg"></span><br>
+                                                <div id="data-source-1_wrapper" class="dataTables_wrapper">
+                                                <?php echo $this->session->flashdata('flash_msg');?>
+
+                                                    <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
+                                                  <thead>
+                                                    <tr role="row">
+                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Title</th>
+                                                      <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Link</th>-->
+                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Description</th>
+                                                       <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Picture</th>
+                                                           <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    <?php 
+                                                    
+                                                    
+                                                    
+                                                    foreach($result as $res){?>
+                                                  <tr role="row" class="odd" id="<?php echo $res['stepid'];?>" >
+                                                   
+                                                      <td class="sorting_1"><?php echo $res['title'];?></td>
+                                                      <!--<td><?php //echo $res['link'];?></td>-->
+                                                     
+                                                      <td><?php echo $res['description'];?></td>
+                                                      <td><img src=<?php echo base_url().'uploads/problems/'.$res['picture']?> width="80" height="80" /></td>
+                                                      <td> 
+                                                        <ul class="action"> 
+                                                          <li class="edit"> <a href="<?php echo base_url().'Welcome/editsteps/'.$res['stepid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
+                                                          <li class="delete"><a href="#" onclick="delstepsrow(<?php echo $res['stepid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
+                                                          <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
+                                                        </ul>
+                                                      </td>
+                                                    </tr>
+                                                    <?php } ?>                                                  
+                                                  
+                                                </tbody>                                                
+                                                </table>                                               
+                                            </div>                                      
+
+                                                <div class="pagination mb-4"><?php echo $links;?> </div>
+                                        </div>
+                                    </div>                             
+
+                                </div>
+                            </div>
+                           
+                                <div class="row bg-row">
+                                    <div class="col-md-5 col-lg-5 pocket-help">
+                                        <h2>Ask pocket Friendly for Help 24/7</h2>
+                                        <h6>Get In Touch : </h6>
+                                      
+                                        <div class="number-block"> <a href="tel:+ +<?php echo $contactus->phoneno;?>"> +<?php echo $contactus->phoneno;?> </a>  
+                                           </div>
+                                        </div>
+                                </div>
+                                </div>
+                          
+              
+                   
+              </div>
+              </div>
+			</div>
+		</section>
+		<!-- End Sign In Area -->
+
+        <!-- Footer Area -->
+        <?php include('footer1.php');?>
+    </body>
+</html>
+
+
+<script>
+function delstepsrow(prbid){
+$.ajax({
+            type: 'GET',
+            url: "<?php echo base_url().'index.php/Welcome/deletesteps';?>",
+            data:{prbid:prbid},
+            success:function(data){
+                $("#"+prbid).remove();
+                $("#prbmsg").html(data);
+            }
+        });
+
+}
+    
+</script>
+
+
+
+
+
+

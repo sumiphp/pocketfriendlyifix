@@ -109,6 +109,16 @@
                                 </a>
                               
                               </li>
+
+                              <li>
+                                <a href="<?php echo base_url().'Welcome/addservicessteps';?>">
+                                  <i class='bx bx-compass'></i>
+                                  <span class="link_name">Add Services Steps</span>
+                                </a>
+                              
+                              </li>
+
+
                         <li>
                           <a href="<?php echo base_url().'Welcome/addblogcontent';?>">
                             <i class='bx bx-compass' ></i>

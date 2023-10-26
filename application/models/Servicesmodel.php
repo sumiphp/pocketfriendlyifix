@@ -530,5 +530,33 @@ function upgoogleanalytics(){
     
 }
 
+/*function get_countservicessteps(){
+
+
+}*/
+
+function get_countservicessteps(){
+    $this->db->select('*');
+    $this->db->from('solutionsteps');
+    $query = $this->db->get();
+    return $rowcount = $query->num_rows();
+
+}
+
+function get_servicessteps($limit,$start){
+    $this->db->limit($limit,$start);
+    $this->db->select('*');
+    $this->db->from('solutionsteps');
+    $query = $this->db->get();
+    return $query->result_array();
+    
+}
+
+
+
+
+
+
+
 }
 ?>

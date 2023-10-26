@@ -64,13 +64,13 @@
                               </ul>
                             </li>
 
-                            <li>
+                            <!--<li>
                                 <a href="#">
                                   <i class='bx bx-compass'></i>
                                   <span class="link_name">Add Client</span>
                                 </a>
                               
-                              </li>
+                              </li>-->
                               <li>
                                 <a href="<?php echo base_url().'Welcome/listservicesdetails';?>">
                                   <i class='bx bx-compass'></i>
@@ -82,6 +82,13 @@
                                 <a href="<?php echo base_url().'Welcome/addservicesproblemsolutions';?>">
                                   <i class='bx bx-compass'></i>
                                   <span class="link_name">Add Services Solutions</span>
+                                </a>
+                              
+                              </li>
+                              <li>
+                                <a href="<?php echo base_url().'Welcome/addservicessteps';?>">
+                                  <i class='bx bx-compass'></i>
+                                  <span class="link_name">Add Services Steps</span>
                                 </a>
                               
                               </li>
