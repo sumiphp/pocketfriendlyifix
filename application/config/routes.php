@@ -53,5 +53,7 @@ $route['default_controller'] = 'pocket';
 $route['404_override'] = 'CustomError';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['sitemap\.xml'] = "Sitemap/index";
+
 
 

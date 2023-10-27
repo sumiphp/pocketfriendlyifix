@@ -21,7 +21,9 @@
                 </button>
                 <h2 class="modal-title" id="myModalLabel2">
                     <a href="<?php echo base_url().'Welcome/dashboard';?>">
-                        <img src="assets/img/logo.png" class="modal-logo1" alt="Logo">
+                       <!--<img src="<?php //echo base_url().'Pocket/assets/img/logo.png';?>" class="modal-logo1" alt="Logo">-->
+
+                       <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="modal-logo1" alt="<?php echo $siteinf->alttagimg1;?>">
                     </a>
                 </h2>
             </div>
@@ -170,6 +172,23 @@
                                 <span class="link_name">Add Home Page Qualities</span>
                               </a>
                               
+                            </li>
+
+                            
+                            <li>
+                              <div class="iocn-link">
+                                <a href="#">
+                                  <i class='bx bx-plug' ></i>
+                                  <span class="link_name">Newsletter</span>
+                                </a>
+                                <i class='bx bxs-chevron-down arrow' ></i>
+                              </div>
+                              <ul class="sub-menu">
+                                <li><a class="link_name" href="#">Plugins</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/newsletter';?>">Newsletter View</a></li>
+                                <li><a href="<?php echo base_url().'Welcome/newslettersubscribers';?>">Newsletter Subscribers</a></li>
+                              
+                              </ul>
                             </li>
 
 

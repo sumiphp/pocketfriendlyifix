@@ -25,6 +25,7 @@ public function services(){
 	$this->load->model('Servicesmodel');
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/sign-in',$data);
 } 
 
@@ -76,6 +77,7 @@ public function dashboard(){
 				redirect("welcome/services");
 			  }
 			  $data['newsletter']=$this->sm->get_newsletter();
+			  $data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/dashboard',$data);
 } 
 
@@ -118,6 +120,7 @@ public function addcategory(){
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/add-category',$data);
 }
 
@@ -141,6 +144,7 @@ public function editcategory(){
     $data['resultphone']=$query->row();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/edit-category',$data);
 }
 
@@ -164,6 +168,7 @@ public function editsubcategory(){
     $data['resultphone']=$query->row();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/edit-subcategory',$data);
 }
 
@@ -542,6 +547,7 @@ public function listcategory(){
     $data['resultphone']=$query->row();	
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/listcategory',$data);
 }
 
@@ -563,6 +569,7 @@ public function listsubcategory(){
 	$data['result']=$this->sm->get_subcategories($config["per_page"], $page);
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/listsubcategory',$data);
 }
 
@@ -614,6 +621,7 @@ $this->db->from('contactus');
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listenquiries',$data);	
 }
 
@@ -653,6 +661,7 @@ $this->db->from('contactus');
     $data['resultphone']=$query->row();	
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listcontactenquiries',$data);
 }
 
@@ -668,6 +677,7 @@ function addservices(){
     $data['result']=$query->result_array();
 	$data['contactus']=$this->sm->get_contactus(); 
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/addservices',$data);
 
 }
@@ -684,6 +694,7 @@ function addtestimonials(){
     $data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/addtestimonials',$data);
 
 
@@ -703,6 +714,7 @@ function edittestimonials(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/edittestimonials',$data);
 
 
@@ -721,6 +733,7 @@ function editblog(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editblogcontents',$data);
 
 
@@ -742,6 +755,7 @@ function addblogcontent(){
     $data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/addblogcontents',$data);
 
 
@@ -760,6 +774,7 @@ function editblogcontent(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editblogcontent',$data);
 
 
@@ -782,6 +797,7 @@ function addfaq(){
     $data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/addfaq',$data);
 
 }
@@ -802,6 +818,7 @@ function editfaq(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editfaq',$data);
 
 }
@@ -822,6 +839,7 @@ function addmenu(){
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['pmenus']=$this->sm->get_parentmenus();
+	$data['siteinf']=$this->sm->get_siteinf();
 	//print_r($data['pmenus']);
 	$this->load->view('services/addmenu',$data);
 
@@ -844,6 +862,7 @@ function editmenu(){
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['pmenus']=$this->sm->get_parentmenus();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editmenu',$data);
 
 }
@@ -863,6 +882,7 @@ function editservices(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editservices',$data);
 
 }
@@ -880,6 +900,7 @@ function edithomepage(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/edithomepage',$data);
 
 }
@@ -896,6 +917,7 @@ function editaboutus(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editaboutus',$data);
 
 }
@@ -1298,6 +1320,7 @@ public function editsiteinformation(){
     $data['result']=$query->row();
 	$data['contactus']=$this->sm->get_contactus(); 
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editsiteinformation',$data);
 
 
@@ -1732,6 +1755,7 @@ $this->db->from('contactus');
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listservices',$data);	
 
 
@@ -1760,6 +1784,7 @@ $this->db->from('contactus');
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['siteinf']=$this->sm->get_siteinf();
+	//$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listsiteinformation',$data);	
 
 
@@ -1844,6 +1869,7 @@ public function editsocialmedialinks(){
     $data['result']=$query->row();
 	$data['contactus']=$this->sm->get_contactus(); 
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editsocialmedialinks',$data);
 
 
@@ -1902,6 +1928,7 @@ $this->db->from('contactus');
     $data['resultphone']=$query->row();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['contactus']=$this->sm->get_contactus();
+	$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listaboutus',$data);	
 
 
@@ -1925,6 +1952,7 @@ $data["links"] = $this->pagination->create_links();
 $data['result']=$this->sm->get_homepageadmin();
 $data['contactus']=$this->sm->get_contactus();
 $data['newsletter']=$this->sm->get_newsletter();
+$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listhomepage',$data);	
 
 
@@ -1942,6 +1970,7 @@ public function listcontactus(){
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/listcontactus',$data);	
 
 }
@@ -1964,6 +1993,7 @@ $data["links"] = $this->pagination->create_links();
 $data['result']=$this->sm->get_faqadmin($config["per_page"],$page);
 $data['contactus']=$this->sm->get_contactus();
 $data['newsletter']=$this->sm->get_newsletter();
+$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listfaq',$data);	
 
 
@@ -1987,6 +2017,7 @@ $data["links"] = $this->pagination->create_links();
 $data['result']=$this->sm->get_menuadmin($config["per_page"],$page);
 $data['contactus']=$this->sm->get_contactus();
 $data['newsletter']=$this->sm->get_newsletter();
+$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listmenus',$data);	
 
 
@@ -2018,6 +2049,7 @@ $data["links"] = $this->pagination->create_links();
 $data['result']=$this->sm->get_qualityadmin($config["per_page"],$page);
 $data['contactus']=$this->sm->get_contactus();
 $data['newsletter']=$this->sm->get_newsletter();
+$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listquality',$data);	
 
 
@@ -2047,6 +2079,7 @@ $this->db->from('contactus');
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listblog',$data);	
 
 
@@ -2073,6 +2106,7 @@ $this->db->from('contactus');
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 $this->load->view('services/listtestimonials',$data);
 }
 
@@ -2603,6 +2637,7 @@ public function listblogpage(){
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/listblogpage',$data);
 
 
@@ -2612,6 +2647,7 @@ public function newsletter(){
 	$data['result']=$this->sm->get_newsletterall();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/listnewsletter',$data);
 }
 
@@ -2628,6 +2664,7 @@ $data["links"] = $this->pagination->create_links();
 	$data['result']=$this->sm->get_newslettersubscribersall($config["per_page"],$page);
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/newslettersubscribers',$data);
 
 
@@ -2652,6 +2689,7 @@ function editnewsletter(){
     $data['result']=$query->row();
 	$data['contactus']=$this->sm->get_contactus(); 
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editnewsletter',$data);
 
 
@@ -2671,6 +2709,7 @@ function editgoogleanalyics(){
     $data['result']=$query->row();
 	$data['contactus']=$this->sm->get_contactus(); 
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editgoogleanalytics',$data);
 
 
@@ -2766,6 +2805,7 @@ function editblogpage(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editblogpagecontent',$data);
 
 
@@ -2784,6 +2824,7 @@ function editcontactus(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editcontactus',$data);
 
 
@@ -2838,6 +2879,7 @@ public function addservicesproblemsolutions(){
     //$data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/addsolutions',$data);
 
 
@@ -2865,7 +2907,8 @@ public function listsolutions(){
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
-	$data['newsletter']=$this->sm->get_newsletter();	
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();	
 	$this->load->view('services/listsolutions',$data);
 }
 
@@ -2907,6 +2950,7 @@ public function editsolutions(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editsolutions',$data);
 
 
@@ -2928,6 +2972,7 @@ public function addservicessteps(){
     //$data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/addservicessteps',$data);
 
 
@@ -3006,7 +3051,8 @@ public function listservicessteps(){
     $query = $this->db->get();
     $data['resultphone']=$query->row();
 	$data['contactus']=$this->sm->get_contactus();
-	$data['newsletter']=$this->sm->get_newsletter();	
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();	
 	$this->load->view('services/listservicessteps',$data);
 
 
@@ -3029,6 +3075,7 @@ public function editsteps(){
     $data['result']=$query->row(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/editsteps',$data);
 
 
@@ -3123,6 +3170,7 @@ public function addhomepagequalities(){
     $data['result']=$query->result_array(); 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
 	$this->load->view('services/addqualities',$data);
 
 
@@ -3144,8 +3192,7 @@ public function edithomepagequalities(){
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['quality']=$this->sm->get_quality($id);
-	//print_r($data['quality']);
-	//die;
+	$data['siteinf']=$this->sm->get_siteinf();
 	 
 	$this->load->view('services/editqualities',$data);
 
@@ -3189,8 +3236,7 @@ public function editservicedetails(){
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['quality']=$this->sm->get_quality($id);
-	//print_r($data['quality']);
-	//die;
+	$data['siteinf']=$this->sm->get_siteinf();
 	 
 	$this->load->view('services/editservicesdetails',$data);
 

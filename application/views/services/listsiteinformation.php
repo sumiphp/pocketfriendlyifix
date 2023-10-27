@@ -1,40 +1,4 @@
-<!doctype html>
-<html lang="zxx">
-    <head>
-        <!-- Required Meta Tags -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!-- Bootstrap CSS -->
-        
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/bootstrap.min.css';?>"> 
-        <!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/owl.theme.default.min.css';?>">
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/owl.carousel.min.css';?>">
-        <!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/magnific-popup.min.css';?>">
-        <!-- Animate Min CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/animate.min.css';?>">
-        <!-- Boxicons CSS --> 
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/boxicons.min.css';?>">
-        <!-- Flaticon CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/fonts/flaticon.css';?>">
-        <!-- Meanmenu CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/meanmenu.min.css';?>">
-        <!-- Style CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/style.css';?>">
-        <!-- Responsive CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/responsive.css';?>">
-        <!-- Theme Dark CSS -->
-        <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/theme-dark.css';?>">
-
-        <!-- Title -->
-        <title>Pocket Frindly</title>
-
-        <!-- Favicon -->
-        <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png"> -->
-    </head>
+<?php include_once("header.php");?>   
 
     <body>
         <!-- Start Preloader -->
@@ -74,7 +38,9 @@
                     </button>
                     <h2 class="modal-title" id="myModalLabel2">
                         <a href="<?php echo base_url().'Welcome/dashboard';?>">
-                            <img src="assets/img/logo.png" class="modal-logo1" alt="Logo">
+                            <!--<img src="<?php //echo base_url().'Pocket/assets/img/logo.png';?>" class="modal-logo1" alt="Logo">-->
+
+                            <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="modal-logo1" alt="<?php echo $siteinf->alttagimg1;?>">
                         </a>
                     </h2>
                 </div>
@@ -174,7 +140,8 @@
 		<!-- End Sign In Area -->
 
         <!-- Footer Area -->
-        <?php include('footer1.php');?>
+        <?php //include('footer1.php');?>
+        <?php include('footer.php');?>
     </body>
 </html>
 

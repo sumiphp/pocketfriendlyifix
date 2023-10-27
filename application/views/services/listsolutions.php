@@ -91,7 +91,9 @@
                     </button>
                     <h2 class="modal-title" id="myModalLabel2">
                         <a href="<?php echo base_url().'Welcome/dashboard';?>">
-                            <img src="assets/img/logo.png" class="modal-logo1" alt="Logo">
+                           <!--<img src="<?php //echo base_url().'Pocket/assets/img/logo.png';?>" class="modal-logo1" alt="Logo">-->
+
+                           <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="modal-logo1" alt="<?php echo $siteinf->alttagimg1;?>">
                         </a>
                     </h2>
                 </div>
@@ -183,7 +185,8 @@
 		<!-- End Sign In Area -->
 
         <!-- Footer Area -->
-        <?php include('footer1.php');?>
+        <?php //include('footer1.php');?>
+        <?php include('footer.php');?>
     </body>
 </html>
 

@@ -8,8 +8,20 @@
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent" style="display: block;">
                             <ul class="navbar-nav m-auto">
-                            <?php foreach($menus as $mn){?>
-                                <?php if ($mn['menuid']!=18){?>
+                            <?php foreach($menus as $mn){
+                                
+                                $this->db->where('parentmenuid',$mn['menuid']);    
+                                $this->db->where('menutype',2);
+                                $this->db->where('status',1);
+                                $this->db->select('*');
+                                $this->db->from('menus');
+                                $query = $this->db->get();
+                                $rowcount = $query->num_rows();
+                                
+                                
+                                
+                                ?>
+                                <?php if ($rowcount==0){?>
                                 <li class="nav-item">
                                     <a href="<?php echo base_url().$mn['url'];?>" class="nav-link active">
                                     <?php echo $mn['menuname'];?>
@@ -18,18 +30,18 @@
                                
                                 </li>
                                 <?php } ?>
-                             <?php if ($mn['menuid']==18){?>
+                             <?php if ($rowcount!=0){?>
                               
 
 
                                 <li class="nav-item dropdown show hidden-xs hidden-md" id="service">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false"><?php echo $mn['menuname'];?> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="dropdown-menu mega_menuDropdown productMenu-dropdown">
                                         <div class="row">
 
                                             <div class="col-lg-3 col-md-3 col-sm-3 sm-hidden md-hidden text-center firs-menu-box">
                                                 <div class="col-megamenu">
-                                                    <h3 class="megamenu_title"><span>Services</span></h3>
+                                                    <h3 class="megamenu_title"><span> <?php echo $mn['menuname'];?></span></h3>
                                                 
                                                     <picture>
                                                         <img src="<?php echo base_url().'assets/img/service-img.png';?>" class="img-fluid mRight mTop70" alt="TruckLogics Products" loading="lazy" width="300" height="191" />
@@ -39,7 +51,7 @@
                                             </div>
 
                                             <?php 
-    $this->db->where('parentmenuid',18);                                        
+    $this->db->where('parentmenuid',$mn['menuid']);                                        
     $this->db->where('menutype',2);
     $this->db->where('status',1);
     $this->db->select('*');

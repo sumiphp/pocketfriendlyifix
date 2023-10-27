@@ -182,7 +182,7 @@ bottom:4px;
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="about-img-sec">
-                            <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->homepageimg2;?>" class="w-100">
+                            <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->homepageimg2;?>" class="w-100"  alt="<?php echo $resulthome->alttagimg2;?>" >
                             </div>
                             <div class="about-img-sec taC">
                             <img src="<?php echo base_url().'pockets/assets/img/about-img2.png';?>">
@@ -204,7 +204,7 @@ bottom:4px;
                                     <?php 
                                     $i=0;
                                     foreach($qualities as $quali){
-                                        if ($i <=$half){
+                                        if ($i <$half){
                                         
                                         ?> 
                                     <p><i class='bx bxs-chevrons-right'></i><?php echo $quali['quality'];?></p>
@@ -220,7 +220,7 @@ bottom:4px;
                                 $i=$half;
                                 $i=0;
                                 foreach($qualities as $quali){
-                                      if ($i >$half){
+                                      if ($i >=$half){
                                     
                                     ?> 
                                     <p><i class='bx bxs-chevrons-right'></i><?php echo $quali['quality'];?></p>
@@ -267,7 +267,7 @@ bottom:4px;
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="service-img taC">
-                            <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->serviceimg;?>" >
+                            <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->serviceimg;?>" alt="<?php echo $resulthome->alttagimg3;?>" >
                             </div>
                         </div>
 
@@ -741,7 +741,7 @@ margin-bottom:45px;
 
     //var id = $('#HdnOrganizationId').val()
     
-        $("#frm").on('submit', function(e) {
+       /* $("#frm").on('submit', function(e) {
             e.preventDefault();
 
             var contactForm = $(this);
@@ -764,7 +764,7 @@ margin-bottom:45px;
 
                 }
             });
-        });
+        });*/
     });
 
 
