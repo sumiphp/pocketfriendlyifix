@@ -97,10 +97,10 @@
 
 
                                                       <div class="row mb-3">
-                                                          <!--<div class="col-md-6">
-                                                              <label for="contact-person" class="form-label text-primary">Link:</label>
-                                                              <input type="text" class="form-control" id="link" name="link" placeholder="Enter Link" required>
-                                                          </div>-->
+                                                      <div class="col-md-6">
+                                                              <label for="contact-person" class="form-label text-primary">Order No:</label>
+                                                              <input type="text" class="form-control numericvalidate" id="orderno" name="orderno" placeholder="Enter Order No" required value="<?php echo $result->orderno;?>">
+                                                          </div>
                                                           <div class="col-md-6">
                                                               <label for="alttagimg1" class="form-label text-primary">Alt tag Image1:</label>
                                                               <input type="text" class="form-control" id="alttagimg1" name="alttagimg1"  placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">

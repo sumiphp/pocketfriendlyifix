@@ -1047,7 +1047,9 @@ public function addmenuprocess(){
 	$menuurl=$this->input->post('menuurl');
 	$status=$this->input->post('status');
 	$pmenu=$this->input->post('pmenu');
+	$orderno=$this->input->post('orderno');
 	$data = array(
+		'orderno' =>"$orderno",
 		'menuname' =>"$menuname",
 		'menutype' =>"$menutype",
 		'url'=>"$menuurl",
@@ -1097,8 +1099,10 @@ public function editmenuprocess(){
 	$menuurl=$this->input->post('menuurl');
 	$status=$this->input->post('status');
 	$pmenu=$this->input->post('pmenu');
+	$orderno=$this->input->post('orderno');
 	if ($image1!=''){
 		$data = array(
+			'orderno' =>"$orderno",
 			'menuname' =>"$menuname",
 			'menutype' =>"$menutype",
 			'url'=>"$menuurl",
@@ -1109,6 +1113,7 @@ public function editmenuprocess(){
 
 	}else{
 	$data = array(
+		'orderno' =>"$orderno",
 		'menuname' =>"$menuname",
 		'menutype' =>"$menutype",
 		'url'=>"$menuurl",
@@ -1333,8 +1338,9 @@ public function siteinfeditprocess(){
     $this->db->from('siteinformation');
     $query = $this->db->get();
    $imgdetails=$query->row();
-   $image11=$imgdetails->faviconimg;
-   $image22=$imgdetails->logoimg;
+   
+   $image11=$imgdetails->logoimg;
+   $image22=$imgdetails->faviconimg;
    //$image3=$imgdetails->serviceimg;
 
    $config['upload_path'] = 'uploads/logo';
@@ -2835,6 +2841,36 @@ function editcontactus(){
 	
 
 function contactusprocess(){
+	$config['upload_path'] = 'uploads/problems';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload' . $_FILES['image1']['error'];
+		} else {
+			if (file_exists('uploads/problems' . $_FILES['image1']['name'])) {
+				echo 'File already exists : uploads/problems' . $_FILES['image1']['name'];
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		echo 'Please choose a file';
+	}
+
+	$image1=$_FILES['image1']['name'];
+
+
+
+
+
 	$description=$this->input->post('description');
 	$phoneno=$this->input->post('phoneno');
 	 $emailid=$this->input->post('emailid');
@@ -2843,17 +2879,34 @@ function contactusprocess(){
 	 $metatag=$this->input->post('metatag');
 	 $alttag1=$this->input->post('alttag1');
 	 $alttag2=$this->input->post('alttag2');
+	 $image1=$_FILES['image1']['name'];
+	 if ($image1==''){
+
+		$data = array(
+			'contactusdescription' =>"$description",
+			'phoneno' =>"$phoneno",
+			'emailid'=>"$emailid",
+			//'image'=>$image1,
+			'city'=>$place,'country'=>$country,
+			'metatag' =>"$metatag",
+			'alttagimg1'=>"$alttag1",
+			'alttagimg2'=>"$alttag2",
+			//'title'=>$testtitle		
+		 );
+
+	 }else{
 	$data = array(
 		'contactusdescription' =>"$description",
 		'phoneno' =>"$phoneno",
 		'emailid'=>"$emailid",
-		//'image'=>$image1,
+		'contactusimg'=>$image1,
 		'city'=>$place,'country'=>$country,
 		'metatag' =>"$metatag",
 		'alttagimg1'=>"$alttag1",
 		'alttagimg2'=>"$alttag2",
 		//'title'=>$testtitle		
 	 );
+	}
 	 //$id=$this->uri->segment(3); 
 	 //$this->db->where('blogid',$id);
 	  $this->db->update('contactus', $data);

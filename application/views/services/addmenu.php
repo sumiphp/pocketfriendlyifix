@@ -88,18 +88,18 @@
                                                             <?php }?></select>
                                                              </div>
                                                              <div class="col-md-6">
-                                                              <label for="company-logo" class="form-label text-primary">Image1:</label>
+                                                              <label for="company-logo" class="form-label text-primary">Menu Icon Image:</label>
                                                               <input type="file" class="form-control" id="image1" name="image1">
                                                           </div>   
                                                       </div>
                                                     
                                                       <div class="row mb-3">
-                                                          <!--<div class="col-md-6">
-                                                              <label for="contact-person" class="form-label text-primary">Link:</label>
-                                                              <input type="text" class="form-control" id="link" name="link" placeholder="Enter Link" required>
-                                                          </div>-->
                                                           <div class="col-md-6">
-                                                              <label for="alttagimg1" class="form-label text-primary">Alt tag Image1:</label>
+                                                              <label for="contact-person" class="form-label text-primary">Order No:</label>
+                                                              <input type="text" class="form-control numericvalidate" id="orderno" name="orderno" placeholder="Enter Order No" required>
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                              <label for="alttagimg1" class="form-label text-primary">Menu Icon Image Alt attribute:</label>
                                                               <input type="text" class="form-control" id="alttagimg1" name="alttagimg1"  placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
                                                           </div>
                                                       </div>
@@ -184,7 +184,7 @@ $('#menufrm').on('submit', function (e) {
         var menuurl=$("#menuurl").val();
         var menutype=$("#menutype").val();
         var status=$("#status").val();
-        //var menutype=$("#menutype").val();
+        var orderno=$("#orderno").val();
         var pmenu=$("#pmenu").val();
         //var menutype=$("#menutype").val();
         var file_data1 = $('#image1').prop('files')[0];
@@ -199,7 +199,7 @@ $('#menufrm').on('submit', function (e) {
         form_data.append('pmenu',pmenu);
         form_data.append('image1', file_data1);
         form_data.append('alttag1',alttagimg1);
-       
+        form_data.append('orderno',orderno);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/addmenuprocess';?>", // point to server-side controller method

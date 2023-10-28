@@ -63,7 +63,7 @@
                                     </a>
                                     <div class="share-icon">
                                         <ul class="social-icon-part">
-                                            <li><a href="#"><img src="<?php echo base_url().'pockets/assets/img/whatsapp.png';?>"></a></li>
+                                            <li><a href="<?php echo $footerdt->whatsuplink;?>" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/whatsapp.png';?>"></a></li>
                                             <li><a href="<?php echo $footerdt->linkldn;?>" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/linked-in.png';?>"></a></li>
                                             <li><a href="<?php echo $footerdt->youtube;?>" target="_blank"><img src="<?php echo base_url().'pockets/assets/img/youtube-icon.png';?>"></a></li>
                                         </ul>
@@ -82,7 +82,7 @@
 
                         <div class="col-lg-4 col-md-6">
                             <div class="footer-list ml-50">
-                                <h3>About Us</h3>
+                                <h3><?php echo $about->title;?></h3>
                                 <p><?php echo $about->aboutusshortdesc;?></p>
 
                             </div>

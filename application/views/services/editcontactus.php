@@ -32,7 +32,7 @@
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
-                                                    <form id="editcontactus" class="rounded-form" method="post" >
+                                                    <form id="editcontactus" class="rounded-form" method="post" enctype="multipart/form-data" >
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Phoneno:</label>
@@ -40,8 +40,8 @@
                                           
                                                           </div>
                                                           <div class="col-md-6">
-                                                              <label for="company-logo" class="form-label text-primary">Contact Us Image:</label>
-                                                              <input type="file" class="form-control" id="image1" name="image1" >
+                                                              <label for="image1" class="form-label text-primary">Contact Us Image:</label>
+                                                              <input type="file" class="form-control" id="image1" name="image1">
                                                               <img src="<?php echo base_url().'uploads/contactus/'.$result->contactusimg;?>"  width="50" height="50" />
                                                           </div>
                                                       </div>
@@ -65,7 +65,7 @@
                                           
                                                           </div>
                                                           <div class="col-md-6">
-                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image1:</label>
+                                                              <label for="company-name" class="form-label text-primary">Contact Us Image Alt Tag Attribute:</label>
                                                               <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">
                                           
                                                           </div>
@@ -142,7 +142,9 @@
 $('#editcontactus').on('submit', function (e) {
     e.preventDefault();
     //alert("enter");
+       // var file_data1 = $('#image1').prop('files')[0];
         var file_data1 = $('#image1').prop('files')[0];
+        //alert("enter"+file_data1);
         //var file_data2 = $('#image2').prop('files')[0];
         var phoneno=$('#phoneno').val();
         var emailid=$("#emailid").val();
@@ -186,6 +188,7 @@ $('#editcontactus').on('submit', function (e) {
                 $('input[type=text]').each(function() {
         $(this).val('');
     });
+    alert("hello");
                 //$('#blogmsg').html(response); // display success response from the server
                 
                 window.location.href ="<?php echo base_url().'Welcome/listcontactus';?>";

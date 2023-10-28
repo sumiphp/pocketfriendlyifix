@@ -78,7 +78,9 @@
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Phone</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Message</th>
 
-                                                                              <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Notes</th>-->
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Package</th>
+                                                                              
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Nature of business</th>
                                                            <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
                                                   </thead>
                                                   <tbody>
@@ -94,9 +96,18 @@
                                                       <td><?php echo $res['companyname'];?></td>
                                                       <td><?php echo $res['email'];?></td>
                                                       <td><?php echo $res['phone'];?></td>
-                                                     
                                                       <td><?php echo $res['message'];?></td>
-                                                      <!--<td><?php //echo $res['note'];?></td>-->
+                                                      <td><?php $packageid=$res['packageid'];
+                                                      if (!empty($packageid)){
+                                                      $this->db->where('subcategoryid',$packageid);
+                                                      $this->db->select('*');
+                                                      $this->db->from('subcategory');
+                                                      $query = $this->db->get();
+                                                      $packagedt=$query->row();
+                                                      echo $packagedt->subcategoryname;
+                                                    }
+                                                      ?></td>
+                                                      <td><?php echo $res['natureofbusiness'];?></td>
                                                       <td> 
                                                         <ul class="action"> 
                                                           <!--<li class="edit"> <a href="#" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>--->

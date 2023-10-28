@@ -83,16 +83,16 @@
                                                       </div>
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Enter Mission:</label>
-                                                          <textarea class="form-control" id="mission" name="mission" rows="3" placeholder="About Company" required><?php echo $result->aboutcompany;?></textarea>
+                                                          <textarea class="form-control" id="mission" name="mission" rows="3" placeholder="About Company" required><?php echo $result->mission;?></textarea>
                                                       </div>
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Enter Vision:</label>
-                                                          <textarea class="form-control" id="vision" name="vision" rows="3" placeholder="About Company" required><?php echo $result->aboutcompany;?></textarea>
+                                                          <textarea class="form-control" id="vision" name="vision" rows="3" placeholder="About Company" required><?php echo $result->vision;?></textarea>
                                                       </div>
 
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">About Company Short Description:</label>
-                                                          <textarea class="form-control" id="shortdesc" name="shortdesc" rows="3" placeholder="About Company Short Description" required><?php echo $result->aboutcompany;?></textarea>
+                                                          <textarea class="form-control" id="shortdesc" name="shortdesc" rows="3" placeholder="About Company Short Description" required><?php echo $result->aboutusshortdesc;?></textarea>
                                                       </div>
 
 

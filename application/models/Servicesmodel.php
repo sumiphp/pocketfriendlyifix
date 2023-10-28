@@ -459,6 +459,7 @@ function get_qualities(){
 function get_menus(){
     $this->db->where('menutype',1);
     $this->db->where('status',1);
+    $this->db->order_by("orderno", "asc");
     $this->db->select('*');
     $this->db->from('menus');
     $query = $this->db->get();
@@ -561,6 +562,26 @@ function get_steps(){
     return $query->result_array();
 }
 
+public function getData($rowno,$rowperpage) {
+ 
+    $this->db->select('*');
+    $this->db->from('posts');
+    $this->db->limit($rowperpage, $rowno);  
+    $query = $this->db->get();
+ 
+    return $query->result_array();
+  }
+
+  // Select total records
+  public function getrecordCount() {
+
+    $this->db->select('count(*) as allcount');
+    $this->db->from('posts');
+    $query = $this->db->get();
+    $result = $query->result_array();
+ 
+    return $result[0]['allcount'];
+  }
 
 
 

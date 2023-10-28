@@ -171,7 +171,7 @@
                             </ul>
 
                             <div class="menu-btn">
-                                <a href="#" class="seo-btn mr-25"><i class='bx bx-search'></i> Search</a>
+                            <a href="tel:+<?php echo $contactus->lanno;?>" target="_blank" class="seo-btn"><i class='bx bx-phone'></i> +<?php echo $contactus->lanno;?></a>
                             </div>
                             <div class="menu-btn">
                                 <a href="tel:+<?php echo $contactus->phoneno;?>" target="_blank" class="seo-btn"><i class='bx bx-phone'></i> +<?php echo $contactus->phoneno;?></a>

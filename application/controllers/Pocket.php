@@ -361,7 +361,7 @@ public function indexload(){
   *
   * @return Response
  */
- public function loadRecord($rowno=0){
+ public function loadRecord_old($rowno=0){
 
 	 $rowperpage = 3;
 
@@ -402,6 +402,49 @@ public function indexload(){
 
 	 echo json_encode($data);
 }
+
+
+
+
+public function loadRecord($rowno=0){
+
+    // Row per page
+    $rowperpage = 5;
+
+    // Row position
+    if($rowno != 0){
+      $rowno = ($rowno-1) * $rowperpage;
+    }
+ 
+    // All records count
+    $allcount = $this->sm->getrecordCount();
+
+    // Get records
+    $users_record = $this->sm->getData($rowno,$rowperpage);
+ 
+    // Pagination Configuration
+    $config['base_url'] = base_url().'Pocket/loadRecord';
+    $config['use_page_numbers'] = TRUE;
+    $config['total_rows'] = $allcount;
+    $config['per_page'] = $rowperpage;
+
+    // Initialize
+    $this->pagination->initialize($config);
+
+    // Initialize $data Array
+    $data['pagination'] = $this->pagination->create_links();
+    $data['result'] = $users_record;
+    $data['row'] = $rowno;
+
+    echo json_encode($data);
+ 
+  }
+
+//}
+
+
+
+
 
 	
 }
