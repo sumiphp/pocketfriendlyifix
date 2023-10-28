@@ -14,9 +14,10 @@
                                 <p><?php echo $newsletter->newsletterdescription;?></p>
                             </div>
                             <div class="newsletter-area">
-                                <span id="newsmsg"></span>
+                                <span id="newsmsg" style='bottom:51px;color:red;font-weight:bold;'></span>
                                 <form class="newsletter-form-email" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
                                     <input type="email" class="form-control" placeholder="Enter Your Email" name="emailidnews"  id="emailnews" required />
+                                    <label id="emailnews-error" class="error errpopup" for="emailnews" style='bottom:51px;color:red;font-weight:bold;'></label>
                                     <button class="subscribe-btn" type="submit">
                                         Subscribe
                                     </button>
@@ -192,6 +193,11 @@
         <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
         <!-- Custom JS -->
         <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
+
+
+
     </body>
 </html>
 
@@ -223,7 +229,7 @@
         });
     //});
 
-    $('#frmemail').on('submit', function (e) {
+    $('#frmemail2').on('submit', function (e) {
     e.preventDefault();
     
         var emailnews=$("#emailnews").val();
@@ -242,8 +248,7 @@
             data: form_data,
             type: 'post',
             success: function (response) {
-                //$('#image1').val('');
-                //$('#date').val('');
+                
                 $('#emailnews').val('');
                 $('input[type=email]').each(function() {
         $(this).val('');
@@ -251,11 +256,103 @@
       $("#newsmsg").html(response);  
             },
             error: function (response) {
-                //$('#testmsg').html(response); // display error response from the server
+                
                 $("#newsmsg").html(response);  
             }
         });
     });
+
+
+
+    $('form[id="frmemail"]').validate({  
+    rules: {  
+        emailidnews: 'required',  
+      /* companyname: 'required',
+      phone:'required',  
+      email: {  
+        required: true,  
+        email: true,  
+      }, 
+      business:"required", 
+      message:"required",
+      package:"required", 
+     psword: {  
+        required: true,  
+        minlength: 8,  
+      }*/  
+    },  
+    messages: {  
+        emailidnews: 'Please enter your emailid',  
+      /*companyname: 'Company Name is required',  
+      phone: 'Enter a valid Phone',
+      email: 'Enter a valid Email',
+      business: 'Enter Your nature of business',
+      package:"Please select package",   
+      psword: {  
+        minlength: 'Password must be at least 8 characters long'  
+      } */
+      //message:'Please enter Message' 
+    },  
+    submitHandler: function(form) { 
+       // form.preventDefault();
+       /* $.ajax({
+                url: contactForm1.attr('action'),
+                type: 'post',
+                data: contactForm1.serialize(),
+                success: function(response){
+                    
+                    
+                    $('input[type=text]').each(function() {
+        $(this).val('');
+    });
+    
+    $("#email").val('');
+                    $("#msg").html(response);
+                   
+
+                }
+            });*/
+
+            $.ajax({
+	url: form.action,
+	type: form.method,
+	data: $(form).serialize(),
+	success: function(response) {
+        $('input[type=text]').each(function() {
+        $(this).val('');
+    });
+    
+    $('#emailnews').val('');
+    
+		$('#newsmsg').html(response);
+	}            
+      });		
+}
+
+
+
+
+
+      //form.submit();  
+   // }  
+  });  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

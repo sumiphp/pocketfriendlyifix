@@ -359,7 +359,7 @@ function get_newsletterall(){
 
 function get_countnewslettersubscribers(){
     $this->db->select('*');
-    $this->db->from('blogcontents');
+    $this->db->from('newslettersubscribe');
     $query = $this->db->get();
     return $rowcount = $query->num_rows();
 
