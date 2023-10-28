@@ -1437,11 +1437,13 @@ public function edithomepageprocess(){
    $image11=$imgdetails->homepageimg1;
    $image22=$imgdetails->homepageimg2;
    $image33=$imgdetails->serviceimg;
-
-
-
-
-
+   $image44=$imgdetails->homepageimg4;
+   $file_name=$_FILES['image1']['name'];
+   //$newfile_name= preg_replace('/[^A-Za-z0-9]/', "", $file_name);
+   //$//ext=pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+   $new_name = time().$file_name;
+   $config['file_name'] = $new_name;
+   //$config['remove_spaces'] = true;
 	$config['upload_path'] = 'uploads/homepage';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
@@ -1462,13 +1464,22 @@ public function edithomepageprocess(){
 				}
 			}
 		}
-		$image1=$_FILES['image1']['name'];
+		//$image1=$_FILES['image1']['name'];
+		$image1=$new_name;
 	} else {
 		$image1=$image11;
 	}
 	
-	
-
+	$file_name2=$_FILES['image2']['name'];
+   //$newfile_name= preg_replace('/[^A-Za-z0-9]/', "", $file_name);
+   //$//ext=pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+   $new_name2 = time().$file_name2;
+   $config2['file_name'] = $new_name2;
+   $config2['upload_path'] = 'uploads/homepage';
+   $config2['allowed_types'] = 'gif|jpg|png|jpeg';	
+   $config2['max_size'] = '1024'; //1 MB
+   $this->load->library('upload', $config2);
+   $this->upload->initialize($config2);
 	if (isset($_FILES['image2']['name'])) {
 		if (0 < $_FILES['image2']['error']) {
 			echo 'Error during file upload' . $_FILES['image2']['error'];
@@ -1484,11 +1495,53 @@ public function edithomepageprocess(){
 				}
 			}
 		}
-		$image2=$_FILES['image2']['name'];
+		$image2=$new_name2;
 	} else {
 		$image2=$image22;
 	}
 	
+
+	
+	/*$config4['upload_path'] = 'uploads/homepage';
+	$config4['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config4['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config4);
+	$this->upload->initialize($config4);
+	 if (isset($_FILES['image4']['name'])) {
+		 if (0 < $_FILES['image4']['error']) {
+			 echo 'Error during file upload' . $_FILES['image4']['error'];
+		 } else {
+			 if (file_exists('uploads/homepage' . $_FILES['image4']['name'])) {
+				 echo 'File already exists : uploads/homepage' . $_FILES['image4']['name'];
+			 } else {
+				 
+				 if (!$this->upload->do_upload('image4')) {
+					 //echo $this->upload->display_errors();
+				 } else {
+					 //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				 }
+			 }
+		 }
+		 $image2=$new_name2;
+	 } else {
+		 $image2=$image22;
+	 }*/
+
+
+
+	 $file_name3=$_FILES['image3']['name'];
+	 $new_name3 = time().$file_name3;
+	 $config3['file_name'] = $new_name3;
+	 $config3['upload_path'] = 'uploads/homepage';
+	 $config3['allowed_types'] = 'gif|jpg|png|jpeg';	
+	 $config3['max_size'] = '1024'; //1 MB
+	 $this->load->library('upload', $config3);
+	 $this->upload->initialize($config3);
+	 $file_name3=$_FILES['image3']['name'];
+	 //$newfile_name= preg_replace('/[^A-Za-z0-9]/', "", $file_name);
+	 //$//ext=pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+	 
+
 	if (isset($_FILES['image3']['name'])) {
 		if (0 < $_FILES['image3']['error']) {
 			echo 'Error during file upload' . $_FILES['image3']['error'];
@@ -1504,10 +1557,57 @@ public function edithomepageprocess(){
 				}
 			}
 		}
-		$image3=$_FILES['image3']['name'];
+		$image3=$new_name3;
 	} else {
 		$image3=$image33;
 	}
+
+
+
+
+	$file_name4=$_FILES['image4']['name'];
+	$new_name4 = time().$file_name4;
+	$config4['file_name'] = $new_name4;
+	$config4['upload_path'] = 'uploads/homepage';
+	$config4['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config4['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config4);
+	$this->upload->initialize($config4);
+	$file_name4=$_FILES['image4']['name'];
+	//$newfile_name= preg_replace('/[^A-Za-z0-9]/', "", $file_name);
+	//$//ext=pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+	
+
+   if (isset($_FILES['image4']['name'])) {
+	   if (0 < $_FILES['image4']['error']) {
+		   echo 'Error during file upload' . $_FILES['image4']['error'];
+	   } else {
+		   if (file_exists('uploads/homepage' . $_FILES['image4']['name'])) {
+			   echo 'File already exists : uploads/homepage' . $_FILES['image4']['name'];
+		   } else {
+			   
+			   if (!$this->upload->do_upload('image4')) {
+				   //echo $this->upload->display_errors();
+			   } else {
+				   //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+			   }
+		   }
+	   }
+	   $image4=$new_name4;
+   } else {
+	   $image4=$image44;
+   }
+
+
+
+
+
+
+
+
+
+
+
 	if ($image1==''){
 		$image1=$image11;
 	   }
@@ -1517,7 +1617,9 @@ public function edithomepageprocess(){
 	   if ($image3==''){
 		$image3=$image33;
 	   }
-
+	   if ($image4==''){
+		$image4=$image44;
+	   }
 	$servicetitle1=$this->input->post('servicetitle1');
 	$servicetitle2=$this->input->post('servicetitle2');
 	$servicetitle3=$this->input->post('servicetitle3');
@@ -1529,14 +1631,16 @@ public function edithomepageprocess(){
 	 $alttag1=$this->input->post('alttag1');
 	 $alttag2=$this->input->post('alttag2');
 	 $alttag3=$this->input->post('alttag3');
+	 $alttag4=$this->input->post('alttag4');
 	 $data = array(
 		'alttagimg1'=>"$alttag1",
 		'alttagimg2'=>"$alttag2",
 		'alttagimg3'=>"$alttag3",
+		'alttagimg4'=>"$alttag4",
 		'metatag'=>$metatag,
 		'title1' =>"$maintitle",
 		'title2' =>"$subtitle",
-		//'description'=>"$description",
+		'homepageimg4'=>$image4,
 		'servicetitle1'=>$servicetitle1, 'servicetitle2'=>$servicetitle2,'servicetitle3'=>$servicetitle3,
 		'homepageimg1'=>$image1,'homepageimg2'=>$image2,'serviceimg'=>$image3,'servicetitle'=>$servicetitle,'qualitytitle'=>$qualitytitle		
 	 );

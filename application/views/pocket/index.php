@@ -185,7 +185,8 @@ bottom:4px;
                             <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->homepageimg2;?>" class="w-100"  alt="<?php echo $resulthome->alttagimg2;?>" >
                             </div>
                             <div class="about-img-sec taC">
-                            <img src="<?php echo base_url().'pockets/assets/img/about-img2.png';?>">
+                            <!--<img src="<?php //echo base_url().'pockets/assets/img/about-img2.png';?>">-->
+                            <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->homepageimg4;?>" class="w-100"  alt="<?php echo $resulthome->alttagimg4;?>" >
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">

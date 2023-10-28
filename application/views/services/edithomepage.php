@@ -108,10 +108,14 @@
                                                       </div>
 
                                                       <div class="row mb-3">
+
+
                                                       <div class="col-md-6">
-                                                              <label for="email" class="form-label text-primary">Quality Title </label>
-                                                              <input type="text" class="form-control" id="qualitytitle" name="qualitytitle" placeholder="Enter Quality Title" value="<?php echo $result->qualitytitle;?>">
+                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image3:</label>
+                                                              <input type="text" class="form-control" id="alttagimg3" name="alttagimg3" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg3;?>">
+                                          
                                                           </div>
+                                                      
                                                          
                                                           <div class="col-md-6">
                                                           <label for="designation" class="form-label text-primary">Service Image:</label>
@@ -120,11 +124,28 @@
                                                           </div>
                                                       </div>
 
+
                                                       <div class="row mb-3">
+                                                      <div class="col-md-6">
+                                                      <label for="company-name" class="form-label text-primary">Alt Tag Image4:</label>
+                                                              <input type="text" class="form-control" id="alttagimg4" name="alttagimg4" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg4;?>">
+                                                          </div>
+                                                         
                                                           <div class="col-md-6">
-                                                              <label for="company-name" class="form-label text-primary">Alt Tag Image3:</label>
-                                                              <input type="text" class="form-control" id="alttagimg3" name="alttagimg3" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg3;?>">
-                                          
+                                                          <label for="designation" class="form-label text-primary">Image4:</label>
+                                                              <input type="file" class="form-control" id="image4" name="image4">
+                                                              <img src="<?php echo base_url().'uploads/homepage/'.$result->homepageimg4;?>" width="50" height="50" />
+                                                          </div>
+                                                      </div>
+
+
+
+
+
+                                                      <div class="row mb-3">
+                                                      <div class="col-md-6">
+                                                              <label for="email" class="form-label text-primary">Quality Title </label>
+                                                              <input type="text" class="form-control" id="qualitytitle" name="qualitytitle" placeholder="Enter Quality Title" value="<?php echo $result->qualitytitle;?>">
                                                           </div>
                                                           
                                                       </div>
@@ -208,6 +229,7 @@ $('#edithomepage').on('submit', function (e) {
         var file_data1 = $('#image1').prop('files')[0];
         var file_data2 = $('#image2').prop('files')[0];
         var file_data3 = $('#image3').prop('files')[0];
+        var file_data4 = $('#image4').prop('files')[0];
         var maintitle=$('#maintitle').val();
       var subtitle=$("#subtitle").val();
         var servicetitle1=$("#servicetitle1").val();
@@ -218,11 +240,13 @@ $('#edithomepage').on('submit', function (e) {
         var alttagimg1=$("#alttagimg1").val();
         var alttagimg2=$("#alttagimg2").val();
         var alttagimg3=$("#alttagimg3").val();
+        var alttagimg4=$("#alttagimg4").val();
         var metatag=$("#metatag").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         form_data.append('image2', file_data2);
         form_data.append('image3', file_data3);
+        form_data.append('image4', file_data4);
        
         form_data.append('maintitle',maintitle);
         form_data.append('subtitle',subtitle);
@@ -232,6 +256,7 @@ $('#edithomepage').on('submit', function (e) {
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
         form_data.append('alttag3',alttagimg3);
+        form_data.append('alttag4',alttagimg4);
         form_data.append('metatag',metatag);
         form_data.append('qualitytitle',qualitytitle);
         form_data.append('servicetitle3',servicetitle3);
