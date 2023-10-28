@@ -37,32 +37,32 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Testimonial Title:</label>
-                                                              <input type="text" class="form-control" id="testtitle" name="testtitle" placeholder="Testimonial Title">
+                                                              <input type="text" class="form-control" id="testtitle" name="testtitle" placeholder="Testimonial Title" required>
                                           
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="company-logo" class="form-label text-primary">Image:</label>
-                                                              <input type="file" class="form-control" id="image1" name="image1">
+                                                              <input type="file" class="form-control" id="image1" name="image1"  required>
                                                           </div>
                                                       </div>
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="contact-person" class="form-label text-primary">Rating:</label>
-                                                              <input type="text" class="form-control numericvalidate" id="rating" name="rating" placeholder="Enter Rating">
+                                                              <input type="text" class="form-control numericvalidate" id="rating" name="rating" placeholder="Enter Rating"  required>
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Date Posted:</label>
-                                                              <input type="date" class="form-control" id="date" name="date">
+                                                              <input type="date" class="form-control" id="date" name="date"  required>
                                                           </div>
                                                       </div>
                                                       <div class="row mb-3">
                                                       <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Name:</label>
-                                                              <input type="text" class="form-control" id="name" name="name">
+                                                              <input type="text" class="form-control" id="name" name="name"  required>
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="contact-person" class="form-label text-primary">Place:</label>
-                                                              <input type="text" class="form-control" id="place" name="place" placeholder="Enter Place">
+                                                              <input type="text" class="form-control" id="place" name="place" placeholder="Enter Place"  required>
                                                           </div>
                                                           
                                                       </div>
@@ -127,7 +127,7 @@
                                                       
                                                       <a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listtestimonials';?>" data-bs-original-title="" title="">View/Edit  </a>
                                                       
-                                                      <button type="button" class="btn btn-primary" id="uploadsub" >Submit</button>
+                                                      <button type="submit" class="btn btn-primary" id="uploadsub" >Submit</button>
                                                   </form>
 
                                                 </div>
@@ -158,28 +158,9 @@
             
 
 
-         <!-- Jquery Min JS -->
-        <script src="<?php echo base_url().'assets/js/jquery.min.js';?>"></script>
-        <!-- Bootstrap Bundle Min JS -->
-        <script src="<?php echo base_url().'assets/js/bootstrap.bundle.min.js';?>"></script>
-        <!-- Meanmenu JS -->
-        <script src="<?php echo base_url().'assets/js/meanmenu.min.js';?>"></script>
-        <!-- Owl Carousel JS -->
-        <script src="<?php echo base_url().'assets/js/owl.carousel.min.js';?>"></script>
-        <!-- Magnific Popup JS -->
-        <script src="<?php echo base_url().'assets/js/jquery.magnific-popup.min.js';?>"></script>
-        <!-- Wow JS -->
-        <script src="<?php echo base_url().'assets/js/wow.min.js';?>"></script>
-        <!-- Ajaxchimp Min JS -->
-        <script src="<?php echo base_url().'assets/js/jquery.ajaxchimp.min.js';?>"></script>
-        <!-- Form Validator Min JS -->
-        <script src="<?php echo base_url().'assets/js/form-validator.min.js';?>"></script>
-        <!-- Contact Form JS -->
-        <script src="<?php echo base_url().'assets/js/contact-form-script.js';?>"></script>
-        <!-- Custom JS -->
-        <script src="<?php echo base_url().'assets/js/custom.js';?>"></script>
+        <?php include_once("footer.php");?>
         <script>
-$('#uploadsub').on('click', function (e) {
+$('#addtestimonial').on('submit', function (e) {
     e.preventDefault();
     //alert("enter");
         var file_data1 = $('#image1').prop('files')[0];
@@ -191,7 +172,7 @@ $('#uploadsub').on('click', function (e) {
         var place=$("#place").val();
         var date=$("#date").val();
         var alttagimg1=$("#alttagimg1").val();
-        
+        //alert("enter1");
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         form_data.append('alttag1',alttagimg1);
@@ -201,7 +182,7 @@ $('#uploadsub').on('click', function (e) {
         form_data.append('name',name);
         form_data.append('place',place);
         form_data.append('date',date);
-       
+        //alert("enter1");
         $.ajax({
             url: "<?php echo base_url().'Welcome/addtestimonialsprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server
@@ -233,4 +214,4 @@ $('#uploadsub').on('click', function (e) {
 </script>
 
     </body>
-    <?php include_once("footer.php");?>
+ 

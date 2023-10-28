@@ -36,33 +36,33 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Testimonial Title:</label>
-                                                              <input type="text" class="form-control" id="testtitle" name="testtitle" placeholder="Testimonial Title" value="<?php echo $result->title;?>">
+                                                              <input type="text" class="form-control" id="testtitle" name="testtitle" placeholder="Testimonial Title" value="<?php echo $result->title;?>" required>
                                           
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="company-logo" class="form-label text-primary">Image:</label>
-                                                              <input type="file" class="form-control" id="image1" name="image1">
+                                                              <input type="file" class="form-control" id="image1" name="image1" >
                                                               <img src="<?php echo base_url().'uploads/testimonial/'.$result->image;?>"  width="50" height="50" />
                                                           </div>
                                                       </div>
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="contact-person" class="form-label text-primary">Rating:</label>
-                                                              <input type="text" class="form-control numericvalidate" id="rating" name="rating" placeholder="Enter Rating" value="<?php echo $result->rating;?>">
+                                                              <input type="text" class="form-control numericvalidate" id="rating" name="rating" placeholder="Enter Rating" value="<?php echo $result->rating;?>" required>
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Date Posted:</label>
-                                                              <input type="date" class="form-control" id="date" name="date" value="<?php echo $result->date;?>">
+                                                              <input type="date" class="form-control" id="date" name="date" value="<?php echo $result->date;?>" required>
                                                           </div>
                                                       </div>
                                                       <div class="row mb-3">
                                                       <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Name:</label>
-                                                              <input type="text" class="form-control" id="name" name="name" value="<?php echo $result->name;?>">
+                                                              <input type="text" class="form-control" id="name" name="name" value="<?php echo $result->name;?>" required>
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="contact-person" class="form-label text-primary">Place:</label>
-                                                              <input type="text" class="form-control" id="place" name="place" placeholder="Enter Place" value="<?php echo $result->place;?>">
+                                                              <input type="text" class="form-control" id="place" name="place" required placeholder="Enter Place" value="<?php echo $result->place;?>" required>
                                                           </div>
                                                           
                                                       </div>
@@ -70,7 +70,7 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Alt Tag Image1:</label>
-                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>" required>
                                           
                                                           </div>
                                                           <!--<div class="col-md-6">
@@ -110,7 +110,7 @@
                                                       </div>-->
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Testimonial:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Testimonial"><?php echo $result->testimonial;?></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="3" required placeholder="Enter Testimonial"><?php echo $result->testimonial;?></textarea>
                                                       </div>
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">
@@ -125,7 +125,7 @@
                                                       
                                                       <a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listtestimonials';?>" data-bs-original-title="" title="">View/Edit  </a>
                                                       
-                                                      <button type="button" class="btn btn-primary" id="uploadsub" >Submit</button>
+                                                      <button type="submit" class="btn btn-primary" id="uploadsub" >Submit</button>
                                                   </form>
 
                                                 </div>
@@ -179,7 +179,7 @@
         </body>
     <?php include_once("footer.php");?>
         <script>
-$('#uploadsub').on('click', function (e) {
+$('#edittestimonial').on('submit', function (e) {
     e.preventDefault();
     //alert("enter");
         var file_data1 = $('#image1').prop('files')[0];

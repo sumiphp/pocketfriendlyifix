@@ -202,7 +202,12 @@ public function categoryeditprocess(){
 function upload_file() {
 
 	//upload file
-	
+	$file_name=$_FILES['file']['name'];
+	$new_name = time().$file_name;
+	$config['file_name'] = $new_name;
+ 
+ 
+ 
 	$config['upload_path'] = 'uploads';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';
 	//$config['max_filename'] = '255';
@@ -214,8 +219,8 @@ function upload_file() {
 		if (0 < $_FILES['file']['error']) {
 			echo 'Error during file upload' . $_FILES['file']['error'];
 		} else {
-			if (file_exists('uploads/' . $_FILES['file']['name'])) {
-				echo 'File already exists : uploads/' . $_FILES['file']['name'];
+			if (file_exists('uploads/' . $new_name)) {
+				echo 'File already exists : uploads/' . $new_name;
 			} else {
 				
 				if (!$this->upload->do_upload('file')) {
@@ -228,10 +233,12 @@ function upload_file() {
 	} else {
 		echo 'Please choose a file';
 	}
+	$image1=$new_name;
 	$productcategory=$this->input->post('productcategory');
 	$productdesc=$this->input->post('productdescription');
 	$alttag1=$this->input->post('alttag1');
-	$productimg=$_FILES['file']['name'];
+	//$productimg=$_FILES['file']['name'];
+	$productimg=$image1;
 	$data = array(
 		'categoryname' =>"$productcategory",
 		'categorydescription' =>"$productdesc",
@@ -251,7 +258,10 @@ function upload_file() {
 function upload_filecatedit() {
 
 	//upload file
-	
+	$file_name=$_FILES['file']['name'];
+	if ($file_name!=''){
+	$new_name = time().$file_name;
+	$config['file_name'] = $new_name;
 	$config['upload_path'] = 'uploads';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';
 	//$config['max_filename'] = '255';
@@ -263,8 +273,8 @@ function upload_filecatedit() {
 		if (0 < $_FILES['file']['error']) {
 			echo 'Error during file upload' . $_FILES['file']['error'];
 		} else {
-			if (file_exists('uploads/' . $_FILES['file']['name'])) {
-				echo 'File already exists : uploads/' . $_FILES['file']['name'];
+			if (file_exists('uploads/' . $new_name)) {
+				echo 'File already exists : uploads/' . $new_name;
 			} else {
 				
 				if (!$this->upload->do_upload('file')) {
@@ -277,12 +287,18 @@ function upload_filecatedit() {
 	} else {
 		echo 'Please choose a file';
 	}
+	$productimg=$new_name;
+}else{
+	$productimg='';
+
+}
 
 	$alttag1=$this->input->post('alttag1');
 	$productcategory=$this->input->post('productcategory');
 	$productcategoryid=$this->input->post('productcategoryid');
 	$productdesc=$this->input->post('productdescription');
-	$productimg=$_FILES['file']['name'];
+	//$productimg=$_FILES['file']['name'];
+	
 	if ($productimg==''){
 
 		$data = array(
@@ -2253,6 +2269,11 @@ function delql(){
 
 public function addtestimonialsprocess(){
 
+	$file_name=$_FILES['image1']['name'];
+   //$newfile_name= preg_replace('/[^A-Za-z0-9]/', "", $file_name);
+   //$//ext=pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+   $new_name = time().$file_name;
+   $config['file_name'] = $new_name;
 	$config['upload_path'] = 'uploads/testimonial';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
@@ -2280,7 +2301,7 @@ public function addtestimonialsprocess(){
 	
 
 	
-	$image1=$_FILES['image1']['name'];
+	$image1=$new_name;
 	$alttag1=$this->input->post('alttag1');
 
 	 $testtitle=$this->input->post('testtitle');
@@ -2542,6 +2563,11 @@ public function editblogcontentsprocess(){
 
 public function edittestimonialsprocess(){
 
+	$file_name=$_FILES['image1']['name'];
+   //$newfile_name= preg_replace('/[^A-Za-z0-9]/', "", $file_name);
+   //$//ext=pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+   $new_name = time().$file_name;
+   $config['file_name'] = $new_name;
 	$config['upload_path'] = 'uploads/testimonial';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
@@ -2569,7 +2595,7 @@ public function edittestimonialsprocess(){
 	
 
 	
-	$image1=$_FILES['image1']['name'];
+	$image1=$new_name;
 	//$image2=$_FILES['image2']['name'];
 
 	 $testtitle=$this->input->post('testtitle');
@@ -2579,7 +2605,7 @@ public function edittestimonialsprocess(){
 	  $place=$this->input->post('place');
 	  $date=$this->input->post('date');
 	  $alttag1=$this->input->post('alttag1');
-if ($image1==''){
+if ($file_name==''){
 	$data = array(
 		'testimonial' =>"$description",'alttagimg1'=>"$alttag1",
 		'rating' =>"$rating",
