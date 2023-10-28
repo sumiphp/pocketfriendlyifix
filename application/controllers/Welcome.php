@@ -1026,6 +1026,9 @@ public function addfaqprocess(){
 public function addmenuprocess(){
 
 	if (isset($_FILES['image1']['name'])){
+		$file_name=$_FILES['image1']['name'];
+	$new_name = time().$file_name;
+	$config['file_name'] = $new_name;
 	$config['upload_path'] = 'uploads/menu';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
@@ -1033,10 +1036,10 @@ public function addmenuprocess(){
 	$this->upload->initialize($config);
 	if (isset($_FILES['image1']['name'])) {
 		if (0 < $_FILES['image1']['error']) {
-			echo 'Error during file upload' . $_FILES['image1']['error'];
+			echo 'Error during file upload' . $new_name;
 		} else {
-			if (file_exists('uploads/menu' . $_FILES['image1']['name'])) {
-				echo 'File already exists : uploads/menu' . $_FILES['image1']['name'];
+			if (file_exists('uploads/menu' . $new_name)) {
+				echo 'File already exists : uploads/menu' . $new_name;
 			} else {
 				
 				if (!$this->upload->do_upload('image1')) {
@@ -1050,7 +1053,7 @@ public function addmenuprocess(){
 		//echo 'Please choose a file';
 	}
 
-	$image1=$_FILES['image1']['name'];
+	$image1=$new_name;
 }else{
 	$image1='';
 }
@@ -1955,6 +1958,9 @@ public function socialmedialinksprocess(){
 	$facebook=$this->input->post('facebook');
 	$instagram=$this->input->post('instagram');
 	$twitter=$this->input->post('twitter');
+	$calllnk=$this->input->post('wplink');
+	$locationlink=$this->input->post('loclink');
+	
 
 
 
@@ -1964,9 +1970,10 @@ public function socialmedialinksprocess(){
 		'youtube'=>"$youtube",
 		'facebook'=>$facebook,
 		 'instagram' =>"$instagram",
-		'twitter' =>"$twitter"
-		 //'authorname'=>"$name",
-		 //'toparticle'=>$toparticle,'date'=>$date,'title'=>$blogtitle		
+		'twitter' =>"$twitter",
+		 'calllnk'=>"$calllnk",
+		 'locationlink'=>"$locationlink"
+		 //'date'=>$date,'title'=>$blogtitle		
 	  );
 
 
@@ -2632,7 +2639,9 @@ if ($file_name==''){
 
 
 public function addsolutionsprocess(){
-
+	$file_name=$_FILES['image1']['name'];
+	$new_name = time().$file_name;
+	$config['file_name'] = $new_name;
 	$config['upload_path'] = 'uploads/problems';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
@@ -2657,8 +2666,10 @@ public function addsolutionsprocess(){
 		echo 'Please choose a file';
 	}
 
-	$image1=$_FILES['image1']['name'];
+	//$image1=$_FILES['image1']['name'];
 	//$image2=$_FILES['image2']['name'];
+	$image1=$new_name;
+
 
 	 $title=$this->input->post('maintitle');
 	$link=$this->input->post('link');
@@ -3164,6 +3175,9 @@ public function addservicessteps(){
 }
 
 public function addservicesstepsprocess(){
+	$file_name=$_FILES['image1']['name'];
+	$new_name = time().$file_name;
+	$config['file_name'] = $new_name;
 	$config['upload_path'] = 'uploads/servicessteps';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
@@ -3173,8 +3187,8 @@ public function addservicesstepsprocess(){
 		if (0 < $_FILES['image1']['error']) {
 			echo 'Error during file upload' . $_FILES['image1']['error'];
 		} else {
-			if (file_exists('uploads/servicessteps' . $_FILES['image1']['name'])) {
-				echo 'File already exists : uploads/servicessteps' . $_FILES['image1']['name'];
+			if (file_exists('uploads/servicessteps' . $new_name)) {
+				echo 'File already exists : uploads/servicessteps' . $new_name;
 			} else {
 				
 				if (!$this->upload->do_upload('image1')) {
@@ -3188,8 +3202,9 @@ public function addservicesstepsprocess(){
 		echo 'Please choose a file';
 	}
 
-	$image1=$_FILES['image1']['name'];
+	//$image1=$_FILES['image1']['name'];
 	//$image2=$_FILES['image2']['name'];
+	$image1=$new_name;
 
 	 $title=$this->input->post('maintitle');
 	//$link=$this->input->post('link');

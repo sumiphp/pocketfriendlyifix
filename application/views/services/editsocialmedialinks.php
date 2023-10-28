@@ -62,6 +62,19 @@
                                                               </div>
                                                             </div>
                                                           </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Right bottom Locationlink</label>
+                                                                <input class="form-control" placeholder="Enter Right bottom Whatsuplink" type="text" id="loclink" name="loclink"   value="<?php echo $result->locationlink;?>" data-bs-original-title="" title=""><span class="text-danger" ></span>
+                                                                <!--<img src="<?php //echo base_url().'uploads/logo/'.$result->facebook;?>" width="50" height="50" />-->
+
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+
                                                       <!--</form>-->
 
                                                 </div>
@@ -112,6 +125,17 @@
                                                               </div>
                                                             </div>
                                                           </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Right bottom Whatsuplink</label>
+                                                                <input class="form-control" placeholder="Enter Right bottom Whatsuplink" type="text" id="wplink" name="wplink"   value="<?php echo $result->calllnk;?>" data-bs-original-title="" title=""><span class="text-danger" ></span>
+                                                                <!--<img src="<?php //echo base_url().'uploads/logo/'.$result->facebook;?>" width="50" height="50" />-->
+
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
                                                           <div class="row">
                                                             <div class="col-sm-12 text-end"><!--<a class="btn btn-primary me-3" href="#" data-bs-original-title="" title="">ADD </a>-->  <button type="submit" class="btn btn-primary" id="uploadser" >Update</button></div>
                                                           </div>

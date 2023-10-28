@@ -155,8 +155,8 @@
                 </div>
             </div>
             <div class="button__cover">
-            <a href="#" target="blank"><i class="bx bxl-whatsapp"></i></a>
-            <a href="#" target="_blank"> <i class="bx bxs-map"></i> </a>
+            <a href="<?php echo $footerdt->calllnk;?>" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            <a href="<?php echo $footerdt->locationlink;?>" target="_blank"><i class="bx bxs-map"></i> </a>
         </div>
             <div class="footer-bottom">
                 <div class="container">
