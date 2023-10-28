@@ -47,7 +47,8 @@ echo $result->metatag;
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="blog-person">
-                            <img src="<?php echo base_url().'pockets/assets/img/blog/blog-img.png';?>">
+                            <!--<img src="<?php //echo base_url().'pockets/assets/img/blog/blog-img.png';?>">-->
+                            <img src="<?php echo base_url().'uploads/blog/'.$resulttopcontent->autorimage;?>" alt="<?php echo $resulttopcontent->alttagimg1;?>"/>
                         </div>
                     </div>
                     <div class="col-lg-10 col-md-10">

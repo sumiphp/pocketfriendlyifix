@@ -2884,12 +2884,13 @@ function editblogpageprocess(){
 	$description=$this->input->post('description');
 	//die;
 	$metatag=$this->input->post('metatag');
+	$blogtitle=$this->input->post('blogtitle');
 	/* $place=$this->input->post('place');
 	 $date=$this->input->post('date');*/
 	$data = array(
 		'blogdescription' =>"$description",
 		'metatag' =>"$metatag",
-		//'name'=>"$name",
+		'blogtitle'=>"$blogtitle",
 		//'image'=>$image1,'place'=>$place,'date'=>$date,'title'=>$testtitle		
 	 );
 	 $id=$this->uri->segment(3); 

@@ -33,7 +33,14 @@
                                             <div class="inner-card-body">
                                                 <div class="product-info">
                                                     <form id="editnewsletter" class="rounded-form" method="post" action="<?php echo base_url().'Welcome/editblogpageprocess';?>" >
- 
+                                                    <div class="row mb-3">
+                                                          <div class="col-md-6">
+                                                              <label for="company-name" class="form-label text-primary">Blog Page Title:</label>
+                                                              <input type="text" class="form-control" id="blogtitle" name="blogtitle" placeholder="Blog Content Title" required value="<?php echo $result->blogtitle;?>" >
+                                          
+                                                          </div>
+                                                          
+                                                      </div>
                                                     
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Blog Page Content:</label>
@@ -123,7 +130,7 @@ $('#uploadsub').on('click', function (e) {
   
         //var file_data1 = $('#image1').prop('files')[0];
         //var file_data2 = $('#image2').prop('files')[0];
-        //var testtitle=$('#testtitle').val();
+        var blogtitle=$('#blogtitle').val();
         //var rating=$("#rating").val();
         var description=$("#description").val();
        var metatag=$("#metatag").val();
@@ -133,7 +140,7 @@ $('#uploadsub').on('click', function (e) {
         var form_data = new FormData();
         //form_data.append('image1', file_data1);
         //form_data.append('image2', file_data2);
-        //form_data.append('testtitle',testtitle);
+        form_data.append('blogtitle',blogtitle);
         //form_data.append('rating',rating);
         form_data.append('description',description);
         form_data.append('metatag',metatag);
