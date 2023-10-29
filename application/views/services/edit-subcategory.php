@@ -178,6 +178,19 @@
                                                             </div>
                                                           </div>
 
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                          <label for="status" class="form-label text-primary">Status:</label>
+                                                              
+                                                              <select class="form-control" placeholder="Select Status" name="status" id="status"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1" <?php if ($result->active=='1'){?> selected <?php }?>>Active </option>
+                                                                <option value="0" <?php if ($result->active=='0'){?> selected <?php }?>>Inactive </option>
+</select>
+                                                                </div>
+                                                            </div>
+                                                          </div> 
 
                                                           <div class="row">
                                                             <div class="col-sm-12 text-end"><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>

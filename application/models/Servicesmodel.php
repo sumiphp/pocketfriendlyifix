@@ -583,6 +583,17 @@ public function getData($rowno,$rowperpage) {
     return $result[0]['allcount'];
   }
 
+  
+  function get_categoriesallactive(){
+    $this->db->where('active',1);
+    $this->db->select('*');
+    $this->db->from('category');
+    $query = $this->db->get();
+    return $query->result_array();
+}
+
+
+
 
 
 }

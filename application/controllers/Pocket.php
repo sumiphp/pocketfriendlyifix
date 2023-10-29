@@ -52,7 +52,7 @@ class Pocket extends CI_Controller {
 
 	public function index()
 	{
-		$data['result']=$this->sm->get_categoriesall();
+		$data['result']=$this->sm->get_categoriesallactive();
 		$data['resultsuball']=$this->sm->get_subcategoriesall();
 		$data['resultsub']=$this->sm->get_subcategoriesrand();
 		$data['resultcontents']=$this->sm->get_blogcontents();
@@ -84,7 +84,8 @@ class Pocket extends CI_Controller {
 
 public function service(){
 	$data['contactus']=$this->sm->get_contactus();
-	$data['result']=$this->sm->get_categoriesall();
+	//$data['result']=$this->sm->get_categoriesall();
+	$data['result']=$this->sm->get_categoriesallactive();
 	$data['service']=$this->sm->get_servicesall();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
@@ -318,7 +319,8 @@ public function servicedetails(){
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
 	$data['about']=$this->sm->get_aboutus();
-	$data['categories']=$this->sm->get_categoriesall();
+	//$data['categories']=$this->sm->get_categoriesall();
+	$data['categories']=$this->sm->get_categoriesallactive();
 	$data['lowestpackage']=$this->sm->get_lowestpackage($serid);
 	$data['easeyourproblems']=$this->sm->get_problems();
 	$data['menus']=$this->sm->get_menus();

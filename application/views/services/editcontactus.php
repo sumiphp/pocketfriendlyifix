@@ -71,7 +71,10 @@
                                                           </div>
                                                       </div>
 
-
+<div class="mb-3">
+                                                      <label for="company-name" class="form-label text-primary">Lanno:</label>
+                                                              <input type="text" class="form-control" id="lanno" name="lanno" placeholder="Lanno" required value="<?php echo $result->lanno;?>" >
+                                                      </div>
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Front Page Contact Us description:</label>
@@ -141,7 +144,7 @@
         <script>
 $('#editcontactus').on('submit', function (e) {
     e.preventDefault();
-    //alert("enter");
+    
        // var file_data1 = $('#image1').prop('files')[0];
         var file_data1 = $('#image1').prop('files')[0];
         //alert("enter"+file_data1);
@@ -150,7 +153,7 @@ $('#editcontactus').on('submit', function (e) {
         var emailid=$("#emailid").val();
         var place=$("#place").val();
         var country=$("#country").val();
-        //var place=$("#place").val();
+        var lanno=$("#lanno").val();
         //var date=$("#date").val();
        var description=$("#description").val();
        var metatag=$("#metatag").val();
@@ -158,7 +161,7 @@ $('#editcontactus').on('submit', function (e) {
         var alttagimg2=$("#alttagimg2").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
-        //form_data.append('image2', file_data2);
+        form_data.append('lanno', lanno);
         form_data.append('phoneno',phoneno);
         form_data.append('emailid',emailid);
         form_data.append('place',place);
@@ -167,6 +170,7 @@ $('#editcontactus').on('submit', function (e) {
         form_data.append('metatag',metatag);
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
+       // alert("enter");
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/contactusprocess';?>", // point to server-side controller method
@@ -188,7 +192,7 @@ $('#editcontactus').on('submit', function (e) {
                 $('input[type=text]').each(function() {
         $(this).val('');
     });
-    alert("hello");
+    //alert("hello");
                 //$('#blogmsg').html(response); // display success response from the server
                 
                 window.location.href ="<?php echo base_url().'Welcome/listcontactus';?>";

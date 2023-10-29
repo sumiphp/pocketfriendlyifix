@@ -44,7 +44,7 @@
                                                     <h3 class="megamenu_title"><span> <?php echo $mn['menuname'];?></span></h3>
                                                 
                                                     <picture>
-                                                        <img src="<?php echo base_url().'assets/img/service-img.png';?>" class="img-fluid mRight mTop70" alt="TruckLogics Products" loading="lazy" width="300" height="191" />
+                                                        <img src="<?php echo base_url().'uploads/menu/'.$mn['menuimg'];?>" class="img-fluid mRight mTop70" alt="TruckLogics Products" loading="lazy" width="300" height="191" />
                                                     </picture>
                                                 </div>
                                                

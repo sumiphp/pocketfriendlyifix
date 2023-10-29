@@ -122,6 +122,7 @@
                                                       }
                                                       
                                                       ?></td>
+                                                        <td><?php echo "<img src=".base_url().'uploads/menu/'.$res['menuimg']." />";?></td>
                                                      
                                                       <td class="sorting_1"><?php echo $res['orderno'];?></td> 
                                                       <td>

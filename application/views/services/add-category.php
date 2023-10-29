@@ -109,6 +109,22 @@
                                                             </div>
                                                           </div>
 
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                              <label for="status" class="form-label text-primary">Status:</label>
+                                                              
+                                                              <select class="form-control" placeholder="Select Status" name="status" id="status"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1">Active </option>
+                                                                <option value="0">Inactive </option>
+</select>
+
+</div>
+
+                                                          </div>
+                                                      </div>
+
 
                                                           <div class="row">
                                                          
@@ -231,6 +247,22 @@
                                                             </div>
                                                           </div>
 
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                              <label for="status" class="form-label text-primary">Status:</label>
+                                                              
+                                                              <select class="form-control" placeholder="Select Status" name="status" id="status1"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1">Active </option>
+                                                                <option value="0">Inactive </option>
+</select>
+
+</div>
+
+                                                          </div>
+                                                      </div>
+
 
                                                           <div class="row">
                                                             <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="<?php echo base_url().'index.php/Welcome/listsubcategory';?>" data-bs-original-title="" title="">View and Edit </a><button class="btn btn-secondary" id="uploadsub" data-bs-original-title="" title="">Save</button></div>
@@ -341,13 +373,14 @@
         var productdescription=$('#productdescription').val();
         var alttagimg1=$("#alttagimg1").val();
         var alttagimg2=$("#alttagimg2").val();
+        var status=$("#status").val();
         var form_data = new FormData();
         form_data.append('file', file_data);
         form_data.append('productcategory',productcategory);
         form_data.append('productdescription',productdescription);
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
-       
+        form_data.append('status',status);
         $.ajax({
             url: "<?php echo base_url().'Welcome/upload_file';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server
@@ -382,6 +415,7 @@
         var price=$('#price').val();
         var alttagimg1=$("#alttagimg1").val();
         var alttagimg2=$("#alttagimg2").val();
+        var status=$("#status1").val();
         var form_data = new FormData();
         form_data.append('filesub', file_data);
         form_data.append('prdsubcat',prdsubcat);
@@ -392,6 +426,7 @@
         form_data.append('price',price);
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
+        form_data.append('status',status);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/upload_filesub';?>", // point to server-side controller method

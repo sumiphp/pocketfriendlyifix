@@ -32,7 +32,7 @@
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                                 <div class="product-info">
-                                                    <form id="menufrm" class="rounded-form" method="post"  action="<?php echo base_url().'Welcome/editmenuprocess';?>" >
+                                                    <form id="menufrm" class="rounded-form" method="post"  action="<?php echo base_url().'Welcome/editmenuprocess';?>" enctype='multipart/form-data' >
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Menu Name:</label>
@@ -177,8 +177,8 @@
         <script>
 $('#menufrm1').on('submit', function (e) {
     e.preventDefault();
-   alert("enter");
-        //var file_data1 = $('#image1').prop('files')[0];
+   //alert("enter");
+        var file_data1 = $('#image1').prop('files')[0];
         //var file_data2 = $('#image2').prop('files')[0];
         var menuname=$('#menuname').val();
         var menuurl=$("#menuurl").val();
@@ -189,7 +189,7 @@ $('#menufrm1').on('submit', function (e) {
         //var menutype=$("#menutype").val();
         
         var form_data = new FormData();
-        //form_data.append('image1', file_data1);
+        form_data.append('image1', file_data1);
         //form_data.append('image2', file_data2);
         form_data.append('menuname',menuname);
         form_data.append('menutype',menutype);
