@@ -40,10 +40,15 @@
                                                               <input type="text" class="form-control" id="faqtitle" name="faqtitle" placeholder="Enter Faq Title" required>
                                           
                                                           </div>
-                                                          <!--<div class="col-md-6">
-                                                              <label for="company-logo" class="form-label text-primary">Image1:</label>
-                                                              <input type="file" class="form-control" id="image1" name="image1">
-                                                          </div>-->
+                                                          <div class="col-md-6">
+                                                          <label for="status" class="form-label text-primary">Status:</label>   
+                                                          <select class="form-control" placeholder="Select Status" name="status" id="status"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1">Active </option>
+                                                                <option value="0">Inactive </option>
+</select>
+
+                                                          </div>
                                                       </div>
                                                       <!--<div class="row mb-3">
                                                           <div class="col-md-6">
@@ -133,14 +138,14 @@ $('#faqfrm').on('submit', function (e) {
         //var file_data1 = $('#image1').prop('files')[0];
         //var file_data2 = $('#image2').prop('files')[0];
         var faqtitle=$('#faqtitle').val();
-        //var subtitle=$("#subtitle").val();
+        var status=$("#status").val();
         var description=$("#description").val();
         
         var form_data = new FormData();
         //form_data.append('image1', file_data1);
         //form_data.append('image2', file_data2);
         form_data.append('faqtitle',faqtitle);
-        //form_data.append('subtitle',subtitle);
+        form_data.append('status',status);
         form_data.append('description',description);
        
         $.ajax({

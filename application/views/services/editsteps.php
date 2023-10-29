@@ -45,10 +45,16 @@
                                                           </div>
                                                       </div>
                                                       <div class="row mb-3">
-                                                          <!--<div class="col-md-6">
-                                                              <label for="contact-person" class="form-label text-primary">Link:</label>
-                                                              <input type="text" class="form-control" id="link" name="link" placeholder="Enter Link" required  value="<?php //echo $result->link;?>">
-                                                          </div>-->
+                                                                                       
+                                                      <div class="col-md-6">
+                                                          <label for="status" class="form-label text-primary">Status:</label>
+                                                              
+                                                              <select class="form-control" placeholder="Select Status" name="status" id="status"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1" <?php if ($result->active=='1'){?> selected <?php }?>>Active </option>
+                                                                <option value="0" <?php if ($result->active=='0'){?> selected <?php }?>>Inactive </option>
+</select>
+                                                                </div>
                                                           <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Alt Tag Image1:</label>
                                                               <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>">
@@ -124,7 +130,7 @@ $('#editsteps').on('submit', function (e) {
         var file_data1 = $('#image1').prop('files')[0];
         var link=$("#link").val();
         var title=$('#title').val();
-        //alert("enter"+title);
+        var status=$("#status").val();
         var problemid=$("#problemid").val();
         var description=$("#description").val();
         var alttagimg1=$("#alttagimg1").val();
@@ -135,6 +141,8 @@ $('#editsteps').on('submit', function (e) {
        form_data.append('stepid',problemid);
         form_data.append('description',description);
         form_data.append('alttag1',alttagimg1);
+        form_data.append('status',status);
+
         $.ajax({
             url: "<?php echo base_url().'Welcome/editservicesstepsprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server

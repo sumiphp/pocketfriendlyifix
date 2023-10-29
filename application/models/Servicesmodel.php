@@ -211,6 +211,15 @@ function get_faq(){
 
 
 }
+function get_faqactive(){
+    $this->db->where('active',1);
+    $this->db->select('*');
+    $this->db->from('faq');
+    $query = $this->db->get();
+    return $query->result_array();
+
+
+}
 
 function get_testimonial(){
     $this->db->select('*');
@@ -592,9 +601,22 @@ public function getData($rowno,$rowperpage) {
     return $query->result_array();
 }
 
+function get_stepsactive(){
+    $this->db->where('active',1);
+    $this->db->select('*');
+    $this->db->from('solutionsteps');
+    $query = $this->db->get();
+    return $query->result_array();
+}
 
+function get_problemsactive(){
+    $this->db->where('active',1);
+    $this->db->select('*');
+    $this->db->from('problems');
+    $query = $this->db->get();
+    return $query->result_array();
 
-
+}
 
 }
 ?>

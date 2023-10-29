@@ -1009,13 +1009,14 @@ public function addservicesprocess(){
 
 public function addfaqprocess(){
 	$faqtitle=$this->input->post('faqtitle');
-	//$subtitle=$this->input->post('subtitle');
+	$status=$this->input->post('status');
+
 	$description=$this->input->post('description');
 	$data = array(
 		'faqtitle' =>"$faqtitle",
 		//'subtitle' =>"$subtitle",
-		'faqdescription'=>"$description",
-		//'Image1'=>$image1,'Image2'=>$image2		
+		'faqdescription'=>"$description"
+		,'active'=>"$status"
 	 );
 	 //print_r($data);
 	 $this->db->insert('faq', $data);
@@ -1193,11 +1194,12 @@ public function editfaqprocess(){
 	$faqtitle=$this->input->post('faqtitle');
 	$faqid=$this->input->post('faqid');
 	$description=$this->input->post('description');
+	$status=$this->input->post('status');
 	$data = array(
 		'faqtitle' =>"$faqtitle",
 		//'subtitle' =>"$subtitle",
-		'faqdescription'=>"$description",
-		//'Image1'=>$image1,'Image2'=>$image2		
+		'faqdescription'=>"$description"
+		,'active'=>"$status"	
 	 );
 	 //print_r($data);
 	 $this->db->where('faqid',$faqid);
@@ -3030,7 +3032,7 @@ public function addsolutionsprocess(){
 	$link=$this->input->post('link');
 	 $description=$this->input->post('description');
 	 $alttag1=$this->input->post('alttag1');
-	  //$place=$this->input->post('place');
+	 $status=$this->input->post('status');
 	  //$date=$this->input->post('date');
 	  
 	 $data = array(
@@ -3038,7 +3040,7 @@ public function addsolutionsprocess(){
 		 'link' =>"$link",
 		 'title'=>"$title",
 		 'picture'=>$image1,
-		 'alttagimg1'=>"$alttag1"		
+		 'alttagimg1'=>"$alttag1",'active'=>"$status"		
 	  );
 	  //print_r($data);
 	  $id=$this->uri->segment(3); 
@@ -3080,7 +3082,7 @@ public function editsolutionsprocess(){
 	}
 
 	$image1=$_FILES['image1']['name'];
-	//$image2=$_FILES['image2']['name'];
+	$status=$this->input->post('status');
 
 	 $title=$this->input->post('maintitle');
 	 $link=$this->input->post('link');
@@ -3094,7 +3096,7 @@ public function editsolutionsprocess(){
 			'alttagimg1'=>"$alttag1",
 			'title'=>"$title",
 			//'picture'=>$image1,
-			'link' =>"$link",
+			'link' =>"$link",'active'=>"$status"
 			//,'place'=>$place,'date'=>$date,'title'=>$testtitle		
 		 );
 
@@ -3590,14 +3592,14 @@ public function addservicesstepsprocess(){
 	 $description=$this->input->post('description');
 	 $alttag1=$this->input->post('alttag1');
 	  //$place=$this->input->post('place');
-	  //$date=$this->input->post('date');
+	  $status=$this->input->post('status');
 	  
 	 $data = array(
 		 'description' =>"$description",
 		 //'link' =>"$link",
 		 'title'=>"$title",
 		 'picture'=>$image1,
-		 'alttagimg1'=>"$alttag1"		
+		 'alttagimg1'=>"$alttag1",'active'=>"$status"		
 	  );
 	  //print_r($data);
 	  $id=$this->uri->segment(3); 
@@ -3695,12 +3697,13 @@ public function editservicesstepsprocess(){
 	 $description=$this->input->post('description');
 	$stepid=$this->input->post('stepid');
 	$alttag1=$this->input->post('alttag1');
+	$status=$this->input->post('status');
 	  //$date=$this->input->post('date');
 	  if ($image1==''){
 		$data = array(
 			'description' =>"$description",
 			'alttagimg1'=>"$alttag1",
-			'title'=>"$title",
+			'title'=>"$title",'active'=>"$status"
 			//'picture'=>$image1,
 			//'link' =>"$link",
 			//,'place'=>$place,'date'=>$date,'title'=>$testtitle		
@@ -3712,7 +3715,7 @@ public function editservicesstepsprocess(){
 		 'alttagimg1'=>"$alttag1",
 		 'title'=>"$title",
 		 'picture'=>$image1,
-		 'link' =>"$link",
+		 'link' =>"$link",'active'=>"$status"
 		 //,'place'=>$place,'date'=>$date,'title'=>$testtitle		
 	  );
 	}

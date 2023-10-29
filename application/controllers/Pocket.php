@@ -56,7 +56,7 @@ class Pocket extends CI_Controller {
 		$data['resultsuball']=$this->sm->get_subcategoriesall();
 		$data['resultsub']=$this->sm->get_subcategoriesrand();
 		$data['resultcontents']=$this->sm->get_blogcontents();
-		$data['resultfaq']=$this->sm->get_faq();
+		$data['resultfaq']=$this->sm->get_faqactive();
 		$data['resulttest']=$this->sm->get_testimonial();
 		$data['about']=$this->sm->get_aboutus();
 		$data['contactus']=$this->sm->get_contactus();
@@ -92,7 +92,7 @@ public function service(){
 	$data['about']=$this->sm->get_aboutus();
 	$data['menus']=$this->sm->get_menus();
 	$data['siteinf']=$this->sm->get_siteinf();
-	$data['steps']=$this->sm->get_steps();
+	$data['steps']=$this->sm->get_stepsactive();
     $this->load->view('pocket/service.php',$data);
 }
 public function blog(){
@@ -322,7 +322,7 @@ public function servicedetails(){
 	//$data['categories']=$this->sm->get_categoriesall();
 	$data['categories']=$this->sm->get_categoriesallactive();
 	$data['lowestpackage']=$this->sm->get_lowestpackage($serid);
-	$data['easeyourproblems']=$this->sm->get_problems();
+	$data['easeyourproblems']=$this->sm->get_problemsactive();
 	$data['menus']=$this->sm->get_menus();
 	$data['siteinf']=$this->sm->get_siteinf();
 	$data['result']=$this->sm->get_servicesdetails();

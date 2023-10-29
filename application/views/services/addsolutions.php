@@ -55,6 +55,22 @@
                                                               <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
                                                           </div>
                                                       </div>
+
+
+                                                      <div class="row mb-3">
+                                                      <div class="col-md-6">
+                                                      <label for="status" class="form-label text-primary">Status:</label>   
+                                                          <select class="form-control" placeholder="Select Status" name="status" id="status"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1">Active </option>
+                                                                <option value="0">Inactive </option>
+</select> </div>
+
+                                                          <!--<div class="col-md-6">
+                                                              <label for="alttagimg1" class="form-label text-primary">Alt tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
+                                                          </div>-->
+                                                      </div>
                                                      
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Description:</label>
@@ -123,7 +139,7 @@ $('#addsolutions').on('submit', function (e) {
         //var file_data2 = $('#image2').prop('files')[0];
         var title=$('#title').val();
         //alert("enter"+title);
-        //var subtitle=$("#subtitle").val();
+        var status=$("#status").val();
         var description=$("#description").val();
         var link =$("#link").val();
         var alttagimg1=$("#alttagimg1").val();
@@ -134,6 +150,7 @@ $('#addsolutions').on('submit', function (e) {
         form_data.append('alttag1',alttagimg1);
         form_data.append('description',description);
         form_data.append('alttag1',alttagimg1);
+        form_data.append('status',status);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/addsolutionsprocess';?>", // point to server-side controller method

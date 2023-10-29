@@ -40,11 +40,18 @@
                                                               <input type="hidden" class="form-control" id="faqid" name="faqid" placeholder="Enter Faq Id" value="<?php echo $result->faqid;?>" required>
                                           
                                                           </div>
-                                                          <!--<div class="col-md-6">
-                                                              <label for="company-logo" class="form-label text-primary">Image1:</label>
-                                                              <input type="file" class="form-control" id="image1" name="image1">
-                                                          </div>-->
-                                                      </div>
+                                                          
+                                                          <div class="col-md-6">
+                                                          <label for="status" class="form-label text-primary">Status:</label>
+                                                              
+                                                              <select class="form-control" placeholder="Select Status" name="status" id="status"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1" <?php if ($result->active=='1'){?> selected <?php }?>>Active </option>
+                                                                <option value="0" <?php if ($result->active=='0'){?> selected <?php }?>>Inactive </option>
+</select>
+                                                                </div>
+                                                            </div>
+                                                          
                                                       <!--<div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="contact-person" class="form-label text-primary">Subtitle:</label>
@@ -135,10 +142,10 @@ $('#faqfrm').on('submit', function (e) {
         var faqtitle=$('#faqtitle').val();
         var faqid=$("#faqid").val();
         var description=$("#description").val();
-
+        var status=$("#status").val();
         var form_data = new FormData();
         //form_data.append('image1', file_data1);
-        //form_data.append('image2', file_data2);
+        form_data.append('status',status);
         form_data.append('faqtitle',faqtitle);
         form_data.append('faqid',faqid);
         form_data.append('description',description);
