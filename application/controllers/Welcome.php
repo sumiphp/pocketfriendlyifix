@@ -417,7 +417,7 @@ function upload_filesubedit() {
 
 	//upload file
 	
-	$config['upload_path'] = 'uploads/subcategory';
+	/*$config['upload_path'] = 'uploads/subcategory';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';
 	//$config['max_filename'] = '255';
 	//$config['encrypt_name'] = TRUE;   // remove it for actual file name.
@@ -461,11 +461,84 @@ function upload_filesubedit() {
 		}
 	} else {
 		echo 'Please choose a file';
-	}
+	}*/
+	//$productimg=$_FILES['filesub']['name'];
+	//$productimgsub=$_FILES['filesubimg']['name'];
+
+	if (($_FILES['filesub']['name'])!=''){
+
+		$file_ext = pathinfo($_FILES["image1"]["name"],PATHINFO_EXTENSION);
+		$new_name1 = time().'subcategory1st'.'.'.$file_ext;
+		 $config['file_name'] = $new_name1;
+		 $config['upload_path'] = 'uploads/subcategory';
+		 $config['allowed_types'] = 'gif|jpg|png|jpeg';	
+		 $config['max_size'] = '1024'; //1 MB
+		 $this->load->library('upload', $config);
+		 $this->upload->initialize($config);
+		 if (isset($_FILES['filesub']['name'])) {
+			 if (0 < $_FILES['filesub']['error']) {
+				 echo 'Error during file upload'.$new_name1;
+			 } else {
+				 if (file_exists('uploads/subcategory/'.$new_name1)) {
+					 echo 'File already exists : uploads/subcategory/'.$new_name1;
+				 } else {
+					 
+					 if (!$this->upload->do_upload('filesub')) {
+						 //echo $this->upload->display_errors();
+					 } else {
+						 //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+					 }
+				 }
+			 }
+			 $image1=$new_name1;
+		 } else {
+			 $image1=$image11;
+		 }
+		 
+	 }
+	 else{
+		 $image1=$image11;
+	 }
+
+
+	 if (($_FILES['filesubimg']['name'])!=''){
+
+		$file_ext = pathinfo($_FILES['filesubimg']['name'],PATHINFO_EXTENSION);
+		$new_name2 = time().'subcategory2nd'.'.'.$file_ext;
+		 $config['file_name'] = $new_name2;
+		 $config['upload_path'] = 'uploads/subcategory';
+		 $config['allowed_types'] = 'gif|jpg|png|jpeg';	
+		 $config['max_size'] = '1024'; //1 MB
+		 $this->load->library('upload', $config);
+		 $this->upload->initialize($config);
+		 if (isset($_FILES['filesubimg']['name'])) {
+			 if (0 < $_FILES['filesubimg']['error']) {
+				 echo 'Error during file upload'.$new_name2;
+			 } else {
+				 if (file_exists('uploads/subcategory/'.$new_name2)) {
+					 echo 'File already exists : uploads/subcategory/'.$new_name2;
+				 } else {
+					 
+					 if (!$this->upload->do_upload('filesubimg')) {
+						 //echo $this->upload->display_errors();
+					 } else {
+						 //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+					 }
+				 }
+			 }
+			 $image2=$new_name2;
+		 } else {
+			 $image2=$image22;
+		 }
+		 
+	 }
+	 else{
+		 $image2=$image22;
+	 }
+
+
 	
 	
-	$productimg=$_FILES['filesub']['name'];
-	 $productimgsub=$_FILES['filesubimg']['name'];
 	 $productcategory=$this->input->post('prdcat');
 	 $prdsubcat=$this->input->post('prdsubcat');
 	 $prdsubdesc=$this->input->post('prdsubdesc');
@@ -475,7 +548,7 @@ function upload_filesubedit() {
 	 $subcatshortdesc=$this->input->post('prdsubshortdesc');
 	 $alttag1=$this->input->post('alttag1');
 	 $alttag2=$this->input->post('alttag2');
-	 if (($productimg!='') && ($productimgsub!='')){
+	 //if (($productimg!='') && ($productimgsub!='')){
 	 $data = array(
 		 'subcategoryname' =>"$prdsubcat",
 		 'categoryid' =>"$productcategory",
@@ -487,7 +560,7 @@ function upload_filesubedit() {
 				'currency'=>'AMD','alttagimg1'=>"$alttag1",
 				'alttagimg2'=>"$alttag2",'active'=>"$status"		
 	  );
-	}else if (($productimg!='') && ($productimgsub=='')){
+	/*}else if (($productimg!='') && ($productimgsub=='')){
 		$data = array(
 			'subcategoryname' =>"$prdsubcat",
 			'categoryid' =>"$productcategory",
@@ -528,7 +601,7 @@ function upload_filesubedit() {
 				'alttagimg2'=>"$alttag2",'active'=>"$status"			
 		 );
 
-	}
+	}*/
 	  $this->db->where('subcategoryid',$subcatid);
 	  $this->db->update('subcategory', $data);
 
@@ -3057,8 +3130,13 @@ public function edittestimonialsprocess(){
 
 
 public function addsolutionsprocess(){
-	$file_name=$_FILES['image1']['name'];
-	$new_name = time().$file_name;
+
+	$ext=pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION);
+	$new_name = time().'problems'.'.'.$ext;
+	$config['file_name'] = $new_name;
+
+	//$file_name=$_FILES['image1']['name'];
+	//$new_name = time().$file_name;
 	$config['file_name'] = $new_name;
 	$config['upload_path'] = 'uploads/problems';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
@@ -3118,7 +3196,51 @@ public function addsolutionsprocess(){
 
 public function editsolutionsprocess(){
 
-	$config['upload_path'] = 'uploads/problems';
+
+	$problemid=$this->input->post('problemid');
+	$this->db->where('problemid',$problemid);
+	$this->db->select('*');
+    $this->db->from('problems');
+    $query = $this->db->get();
+   $imgdetails=$query->row();
+   
+   $image11=$imgdetails->image1;
+   //$image22=$imgdetails->faviconimg;
+   //$image3=$imgdetails->serviceimg;
+
+   /*$config['upload_path'] = 'uploads/logo';
+   $config['allowed_types'] = 'gif|jpg|png|jpeg';	
+   $config['max_size'] = '1024'; //1 MB
+   $this->load->library('upload', $config);
+   $this->upload->initialize($config);
+   if (isset($_FILES['image1']['name'])) {
+	   if (0 < $_FILES['image1']['error']) {
+		   echo 'Error during file upload' . $_FILES['image1']['error'];
+	   } else {
+		   if (file_exists('uploads/logo' . $_FILES['image1']['name'])) {
+			   echo 'File already exists : uploads/logo' . $_FILES['image1']['name'];
+		   } else {
+			   
+			   if (!$this->upload->do_upload('image1')) {
+				   //echo $this->upload->display_errors();
+			   } else {
+				   //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+			   }
+		   }
+	   }
+	   $image1=$_FILES['image1']['name'];
+   } else {
+	   $image1=$image11;
+   }
+   
+
+
+
+
+
+
+
+	/*$config['upload_path'] = 'uploads/problems';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
 	$this->load->library('upload', $config);
@@ -3140,9 +3262,45 @@ public function editsolutionsprocess(){
 		}
 	} else {
 		echo 'Please choose a file';
-	}
+	}*/
 
-	$image1=$_FILES['image1']['name'];
+
+	if (($_FILES["image1"]["name"])!=''){
+
+		$file_ext = pathinfo($_FILES["image1"]["name"],PATHINFO_EXTENSION);
+		$new_name1 = time().'problems'.'.'.$file_ext;
+		 $config['file_name'] = $new_name1;
+		 $config['upload_path'] = 'uploads/problems';
+		 $config['allowed_types'] = 'gif|jpg|png|jpeg';	
+		 $config['max_size'] = '1024'; //1 MB
+		 $this->load->library('upload', $config);
+		 $this->upload->initialize($config);
+		 if (isset($_FILES['image1']['name'])) {
+			 if (0 < $_FILES['image1']['error']) {
+				 echo 'Error during file upload'.$new_name1;
+			 } else {
+				 if (file_exists('uploads/problems/'.$new_name1)) {
+					 echo 'File already exists : uploads/problems/'.$new_name1;
+				 } else {
+					 
+					 if (!$this->upload->do_upload('image1')) {
+						 //echo $this->upload->display_errors();
+					 } else {
+						 //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+					 }
+				 }
+			 }
+			 $image1=$new_name1;
+		 } else {
+			 $image1=$image11;
+		 }
+		 
+	 }
+	 else{
+		 $image1=$image11;
+	 }
+
+	//$image1=$_FILES['image1']['name'];
 	$status=$this->input->post('status');
 
 	 $title=$this->input->post('maintitle');
@@ -3617,8 +3775,10 @@ public function addservicessteps(){
 }
 
 public function addservicesstepsprocess(){
-	$file_name=$_FILES['image1']['name'];
-	$new_name = time().$file_name;
+	//$file_name=$_FILES['image1']['name'];
+	//$new_name = time().$file_name;
+	$ext=pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION);
+	$new_name = time().'servicessteps'.'.'.$ext;
 	$config['file_name'] = $new_name;
 	$config['upload_path'] = 'uploads/servicessteps';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
@@ -3726,7 +3886,7 @@ public function editsteps(){
 
 
 public function editservicesstepsprocess(){
-	$config['upload_path'] = 'uploads/servicessteps';
+	/*$config['upload_path'] = 'uploads/servicessteps';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
 	$config['max_size'] = '1024'; //1 MB
 	$this->load->library('upload', $config);
@@ -3750,7 +3910,45 @@ public function editservicesstepsprocess(){
 		echo 'Please choose a file';
 	}
 
-	$image1=$_FILES['image1']['name'];
+	$image1=$_FILES['image1']['name'];*/
+
+	if (($_FILES["image1"]["name"])!=''){
+
+		$file_ext = pathinfo($_FILES["image1"]["name"],PATHINFO_EXTENSION);
+		$new_name1 = time().'servicessteps'.'.'.$file_ext;
+		 $config['file_name'] = $new_name1;
+		 $config['upload_path'] = 'uploads/servicessteps';
+		 $config['allowed_types'] = 'gif|jpg|png|jpeg';	
+		 $config['max_size'] = '1024'; //1 MB
+		 $this->load->library('upload', $config);
+		 $this->upload->initialize($config);
+		 if (isset($_FILES['servicessteps']['name'])) {
+			 if (0 < $_FILES['servicessteps']['error']) {
+				 echo 'Error during file upload'.$new_name1;
+			 } else {
+				 if (file_exists('uploads/servicessteps/'.$new_name1)) {
+					 echo 'File already exists : uploads/servicessteps/'.$new_name1;
+				 } else {
+					 
+					 if (!$this->upload->do_upload('image1')) {
+						 //echo $this->upload->display_errors();
+					 } else {
+						 //echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+					 }
+				 }
+			 }
+			 $image1=$new_name1;
+		 } else {
+			 $image1=$image11;
+		 }
+		 
+	 }
+	 else{
+		 $image1=$image11;
+	 }
+
+
+
 	//$image2=$_FILES['image2']['name'];
 
 	 $title=$this->input->post('maintitle');
@@ -3760,7 +3958,7 @@ public function editservicesstepsprocess(){
 	$alttag1=$this->input->post('alttag1');
 	$status=$this->input->post('status');
 	  //$date=$this->input->post('date');
-	  if ($image1==''){
+	  /*if ($image1==''){
 		$data = array(
 			'description' =>"$description",
 			'alttagimg1'=>"$alttag1",
@@ -3770,7 +3968,7 @@ public function editservicesstepsprocess(){
 			//,'place'=>$place,'date'=>$date,'title'=>$testtitle		
 		 );
 
-	  }else {
+	  }else {*/
 	 $data = array(
 		 'description' =>"$description",
 		 'alttagimg1'=>"$alttag1",
@@ -3779,7 +3977,7 @@ public function editservicesstepsprocess(){
 		 'link' =>"$link",'active'=>"$status"
 		 //,'place'=>$place,'date'=>$date,'title'=>$testtitle		
 	  );
-	}
+	//}
 	  //print_r($data);
 	  $id=$this->uri->segment(3); 
 	  $this->db->where('stepid',$stepid);
