@@ -17,7 +17,7 @@
                                 <span id="newsmsg" style='bottom:51px;color:red;font-weight:bold;'></span>
                                 <form class="newsletter-form-email" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
                                     <input type="email" class="form-control" placeholder="Enter Your Email" name="emailidnews"  id="emailnews" required />
-                                    <label id="emailnews-error" class="error errpopup" for="emailnews" style='bottom:51px;color:red;font-weight:bold;'></label>
+                                    <label id="emailnews-error" class="error errpopupmsg" for="emailnews" ></label>
                                     <button class="subscribe-btn" type="submit">
                                         Subscribe
                                     </button>

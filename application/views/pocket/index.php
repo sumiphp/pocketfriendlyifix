@@ -283,7 +283,7 @@ bottom:4px;
                     <div class="row">
                     <?php foreach($resultsub as $res){?>
                         
-                        <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
                             <div class="icon-main-area">
                             <div class="icon-sec">
                                 <img src="<?php echo base_url().'uploads/subcategory/'.$res['subcategoryimage'];?>" alt="<?php echo $res['alttagimg1'];?>">
@@ -322,7 +322,7 @@ bottom:4px;
                     <?php foreach($result as $res){?>
                                               
 
-                                              <div class="col-lg-4 col-md-12 col-sm-12">
+                                              <div class="col-lg-4 col-md-4 col-sm-6 mb-3">
                                                   <div class="elementor-element">
                                                       <div class="elementor-widget-container">
                                                           <div class="gt3-core-imagebox-wrapper elementor-image_icon-position-beside">
