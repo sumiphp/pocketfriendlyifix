@@ -303,7 +303,9 @@ function upload_filecatedit() {
 	//upload file
 	$file_name=$_FILES['file']['name'];
 	if ($file_name!=''){
-	$new_name = time().$file_name;
+	//$new_name = time().$file_name;
+	$ext=pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+	$new_name = time().'category1st.'.$ext;
 	$config['file_name'] = $new_name;
 	$config['upload_path'] = 'uploads';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';
