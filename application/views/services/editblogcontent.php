@@ -101,6 +101,21 @@
                                                              
                                                           </div>
                                                       </div>
+
+
+
+
+                                                      <div class="col-md-6">
+                                                          <label for="status" class="form-label text-primary">Status:</label>   
+                                                          <select class="form-control" placeholder="Select Status" name="status" id="status"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1" <?php if ($result->active=='1'){?> selected <?php }?>>Active </option>
+                                                                <option value="0" <?php if ($result->active=='0'){?> selected <?php }?>>Inactive </option>
+</select>
+
+                                                          </div>
+                                                      </div>
+
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Blog description:</label>
@@ -179,7 +194,7 @@ $('#editblogcontents').on('submit', function (e) {
         var blogid=$("#blogid").val();
         var alttagimg1=$("#alttagimg1").val();
         var alttagimg2=$("#alttagimg2").val();
-        
+        var status=$("#status").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         form_data.append('image2', file_data2);
@@ -193,7 +208,7 @@ $('#editblogcontents').on('submit', function (e) {
         form_data.append('blogid',blogid);
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
-       
+        form_data.append('status',status);
         $.ajax({
             url: "<?php echo base_url().'Welcome/editblogcontentsprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server

@@ -100,6 +100,17 @@
                                                              
                                                           </div>
                                                       </div>
+
+                                                      <div class="row mb-3">
+                                                      <div class="col-md-6">
+                                                          <label for="status" class="form-label text-primary">Status:</label>
+                                                          <select class="form-control" placeholder="Select Status" name="status" id="status1"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1">Active </option>
+                                                                <option value="0">Inactive </option>
+</select>
+</div> </div>
+
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Blog description:</label>
@@ -165,7 +176,7 @@
         <script>
 $('#addblogcontents').on('submit', function (e) {
     e.preventDefault();
-    //alert("enter");
+    alert("enter");
         var file_data1 = $('#image1').prop('files')[0];
         var file_data2 = $('#image2').prop('files')[0];
         var blogtitle=$('#blogtitle').val();
@@ -177,7 +188,7 @@ $('#addblogcontents').on('submit', function (e) {
         var companyname=$("#companyname").val();
         var alttagimg1=$("#alttagimg1").val();
         var alttagimg2=$("#alttagimg2").val();
-        
+        var status=$("#status1").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         form_data.append('image2', file_data2);
@@ -190,6 +201,7 @@ $('#addblogcontents').on('submit', function (e) {
         form_data.append('companyname',companyname);
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
+        form_data.append('status',status);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/addblogcontentsprocess';?>", // point to server-side controller method

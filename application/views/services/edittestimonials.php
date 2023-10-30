@@ -73,14 +73,17 @@
                                                               <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php echo $result->alttagimg1;?>" required>
                                           
                                                           </div>
-                                                          <!--<div class="col-md-6">
-
-                                                          <label for="contact-person" class="form-label text-primary">Alt Tag Image2:</label>
-                                                              <input type="text" class="form-control" id="alttagimg2" name="alttagimg2" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg2;?>">
+                                                          <div class="col-md-6">
+                                                          <label for="status" class="form-label text-primary">Status:</label>
+                                                          <select class="form-control" placeholder="Select Status" name="status" id="status"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1" <?php if ($result->active=='1'){?> selected <?php }?>>Active </option>
+                                                                <option value="0" <?php if ($result->active=='0'){?> selected <?php }?>>Inactive </option>
+</select>
 
 
                                                              
-                                                          </div>-->
+</div>
                                                       </div>
                                                       <!--<div class="row mb-3">
                                                           <div class="col-md-6">
@@ -191,9 +194,10 @@ $('#edittestimonial').on('submit', function (e) {
         var place=$("#place").val();
         var date=$("#date").val();
         var alttagimg1=$("#alttagimg1").val();
+        var status=$("#status").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
-        //form_data.append('image2', file_data2);
+        form_data.append('status',status);
         form_data.append('testtitle',testtitle);
         form_data.append('rating',rating);
         form_data.append('description',description);

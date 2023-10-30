@@ -74,14 +74,23 @@
                                                               <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
                                           
                                                           </div>
-                                                          <!--<div class="col-md-6">
 
-                                                          <label for="contact-person" class="form-label text-primary">Alt Tag Image2:</label>
-                                                              <input type="text" class="form-control" id="alttagimg2" name="alttagimg2" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg2;?>">
+    
+                                                          <div class="col-md-6">
+                                                          <label for="status" class="form-label text-primary">Status:</label>
+                                                          <select class="form-control" placeholder="Select Status" name="status" id="status1"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1">Active </option>
+                                                                <option value="0">Inactive </option>
+</select>
+</div>
 
+                                                      
+
+                                                         
 
                                                              
-                                                          </div>-->
+                                                         
                                                       </div>
 
                                                       <!--<div class="row mb-3">
@@ -172,7 +181,7 @@ $('#addtestimonial').on('submit', function (e) {
         var place=$("#place").val();
         var date=$("#date").val();
         var alttagimg1=$("#alttagimg1").val();
-        //alert("enter1");
+        var status=$("#status1").val();
         var form_data = new FormData();
         form_data.append('image1', file_data1);
         form_data.append('alttag1',alttagimg1);
@@ -182,7 +191,7 @@ $('#addtestimonial').on('submit', function (e) {
         form_data.append('name',name);
         form_data.append('place',place);
         form_data.append('date',date);
-        //alert("enter1");
+        form_data.append('status',status);
         $.ajax({
             url: "<?php echo base_url().'Welcome/addtestimonialsprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server

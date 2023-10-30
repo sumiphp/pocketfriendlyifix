@@ -2585,8 +2585,8 @@ public function addtestimonialsprocess(){
 		if (0 < $_FILES['image1']['error']) {
 			echo 'Error during file upload' . $_FILES['image1']['error'];
 		} else {
-			if (file_exists('uploads/testimonial/' . $_FILES['image1']['name'])) {
-				echo 'File already exists : uploads/testimonial/' . $_FILES['image1']['name'];
+			if (file_exists('uploads/testimonial/' .$new_name)) {
+				echo 'File already exists : uploads/testimonial/' .$new_name;
 			} else {
 				
 				if (!$this->upload->do_upload('image1')) {
@@ -2612,12 +2612,13 @@ public function addtestimonialsprocess(){
 	 $name=$this->input->post('name');
 	  $place=$this->input->post('place');
 	  $date=$this->input->post('date');
+	  $status=$this->input->post('status');
 	 $data = array(
 		'title'=>"$testtitle",
 		 'testimonial' =>"$description",
 		 'rating' =>"$rating",
 		 'name'=>"$name",
-		 'image'=>$image1,'place'=>$place,'date'=>$date,'alttagimg1'=>"$alttag1"		
+		 'image'=>$image1,'place'=>$place,'date'=>$date,'alttagimg1'=>"$alttag1",'active'=>$status		
 	  );
 	  
 	  	  $this->db->insert('testimonials', $data);
@@ -2768,7 +2769,7 @@ $image2='';
 
 
 
-
+$status=$this->input->post('status');
 
 	 $blogtitle=$this->input->post('blogtitle');
 	 $toparticle=$this->input->post('toparticle');
@@ -2780,6 +2781,7 @@ $image2='';
 	  $alttag1=$this->input->post('alttag1');
 	 $alttag2=$this->input->post('alttag2');
 	 $data = array(
+		'active'=>$status,
 		'alttagimg1'=>"$alttag1",
 		'alttagimg2'=>"$alttag2",
 		'place'=>"$place",
@@ -2919,7 +2921,7 @@ public function editblogcontentsprocess(){
 		 $image2=$image22;
 	 }
  
-
+	 $status=$this->input->post('status');
 	 $blogtitle=$this->input->post('blogtitle');
 	 $toparticle=$this->input->post('toparticle');
 	 $description=$this->input->post('description');
@@ -2932,6 +2934,7 @@ public function editblogcontentsprocess(){
 	  //if (($image1!='') && ($image2!='')){
 
 		$data = array(
+			'active'=>$status,
 			'alttagimg1'=>"$alttag1",
 		'alttagimg2'=>"$alttag2",
 			'place'=>"$place",
@@ -3103,6 +3106,7 @@ public function edittestimonialsprocess(){
 	  $place=$this->input->post('place');
 	  $date=$this->input->post('date');
 	  $alttag1=$this->input->post('alttag1');
+	  $status=$this->input->post('status');
 /*if ($file_name==''){
 	$data = array(
 		'testimonial' =>"$description",'alttagimg1'=>"$alttag1",
@@ -3116,7 +3120,7 @@ public function edittestimonialsprocess(){
 		 'testimonial' =>"$description",'alttagimg1'=>"$alttag1",
 		 'rating' =>"$rating",
 		 'name'=>"$name",
-		 'image'=>$image1,'place'=>$place,'date'=>$date,'title'=>$testtitle		
+		 'image'=>$image1,'place'=>$place,'date'=>$date,'title'=>$testtitle,'active'=>$status		
 	  );
 	//}
 	  $id=$this->uri->segment(3); 
