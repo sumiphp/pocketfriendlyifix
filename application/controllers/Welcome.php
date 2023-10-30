@@ -88,7 +88,11 @@ public function loginprocess(){
 	$username=$this->input->post('username');
 	$password=$this->input->post('password');	
 	$pass=md5($password);
+	//echo 
+	//die;
+	
     $user_detail=$this->sm->get_user($username,$pass);
+	//die;
 	 if ($user_detail==1){
 		$this->session->set_userdata('username','admin');
 		redirect("welcome/dashboard");
@@ -464,11 +468,18 @@ function upload_filesubedit() {
 	}*/
 	//$productimg=$_FILES['filesub']['name'];
 	//$productimgsub=$_FILES['filesubimg']['name'];
+	$this->db->where('subcategoryid',$subcatid);
+	$this->db->select('*');
+    $this->db->from('problems');
+    $query = $this->db->get();
+   $imgdetails=$query->row();
+   
+   $image11=$imgdetails->image1;
 
 	if (($_FILES['filesub']['name'])!=''){
 
-		$file_ext = pathinfo($_FILES["image1"]["name"],PATHINFO_EXTENSION);
-		$new_name1 = time().'subcategory1st'.'.'.$file_ext;
+		$file_ext = pathinfo($_FILES["filesub"]["name"],PATHINFO_EXTENSION);
+		$new_name1 = time().'subcategory1st.'.$file_ext;
 		 $config['file_name'] = $new_name1;
 		 $config['upload_path'] = 'uploads/subcategory';
 		 $config['allowed_types'] = 'gif|jpg|png|jpeg';	
@@ -505,12 +516,12 @@ function upload_filesubedit() {
 
 		$file_ext = pathinfo($_FILES['filesubimg']['name'],PATHINFO_EXTENSION);
 		$new_name2 = time().'subcategory2nd'.'.'.$file_ext;
-		 $config['file_name'] = $new_name2;
-		 $config['upload_path'] = 'uploads/subcategory';
-		 $config['allowed_types'] = 'gif|jpg|png|jpeg';	
-		 $config['max_size'] = '1024'; //1 MB
-		 $this->load->library('upload', $config);
-		 $this->upload->initialize($config);
+		 $config2['file_name'] = $new_name2;
+		 $config2['upload_path'] = 'uploads/subcategory';
+		 $config2['allowed_types'] = 'gif|jpg|png|jpeg';	
+		 $config2['max_size'] = '1024'; //1 MB
+		 $this->load->library('upload', $config2);
+		 $this->upload->initialize($config2);
 		 if (isset($_FILES['filesubimg']['name'])) {
 			 if (0 < $_FILES['filesubimg']['error']) {
 				 echo 'Error during file upload'.$new_name2;
@@ -536,8 +547,8 @@ function upload_filesubedit() {
 		 $image2=$image22;
 	 }
 
-
-	
+	 $productimg=$image1;
+	 $productimgsub=$image2;
 	
 	 $productcategory=$this->input->post('prdcat');
 	 $prdsubcat=$this->input->post('prdsubcat');

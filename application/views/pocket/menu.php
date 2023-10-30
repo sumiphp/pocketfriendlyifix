@@ -64,7 +64,7 @@
                                                     <ul class="megamenu-list">
                                                     <?php foreach($submenulist as $sm){?>
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                                            <a href="#" class="menu-image-title-after menu-image-not-hovered">
+                                                            <a href="<?php echo base_url().$sm['url'];?>" class="menu-image-title-after menu-image-not-hovered">
                                                                 <img width="40" height="40" src="<?php echo base_url().'uploads/menu/'.$sm['menuimg'];?>" class="menu-image menu-image-title-after" alt="<?php echo $sm['alttagimg1'];?>" decoding="async" />
                                                                 <span class="menu-image-title-after menu-image-title">  <?php echo $sm['menuname'];?> </span>
                                                             </a>
