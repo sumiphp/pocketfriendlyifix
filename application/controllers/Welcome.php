@@ -3926,19 +3926,29 @@ public function editservicesstepsprocess(){
 	}
 
 	$image1=$_FILES['image1']['name'];*/
+	//$this->db->where('stepid',$stepid);
+	$stepid=$this->input->post('stepid');
+	$this->db->where('stepid',$stepid);
+	$this->db->select('*');
+    $this->db->from('solutionsteps');
+    $query = $this->db->get();
+   $imgdetails=$query->row();
+   $image11=$imgdetails->picture;
+   //$file_ext = pathinfo($_FILES["image1"]["name"],PATHINFO_EXTENSION);
 
-	if (($_FILES["image1"]["name"])!=''){
-
+	//if (($_FILES["image1"]["name"])!=''){
+		//if (isset($_FILES['image1']['name'])) {
+			if (($_FILES['image1']['name'])!='') {
 		$file_ext = pathinfo($_FILES["image1"]["name"],PATHINFO_EXTENSION);
-		$new_name1 = time().'servicessteps'.'.'.$file_ext;
+		$new_name1 = time().'servicessteps.'.$file_ext;
 		 $config['file_name'] = $new_name1;
 		 $config['upload_path'] = 'uploads/servicessteps';
 		 $config['allowed_types'] = 'gif|jpg|png|jpeg';	
 		 $config['max_size'] = '1024'; //1 MB
 		 $this->load->library('upload', $config);
 		 $this->upload->initialize($config);
-		 if (isset($_FILES['servicessteps']['name'])) {
-			 if (0 < $_FILES['servicessteps']['error']) {
+		 if (isset($_FILES['image1']['name'])) {
+			 if (0 < $_FILES['image1']['error']) {
 				 echo 'Error during file upload'.$new_name1;
 			 } else {
 				 if (file_exists('uploads/servicessteps/'.$new_name1)) {
@@ -3954,7 +3964,7 @@ public function editservicesstepsprocess(){
 			 }
 			 $image1=$new_name1;
 		 } else {
-			 $image1=$image11;
+			 $image1=$new_name1;
 		 }
 		 
 	 }
