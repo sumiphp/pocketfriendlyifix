@@ -1451,7 +1451,7 @@ public function siteinfeditprocess(){
    $image22=$imgdetails->faviconimg;
    //$image3=$imgdetails->serviceimg;
 
-   $config['upload_path'] = 'uploads/logo';
+   /*$config['upload_path'] = 'uploads/logo';
    $config['allowed_types'] = 'gif|jpg|png|jpeg';	
    $config['max_size'] = '1024'; //1 MB
    $this->load->library('upload', $config);
@@ -1501,20 +1501,81 @@ public function siteinfeditprocess(){
    }
    if ($image2==''){
 	$image2=$image22;
-   }
-
-   $sitedescription=$this->input->post('sitedescription');
-   $sitename=$this->input->post('sitename');
-   /*$servicetitle3=$this->input->post('servicetitle3');
-   $servicetitle=$this->input->post('servicetitle');
-   $qualitytitle=$this->input->post('qualitytitle');	
-	$maintitle=$this->input->post('maintitle');
-	$subtitle=$this->input->post('subtitle');
-	$metatag=$this->input->post('metatag');*/
-
-
+   }*/
 
    
+if (($_FILES["image1"]["name"])!=''){
+
+   $file_ext = pathinfo($_FILES["image1"]["name"],PATHINFO_EXTENSION);
+   $new_name1 = time().'logo1st'.'.'.$file_ext;
+	$config['file_name'] = $new_name1;
+	$config['upload_path'] = 'uploads/logo';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['image1']['name'])) {
+		if (0 < $_FILES['image1']['error']) {
+			echo 'Error during file upload'.$new_name1;
+		} else {
+			if (file_exists('uploads/logo1st/'.$new_name1)) {
+				echo 'File already exists : uploads/logo1st/'.$new_name1;
+			} else {
+				
+				if (!$this->upload->do_upload('image1')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+		$image1=$new_name1;
+	} else {
+		$image1=$image11;
+	}
+	
+}
+else{
+	$image1=$image11;
+}
+if (($_FILES["image2"]["name"])!=''){
+	$file_ext = pathinfo($_FILES["image2"]["name"],PATHINFO_EXTENSION);
+   $new_name2 = time().'logo2nd'.'.'.$file_ext;
+	$config2['file_name'] = $new_name2;
+	$config2['upload_path'] = 'uploads/logo';
+	$config2['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config2['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config2);
+	$this->upload->initialize($config2);
+	if (isset($_FILES['image2']['name'])) {
+		if (0 < $_FILES['image2']['error']) {
+			echo 'Error during file upload'.$new_name2;
+		} else {
+			if (file_exists('uploads/logo/'.$new_name2)) {
+				echo 'File already exists : uploads/logo/'.$new_name2;
+			} else {
+				
+				if (!$this->upload->do_upload('image2')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+		$image2=$new_name2;
+	} else {
+		$image2=$image22;
+	}
+
+   
+}
+else{
+	$image2=$image22;
+}
+
+
+$sitedescription=$this->input->post('sitedescription');
+$sitename=$this->input->post('sitename');
    $data = array(
 	'sitedescription' =>"$sitedescription",
 	'sitename' =>"$sitename",
