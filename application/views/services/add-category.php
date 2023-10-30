@@ -225,7 +225,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                               <label for="company-name" class="form-label text-primary">Alt Tag Image1:</label>
-                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
+                                                              <input type="text" class="form-control" id="alttagimg1sub" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
                                                               </div>
                                                             </div>
                                                           </div>
@@ -413,7 +413,7 @@
         var prdsubdesc=$("#prdsubdesc").val();
         var prdsubshortdesc=$('#prdsubshortdesc').val();
         var price=$('#price').val();
-        var alttagimg1=$("#alttagimg1").val();
+        var alttagimg1=$("#alttagimg1sub").val();
         var alttagimg2=$("#alttagimg2").val();
         var status=$("#status1").val();
         var form_data = new FormData();

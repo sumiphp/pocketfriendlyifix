@@ -2766,3 +2766,13 @@ div.pagination strong {
   text-align: center;
   display: block;
 }
+
+.errpopupmsg
+{
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    bottom: -35px;
+    width: 100%;
+    font-weight: 600;
+}

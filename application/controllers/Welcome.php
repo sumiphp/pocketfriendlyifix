@@ -206,7 +206,7 @@ public function categoryeditprocess(){
 function upload_file() {
 
 	//upload file
-	$file_name=$_FILES['file']['name'];
+	/*$file_name=$_FILES['file']['name'];
 	$new_name = time().$file_name;
 	$config['file_name'] = $new_name;
  
@@ -236,7 +236,46 @@ function upload_file() {
 		}
 	} else {
 		echo 'Please choose a file';
+	}*/
+
+	if (isset($_FILES['file']['name'])){
+		$file_name=$_FILES['file']['name'];
+	//$new_name = time().$file_name;
+	$ext=pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+	$new_name = time().'category1st.'.$ext;
+	$config['file_name'] = $new_name;
+	$config['upload_path'] = 'uploads';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['file']['name'])) {
+		if (0 < $_FILES['file']['error']) {
+			echo 'Error during file upload' . $new_name;
+		} else {
+			if (file_exists('uploads' . $new_name)) {
+				echo 'File already exists : uploads' . $new_name;
+			} else {
+				
+				if (!$this->upload->do_upload('file')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		//echo 'Please choose a file';
 	}
+
+	$image1=$new_name;
+}else{
+	$image1='';
+}
+$productimg=$image1;
+
+
+
 	$image1=$new_name;
 	$productcategory=$this->input->post('productcategory');
 	$productdesc=$this->input->post('productdescription');
@@ -332,7 +371,7 @@ function upload_filesub() {
 
 	//upload file
 	
-	$config['upload_path'] = 'uploads/subcategory';
+	/*$config['upload_path'] = 'uploads/subcategory';
 	$config['allowed_types'] = 'gif|jpg|png|jpeg';
 	//$config['max_filename'] = '255';
 	//$config['encrypt_name'] = TRUE;   // remove it for actual file name.
@@ -356,9 +395,45 @@ function upload_filesub() {
 		}
 	} else {
 		echo 'Please choose a file';
+	}*/
+
+	if (isset($_FILES['filesub']['name'])){
+		$file_name=$_FILES['filesub']['name'];
+	//$new_name = time().$file_name;
+	$ext=pathinfo($_FILES["filesub"]["name"], PATHINFO_EXTENSION);
+	$new_name = time().'subcategory1st'.'.'.$ext;
+	$config['file_name'] = $new_name;
+	$config['upload_path'] = 'uploads/subcategory';
+	$config['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if (isset($_FILES['filesub']['name'])) {
+		if (0 < $_FILES['filesub']['error']) {
+			echo 'Error during file upload' . $new_name;
+		} else {
+			if (file_exists('uploads/subcategory' . $new_name)) {
+				echo 'File already exists : uploads/subcategory' . $new_name;
+			} else {
+				
+				if (!$this->upload->do_upload('filesub')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		//echo 'Please choose a file';
 	}
 
-	if (isset($_FILES['filesubimg']['name'])) {
+	$image1=$new_name;
+}else{
+	$image1='';
+}
+$productimg=$image1;
+
+	/*if (isset($_FILES['filesubimg']['name'])) {
 		if (0 < $_FILES['filesubimg']['error']) {
 			echo 'Error during file upload' . $_FILES['filesubimg']['error'];
 		} else {
@@ -375,13 +450,46 @@ function upload_filesub() {
 		}
 	} else {
 		echo 'Please choose a file';
+	}*/
+	if (isset($_FILES['filesubimg']['name'])){
+		$file_name=$_FILES['filesubimg']['name'];
+	//$new_name = time().$file_name;
+	$ext=pathinfo($_FILES["filesubimg"]["name"], PATHINFO_EXTENSION);
+	$new_name2 = time().'subcategory2nd'.'.'.$ext;
+	$config2['file_name'] = $new_name2;
+	$config2['upload_path'] = 'uploads/subcategory';
+	$config2['allowed_types'] = 'gif|jpg|png|jpeg';	
+	$config2['max_size'] = '1024'; //1 MB
+	$this->load->library('upload', $config2);
+	$this->upload->initialize($config2);
+	if (isset($_FILES['filesubimg']['name'])) {
+		if (0 < $_FILES['filesubimg']['error']) {
+			echo 'Error during file upload' . $new_name2;
+		} else {
+			if (file_exists('uploads/subcategory' . $new_name2)) {
+				echo 'File already exists : uploads/subcategory' . $new_name2;
+			} else {
+				
+				if (!$this->upload->do_upload('filesubimg')) {
+					//echo $this->upload->display_errors();
+				} else {
+					//echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+				}
+			}
+		}
+	} else {
+		//echo 'Please choose a file';
 	}
 
+	$productimgsub=$new_name2;
+}else{
+	$productimgsub='';
+}
 
 
 	
-	$productimg=$_FILES['filesub']['name'];
-	$productimgsub=$_FILES['filesubimg']['name'];
+	//$productimg=$_FILES['filesub']['name'];
+	//$productimgsub=$_FILES['filesubimg']['name'];
 	 $productcategory=$this->input->post('prdcat');
 	 $prdsubcat=$this->input->post('prdsubcat');
 	 $prdsubdesc=$this->input->post('prdsubdesc');
