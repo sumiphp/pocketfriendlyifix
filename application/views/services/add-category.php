@@ -424,6 +424,7 @@
         form_data.append('prdsubshortdesc',prdsubshortdesc);
         form_data.append('filesubimg',file_databanner);
         form_data.append('price',price);
+        //alert(""+alttagimg1);
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
         form_data.append('status',status);

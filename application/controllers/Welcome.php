@@ -509,7 +509,7 @@ $productimg=$image1;
 		 		'subcatbannerimage'=>$productimgsub,
 				'subcatshortdesc'=>$subcatshortdesc,
 				'price'=>$price,
-				'currency'=>'AMD','alttagimg1'=>"$alttag1",
+				'currency'=>'AED','alttagimg1'=>"$alttag1",
 				'alttagimg2'=>"$alttag2",'active'=>"$status"
 	  );
 	  $this->db->insert('subcategory', $data);
@@ -578,13 +578,15 @@ function upload_filesubedit() {
 	}*/
 	//$productimg=$_FILES['filesub']['name'];
 	//$productimgsub=$_FILES['filesubimg']['name'];
+	$subcatid=$this->input->post('subcatid');
 	$this->db->where('subcategoryid',$subcatid);
 	$this->db->select('*');
-    $this->db->from('problems');
+    $this->db->from('subcategory');
     $query = $this->db->get();
    $imgdetails=$query->row();
    
-   $image11=$imgdetails->image1;
+   $image11=$imgdetails->subcategoryimage;
+   $image22=$imgdetails->subcatbannerimage;
 
 	if (($_FILES['filesub']['name'])!=''){
 
@@ -678,7 +680,7 @@ function upload_filesubedit() {
 		 'subcatbannerimage'=>$productimgsub,
 		 'subcatshortdesc'=>$subcatshortdesc,
 				'price'=>$price,
-				'currency'=>'AMD','alttagimg1'=>"$alttag1",
+				'currency'=>'AED','alttagimg1'=>"$alttag1",
 				'alttagimg2'=>"$alttag2",'active'=>"$status"		
 	  );
 	/*}else if (($productimg!='') && ($productimgsub=='')){
