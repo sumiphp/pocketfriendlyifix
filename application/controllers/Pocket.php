@@ -187,7 +187,7 @@ $data = array(
  $this->db->insert('enquiries', $data);
 
 
-
+ $this->htmlmailenquiry($firstname,$lastname,$email,$phone,$note,$fromemailid,$toemailid,$packages,$businessnature,$businesswebsiteduration);
 
 
 
@@ -299,7 +299,7 @@ public function contactenquiryprocess(){
 		 );
 		 $this->db->insert('contactenquiries',$data);
 		 $toemailid='sumilaifix@gmail.com';
-		 $this->htmlmailcontactus($name,$companyname,$email,$phone,$message,$email,$toemailid);
+		 $this->htmlmailcontactuspopup($name,$companyname,$email,$phone,$message,$email,$toemailid,$package,$natureofbusiness);
 		 /*$from_email = "sumilaifix@gmail.com";
 		 $to_email = 'sumilaifix@gmail.com';
 		 
@@ -521,6 +521,76 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 
   
 
+     $body = $this->load->view('Pocket/emailcontactusenquires.php',$data,TRUE);
+	//die;
+
+  $this->email->message($body); 
+
+    $this->email->send();
+
+  }
+
+
+
+
+  public function htmlmailcontactuspopup($name,$companyname,$email,$phone,$msg,$fromemailid,$toemailid,$packageid,$natureofbusiness){
+
+	$from_email=$email;
+	$message=$msg;
+	$to_email =$toemailid;
+	//$to_email = 'sumila.c@gmail.com';
+	$config = array(
+	   'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
+	   'smtp_host' => 'smtp.gmail.com',
+	   'smtp_port' => 587,
+	   'smtp_user' => 'sumilaifix@gmail.com',
+	   //'smtp_user' => 'crayoprojects2022@gmail.com',
+	   //'smtp_pass' => 'wosmqbffmatsefdz',
+	   'smtp_pass'=>'jcqa cvfq iwrc plsu',
+	   'smtp_crypto' => 'tls', //can be 'ssl' or 'tls' for example
+	   'mailtype' => 'html', //plaintext 'text' mails or 'html'
+	   'smtp_timeout' => '4', //in seconds
+	   'charset' => 'utf-8',
+	   'wordwrap' => TRUE,
+	   'newline' => "\r\n",
+   );
+
+    $this->load->library('email', $config);
+
+  $this->email->set_newline("\r\n");
+
+  
+
+    $this->email->from($from_email,$name);
+	if (!empty($packageid)){
+		$this->db->where('subcategoryid',$packageid);
+		$this->db->select('*');
+		$this->db->from('subcategory');
+		$query = $this->db->get();
+		$packagedt=$query->row();
+		$packagename=$packagedt->subcategoryname;
+	  }
+
+
+
+
+
+
+    $data = array(
+
+       'name'=>$name,'companyname'=>$companyname,'email'=>$email,'phone'=>$phone,'message'=>$message,'package'=>$packagename,'natureofbusiness'=>$natureofbusiness
+
+         );
+
+		 //$userEmail='sumilaifix@gmail.com';
+		 $subject='Pocket friendly Contact Us Enquiries';
+
+    $this->email->to($to_email); // replace it with receiver mail id
+
+  $this->email->subject($subject); // replace it with relevant subject
+
+  
+
     $body = $this->load->view('Pocket/emailcontactusenquires.php',$data,TRUE);
 
   $this->email->message($body); 
@@ -528,6 +598,82 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
     $this->email->send();
 
   }
+
+
+
+  public function htmlmailenquiry($firstname,$lastname,$email,$phone,$note,$fromemailid,$toemailid,$packages,$businessnature,$businesswebsiteduration){
+
+  //public function htmlmailenquiry($name,$companyname,$email,$phone,$msg,$fromemailid,$toemailid,$packageid,$natureofbusiness){
+
+	$from_email=$email;
+	$message=$note;
+	$to_email =$toemailid;
+	//$to_email = 'sumila.c@gmail.com';
+	$config = array(
+	   'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
+	   'smtp_host' => 'smtp.gmail.com',
+	   'smtp_port' => 587,
+	   'smtp_user' => 'sumilaifix@gmail.com',
+	   //'smtp_user' => 'crayoprojects2022@gmail.com',
+	   //'smtp_pass' => 'wosmqbffmatsefdz',
+	   'smtp_pass'=>'jcqa cvfq iwrc plsu',
+	   'smtp_crypto' => 'tls', //can be 'ssl' or 'tls' for example
+	   'mailtype' => 'html', //plaintext 'text' mails or 'html'
+	   'smtp_timeout' => '4', //in seconds
+	   'charset' => 'utf-8',
+	   'wordwrap' => TRUE,
+	   'newline' => "\r\n",
+   );
+
+    $this->load->library('email', $config);
+
+  $this->email->set_newline("\r\n");
+
+  
+
+    $this->email->from($from_email,$name);
+	if (!empty($packageid)){
+		$this->db->where('subcategoryid',$packageid);
+		$this->db->select('*');
+		$this->db->from('subcategory');
+		$query = $this->db->get();
+		$packagedt=$query->row();
+		$packagename=$packagedt->subcategoryname;
+	  }
+
+
+
+
+
+
+    $data = array(
+
+       'name'=>$name,'companyname'=>$companyname,'email'=>$email,'phone'=>$phone,'message'=>$message,'package'=>$packagename,'natureofbusiness'=>$natureofbusiness
+
+         );
+
+		 //$userEmail='sumilaifix@gmail.com';
+		 $subject='Pocket friendly Contact Us Enquiries';
+
+    $this->email->to($to_email); // replace it with receiver mail id
+
+  $this->email->subject($subject); // replace it with relevant subject
+
+  
+
+    $body = $this->load->view('Pocket/emailcontactusenquires.php',$data,TRUE);
+
+  $this->email->message($body); 
+
+    $this->email->send();
+
+  }
+
+
+
+
+
+
 
 
 
