@@ -301,6 +301,7 @@
         var subcatid=$("#subcatid").val();
         var alttagimg1=$("#alttagimg1").val();
         var alttagimg2=$("#alttagimg2").val();
+        var status=$("#status").val();
         var form_data = new FormData();
         form_data.append('filesub', file_data);
         form_data.append('prdsubcat',prdsubcat);
@@ -312,6 +313,7 @@
         form_data.append('price',price);
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
+        form_data.append('status',status);
        
         $.ajax({
             url: "<?php echo base_url().'Welcome/upload_filesubedit';?>", // point to server-side controller method

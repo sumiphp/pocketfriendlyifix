@@ -72,15 +72,29 @@ bottom:4px;
             </div>
              <!--<div class="service-detail-banner">
          <div class="service-detail-banner" style="background:url(<?php //echo base_url().'uploads/'.$lowestpackage->subcatbannerimage;?>) !important;background-repeat: no-repeat;background-size: cover; background-position: center;height:100vh;">-->
+         <?php //print_r($lowestpackage);
+                                if ($lowestpackagecount>0){
+                               
+                                ?>
            <div class="service-detail-banner" style="background:url(<?php echo base_url().'uploads/subcategory/'.$lowestpackage->subcatbannerimage?>)!important;background-repeat:no-repeat!important;background-position:center !important;background-size:cover !important;height:100vh;">
+           <?php } else {?>
+            <div class="service-detail-banner" style="background:url(<?php echo base_url().'uploads/subcategory/service-detail-banner.png'?>)!important;background-repeat:no-repeat!important;background-position:center !important;background-size:cover !important;height:100vh;">
+            <?php } ?>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 col-mg-5 col-sm-5">
                             <div class="right-banner-content">
-                                <?php //print_r($lowestpackage);?>
+                                <?php //print_r($lowestpackage);
+                                if ($lowestpackagecount>0){
+                               
+                                ?>
                                 <h2><?php echo $lowestpackage->subcategoryname;?></h2>
                                 <p><?php echo $lowestpackage->subcatshortdesc;?></p>
                                 <h3 class="small_gradient_Text">For just <?php echo $lowestpackage->price;?> <?php echo $lowestpackage->currency;?> </h2>
+                                <?php } else {?>
+                                    <h2><?php echo "No Packages available under this category";?></h2>
+                                    <?php } ?>
+
                             </div>
                         </div>
                         <div class="col-lg-6 col-mg-6 col-sm-6">

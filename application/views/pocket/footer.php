@@ -1,6 +1,12 @@
 <!-- Footer Area -->
 <style>
-
+label.error.errpopupmsg {
+    position: absolute;
+    bottom: -35px;
+    color: #f61c0d;
+    font-style: italic;
+    font-weight: 600;
+}
 
 </style>
 

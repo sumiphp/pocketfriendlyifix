@@ -54,17 +54,17 @@ class Pocket extends CI_Controller {
 	public function index()
 	{
 		$data['result']=$this->sm->get_categoriesallactive();
-		$data['resultsuball']=$this->sm->get_subcategoriesall();
+		$data['resultsuball']=$this->sm->get_subcategoriesallactive();
 		$data['resultsub']=$this->sm->get_subcategoriesrand();
-		$data['resultcontents']=$this->sm->get_blogcontents();
+		$data['resultcontents']=$this->sm->get_blogcontentsactive();
 		$data['resultfaq']=$this->sm->get_faqactive();
-		$data['resulttest']=$this->sm->get_testimonial();
+		$data['resulttest']=$this->sm->get_testimonialactive();
 		$data['about']=$this->sm->get_aboutus();
 		$data['contactus']=$this->sm->get_contactus();
 		$data['newsletter']=$this->sm->get_newsletter();
-		$data['featureupdate']=$this->sm->get_featureupdate();
+		$data['featureupdate']=$this->sm->get_featureupdateactive();
 		$data['resulthome']=$this->sm->get_homepage();
-		$data['qualities']=$this->sm->get_qualities();
+		$data['qualities']=$this->sm->get_qualitiesactive();
 		$data['menus']=$this->sm->get_menus();
 		$data['siteinf']=$this->sm->get_siteinf();
 		$this->load->view('pocket/index.php',$data);
@@ -76,7 +76,7 @@ class Pocket extends CI_Controller {
 		$data['contactus']=$this->sm->get_contactus();
 		$data['about']=$this->sm->get_aboutus();
 		$data['newsletter']=$this->sm->get_newsletter();
-		$data['featureupdate']=$this->sm->get_featureupdate();
+		$data['featureupdate']=$this->sm->get_featureupdateactive();
 		$data['menus']=$this->sm->get_menus();
 		$data['siteinf']=$this->sm->get_siteinf();
 		$this->load->view('pocket/about.php',$data);
@@ -89,7 +89,7 @@ public function service(){
 	$data['result']=$this->sm->get_categoriesallactive();
 	$data['service']=$this->sm->get_servicesall();
 	$data['newsletter']=$this->sm->get_newsletter();
-	$data['featureupdate']=$this->sm->get_featureupdate();
+	$data['featureupdate']=$this->sm->get_featureupdateactive();
 	$data['about']=$this->sm->get_aboutus();
 	$data['menus']=$this->sm->get_menus();
 	$data['siteinf']=$this->sm->get_siteinf();
@@ -98,13 +98,13 @@ public function service(){
 }
 public function blog(){
 	$data['result']=$this->sm->get_blog();
-	$data['resultcontents']=$this->sm->get_blogcontents();
+	$data['resultcontents']=$this->sm->get_blogcontentsactive();
 	$data['resulttopcontent']=$this->sm->get_blogcontentstop();
 	$data['resulttopcontentcount']=$this->sm->get_blogcontentstopcount();
 
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
-	$data['featureupdate']=$this->sm->get_featureupdate();
+	$data['featureupdate']=$this->sm->get_featureupdateactive();
 	$data['about']=$this->sm->get_aboutus();
 	$data['menus']=$this->sm->get_menus();
 	$data['siteinf']=$this->sm->get_siteinf();
@@ -135,7 +135,7 @@ public function contact1(){
 public function contact(){
 	$data['menus']=$this->sm->get_menus();
 	$data['newsletter']=$this->sm->get_newsletter();
-	$data['featureupdate']=$this->sm->get_featureupdate();
+	$data['featureupdate']=$this->sm->get_featureupdateactive();
 	$data['contactus']=$this->sm->get_contactus();
 	$data['about']=$this->sm->get_aboutus();
 	$data['siteinf']=$this->sm->get_siteinf();
@@ -342,7 +342,8 @@ public function servicedetails(){
 
     $serid=$this->uri->segment(3);
 	//echo "hhhh";
-	$data['servicedetails']=$this->sm->get_servicedetals($serid);
+	//$data['servicedetails']=$this->sm->get_servicedetals($serid);
+	$data['servicedetails']=$this->sm->get_servicedetalsactive($serid);
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
@@ -350,11 +351,12 @@ public function servicedetails(){
 	//$data['categories']=$this->sm->get_categoriesall();
 	$data['categories']=$this->sm->get_categoriesallactive();
 	$data['lowestpackage']=$this->sm->get_lowestpackage($serid);
+	$data['lowestpackagecount']=$this->sm->get_lowestpackagecount($serid);
 	$data['easeyourproblems']=$this->sm->get_problemsactive();
 	$data['menus']=$this->sm->get_menus();
 	$data['siteinf']=$this->sm->get_siteinf();
 	$data['result']=$this->sm->get_servicesdetails();
-	$data['resultsub']=$this->sm->get_subcategoriesall();
+	$data['resultsub']=$this->sm->get_subcategoriesallactive();
 
 	$this->load->view('pocket/service-details.php',$data);
 
@@ -474,35 +476,62 @@ public function loadRecord($rowno=0){
 
 
 
-function test(){
-  $subject = "Test mail";
-  $to_email = "sumila.c@gmail.com";
-  $to_fullname = "John Doe";
-  $from_email = "sumila.c@gmail.com";
-  $from_fullname = "Jane Doe";
-  $headers  = "MIME-Version: 1.0\r\n";
-  $headers .= "Content-type: text/html; charset=utf-8\r\n";
-  // Additional headers
-  // This might look redundant but some services REALLY favor it being there.
-  $headers .= "To: $to_fullname <$to_email>\r\n";
-  $headers .= "From: $from_fullname <$from_email>\r\n";
-  $message = "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\r\n
-  <head>\r\n
-    <title>Hello Test</title>\r\n
-  </head>\r\n
-  <body>\r\n
-    <p></p>\r\n
-    <p style=\"color: #00CC66; font-weight:600; font-style: italic; font-size:14px; float:left; margin-left:7px;\">You have received an inquiry from your website.  Please review the contact information below.</p>\r\n
-  </body>\r\n
-  </html>";
-  if (!mail($to_email, $subject, $message, $headers)) { 
-    print_r(error_get_last());
-  }
-  else { 
-	echo "error";
-  }
+
+
+
+
+public function htmlmail(){
+
+	$from_email='sumilaifix@gmail.com';
+	 
+	$to_email = 'sumilaifix@gmail.com';
+	//$to_email = 'sumila.c@gmail.com';
+	$config = array(
+	   'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
+	   'smtp_host' => 'smtp.gmail.com',
+	   'smtp_port' => 587,
+	   'smtp_user' => 'sumilaifix@gmail.com',
+	   //'smtp_user' => 'crayoprojects2022@gmail.com',
+	   //'smtp_pass' => 'wosmqbffmatsefdz',
+	   'smtp_pass'=>'jcqa cvfq iwrc plsu',
+	   'smtp_crypto' => 'tls', //can be 'ssl' or 'tls' for example
+	   'mailtype' => 'html', //plaintext 'text' mails or 'html'
+	   'smtp_timeout' => '4', //in seconds
+	   'charset' => 'utf-8',
+	   'wordwrap' => TRUE,
+	   'newline' => "\r\n",
+   );
+
+    $this->load->library('email', $config);
+
+  $this->email->set_newline("\r\n");
+
   
-}
+
+    $this->email->from($from_email, 'Anil Labs');
+
+    $data = array(
+
+       'userName'=> 'Anil Kumar Panigrahi'
+
+         );
+
+		 $userEmail='sumilaifix@gmail.com';
+		 $subject='Pocket friendly Contact Us Enquiries';
+
+    $this->email->to($userEmail); // replace it with receiver mail id
+
+  $this->email->subject($subject); // replace it with relevant subject
+
+  
+
+    $body = $this->load->view('Pocket/emailcontactusenquires.php',$data,TRUE);
+
+  $this->email->message($body); 
+
+    $this->email->send();
+
+  }
 
 
 

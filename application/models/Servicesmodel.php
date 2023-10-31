@@ -401,13 +401,27 @@ function get_newslettersubscribersall($limit,$start){
 
 
 function get_lowestpackage($serid){
-   
+    $this->db->where('active',1);
+    $this->db->where('categoryid',$serid);
     $this->db->select('*');                
     $this->db->order_by('price');
     $this->db->limit(1);
     $query = $this->db->get('subcategory');
    
  return $query->row();
+
+}
+
+
+function get_lowestpackagecount($serid){
+    $this->db->where('active',1);
+    $this->db->where('categoryid',$serid);
+    $this->db->select('*');                
+    $this->db->order_by('price');
+    $this->db->limit(1);
+    $query = $this->db->get('subcategory');
+   
+ return $query->num_rows();
 
 }
 function get_problems(){
@@ -632,6 +646,78 @@ function get_problemsactive(){
     return $query->result_array();
 
 }
+
+function get_subcategoriesallactive(){
+    $this->db->where('active',1);
+    $this->db->select('*');
+    $this->db->from('subcategory');
+    $query = $this->db->get();
+    return $query->result_array();
+}
+
+
+function get_servicedetalsactive($serid){
+    //$this->db->limit($limit,$start);
+    $this->db->where('active',1);
+    $this->db->where('categoryid',$serid);
+    $this->db->select('*');
+    $this->db->from('subcategory');
+    $query = $this->db->get();
+    //echo $this->db->last_query();
+    return $query->result_array(); 
+
+
+}
+
+function get_blogcontentsactive(){
+    $this->db->where('active',1);
+    $this->db->select('*');
+    $this->db->from('blogcontents');
+    $query = $this->db->get();
+    return $query->result_array();
+
+}
+
+
+
+function get_testimonialactive(){
+    $this->db->where('active',1);
+    $this->db->select('*');
+    $this->db->from('testimonials');
+    $query = $this->db->get();
+    return $query->result_array();
+}
+
+
+function get_featureupdateactive(){
+    $this->db->where('active',1);
+    $this->db->select('*');
+    $this->db->from('featureupdate');
+    $query = $this->db->get();
+    //echo $this->db->last_query();
+    return $query->result_array();
+
+}
+
+
+function get_qualitiesactive(){
+    $this->db->where('active',1);
+    $this->db->order_by('orderno');
+    $this->db->select('*');
+    $this->db->from('quality');
+    $query = $this->db->get();
+    return $query->result_array();
+
+}
+
+
+
+
+
+
+
+
+
 
 }
 ?>

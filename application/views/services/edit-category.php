@@ -231,6 +231,7 @@
         var productcategoryid=$('#productcategoryid').val();
         var alttagimg1=$("#alttagimg1").val();
         var alttagimg2=$("#alttagimg2").val();
+        var status=$("#status").val();
         var form_data = new FormData();
         form_data.append('file', file_data);
         form_data.append('productcategory',productcategory);
@@ -238,6 +239,7 @@
         form_data.append('productcategoryid',productcategoryid);
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
+        form_data.append('status',status);
         
  //form_data.append('alttag1',alttagimg1);
        
