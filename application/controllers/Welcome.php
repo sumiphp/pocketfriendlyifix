@@ -2673,10 +2673,14 @@ function delfaq(){
 function delmenu(){
 
 	$id=$_GET['id'];
+	$this->db->where('parentmenuid',$id);
+	$this->db->delete('menus');
 	$this->db->where('menuid',$id);
 	$this->db->delete('menus');
-	echo ($this->db->affected_rows() != 1) ? 'Error in deleting Menu' : 'Menu deleted Successfully';
-
+	
+	//echo ($this->db->affected_rows() != 1) ? 'Error in deleting Menu' : 'Menu deleted Successfully';
+	//echo ($this->db->affected_rows() ==0) ? $this->session->set_flashdata('flash_msg', 'Error in deleting Menu') : $this->session->set_flashdata('flash_msg', 'Menu deleted Successfully');
+	($this->db->affected_rows() >0) ? $this->session->set_flashdata('flash_msg', 'Menu deleted Successfully') : $this->session->set_flashdata('flash_msg', 'Error in deleting menu');
 
 }
 function delql(){

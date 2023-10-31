@@ -65,7 +65,7 @@
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                               <div class="table-responsive theme-scrollbar">
-                                              <span id="msg"></span><br>
+                                              <span id="msg"><?php echo $this->session->flashdata('flash_msg');?></span><br>
                                                 <div id="data-source-1_wrapper" class="dataTables_wrapper">
 
                                                     <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
@@ -177,7 +177,7 @@
 
 <script>
 
-
+<?php $url=base_url();?>
 function delmenu(id){
 
     $.ajax({
@@ -185,8 +185,13 @@ function delmenu(id){
             url: "<?php echo base_url().'index.php/Welcome/delmenu';?>",
             data:{id:id},
             success:function(data){
-                $("#"+id).remove();
-                $("#msg").html(data);
+                //$("#"+id).remove();
+                //$("#msg").html(data);
+
+                window.location.href = "<?php echo $url.'Welcome/listmenus/';?>";
+
+
+
             }
         });
 

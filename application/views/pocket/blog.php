@@ -44,6 +44,10 @@ echo $result->metatag;
         <!-- Start home page Area -->
         <div class="inner-blog-sec">
             <div class="container">
+                <?php //echo $resulttopcontentcount;
+                if (($resulttopcontentcount)!=0){
+                
+                ?>
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="blog-person">
@@ -70,6 +74,7 @@ echo $result->metatag;
                         </div>
                     </div>
                 </div>
+                <?php } ?>
               
                 <div class="row">
                     <div class="col-lg-12 col-md-12">

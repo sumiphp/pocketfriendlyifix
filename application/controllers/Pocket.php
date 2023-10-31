@@ -29,6 +29,7 @@ class Pocket extends CI_Controller {
 		 $this->session->keep_flashdata('flash_msg'); 
 		 $this->load->helper(['form', 'url']); 
 		 $this->load->library("pagination");
+		 $this->load->library('email');
 
     }
 
@@ -99,6 +100,8 @@ public function blog(){
 	$data['result']=$this->sm->get_blog();
 	$data['resultcontents']=$this->sm->get_blogcontents();
 	$data['resulttopcontent']=$this->sm->get_blogcontentstop();
+	$data['resulttopcontentcount']=$this->sm->get_blogcontentstopcount();
+
 	$data['contactus']=$this->sm->get_contactus();
 	$data['newsletter']=$this->sm->get_newsletter();
 	$data['featureupdate']=$this->sm->get_featureupdate();
@@ -182,6 +185,13 @@ $data = array(
 	'businesswebsiteduration'=>"$businesswebsiteduration"
  );
  $this->db->insert('enquiries', $data);
+
+
+
+
+
+
+
  /*$from_email = "sumilaifix@gmail.com";
  $to_email = 'sumilaifix@gmail.com';
  
@@ -193,6 +203,7 @@ $data = array(
     'smtp_pass' => 'sumila@2023',
     'mailtype'  => 'html', 
     'charset'   => 'iso-8859-1'
+	'wordwrap' => TRUE
 );
  $this->load->library('email',$config);
  $this->email->from($from_email,"$firstname $lastname");
@@ -208,7 +219,7 @@ $data = array(
 echo "Your enquiry send successfully";
 }
 
-
+//jcqa cvfq iwrc plsu 
 
 public function contactenquiryprocess(){
 	$name=$this->input->post('name');
@@ -227,18 +238,35 @@ public function contactenquiryprocess(){
 		//'businesswebsiteduration'=>"$businesswebsiteduration"
 	 );
 	 $this->db->insert('contactenquiries',$data);
-	 /*$from_email = "sumilaifix@gmail.com";
-	 $to_email = 'sumilaifix@gmail.com';
+	 //$from_email = "sumilaifix@gmail.com";
+	 $from_email='crayoprojects2022@gmail.com';
 	 
-	 $config = Array(
+	 $to_email = 'sumilaifix@gmail.com';
+	 //$to_email = 'sumila.c@gmail.com';
+	 $config = array(
+		'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
+		'smtp_host' => 'smtp.gmail.com',
+		'smtp_port' => 587,
+		'smtp_user' => 'crayoprojects2022@gmail.com',
+		'smtp_pass' => 'wosmqbffmatsefdz',
+		'smtp_crypto' => 'tls', //can be 'ssl' or 'tls' for example
+		'mailtype' => 'html', //plaintext 'text' mails or 'html'
+		'smtp_timeout' => '4', //in seconds
+		'charset' => 'utf-8',
+		'wordwrap' => TRUE,
+		'newline' => "\r\n",
+	);
+	 
+	 /*$config = Array(
 		'protocol' => 'smtp',
-		'smtp_host' => 'ssl://smtp.googlemail.com',
-		'smtp_port' => 465,
-		'smtp_user' => 'sumilaifix@gmail.com',
-		'smtp_pass' => 'sumila@2023',
+		//'smtp_host' => 'ssl://smtp.googlemail.com',
+		'smtp_host' => 'ssl://smtp.gmail.com',
+		'smtp_port' => 25,
+		//'smtp_user' => 'sumilaifix@gmail.com',
+		//'smtp_pass' => 'sumila@2023',
 		'mailtype'  => 'html', 
 		'charset'   => 'iso-8859-1'
-	);
+	);*/
 	 $this->load->library('email',$config);
 	 $this->email->from($from_email,"$name");
 	 $this->email->to($to_email);
@@ -246,12 +274,12 @@ public function contactenquiryprocess(){
 	 $this->email->message('The email send using codeigniter library');
 	 //Send mail
 	 if($this->email->send()){
-		
+		echo "send";
 	 }
 	 else{
-		 
-	}*/
-	echo "Your enquiry send successfully";
+		echo "not send";
+	}
+	echo "Your enquiry send successfully----";
 	}
 
 
@@ -443,6 +471,41 @@ public function loadRecord($rowno=0){
   }
 
 //}
+
+
+
+function test(){
+  $subject = "Test mail";
+  $to_email = "sumila.c@gmail.com";
+  $to_fullname = "John Doe";
+  $from_email = "sumila.c@gmail.com";
+  $from_fullname = "Jane Doe";
+  $headers  = "MIME-Version: 1.0\r\n";
+  $headers .= "Content-type: text/html; charset=utf-8\r\n";
+  // Additional headers
+  // This might look redundant but some services REALLY favor it being there.
+  $headers .= "To: $to_fullname <$to_email>\r\n";
+  $headers .= "From: $from_fullname <$from_email>\r\n";
+  $message = "<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\r\n
+  <head>\r\n
+    <title>Hello Test</title>\r\n
+  </head>\r\n
+  <body>\r\n
+    <p></p>\r\n
+    <p style=\"color: #00CC66; font-weight:600; font-style: italic; font-size:14px; float:left; margin-left:7px;\">You have received an inquiry from your website.  Please review the contact information below.</p>\r\n
+  </body>\r\n
+  </html>";
+  if (!mail($to_email, $subject, $message, $headers)) { 
+    print_r(error_get_last());
+  }
+  else { 
+	echo "error";
+  }
+  
+}
+
+
+
 
 
 

@@ -203,6 +203,21 @@ function get_blogcontentstop(){
 
 }
 
+
+function get_blogcontentstopcount(){
+
+    $this->db->where('toparticle','Yes');
+    $this->db->select('*');
+    $this->db->from('blogcontents');
+    $query = $this->db->get();
+    return $query->num_rows();
+
+
+}
+
+
+
+
 function get_faq(){
     $this->db->select('*');
     $this->db->from('faq');
