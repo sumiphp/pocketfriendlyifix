@@ -90,6 +90,7 @@
                                                       <td class="sorting_1"><?php echo $res['subcategoryname'];?></td>
                                                       <td class="sorting_1"><?php 
                                                       $catid=$res['categoryid'];
+                                                      $this->db->where('categoryid',$catid);
                                                       $this->db->from('category');
                                                       $query = $this->db->get();
                                                       $catdt=$query->row();                                                     

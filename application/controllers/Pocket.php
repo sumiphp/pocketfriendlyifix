@@ -238,11 +238,11 @@ public function contactenquiryprocess(){
 		//'businesswebsiteduration'=>"$businesswebsiteduration"
 	 );
 	 $this->db->insert('contactenquiries',$data);
-	 //$from_email = "sumilaifix@gmail.com";
-	 $from_email='crayoprojects2022@gmail.com';
+	 $toemailid='sumilaifix@gmail.com';
+	 /*$from_email='crayoprojects2022@gmail.com';
 	 
 	 $to_email = 'sumilaifix@gmail.com';
-	 //$to_email = 'sumila.c@gmail.com';
+	
 	 $config = array(
 		'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
 		'smtp_host' => 'smtp.gmail.com',
@@ -255,19 +255,10 @@ public function contactenquiryprocess(){
 		'charset' => 'utf-8',
 		'wordwrap' => TRUE,
 		'newline' => "\r\n",
-	);
-	 
-	 /*$config = Array(
-		'protocol' => 'smtp',
-		//'smtp_host' => 'ssl://smtp.googlemail.com',
-		'smtp_host' => 'ssl://smtp.gmail.com',
-		'smtp_port' => 25,
-		//'smtp_user' => 'sumilaifix@gmail.com',
-		//'smtp_pass' => 'sumila@2023',
-		'mailtype'  => 'html', 
-		'charset'   => 'iso-8859-1'
 	);*/
-	 $this->load->library('email',$config);
+	 
+	 
+	/* $this->load->library('email',$config);
 	 $this->email->from($from_email,"$name");
 	 $this->email->to($to_email);
 	 $this->email->subject('Pocket Friendly Enquiries');
@@ -278,9 +269,12 @@ public function contactenquiryprocess(){
 	 }
 	 else{
 		echo "not send";
+	}*/
+	$this->htmlmailcontactus($name,$companyname,$email,$phone,$message,$email,$toemailid);
+	echo "Your enquiry send successfully";
 	}
-	echo "Your enquiry send successfully----";
-	}
+
+	
 
 
 
@@ -304,6 +298,8 @@ public function contactenquiryprocess(){
 			//'businesswebsiteduration'=>"$businesswebsiteduration"
 		 );
 		 $this->db->insert('contactenquiries',$data);
+		 $toemailid='sumilaifix@gmail.com';
+		 $this->htmlmailcontactus($name,$companyname,$email,$phone,$message,$email,$toemailid);
 		 /*$from_email = "sumilaifix@gmail.com";
 		 $to_email = 'sumilaifix@gmail.com';
 		 
@@ -480,11 +476,11 @@ public function loadRecord($rowno=0){
 
 
 
-public function htmlmail(){
+public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromemailid,$toemailid){
 
-	$from_email='sumilaifix@gmail.com';
-	 
-	$to_email = 'sumilaifix@gmail.com';
+	$from_email=$email;
+	$message=$msg;
+	$to_email =$toemailid;
 	//$to_email = 'sumila.c@gmail.com';
 	$config = array(
 	   'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
@@ -508,18 +504,18 @@ public function htmlmail(){
 
   
 
-    $this->email->from($from_email, 'Anil Labs');
+    $this->email->from($from_email,$name);
 
     $data = array(
 
-       'userName'=> 'Anil Kumar Panigrahi'
+       'name'=>$name,'companyname'=>$companyname,'email'=>$email,'phone'=>$phone,'message'=>$message
 
          );
 
-		 $userEmail='sumilaifix@gmail.com';
-		 $subject='Pocket friendly Contact Us Enquiries';
+		 //$userEmail='sumilaifix@gmail.com';
+		 $subject='Pocket friendly Contact Us Enquiries test';
 
-    $this->email->to($userEmail); // replace it with receiver mail id
+    $this->email->to($to_email); // replace it with receiver mail id
 
   $this->email->subject($subject); // replace it with relevant subject
 
