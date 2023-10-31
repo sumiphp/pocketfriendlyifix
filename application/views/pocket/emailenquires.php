@@ -204,7 +204,7 @@
 												
 													<table align="right" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="194">
 														<tr>
-															<td class="labelvalue" style="font-size: 20px;color: #ddd;text-align: right;">Name:</td>
+															<td class="labelvalue" style="font-size: 20px;color: #ddd;text-align: right;">First Name:</td>
 															<td class="filedValue" style="font-size: 20px;color: #fff;text-align: left;"> <?php
 
 
@@ -215,7 +215,7 @@ echo $name;?></td>
 															<td height="30" style="font-size: 1px">&nbsp;</td>
 														</tr>
 														<tr>
-															<td class="labelvalue" style="font-size: 20px;color: #ddd;text-align: right;">Company:</td>
+															<td class="labelvalue" style="font-size: 20px;color: #ddd;text-align: right;">Last Name:</td>
 															<td class="filedValue" style="font-size: 20px;color: #fff;text-align: left;">  <?php
 
 
@@ -244,6 +244,20 @@ echo  $email;?></td>
 echo  $phone;?></td>
 
 														</tr>
+
+
+                                                        <tr>
+															<td height="30" style="font-size: 1px">&nbsp;</td>
+														</tr>
+                                                        <tr>
+															<td class="labelvalue" style="font-size: 20px;color: #ddd;text-align: right;">Website Duration :</td>
+															<td class="filedValue" style="font-size: 20px;color: #fff;text-align: left;">  <?php
+
+
+echo  $businesswebsiteduration;?></td>
+
+														</tr>
+                           
 
 
 
@@ -283,7 +297,7 @@ echo  $natureofbusiness;?></td>
 															<td height="30" style="font-size: 1px">&nbsp;</td>
 														</tr>
 														<tr>
-															<td class="labelvalue" style="font-size: 20px;color: #ddd;text-align: right;">Message:</td>
+															<td class="labelvalue" style="font-size: 20px;color: #ddd;text-align: right;">Note:</td>
 															<td class="filedValue" style="font-size: 20px;color: #fff;text-align: left;">  <?php
 
 

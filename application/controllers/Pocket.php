@@ -647,7 +647,7 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 
 
     $data = array(
-
+		'businesswebsiteduration'=>$businesswebsiteduration,
        'name'=>$name,'companyname'=>$companyname,'email'=>$email,'phone'=>$phone,'message'=>$message,'package'=>$packagename,'natureofbusiness'=>$natureofbusiness
 
          );
