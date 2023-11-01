@@ -1370,11 +1370,11 @@ else{
 
 public function addqualityprocess(){
 	$title=$this->input->post('title');
-	//$subtitle=$this->input->post('subtitle');
+	$status=$this->input->post('status');
 	$orderno=$this->input->post('orderno');
 	$data = array(
 		'quality' =>"$title",
-		//'subtitle' =>"$subtitle",
+		'active' =>"$status",
 		'orderno'=>"$orderno",
 		//'Image1'=>$image1,'Image2'=>$image2		
 	 );
@@ -2590,7 +2590,7 @@ public function listquality(){
 $config = array();
 $config["base_url"] = base_url() . "Welcome/listquality";
 $config["total_rows"] = $this->sm->get_countquality();
-$config["per_page"] = 1;
+$config["per_page"] = 10;
 $config["uri_segment"] = 3;
 $this->pagination->initialize($config);
 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -4185,9 +4185,10 @@ public function editqualityprocess(){
 	$title=$this->input->post('title');
 	$qualityid=$this->input->post('qualityid');
 	$orderno=$this->input->post('orderno');
+	$status=$this->input->post('status');
 	$data = array(
 		'quality' =>"$title",
-		//'subtitle' =>"$subtitle",
+		'active' =>"$status",
 		'orderno'=>"$orderno",
 		//'Image1'=>$image1,'Image2'=>$image2		
 	 );
@@ -4245,7 +4246,13 @@ public function editservicesdetailsprocess(){
 
 
 
-
+public function generatesitemap(){
+	$data['result']=$this->sm->get_newsletterall();
+	$data['contactus']=$this->sm->get_contactus();
+	$data['newsletter']=$this->sm->get_newsletter();
+	$data['siteinf']=$this->sm->get_siteinf();
+	$this->load->view('services/listsitemap',$data);
+}
 
 
 

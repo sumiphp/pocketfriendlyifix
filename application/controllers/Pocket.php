@@ -171,7 +171,7 @@ $lastname=$this->input->post('lastname');
 $email=$this->input->post('email');
 $phone=$this->input->post('phone');
 $businessnature=$this->input->post('natureofbusiness');
-$packages=$this->input->post('packages');
+$packages=$this->input->post('package');
 $note=$this->input->post('note');
 $businesswebsiteduration=$this->input->post('businesswebsiteduration');
 $data = array(
@@ -186,8 +186,8 @@ $data = array(
  );
  $this->db->insert('enquiries', $data);
 
-
- $this->htmlmailenquiry($firstname,$lastname,$email,$phone,$note,$fromemailid,$toemailid,$packages,$businessnature,$businesswebsiteduration);
+ $toemailid='sumilaifix@gmail.com';
+ $this->htmlmailenquiry($firstname,$lastname,$email,$phone,$note,$toemailid,$packages,$businessnature,$businesswebsiteduration);
 
 
 
@@ -601,7 +601,7 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 
 
 
-  public function htmlmailenquiry($firstname,$lastname,$email,$phone,$note,$fromemailid,$toemailid,$packages,$businessnature,$businesswebsiteduration){
+  public function htmlmailenquiry($firstname,$lastname,$email,$phone,$note,$toemailid,$packageid,$natureofbusiness,$businesswebsiteduration){
 
   //public function htmlmailenquiry($name,$companyname,$email,$phone,$msg,$fromemailid,$toemailid,$packageid,$natureofbusiness){
 
@@ -631,7 +631,7 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 
   
 
-    $this->email->from($from_email,$name);
+    $this->email->from($from_email,$firstname);
 	if (!empty($packageid)){
 		$this->db->where('subcategoryid',$packageid);
 		$this->db->select('*');
@@ -648,12 +648,12 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 
     $data = array(
 		'businesswebsiteduration'=>$businesswebsiteduration,
-       'name'=>$name,'companyname'=>$companyname,'email'=>$email,'phone'=>$phone,'message'=>$message,'package'=>$packagename,'natureofbusiness'=>$natureofbusiness
+       'firstname'=>$firstname,'lastname'=>$lastname,'email'=>$email,'phone'=>$phone,'message'=>$message,'packagename'=>$packagename,'natureofbusiness'=>$natureofbusiness
 
          );
 
 		 //$userEmail='sumilaifix@gmail.com';
-		 $subject='Pocket friendly Contact Us Enquiries';
+		 $subject='Pocket friendly Enquiries';
 
     $this->email->to($to_email); // replace it with receiver mail id
 
@@ -661,7 +661,7 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 
   
 
-    $body = $this->load->view('Pocket/emailcontactusenquires.php',$data,TRUE);
+    $body = $this->load->view('Pocket/emailenquires.php',$data,TRUE);
 
   $this->email->message($body); 
 

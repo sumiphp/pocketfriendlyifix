@@ -95,6 +95,7 @@
                                                       <!--<th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Link</th>-->
                                                       <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Description</th>
                                                        <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Picture</th>
+                                                       <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Status</th>
                                                            <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
                                                   </thead>
                                                   <tbody>
@@ -110,6 +111,8 @@
                                                      
                                                       <td><?php echo $res['description'];?></td>
                                                       <td><img src=<?php echo base_url().'uploads/servicessteps/'.$res['picture']?> width="80" height="80" /></td>
+                                                      <td> <?php if ($res['active']==1){ echo "Active"; } else { echo "Inactive";}?>
+                                                    </td>
                                                       <td> 
                                                         <ul class="action"> 
                                                           <li class="edit"> <a href="<?php echo base_url().'Welcome/editsteps/'.$res['stepid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>

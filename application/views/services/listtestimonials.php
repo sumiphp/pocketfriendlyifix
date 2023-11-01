@@ -78,6 +78,7 @@
                                                       <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">No of Stars</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Date</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Image</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Status</th>
                                                            <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th>
                                                         </tr>
                                                   </thead>
@@ -95,6 +96,8 @@
                                                       <td><?php echo $res['rating'];?></td>
                                                       <td><?php echo $res['date'];?></td>
                                                       <td> <img src="<?php echo base_url().'uploads/testimonial/'.$res['image'];?>" /></td>
+                                                      <td> <?php if ($res['active']==1){ echo "Active"; } else { echo "Inactive";}?>
+                                                    </td>
                                                       <td> 
                                                         <ul class="action"> 
                                                           <li class="edit"> <a href="<?php echo base_url().'Welcome/edittestimonials/'.$res['testimonialid'];?>"  data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>

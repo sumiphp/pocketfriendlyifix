@@ -13,7 +13,31 @@
 //echo "'name'=>$name,'companyname'=>$name,'email'=>$email,'phone'=>$phone,'message'=>$message";
 
 ?>
+<style>
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
 
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -227,7 +251,7 @@ echo $companyname;?></td>
 														</tr>
 														<tr>
 															<td class="labelvalue" style="font-size: 20px;color: #ddd;text-align: right;">Email:</td>
-															<td class="filedValue" style="font-size: 20px;color: #fff;text-align: left;">  <?php
+															<td class="filedValue" style="font-size: 20px;color: #fff;text-align: left;text-decoration:none">  <?php
 
 
 echo  $email;?></td>

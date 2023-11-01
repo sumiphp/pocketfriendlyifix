@@ -11,6 +11,7 @@
     <?php foreach($products as $product) { ?>
     <url>
         <loc><?php echo base_url()."product/".$product->productid ?></loc>
+        <loc><?php echo base_url()."product/".$product->productname?></loc>
         <priority>0.5</priority>
         <changefreq>daily</changefreq>
     </url>

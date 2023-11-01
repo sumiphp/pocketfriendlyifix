@@ -195,20 +195,20 @@
 					</tr>
 					<tr>
 						<td>
-							<table align="center" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="560">
+							<table align="center" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="100%">
 								<tr>
 									<td>
-										<table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="265">
+										<table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="860">
 											<tr>
 												<td>
 												
-													<table align="right" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="194">
+													<table align="right" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="100%" >
 														<tr>
 															<td class="labelvalue" style="font-size: 20px;color: #ddd;text-align: right;">First Name:</td>
 															<td class="filedValue" style="font-size: 20px;color: #fff;text-align: left;"> <?php
 
 
-echo $name;?></td>
+echo $firstname;?></td>
 
 														</tr>
 														<tr>
@@ -219,7 +219,7 @@ echo $name;?></td>
 															<td class="filedValue" style="font-size: 20px;color: #fff;text-align: left;">  <?php
 
 
-echo $companyname;?></td>
+echo $lastname;?></td>
 
 														</tr>
 														<tr>

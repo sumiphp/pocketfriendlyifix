@@ -59,23 +59,23 @@
                 <div class="dashboard-innerbox">
                             <div class="inner-page-sec">
                               <div class="description-sec">
-                                <h2> View Quality  </h2>
+                                <h2> Generate Sitemap  </h2>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="inner-card">
                                             <div class="inner-card-body">
                                               <div class="table-responsive theme-scrollbar">
-                                              <span id="msg"><?php echo $this->session->flashdata('flash_msg');?></span><br>
+                                              <span id="msg"></span><br>
                                                 <div id="data-source-1_wrapper" class="dataTables_wrapper">
-
+                                                    <span id="msg"></span>
+                                                    <?php echo $this->session->flashdata('flash_msg');?>
                                                     <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
                                                   <thead>
                                                     <tr role="row">
-                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Quality</th>
+                                                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 116px;">Generate Sitemap </th>
                               
-                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 220px;">Order No</th>
-                                                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Status</th>
-                                                           <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
+                                                      
+                                                        </tr>
                                                   </thead>
                                                   <tbody>
                                                     <?php 
@@ -83,19 +83,10 @@
                                                     
                                                     
                                                     foreach($result as $res){?>
-                                                  <tr role="row" class="odd" id="<?php echo $res['qualityid'];?>" >
-                                                      <td class="sorting_1"><?php echo $res['quality'];?></td>
-                                                      <!--<td>Indoor Lamps</td>-->
-                                                      <td><?php echo $res['orderno'];?></td>
+                                                  <tr role="row" class="odd" id="<?php //echo $res['newsletterid'];?>" >
+                                                      <td class="sorting_1"><a href="<?php echo base_url().'/sitemap';?>" target=_blank>Click here to view sitemap</a></td>
                                                       
-                                                      <td>   <td> <?php if ($res['active']==1){ echo "Active"; } else { echo "Inactive";}?>
-                                                    </td>
-                                                        <ul class="action"> 
-                                                          <li class="edit"> <a href="<?php echo base_url().'Welcome/edithomepagequalities/'.$res['qualityid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
-                                                          <li class="delete"><a href="#" onclick="delql(<?php echo $res['qualityid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
-                                                          <!--<li class="View"><a href="#" data-bs-original-title="" title=""><i class='bx bx-low-vision'></i></a></li>-->
-                                                        </ul>
-                                                      </td>
+                                                      
                                                     </tr>
                                                     <?php } ?>
                                                    
@@ -105,7 +96,7 @@
                                                 </table>
                                             </div>
 
-                                            <div class="pagination mb-4"><?php echo $links;?> </div>
+                                            <!--<div class="pagination mb-4"><?php //echo $links;?> </div>-->
                                         </div>
                                     </div>
                                    
@@ -139,25 +130,7 @@
 </html>
 
 
-<script>
 
-
-function delql(id){
-
-    $.ajax({
-            type: 'GET',
-            url: "<?php echo base_url().'index.php/Welcome/delql';?>",
-            data:{id:id},
-            success:function(data){
-                $("#"+id).remove();
-                $("#msg").html(data);
-            }
-        });
-
-
-}
-    
-</script>
 
 
 

@@ -45,7 +45,20 @@
                                                               <input type="hidden" class="form-control numericvalidate" id="qualityid" name="qualityid"  required value="<?php echo $quality->qualityid;?>">
                                                           </div>
                                                       </div>
-                                                     
+                                                      <div class="row mb-3">
+                                                      <div class="col-md-6">
+                                                      <label for="status" class="form-label text-primary">Status:</label>   
+                                                      <select class="form-control" placeholder="Select Status" name="status" id="status"  data-bs-original-title="" title="" required>
+                                                                <option value=''>Select Status</option>
+                                                                <option value="1" <?php if ($quality->active=='1'){?> selected <?php }?>>Active </option>
+                                                                <option value="0" <?php if ($quality->active=='0'){?> selected <?php }?>>Inactive </option>
+</select> </div>
+
+                                                          <!--<div class="col-md-6">
+                                                              <label for="alttagimg1" class="form-label text-primary">Alt tag Image1:</label>
+                                                              <input type="text" class="form-control" id="alttagimg1" name="alttagimg1" required placeholder="Enter Alt attribute" value="<?php //echo $result->alttagimg1;?>">
+                                                          </div>-->
+                                                      </div>
                                                       
                                                       <a class="btn btn-primary me-3" href="<?php echo base_url().'Welcome/listquality';?>" data-bs-original-title="" title="">View/Edit  </a>
                                                       
@@ -111,14 +124,14 @@ $('#qlfrm').on('submit', function (e) {
         var title=$('#title').val();
        var qualityid=$("#qualityid").val();
         var orderno=$("#orderno").val();
-        
+        var status=$("#status").val();
         var form_data = new FormData();
         //form_data.append('image1', file_data1);
         //form_data.append('image2', file_data2);
         form_data.append('title',title);
        form_data.append('qualityid',qualityid);
         form_data.append('orderno',orderno);
-       
+        form_data.append('status',status);
         $.ajax({
             url: "<?php echo base_url().'Welcome/editqualityprocess';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server

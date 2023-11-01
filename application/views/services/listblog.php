@@ -81,6 +81,7 @@
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Content Image</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Author Name</th>
                                                                               <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Place</th>
+                                                                              <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 142px;">Status</th>
                                                            <th class="sorting taC" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 151px;">Action</th></tr>
                                                   </thead>
                                                   <tbody>
@@ -104,6 +105,11 @@
                                                     </td>
                                                     <td> <?php echo $res['place'];?>
                                                     </td>
+
+                                                    <td> <?php if ($res['active']==1){ echo "Active"; } else { echo "Inactive";}?>
+                                                    </td>
+
+
                                                     <td>
                                                         <ul class="action"> 
                                                         <li class="edit"> <a href="<?php echo base_url().'Welcome/editblogcontent/'.$res['contentid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>

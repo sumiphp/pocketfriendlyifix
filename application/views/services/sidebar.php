@@ -192,6 +192,15 @@
                             </li>
 
 
+                            <li>
+                              <a href="<?php echo base_url().'Welcome/generatesitemap';?>">
+                                <i class='bx bx-compass' ></i>
+                                <span class="link_name">Generate Sitemap</span>
+                              </a>
+                              
+                            </li>
+
+
                         <li>
                                 <a href="<?php echo base_url().'index.php/Welcome/logout';?>">
                                   <i class='bx bx-history'></i>
