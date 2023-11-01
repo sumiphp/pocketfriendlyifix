@@ -88,8 +88,9 @@
                                                       <!--<td>Indoor Lamps</td>-->
                                                       <td><?php echo $res['orderno'];?></td>
                                                       
-                                                      <td>   <td> <?php if ($res['active']==1){ echo "Active"; } else { echo "Inactive";}?>
+                                                        <td> <?php if ($res['active']==1){ echo "Active"; } else { echo "Inactive";}?>
                                                     </td>
+                                                    <td>
                                                         <ul class="action"> 
                                                           <li class="edit"> <a href="<?php echo base_url().'Welcome/edithomepagequalities/'.$res['qualityid'];?>" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
                                                           <li class="delete"><a href="#" onclick="delql(<?php echo $res['qualityid'];?>)" data-bs-original-title="" title=""><i class='bx bx-trash'></i></a></li>
