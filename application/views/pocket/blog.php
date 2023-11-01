@@ -3,6 +3,13 @@
 echo $result->metatag;
 
 ?>
+<?php $this->db->select('*');
+    $this->db->from('siteinformation');
+    $query = $this->db->get();
+    $favdt=$query->row();
+   $favicon=$favdt->faviconimg;
+    ?>
+         <link rel="icon" type="image/png" href="<?php echo base_url().'uploads/logo/'.$favicon;?>" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q1GCL7WC8"></script>
 <?php $this->db->select('*');
     $this->db->from('googleanalyticscode');
@@ -14,6 +21,18 @@ echo $result->metatag;
   
   <?php echo $gcdt->googleanalytics;?>
 </script>
+<style>
+	
+    .blog-title 
+
+{
+
+font-size:20px;
+
+
+}
+
+</style>
 
     <body>
         <!-- Start Preloader -->
@@ -79,8 +98,9 @@ echo $result->metatag;
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="artical-content">
-                            <h2 class="text-center"><?php echo $result->blogtitle ;?></h2>
+                        <h2 class="text-center "><?php echo $result->blogtitle ;?></h2>
                             <p><?php echo $result->blogdescription ;?></p>
+                           
                             <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>-->
@@ -93,9 +113,10 @@ echo $result->metatag;
                     <div class="row">
                         <?php foreach($resultcontents as $con){?>
                         <div class="col-lg-6 col-md-6">
-                        <h2 class="text-center"><?php echo $con['title'] ;?></h2>
+                        
                             <div class="blog-img">
                                 <img src="<?php echo base_url().'uploads/blog/'.$con['contentimage'];?>"  alt="<?php echo $con['alttagimg2'];?>">
+                               
                             </div>
                             <div class="blog-content-inner">
                                 <div class="blog-author-img">
@@ -103,6 +124,7 @@ echo $result->metatag;
 
                                 </div>
                                 <div class="blog-details">
+                                <h2 class="text-left blog-title"><?php echo $con['title'] ;?></h2>
                             <p><?php echo $con['description'];?> </p>
                             <p class="date"><?php $date=explode("-",$con['date']);
                             //echo $mon=$date[1];

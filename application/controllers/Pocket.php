@@ -481,7 +481,8 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 
 	$from_email=$email;
 	$message=$msg;
-	$to_email =$toemailid;
+	
+	//$to_email =$toemailid;
 	//$to_email = 'sumila.c@gmail.com';
 	$config = array(
 	   'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
@@ -514,15 +515,18 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
          );
 
 		 //$userEmail='sumilaifix@gmail.com';
-		 $subject='Pocket friendly Contact Us Enquiries test';
+		 $subject='Pocket friendly Contact Us Enquiries';
 
-    $this->email->to($to_email); // replace it with receiver mail id
-
+    //$this->email->to($to_email); // replace it with receiver mail id
+	//$this->email->to('sumilaifix@gmail.com','sumila.c@gmail.com','sumilaifix@gmail.com');
+	$this->email->to('sumilaifix@gmail.com');
+	
+  $this->email->bcc(array('sumila.c@gmail.com','sumilaifix@gmail.com'));
   $this->email->subject($subject); // replace it with relevant subject
 
   
 
-     $body = $this->load->view('Pocket/emailcontactusenquires.php',$data,TRUE);
+     $body = $this->load->view('Pocket/contactusenquiresemail1.php',$data,TRUE);
 	//die;
 
   $this->email->message($body); 
@@ -586,13 +590,17 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 		 //$userEmail='sumilaifix@gmail.com';
 		 $subject='Pocket friendly Contact Us Enquiries';
 
-    $this->email->to($to_email); // replace it with receiver mail id
+    //$this->email->to($to_email); // replace it with receiver mail id
+
+	$this->email->to('sumilaifix@gmail.com');
+	
+  $this->email->bcc(array('sumila.c@gmail.com','sumilaifix@gmail.com'));
 
   $this->email->subject($subject); // replace it with relevant subject
 
   
 
-    $body = $this->load->view('Pocket/emailcontactusenquires.php',$data,TRUE);
+    $body = $this->load->view('Pocket/contactusenquiresemail2.php',$data,TRUE);
 
   $this->email->message($body); 
 
@@ -656,13 +664,17 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 		 //$userEmail='sumilaifix@gmail.com';
 		 $subject='Pocket friendly Enquiries';
 
-    $this->email->to($to_email); // replace it with receiver mail id
-
-  $this->email->subject($subject); // replace it with relevant subject
+		 $this->email->to('sumilaifix@gmail.com');
+	
+		 $this->email->bcc(array('sumila.c@gmail.com','sumilaifix@gmail.com'));
+	   
+		 $this->email->subject($subject); 
 
   
 
-    $body = $this->load->view('Pocket/emailenquires.php',$data,TRUE);
+  
+
+    $body = $this->load->view('Pocket/contactusenquiresemail3.php',$data,TRUE);
 
   $this->email->message($body); 
 

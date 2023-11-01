@@ -865,7 +865,8 @@ home-page-sec
   font-size: 18px;
   text-decoration: none !important;
   position: absolute;
-  bottom: 50px;
+  z-index: 999;
+  bottom: 30px;
 }
 .hosting-services-sec .elementor-element .plan-btn::before {
   content: "";

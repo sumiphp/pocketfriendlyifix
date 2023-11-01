@@ -66,12 +66,19 @@
                       
                     </div>
                 </div>
-
+                <?php $this->db->select('*');
+    $this->db->from('aboutus');
+    $query = $this->db->get();
+    $aboutus=$query->row();
+    
+    
+    ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-list ml-50">
-                        <h3>About Us</h3>
-                      <p>POCKET FRIENDLY delivers comprehensive, professional one-page websites for businesses of all sizes at an affordable cost.</p>
-                      <p class="pt-30 ">POCKET FRIENDLY delivers comprehensive, professional one-page websites for businesses of all sizes at an affordable cost.</p>
+                        <h3><?php echo $aboutus->title;?></h3>
+                        <p><?php echo $aboutus->aboutcompany;?></p>
+                      <!--<p>POCKET FRIENDLY delivers comprehensive, professional one-page websites for businesses of all sizes at an affordable cost.</p>
+                      <p class="pt-30 ">POCKET FRIENDLY delivers comprehensive, professional one-page websites for businesses of all sizes at an affordable cost.</p>--->
 
                     </div>
                 </div>

@@ -3,6 +3,15 @@
 echo $about->metatag;
 
 ?>
+
+<?php $this->db->select('*');
+    $this->db->from('siteinformation');
+    $query = $this->db->get();
+    $favdt=$query->row();
+   $favicon=$favdt->faviconimg;
+    ?>
+        
+        <link rel="icon" type="image/png" href="<?php echo base_url().'uploads/logo/'.$favicon;?>" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q1GCL7WC8"></script>
 <?php $this->db->select('*');
     $this->db->from('googleanalyticscode');
