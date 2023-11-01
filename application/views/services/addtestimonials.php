@@ -47,9 +47,17 @@
                                                       </div>
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
-                                                          <span id="errorMsg">Invalid</span>
-                                                              <label for="contact-person" class="form-label text-primary">Rating:</label>
-                                                              <input type="text" class="form-control numericvalidate" id="rating" name="rating" placeholder="Enter Rating"  required>
+                                                                                                        <!--<label for="contact-person" class="form-label text-primary">Rating:</label>
+                                                              <input type="text" class="form-control numericvalidate" id="rating" name="rating" placeholder="Enter Rating" value="<?php //echo $result->rating;?>" required>-->
+                                                              <label for="Rating" class="form-label text-primary">Rating:</label>
+                                                          <select class="form-control" placeholder="Select Status" id="rating" name="rating"  data-bs-original-title="" title="" required>
+                                                              <option value=''>Select Rating</option>
+                                                                <option value="1" >1 </option>
+                                                                <option value="2" >2</option>
+                                                                <option value="3">3 </option>
+                                                                <option value="4" >4</option>
+                                                                <option value="5" >5</option>
+</select>
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Date Posted:</label>
@@ -171,7 +179,7 @@
         <?php include_once("footer.php");?>
         <script>
 
-$("#rating" ).keyup(function() {
+/*$("#rating" ).keyup(function() {
   if($('#rating').val()<1 || $('#rating').val()>5 ){
       $('#errorMsg').show();
   }
@@ -179,7 +187,7 @@ $("#rating" ).keyup(function() {
     $('#errorMsg').hide();
     $('#rating').val("");
   }
-});
+});*/
 
 
             
@@ -217,6 +225,7 @@ $('#addtestimonial').on('submit', function (e) {
             success: function (response) {
                 $('#image1').val('');
                 $('#date').val('');
+                $('#rating').val('');
                 $('#description').val('');
                 $('input[type=text]').each(function() {
         $(this).val('');

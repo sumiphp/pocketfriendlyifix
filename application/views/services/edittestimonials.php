@@ -47,8 +47,17 @@
                                                       </div>
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
-                                                              <label for="contact-person" class="form-label text-primary">Rating:</label>
-                                                              <input type="text" class="form-control numericvalidate" id="rating" name="rating" placeholder="Enter Rating" value="<?php echo $result->rating;?>" required>
+                                                              <!--<label for="contact-person" class="form-label text-primary">Rating:</label>
+                                                              <input type="text" class="form-control numericvalidate" id="rating" name="rating" placeholder="Enter Rating" value="<?php //echo $result->rating;?>" required>-->
+                                                              <label for="status" class="form-label text-primary">Rating:</label>
+                                                          <select class="form-control" placeholder="Select Status" id="rating" name="rating"  data-bs-original-title="" title="" required>
+                                                              <option value=''>Select Rating</option>
+                                                                <option value="1" <?php if ($result->rating=='1'){?> selected <?php }?>>1 </option>
+                                                                <option value="2" <?php if ($result->rating=='2'){?> selected <?php }?>>2</option>
+                                                                <option value="3" <?php if ($result->rating=='3'){?> selected <?php }?>>3 </option>
+                                                                <option value="4" <?php if ($result->rating=='4'){?> selected <?php }?>>4</option>
+                                                                <option value="5" <?php if ($result->rating=='5'){?> selected <?php }?>>5</option>
+</select>
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="designation" class="form-label text-primary">Date Posted:</label>

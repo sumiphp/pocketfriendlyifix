@@ -516,12 +516,18 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 
 		 //$userEmail='sumilaifix@gmail.com';
 		 $subject='Pocket friendly Contact Us Enquiries';
-
-    //$this->email->to($to_email); // replace it with receiver mail id
-	//$this->email->to('sumilaifix@gmail.com','sumila.c@gmail.com','sumilaifix@gmail.com');
-	$this->email->to('sumilaifix@gmail.com');
+		 $this->db->select('*');
+		 $this->db->from('contactus');
+		 $query = $this->db->get();
+		 $contactusdte=$query->row();
+		 $fn1=$contactusdte->toemail1;
+		 $fn2=$contactusdte->toemail2;
+		 $fn3=$contactusdte->toemail3;
+		 
+		 
+		 $this->email->to($fn1);
 	
-  $this->email->bcc(array('sumila.c@gmail.com','sumilaifix@gmail.com'));
+		 $this->email->bcc(array($fn2,$fn3));
   $this->email->subject($subject); // replace it with relevant subject
 
   
@@ -591,10 +597,18 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 		 $subject='Pocket friendly Contact Us Enquiries';
 
     //$this->email->to($to_email); // replace it with receiver mail id
-
-	$this->email->to('sumilaifix@gmail.com');
+	$this->db->select('*');
+	$this->db->from('contactus');
+	$query = $this->db->get();
+	$contactusdte=$query->row();
+	$fn1=$contactusdte->toemail1;
+	$fn2=$contactusdte->toemail2;
+	$fn3=$contactusdte->toemail3;
 	
-  $this->email->bcc(array('sumila.c@gmail.com','sumilaifix@gmail.com'));
+	
+	$this->email->to($fn1);
+
+	$this->email->bcc(array($fn2,$fn3));
 
   $this->email->subject($subject); // replace it with relevant subject
 
@@ -663,10 +677,18 @@ public function htmlmailcontactus($name,$companyname,$email,$phone,$msg,$fromema
 
 		 //$userEmail='sumilaifix@gmail.com';
 		 $subject='Pocket friendly Enquiries';
-
-		 $this->email->to('sumilaifix@gmail.com');
+		 $this->db->select('*');
+		 $this->db->from('contactus');
+		 $query = $this->db->get();
+		 $contactusdte=$query->row();
+		 $fn1=$contactusdte->toemail1;
+		 $fn2=$contactusdte->toemail2;
+		 $fn3=$contactusdte->toemail3;
+		 
+		 
+		 $this->email->to($fn1);
 	
-		 $this->email->bcc(array('sumila.c@gmail.com','sumilaifix@gmail.com'));
+		 $this->email->bcc(array($fn2,$fn3));
 	   
 		 $this->email->subject($subject); 
 
