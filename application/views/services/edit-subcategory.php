@@ -192,6 +192,18 @@
                                                             </div>
                                                           </div> 
 
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                              <label for="address" class="form-label text-primary">Meta Tag:</label>
+                                                          <textarea class="form-control" id="metatag" name="metatag" rows="4" placeholder="Enter Meta Tag"><?php echo $result->metatag;?></textarea>
+
+                                                              </div>
+                                                            </div>
+                                                          </div>  
+
+
                                                           <div class="row">
                                                             <div class="col-sm-12 text-end"><button class="btn btn-secondary" data-bs-original-title="" title="">Save</button></div>
                                                           </div>
@@ -302,6 +314,7 @@
         var alttagimg1=$("#alttagimg1").val();
         var alttagimg2=$("#alttagimg2").val();
         var status=$("#status").val();
+        var metatag=$("#metatag").val();
         var form_data = new FormData();
         form_data.append('filesub', file_data);
         form_data.append('prdsubcat',prdsubcat);
@@ -314,7 +327,7 @@
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
         form_data.append('status',status);
-       
+        form_data.append('metatag',metatag);
         $.ajax({
             url: "<?php echo base_url().'Welcome/upload_filesubedit';?>", // point to server-side controller method
             dataType: 'text', // what to expect back from the server

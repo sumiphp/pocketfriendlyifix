@@ -281,11 +281,12 @@ $productimg=$image1;
 	$productdesc=$this->input->post('productdescription');
 	$alttag1=$this->input->post('alttag1');
 	$status=$this->input->post('status');
+	$metatag=$this->input->post('metatag');
 	$productimg=$image1;
 	$data = array(
 		'categoryname' =>"$productcategory",
 		'categorydescription' =>"$productdesc",
-		'categoryimage'=>$productimg,'alttagimg1'=>"$alttag1",'active'=>"$status"		
+		'categoryimage'=>$productimg,'alttagimg1'=>"$alttag1",'active'=>"$status",'metatag'=>$metatag	
 	 );
 	 $this->db->insert('category', $data);
 	 echo ($this->db->affected_rows() != 1) ? 'Error in Adding Product' : '<b>Product Category added Successfully</b>';
@@ -343,13 +344,13 @@ function upload_filecatedit() {
 	$productcategoryid=$this->input->post('productcategoryid');
 	$productdesc=$this->input->post('productdescription');
 	$status=$this->input->post('status');
-	
+	$metatag=$this->input->post('metatag');
 	if ($productimg==''){
 
 		$data = array(
 			'categoryname' =>"$productcategory",
 			'categorydescription' =>"$productdesc",
-			'alttagimg1'=>"$alttag1",'active'=>"$status"	
+			'alttagimg1'=>"$alttag1",'active'=>"$status",'metatag'=>$metatag	
 		 );
 
 	}else{
@@ -357,7 +358,7 @@ function upload_filecatedit() {
 		'categoryname' =>"$productcategory",
 		'categorydescription' =>"$productdesc",
 		'categoryimage'=>$productimg,
-		'alttagimg1'=>"$alttag1",'active'=>"$status"		
+		'alttagimg1'=>"$alttag1",'active'=>"$status",'metatag'=>$metatag		
 	 );
 	}
 	 $this->db->where('categoryid',$productcategoryid);
@@ -490,7 +491,7 @@ $productimg=$image1;
 
 
 	
-	//$productimg=$_FILES['filesub']['name'];
+$metatag=$this->input->post('metatag');
 	//$productimgsub=$_FILES['filesubimg']['name'];
 	 $productcategory=$this->input->post('prdcat');
 	 $prdsubcat=$this->input->post('prdsubcat');
@@ -510,7 +511,7 @@ $productimg=$image1;
 				'subcatshortdesc'=>$subcatshortdesc,
 				'price'=>$price,
 				'currency'=>'AED','alttagimg1'=>"$alttag1",
-				'alttagimg2'=>"$alttag2",'active'=>"$status"
+				'alttagimg2'=>"$alttag2",'active'=>"$status",'metatag'=>$metatag	
 	  );
 	  $this->db->insert('subcategory', $data);
 
@@ -671,7 +672,7 @@ function upload_filesubedit() {
 	 $subcatshortdesc=$this->input->post('prdsubshortdesc');
 	 $alttag1=$this->input->post('alttag1');
 	 $alttag2=$this->input->post('alttag2');
-	 //if (($productimg!='') && ($productimgsub!='')){
+	 $metatag=$this->input->post('metatag');
 	 $data = array(
 		 'subcategoryname' =>"$prdsubcat",
 		 'categoryid' =>"$productcategory",
@@ -681,7 +682,7 @@ function upload_filesubedit() {
 		 'subcatshortdesc'=>$subcatshortdesc,
 				'price'=>$price,
 				'currency'=>'AED','alttagimg1'=>"$alttag1",
-				'alttagimg2'=>"$alttag2",'active'=>"$status"		
+				'alttagimg2'=>"$alttag2",'active'=>"$status",'metatag'=>$metatag			
 	  );
 	/*}else if (($productimg!='') && ($productimgsub=='')){
 		$data = array(
