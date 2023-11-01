@@ -3753,6 +3753,9 @@ function contactusprocess(){
 	 $alttag1=$this->input->post('alttag1');
 	 $alttag2=$this->input->post('alttag2');
 	 $lanno=$this->input->post('lanno');
+	 $email1=$this->input->post('email1');
+	 $email2=$this->input->post('email2');
+	 $email3=$this->input->post('email3');
 	 //$image1=$_FILES['image1']['name'];
 	 /*if ($image1==''){
 
@@ -3778,7 +3781,7 @@ function contactusprocess(){
 		'metatag' =>"$metatag",
 		'alttagimg1'=>"$alttag1",
 		'alttagimg2'=>"$alttag2",
-		'lanno'=>$lanno				
+		'lanno'=>$lanno,'toemail1'=>$email1,'toemail2'=>$email2,'toemail3'=>$email3					
 	 );
 	//}
 	 //$id=$this->uri->segment(3); 

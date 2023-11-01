@@ -47,6 +47,7 @@
                                                       </div>
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
+                                                          <span id="errorMsg">Invalid</span>
                                                               <label for="contact-person" class="form-label text-primary">Rating:</label>
                                                               <input type="text" class="form-control numericvalidate" id="rating" name="rating" placeholder="Enter Rating"  required>
                                                           </div>
@@ -121,7 +122,7 @@
                                                       </div>-->
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Testimonial:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Testimonial"></textarea>
+                                                          <textarea class="form-control" id="description" name="description" required rows="3" placeholder="Enter Testimonial"></textarea>
                                                       </div>
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">
@@ -169,6 +170,19 @@
 
         <?php include_once("footer.php");?>
         <script>
+
+$("#rating" ).keyup(function() {
+  if($('#rating').val()<1 || $('#rating').val()>5 ){
+      $('#errorMsg').show();
+  }
+  else{
+    $('#errorMsg').hide();
+    $('#rating').val("");
+  }
+});
+
+
+            
 $('#addtestimonial').on('submit', function (e) {
     e.preventDefault();
     //alert("enter");

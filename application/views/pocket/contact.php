@@ -1,4 +1,4 @@
-<?php //include_once("header.php");?>
+<link rel="icon" type="image/png" href="http://localhost/Pocketfriendly_cms/pockets/assets/img/favicon.ico"/>
 
 <?php //include_once("header.php");
 echo $contactus->metatag;

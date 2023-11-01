@@ -236,7 +236,7 @@ bottom:4px;
                             </div>
                           
                             <div class="primary-btn mt-3">
-                                <a href="#" class="default-btn">More</a>
+                                <a href="<?php echo base_url().'Pocket/service';?>" class="default-btn">More</a>
                             </div>
                           
                             </div>

@@ -70,11 +70,40 @@
                                           
                                                           </div>
                                                       </div>
-
-<div class="mb-3">
+                                                      <div class="row mb-3">
+ <div class="col-md-6">
                                                       <label for="company-name" class="form-label text-primary">Lanno:</label>
                                                               <input type="text" class="form-control" id="lanno" name="lanno" placeholder="Lanno" required value="<?php echo $result->lanno;?>" >
                                                       </div>
+
+
+                                                       <div class="col-md-6">
+                                                      <label for="company-name" class="form-label text-primary">To email1:</label>
+                                                              <input type="text" class="form-control" id="email1" name="email1" placeholder="email1" required value="<?php echo $result->toemail1;?>" >
+                                                      </div>
+
+
+
+                                                      </div>
+
+
+                                                      <div class="row mb-3">
+                                                          <div class="col-md-6">
+                                                          <label for="company-name" class="form-label text-primary">To email2:</label>
+                                                              <input type="text" class="form-control" id="email2" name="email2" placeholder="email1" required value="<?php echo $result->toemail2;?>" >
+                                                      </div>
+                                                         
+                                                          <div class="col-md-6">
+                                                          <label for="company-name" class="form-label text-primary">To email3:</label>
+                                                              <input type="text" class="form-control" id="email3" name="email3" placeholder="email1" required value="<?php echo $result->toemail3;?>" >
+                                                      </div>
+                                          
+                                                          </div>
+                                                      </div>
+
+
+
+
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Front Page Contact Us description:</label>
@@ -154,6 +183,9 @@ $('#editcontactus').on('submit', function (e) {
         var place=$("#place").val();
         var country=$("#country").val();
         var lanno=$("#lanno").val();
+        var email1=$("#email1").val();
+        var email2=$("#email2").val();
+        var email3=$("#email3").val();
         //var date=$("#date").val();
        var description=$("#description").val();
        var metatag=$("#metatag").val();
@@ -170,6 +202,9 @@ $('#editcontactus').on('submit', function (e) {
         form_data.append('metatag',metatag);
         form_data.append('alttag1',alttagimg1);
         form_data.append('alttag2',alttagimg2);
+        form_data.append('email1',email1);
+        form_data.append('email2',email2);
+        form_data.append('email3',email3);
        // alert("enter");
        
         $.ajax({

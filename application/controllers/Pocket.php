@@ -239,6 +239,7 @@ public function contactenquiryprocess(){
 	 );
 	 $this->db->insert('contactenquiries',$data);
 	 $toemailid='sumilaifix@gmail.com';
+	 //$this->email->to('sumilaifix@gmail.com','sumilaifix@gmail.com','sumilaifix@gmail.com');
 	 /*$from_email='crayoprojects2022@gmail.com';
 	 
 	 $to_email = 'sumilaifix@gmail.com';

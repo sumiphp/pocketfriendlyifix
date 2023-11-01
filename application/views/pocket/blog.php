@@ -93,6 +93,7 @@ echo $result->metatag;
                     <div class="row">
                         <?php foreach($resultcontents as $con){?>
                         <div class="col-lg-6 col-md-6">
+                        <h2 class="text-center"><?php echo $con['title'] ;?></h2>
                             <div class="blog-img">
                                 <img src="<?php echo base_url().'uploads/blog/'.$con['contentimage'];?>"  alt="<?php echo $con['alttagimg2'];?>">
                             </div>
