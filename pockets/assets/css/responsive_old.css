@@ -723,7 +723,7 @@
   }
   /*service-details*/
   .service-detail-banner {
-    height: 40vh !important;
+    height: 80vh !important;
   }
   .service-detail-banner .right-banner-content {
     padding-top: 5%;
@@ -1696,7 +1696,7 @@ label.error.errpopupmsg
     padding-top: 10%;
   }
   .service-detail-banner {
-    height: 50vh !important;
+    height: 40vh !important;
   }
   .right-banner-content h2 {
     font-size: 20px;
@@ -1927,7 +1927,7 @@ label.error.errpopupmsg
     margin: 20px auto;
   }
   .service-detail-banner {
-    height:60vh !important;
+    height: 100vh !important;
   }
   .contact-banner-sec {
     height: 75vh;
