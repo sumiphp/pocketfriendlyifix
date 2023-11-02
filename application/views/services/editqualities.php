@@ -36,7 +36,7 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Quality:</label>
-                                                              <input type="text" class="form-control " id="title" name="title" placeholder="Enter Quality Title" required value="<?php echo $quality->quality;?>" >
+                                                              <input type="text" class="form-control " id="title" name="title" placeholder="Enter Quality Title" maxlength="30" required value="<?php echo $quality->quality;?>" >
                                           
                                                           </div>
                                                          <div class="col-md-6">

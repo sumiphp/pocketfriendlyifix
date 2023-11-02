@@ -37,7 +37,7 @@
                                                     
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Newsletter:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Newsletter"><?php echo $result->newsletterdescription;?></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="3" maxlength="380" placeholder="Enter Newsletter"><?php echo $result->newsletterdescription;?></textarea>
                                                       </div>
                                                      
                                                       

@@ -36,7 +36,7 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Faq Title:</label>
-                                                              <input type="text" class="form-control" id="faqtitle" name="faqtitle" placeholder="Enter Faq Title" value="<?php echo $result->faqtitle;?>" required>
+                                                              <input type="text" class="form-control" id="faqtitle" maxlength="50" name="faqtitle" placeholder="Enter Faq Title" value="<?php echo $result->faqtitle;?>" required>
                                                               <input type="hidden" class="form-control" id="faqid" name="faqid" placeholder="Enter Faq Id" value="<?php echo $result->faqid;?>" required>
                                           
                                                           </div>
@@ -65,7 +65,7 @@
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Faq Description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required><?php echo $result->faqdescription;?></textarea>
+                                                          <textarea maxlength="400" class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required><?php echo $result->faqdescription;?></textarea>
                                                       </div>
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">

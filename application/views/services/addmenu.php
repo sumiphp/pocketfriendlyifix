@@ -37,7 +37,7 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Menu Name:</label>
-                                                              <input type="text" class="form-control" id="menuname" name="menuname" placeholder="Enter Menu Name" required>
+                                                              <input type="text" class="form-control" id="menuname" name="menuname" placeholder="Enter Menu Name" maxlength="50" required>
                                           
                                                           </div>
                                                           <div class="col-md-6">

@@ -107,7 +107,7 @@
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Front Page Contact Us description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="10" placeholder="Enter Blog description" required><?php echo $result->contactusdescription;?></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="10" maxlength="610"  placeholder="Front Page Contact Us description" required><?php echo $result->contactusdescription;?></textarea>
                                                       </div>
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Meta Tag:</label>

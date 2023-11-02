@@ -37,7 +37,7 @@
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Menu Name:</label>
                                                               <input type="hidden" class="form-control" id="menuid" name="menuid" value="<?php echo $result->menuid;?>" placeholder="Enter Menu Name" required>
-                                                              <input type="text" class="form-control" id="menuname" name="menuname" value="<?php echo $result->menuname;?>" placeholder="Enter Menu Name" required>
+                                                              <input type="text" class="form-control" id="menuname" name="menuname" value="<?php echo $result->menuname;?>" placeholder="Enter Menu Name" required maxlength="50">
                                           
                                                           </div>
                                                           <div class="col-md-6">

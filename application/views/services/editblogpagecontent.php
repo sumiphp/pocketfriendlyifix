@@ -43,8 +43,8 @@
                                                       </div>
                                                     
                                                       <div class="mb-3">
-                                                          <label for="address" class="form-label text-primary">Blog Page Content:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="7" placeholder="Blog Page Content" maxlength="1344" ><?php echo $result->blogdescription;?></textarea>
+                                                          <label for="address" class="form-label text-primary">Blog Page Content :</label>
+                                                          <textarea class="form-control" id="description" name="description" rows="7" placeholder="Blog Page Content" maxlength="1350" ><?php echo $result->blogdescription;?></textarea>
                                                       </div>
                                                      
                                                       <div class="mb-3">
