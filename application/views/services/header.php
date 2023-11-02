@@ -29,8 +29,15 @@
         <link rel="stylesheet" href="<?php echo base_url().'services/assets/css/theme-dark.css';?>">
 
         <!-- Title -->
-        <title>Pocket Frindly </title>
+        <?php $this->db->select('*');
+    $this->db->from('siteinformation');
+    $query = $this->db->get();
+    $favdt=$query->row();
+   $favicon=$favdt->faviconimg;
+    ?>
+        <title><?php echo $favdt->sitename;?></title>
         
+        <link rel="icon" type="image/png" href="<?php echo base_url().'uploads/logo/'.$favicon;?>" />
         <!-- Favicon -->
         <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png"> -->
     </head>

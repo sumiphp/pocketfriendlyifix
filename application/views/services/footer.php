@@ -55,10 +55,26 @@
                     <div class="footer-single">
                         <div class="footer-single-content">
                             <a href="#">
-                                <img src="<?php echo base_url().'assets/img/footer-logo.png';?>" alt="Logo">
+                                <img src="<?php echo base_url().'services/assets/img/footer-logo-arabic.png';?>" alt="Logo">
                             </a>
+                            <?php $this->db->select('*');
+    $this->db->from('socialmedialinks');
+    $query = $this->db->get();
+    $footerdt=$query->row();?>
                             <div class="share-icon">
                                 <img src="<?php echo base_url().'assets/img/share-icon.png';?>">
+                                <!--<ul class="social-icon-part">
+                                            <li><a href="<?php //echo $footerdt->whatsuplink;?>" target="_blank"><img src="<?php //echo base_url().'pockets/assets/img/whatsapp.png';?>"></a></li>
+                                            <li><a href="<?php //echo $footerdt->linkldn;?>" target="_blank"><img src="<?php //echo base_url().'pockets/assets/img/linked-in.png';?>"></a></li>
+                                            <li><a href="<?php //echo $footerdt->youtube;?>" target="_blank"><img src="<?php //echo base_url().'pockets/assets/img/youtube-icon.png';?>"></a></li>
+                                        </ul>
+                                        <ul class="social-icon-part">
+                                            <li><a href="<?php //echo $footerdt->facebook;?>" target="_blank"><img src="<?php // echo base_url().'pockets/assets/img/facebook-icon.png';?>"></a></li>
+                                            <li><a href="<?php //echo $footerdt->instagram;?>" target="_blank"><img src="<?php //echo base_url().'pockets/assets/img/insta-icon.png';?>"></a></li>
+                                            <li><a href="<?php //echo $footerdt->twitter;?>" target="_blank"><img src="<?php //echo base_url().'pockets/assets/img/twitter.png';?>"></a></li>
+                                        </ul>-->
+
+                                
                             </div>
                            
                         </div>
@@ -76,7 +92,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-list ml-50">
                         <h3><?php echo $aboutus->title;?></h3>
-                        <p><?php echo $aboutus->aboutcompany;?></p>
+                        <p><?php echo $aboutus->aboutusshortdesc;?></p>
                       <!--<p>POCKET FRIENDLY delivers comprehensive, professional one-page websites for businesses of all sizes at an affordable cost.</p>
                       <p class="pt-30 ">POCKET FRIENDLY delivers comprehensive, professional one-page websites for businesses of all sizes at an affordable cost.</p>--->
 

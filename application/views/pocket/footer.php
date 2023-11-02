@@ -64,7 +64,7 @@ label.error.errpopupmsg {
                             <div class="footer-single">
                                 <div class="footer-single-content">
                                     <a href="#">
-                                        <img src="<?php echo base_url().'pockets/assets/img/footer-logo.png';?>" alt="Logo">
+                                        <img src="<?php echo base_url().'pockets/assets/img/footer-logo-arabic.png';?>" alt="Logo">
 
                                         <!--<img src="<?php //echo base_url().'uploads/logo/'.$siteinf->logoimg;?>"  alt="<?php //echo $siteinf->alttagimg1;?>">-->
                                     </a>
