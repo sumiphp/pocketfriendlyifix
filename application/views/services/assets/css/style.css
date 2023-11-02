@@ -1421,6 +1421,13 @@ end-  CSS End
   text-align: right;
 }
 
+span#newsmsg {
+  color: #00c369;
+  padding-top: 20px;
+  display: block;
+  font-style: italic;
+  font-weight: 600;
+}
 /*=================================
 Footer Section 
 ====================================*/
