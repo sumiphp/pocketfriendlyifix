@@ -2,7 +2,7 @@
                         <a class="navbar-brand" href="<?php echo base_url().'/Pocket/index';?>">
                             <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" alt="Logo">
                         </a>
-                        <a class="navbar-brand-sticky" href="index.php">
+                        <a class="navbar-brand-sticky" href="<?php echo base_url().'/Pocket/index';?>">
                             <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" alt="Logo">
                         </a>
 

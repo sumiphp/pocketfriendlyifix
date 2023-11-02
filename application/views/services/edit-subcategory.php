@@ -99,7 +99,7 @@
                                                               <div class="mb-3">
                                                                 <label class="form-label">Product Sub-Category:</label>
                                                                 <input type="hidden" name="subcatid" id="subcatid"  value="<?php echo $result->subcategoryid?>" />
-                                                                <input class="form-control" placeholder="Product Sub-Category" name="prdsubcat" id="prdsubcat" type="text" data-bs-original-title="" value="<?php echo $result->subcategoryname?>" title=""><span class="text-danger"></span>
+                                                                <input class="form-control" placeholder="Product Sub-Category" name="prdsubcat" id="prdsubcat" type="text" data-bs-original-title="" value="<?php echo $result->subcategoryname?>" maxlength="40" title=""><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -108,7 +108,7 @@
                                                               <div class="mb-3">
                                                                 <label class="form-label">Description:</label>
                                                                 
-                                                                <textarea class="form-control" id="prdsubdesc" name="prdsubdesc" rows="4" placeholder="Enter Sub Category description"><?php echo $result->subcatdesc;?></textarea>
+                                                                <textarea class="form-control" id="prdsubdesc" name="prdsubdesc" rows="4" maxlength="175" placeholder="Enter Sub Category description"><?php echo $result->subcatdesc;?></textarea>
 
                                                               </div>
                                                             </div>
@@ -127,7 +127,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Short Description:</label>
-                                                                <textarea class="form-control" id="prdsubshortdesc" name="prdsubshortdesc" rows="4" placeholder="Enter Sub Category Short description"><?php echo $result->subcatshortdesc;?></textarea>
+                                                                <textarea class="form-control" id="prdsubshortdesc" name="prdsubshortdesc" rows="4" maxlength="175" placeholder="Enter Sub Category Short description"><?php echo $result->subcatshortdesc;?></textarea>
 
                                                                 <!--<input class="form-control" placeholder="Description" name="prdsubdesc" id="prdsubdesc" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>-->
                                                               </div>

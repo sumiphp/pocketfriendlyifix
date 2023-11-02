@@ -76,8 +76,8 @@
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
-                                                                <label class="form-label">Product Category</label>
-                                                                <input class="form-control" placeholder="Enter Product Name" type="text" id="productcategory"  name="productcategory" data-bs-original-title="" title="" required ><span class="text-danger"></span>
+                                                                <label class="form-label">Product Category Name</label>
+                                                                <input class="form-control" placeholder="Product Category Name" type="text" id="productcategory"  maxlength="40" name="productcategory" data-bs-original-title="" title="" required ><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -86,7 +86,7 @@
                                                               <div class="mb-3">
                                                                 <label class="form-label">Product Description</label>
                                                                 <!--<input class="form-control" placeholder="Enter Product Description" id="productdescription" type="text" name="productdescription"  data-bs-original-title="" title="" required><span class="text-danger"></span>-->
-                                                                <textarea class="form-control" id="productdescription" name="productdescription" rows="4" placeholder="Enter Category description"></textarea>
+                                                                <textarea class="form-control" id="productdescription" name="productdescription" rows="4" placeholder="Enter Category description" maxlength="175"></textarea>
 
                                                               </div>
                                                             </div>
@@ -189,7 +189,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Product Sub-Category:</label>
-                                                                <input class="form-control" placeholder="Product Sub-Category" name="prdsubcat" id="prdsubcat" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
+                                                                <input class="form-control" placeholder="Product Sub-Category" name="prdsubcat" id="prdsubcat" maxlength="40" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -207,7 +207,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Short Description:</label>
-                                                                <textarea class="form-control" id="prdsubshortdesc" name="prdsubshortdesc" rows="4" placeholder="Enter Sub Category Short description"></textarea>
+                                                                <textarea class="form-control" id="prdsubshortdesc" name="prdsubshortdesc" rows="4" maxlength="150" placeholder="Enter Sub Category Short description"></textarea>
 
                                                                 <!--<input class="form-control" placeholder="Description" name="prdsubdesc" id="prdsubdesc" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>-->
                                                               </div>
@@ -217,7 +217,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Description:</label>
-                                                                <textarea class="form-control" id="prdsubdesc" name="prdsubdesc" rows="4" placeholder="Enter Sub Category description"></textarea>
+                                                                <textarea class="form-control" id="prdsubdesc" name="prdsubdesc" rows="6"  maxlength="190" placeholder="Enter Sub Category description"></textarea>
 
                                                                 <!--<input class="form-control" placeholder="Description" name="prdsubdesc" id="prdsubdesc" type="text" data-bs-original-title="" title=""><span class="text-danger"></span>-->
                                                               </div>

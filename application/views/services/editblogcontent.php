@@ -36,7 +36,7 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Blog Content Title:</label>
-                                                              <input type="text" class="form-control" id="blogtitle" name="blogtitle" placeholder="Blog Content Title" required value="<?php echo $result->title;?>" >
+                                                              <input type="text" class="form-control" id="blogtitle" name="blogtitle" placeholder="Blog Content Title" maxlength="50" required value="<?php echo $result->title;?>" >
                                           
                                                           </div>
                                                           <div class="col-md-6">
@@ -119,7 +119,7 @@
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Blog description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Blog description" required><?php echo $result->description;?></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="10" placeholder="Enter Blog description" required maxlength="1330"><?php echo $result->description;?></textarea>
                                                       </div>
                                                       
                                                       

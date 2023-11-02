@@ -34,13 +34,13 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Main Title:</label>
-                                                              <input type="text" class="form-control" id="maintitle" name="maintitle" required placeholder="Enter Main Title" value="<?php echo $result->title1;?>">
+                                                              <input type="text" class="form-control" id="maintitle" name="maintitle" maxlength=50  required placeholder="Enter Main Title" value="<?php echo $result->title1;?>">
                                           
                                                           </div>
                                                           <div class="col-md-6">
 
                                                           <label for="contact-person" class="form-label text-primary">Subtitle:</label>
-                                                              <input type="text" class="form-control" id="subtitle" name="subtitle"  placeholder="Enter Sub Title" value="<?php echo $result->title2;?>">
+                                                              <input type="text" class="form-control" id="subtitle" name="subtitle"  maxlength=50 placeholder="Enter Sub Title" value="<?php echo $result->title2;?>">
 
 
                                                              
@@ -86,12 +86,12 @@
 
                                                      <div class="col-md-6">
                                                               <label for="email" class="form-label text-primary">Service Title </label>
-                                                              <input type="text" class="form-control" id="servicetitle" name="servicetitle" placeholder="Enter Service Title" value="<?php echo $result->servicetitle;?>">
+                                                              <input type="text" class="form-control" id="servicetitle" name="servicetitle" maxlength=50 placeholder="Enter Service Title" value="<?php echo $result->servicetitle;?>">
                                                           </div>
                                                          
                                                           <div class="col-md-6">
                                                               <label for="website" class="form-label text-primary">Service Title1:</label>
-                                                              <input type="text" class="form-control" id="servicetitle1" name="servicetitle1" placeholder="Enter Service Title1" value="<?php echo $result->servicetitle1;?>">
+                                                              <input type="text" class="form-control" id="servicetitle1" name="servicetitle1" maxlength=50 placeholder="Enter Service Title1" value="<?php echo $result->servicetitle1;?>">
                                                           </div>
                                                       </div>
 
@@ -99,11 +99,11 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="email" class="form-label text-primary">Service Title2 </label>
-                                                              <input type="text" class="form-control" id="servicetitle2" name="servicetitle2" placeholder="Enter Service Title2" value="<?php echo $result->servicetitle2;?>">
+                                                              <input type="text" class="form-control" id="servicetitle2" name="servicetitle2" maxlength=50 placeholder="Enter Service Title2" value="<?php echo $result->servicetitle2;?>">
                                                           </div>
                                                           <div class="col-md-6">
                                                               <label for="website" class="form-label text-primary">Service Title3:</label>
-                                                              <input type="text" class="form-control" id="servicetitle3" name="servicetitle3" placeholder="Enter Service Title3" value="<?php echo $result->servicetitle3;?>">
+                                                              <input type="text" class="form-control" id="servicetitle3" name="servicetitle3" maxlength=50 placeholder="Enter Service Title3" value="<?php echo $result->servicetitle3;?>">
                                                           </div>
                                                       </div>
 
@@ -145,7 +145,7 @@
                                                       <div class="row mb-3">
                                                       <div class="col-md-6">
                                                               <label for="email" class="form-label text-primary">Quality Title </label>
-                                                              <input type="text" class="form-control" id="qualitytitle" name="qualitytitle" placeholder="Enter Quality Title" value="<?php echo $result->qualitytitle;?>">
+                                                              <input type="text" class="form-control" id="qualitytitle" name="qualitytitle" maxlength=50 placeholder="Enter Quality Title" value="<?php echo $result->qualitytitle;?>">
                                                           </div>
                                                           
                                                       </div>

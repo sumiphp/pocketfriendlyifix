@@ -36,7 +36,7 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Testimonial Title:</label>
-                                                              <input type="text" class="form-control" id="testtitle" name="testtitle" placeholder="Testimonial Title" value="<?php echo $result->title;?>" required>
+                                                              <input type="text" class="form-control" id="testtitle" name="testtitle" placeholder="Testimonial Title" maxlength="25" value="<?php echo $result->title;?>" required>
                                           
                                                           </div>
                                                           <div class="col-md-6">
@@ -122,7 +122,7 @@
                                                       </div>-->
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Testimonial:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" required placeholder="Enter Testimonial"><?php echo $result->testimonial;?></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="3" required placeholder="Enter Testimonial Description" maxlength="250"><?php echo $result->testimonial;?></textarea>
                                                       </div>
                                                       <!---<div class="row mb-3">
                                                           <div class="col-md-6">

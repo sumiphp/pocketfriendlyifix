@@ -35,7 +35,7 @@
                                                       <div class="row mb-3">
                                                          <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">About Us Title:</label>
-                                                              <input type="text" class="form-control" id="maintitle" name="maintitle" required placeholder="Enter About Us Title" value="<?php echo $result->title;?>">
+                                                              <input type="text" class="form-control" id="maintitle" name="maintitle" required placeholder="Enter About Us Title" value="<?php echo $result->title;?>" maxlength="25">
                                           
                                                           </div>
                                                           <div class="col-md-6">
@@ -79,20 +79,20 @@
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">About Company:</label>
-                                                          <textarea class="form-control" id="aboutcompany" name="aboutcompany" rows="3" placeholder="About Company" required><?php echo $result->aboutcompany;?></textarea>
+                                                          <textarea class="form-control" id="aboutcompany" name="aboutcompany" rows="3" placeholder="About Company" required maxlength="400"><?php echo $result->aboutcompany;?></textarea>
                                                       </div>
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Enter Mission:</label>
-                                                          <textarea class="form-control" id="mission" name="mission" rows="3" placeholder="About Company" required><?php echo $result->mission;?></textarea>
+                                                          <textarea class="form-control" id="mission" name="mission" rows="3" placeholder="About Mission" required maxlength="400"><?php echo $result->mission;?></textarea>
                                                       </div>
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Enter Vision:</label>
-                                                          <textarea class="form-control" id="vision" name="vision" rows="3" placeholder="About Company" required><?php echo $result->vision;?></textarea>
+                                                          <textarea class="form-control" id="vision" name="vision" rows="3" placeholder="About Vision" required maxlength="400"><?php echo $result->vision;?></textarea>
                                                       </div>
 
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">About Company Short Description:</label>
-                                                          <textarea class="form-control" id="shortdesc" name="shortdesc" rows="3" placeholder="About Company Short Description" required><?php echo $result->aboutusshortdesc;?></textarea>
+                                                          <textarea class="form-control" id="shortdesc" name="shortdesc" rows="3" placeholder="About Company Short Description" maxlength="130" required><?php echo $result->aboutusshortdesc;?></textarea>
                                                       </div>
 
 

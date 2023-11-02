@@ -45,7 +45,7 @@ margin-bottom:35px;
         <div class="navbar-area">
             <!-- Menu For Mobile Device -->
              <div class="mobile-nav">
-                <a href="<?php echo base_url().'Pockets/index';?>" class="logo">
+                <a href="<?php echo base_url().'Pocket/index';?>" class="logo">
                   
 
                     <img src="<?php echo base_url().'uploads/logo/'.$siteinf->logoimg;?>" class="logo-one" alt="<?php echo $siteinf->alttagimg1;?>">

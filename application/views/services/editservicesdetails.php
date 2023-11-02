@@ -36,12 +36,12 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Service Title:</label>
-                                                              <input type="text" class="form-control " id="title" name="title" placeholder="Enter Service Title" required value="<?php echo $result->servicedttitle;?>" >
+                                                              <input type="text" class="form-control " id="title" name="title" placeholder="Enter Service Title" maxlength=25 required value="<?php echo $result->servicedttitle;?>" >
                                           
                                                           </div>
                                                          <div class="col-md-6">
-                                                              <label for="company-logo" class="form-label text-primary">Service Solution Title:</label>
-                                                              <input type="text" class="form-control numericvalidate" id="solution" name="solution" placeholder="Enter Solution Title" required value="<?php echo $result->servicedtsolution;?>">
+                                                              <label for="company-logo" class="form-label text-primary">Service Solution Title-:</label>
+                                                              <input type="text" class="form-control" id="solution" name="solution" placeholder="Enter Solution Title" required maxlength=50 value="<?php echo $result->servicedtsolution;?>">
                                                               <input type="hidden" class="form-control numericvalidate" id="serviceidid" name="serviceid"  required value="<?php echo $result->servicedtid;?>">
                                                           </div>
                                                       </div>

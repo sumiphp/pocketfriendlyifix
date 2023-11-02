@@ -53,6 +53,10 @@
   .hidden-xs {
     display: none;
   }
+  .hidden-lg
+  {
+    display: block;
+  }
   /* Home Page One */
   /*-------responsive -login-- page-------------*/
   .upload-btn {
@@ -521,6 +525,13 @@
   .contact-wrap-form .with-errors {
     margin-bottom: 15px;
   }
+  .contact-banner-sec .get-touch-form
+  {
+    padding: 20px 0;
+  }
+  .contact-banner-sec .address-sec h4 a {
+    font-size: 14px !important;
+}
   /* Error Area */
   .error-area {
     padding: 110px 15px 100px 15px;
@@ -655,6 +666,14 @@
     margin-top: 30px;
   }
   /*service-page*/
+  .service-details-page .bg-box h4
+  {
+    font-size: 18px;
+    padding-top: 30px;
+  }
+  .icon-block img {
+    width: 30%;
+}
   .inner-service-banner .left-banner-content {
     padding-top: 5% !important;
   }
@@ -679,12 +698,14 @@
   }
   .hosting-services-sec .elementor-element .gt3-core-imagebox-content .gt3-core-imagebox-title a {
     font-size: 16px !important;
-    line-height: 4;
+   
     margin: 0 !important;
   }
   .hosting-services-sec .elementor-element .gt3-core-imagebox-description {
     padding-bottom: 0;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.8;
+    padding-top: 0;
   }
   .hosting-services-sec .elementor-element .gt3-core-imagebox-img img {
     width: 60%;
@@ -702,13 +723,13 @@
   }
   /*service-details*/
   .service-detail-banner {
-    height: 40vh;
+    height: 80vh !important;
   }
   .service-detail-banner .right-banner-content {
     padding-top: 5%;
   }
   .service-detail-banner .right-banner-content h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
   .service-detail-banner .right-banner-content p {
     display: none;
@@ -718,7 +739,7 @@
   }
   .sidebar-menu li a {
     padding: 15px 15px;
-    font-size: 14px;
+    font-size: 13px;
   }
   .sidebar-menu .small_gradient_Text {
     font-size: 14px !important;
@@ -741,14 +762,19 @@
     font-size: 15px;
   }
   .contact-banner-sec .address-sec h4 img {
-    padding: 10px !important;
-    width: 25% !important;
+    padding: 5px !important;
+    width: auto !important;
   }
   .contact-banner-sec .address-sec h4 a {
     font-size: 16px;
   }
   .contact-banner-sec .address-sec {
     padding: 0;
+  }
+
+  .contact-banner-sec
+  {
+    background: none !important;
   }
   /*blog-details*/
   .blog-area {
@@ -793,6 +819,37 @@
   .hosting-services-sec .elementor-element .elementor-widget-container {
     min-height: auto;
   }
+  .blog-content-inner .blog-author-img img
+  {
+    display: none;
+  }
+  .blog-content-inner .blog-details
+  {
+    padding-left: 0;
+  }
+  .blog-title {
+    font-size: 16px;
+}
+.blog-content-inner .blog-details .date {
+  color: #000;
+  font-weight: 600;
+  font-style: italic;
+}
+label.error.errpopupmsg
+{
+  bottom: -30px;
+}
+.footer-newletter-area .feature-updates-sec
+{
+  padding-top: 40px;
+}
+.hosting-services-sec .elementor-element .gt3-core-imagebox-img
+{
+  margin: 0;
+  max-width: max-content;
+  width: auto;
+
+}
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .hidden-xs {
@@ -896,10 +953,19 @@
     float: right;
     margin-top: 5px;
   }
+  .footer-newletter-area .feature-updates-sec
+  {
+    padding-top: 50px;
+  }
+
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .hidden-md {
     display: none;
+  }
+  .hidden-lg
+  {
+    display: block;
   }
   /* Default CSS */
   body {
@@ -951,6 +1017,20 @@
   }
   /* Default CSS End */
   /*responsive tab view design*/
+  .col-megamenu picture a .img-fluid
+  {
+    padding: 20px 50px;
+  }
+  .hosting-services-sec .elementor-element .plan-btn
+  {
+    font-size: 15px;
+  }
+  .hosting-services-sec .elementor-element .gt3-core-imagebox-description
+  {
+    font-size: 14px;
+    padding-top: 0;
+  }
+
   .dashboard-bgarea .chat-box {
     bottom: 0% !important;
   }
@@ -1616,7 +1696,7 @@
     padding-top: 10%;
   }
   .service-detail-banner {
-    height: 60vh;
+    height: 40vh !important;
   }
   .right-banner-content h2 {
     font-size: 20px;
@@ -1647,6 +1727,15 @@
   /*blog-inner-page*/
   .blog-area {
     padding: 100px 0 30px;
+  }
+
+  .icon-services .icon-main-area .content-area p
+  {
+    height: 80px;
+  }
+  .footer-newletter-area .feature-updates-sec
+  {
+    padding-top: 50px;
   }
 }
 @media only screen and (min-width: 820px) and (max-width: 992px) {
@@ -1779,6 +1868,7 @@
   .small_gradient_Text {
     font-size: 25px;
   }
+
   .icon-sec img {
     width: 70px;
   }
@@ -1786,10 +1876,15 @@
     font-size: 14px;
   }
   .hosting-services-sec .elementor-element .gt3-core-imagebox-content .gt3-core-imagebox-title a {
-    font-size: 14px;
+    font-size: 14px !important;
   }
   .hosting-services-sec .elementor-element .gt3-core-imagebox-img img {
     width: 75%;
+  }
+  .hosting-services-sec .elementor-element .gt3-core-imagebox-img
+  {
+    width: auto !important;
+    margin: 0;
   }
   .copyright-text {
     text-align: center;
@@ -1807,9 +1902,7 @@
   .menu-btn .seo-btn {
     padding: 6px 20px;
   }
-  .main-title h2 {
-    font-size: 25px;
-  }
+
   .single-counter p {
     font-size: 18px;
   }
@@ -1834,13 +1927,13 @@
     margin: 20px auto;
   }
   .service-detail-banner {
-    height: 70vh;
+    height: 100vh !important;
   }
   .contact-banner-sec {
     height: 75vh;
   }
   .icon-services .icon-main-area .content-area h3 {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 @media only screen and (min-width: 1800px) {

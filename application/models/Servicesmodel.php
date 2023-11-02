@@ -710,12 +710,21 @@ function get_qualitiesactive(){
 
 }
 
+function getrecordCountsubcategory(){
+    $this->db->select('*');
+    $this->db->from('subcategory');
+    $query = $this->db->get();
+    return $query->num_rows();
+}
 
 
-
-
-
-
+function getDatasubcategory($rowno,$rowperpage){
+    $this->db->limit($rowperpage,$rowno);
+$this->db->select('*');
+$this->db->from('subcategory');
+$query = $this->db->get();
+return $query->result_array();
+}
 
 
 

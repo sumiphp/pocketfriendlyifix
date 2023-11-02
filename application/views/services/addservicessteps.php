@@ -37,7 +37,7 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Title:</label>
-                                                              <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" required>
+                                                              <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" required maxlength="20" >
                                           
                                                           </div>
                                                           <div class="col-md-6">
@@ -65,7 +65,7 @@
                                                      
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required></textarea>
+                                                          <textarea class="form-control" id="description" maxlength="100" name="description" rows="3" placeholder="Enter Description" required></textarea>
                                                       </div>
                                                     
                                                       

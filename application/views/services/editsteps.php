@@ -35,7 +35,7 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Title:</label>
-                                                              <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="<?php echo $result->title;?>"  required>
+                                                              <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" maxlength="20" value="<?php echo $result->title;?>"  required>
                                                               <input type="hidden" class="form-control" id="problemid" name="problemid"  value="<?php echo $result->stepid;?>"  required>
                                                           </div>
                                                           <div class="col-md-6">
@@ -63,7 +63,7 @@
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description"><?php echo $result->description;?></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="3" maxlength="100" placeholder="Enter Description"><?php echo $result->description;?></textarea>
                                                       </div>
                                                       
                                                       

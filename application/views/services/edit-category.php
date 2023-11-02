@@ -73,7 +73,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Product Category</label>
-                                                                <input class="form-control" placeholder="Enter Product Name" type="text" id="productcategory" name="productcategory" value="<?php echo $result->categoryname;?>" data-bs-original-title="" title="" required ><span class="text-danger"></span>
+                                                                <input class="form-control" placeholder="Enter Product Name"  type="text" maxlength="40" id="productcategory" name="productcategory" value="<?php echo $result->categoryname;?>" data-bs-original-title="" title="" required ><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -81,7 +81,7 @@
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
                                                                 <label class="form-label">Edit Product Category</label>
-                                                                <textarea class="form-control" placeholder="Enter Product Description"  id="productdescription"  name="productdescription" rows="5" value="" data-bs-original-title="" title="" required><?php echo $result->categorydescription;?></textarea><span class="text-danger"></span>
+                                                                <textarea class="form-control" placeholder="Enter Product Description"  id="productdescription"  name="productdescription" rows="5" value="" maxlength="175" data-bs-original-title="" title="" required><?php echo $result->categorydescription;?></textarea><span class="text-danger"></span>
                                                               </div>
                                                             </div>
                                                           </div>

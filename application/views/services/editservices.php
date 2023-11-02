@@ -35,13 +35,13 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Main Title:</label>
-                                                              <input type="text" class="form-control" id="maintitle" name="maintitle" required placeholder="Enter Main Title" value="<?php echo $result->maintitle;?>">
+                                                              <input type="text" class="form-control" id="maintitle" name="maintitle" required placeholder="Enter Main Title"  maxlength=25 value="<?php echo $result->maintitle;?>">
                                           
                                                           </div>
                                                           <div class="col-md-6">
 
                                                           <label for="contact-person" class="form-label text-primary">Subtitle:</label>
-                                                              <input type="text" class="form-control" id="subtitle" name="subtitle" required placeholder="Enter Sub Title" value="<?php echo $result->subtitle;?>">
+                                                              <input type="text" class="form-control" id="subtitle" name="subtitle" required placeholder="Enter Sub Title" maxlength=60 value="<?php echo $result->subtitle;?>">
 
 
                                                              
@@ -83,7 +83,7 @@
                                                       
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Description:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required><?php echo $result->description;?></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter Description" required maxlength=130><?php echo $result->description;?></textarea>
                                                       </div>
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Meta Tag:</label>
