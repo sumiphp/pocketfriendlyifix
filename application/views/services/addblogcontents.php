@@ -37,7 +37,7 @@
                                                       <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Blog Content Title:</label>
-                                                              <input type="text" class="form-control" id="blogtitle" name="blogtitle" placeholder="Blog Content Title" required>
+                                                              <input type="text" class="form-control" id="blogtitle" name="blogtitle" placeholder="Blog Content Title" maxlength="50" required>
                                           
                                                           </div>
                                                           <div class="col-md-6">

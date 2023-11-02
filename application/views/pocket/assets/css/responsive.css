@@ -49,6 +49,11 @@
   .section-title p {
     padding-top: 15px;
   }
+
+  .modal-dialog {
+    width: auto !important;
+  }
+  
   /* Default CSS End */
   /* Home Page One */
   /*-------responsive -login-- page-------------*/
@@ -939,6 +944,9 @@
   }
   .section-title p {
     padding-top: 15px;
+  }
+  .modal-dialog {
+    width: auto !important;
   }
   /* Default CSS End */
   /*responsive tab view design*/
@@ -2049,3 +2057,4 @@
     display: none !important;
   }
 }
+

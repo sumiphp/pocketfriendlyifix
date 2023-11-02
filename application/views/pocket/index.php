@@ -23,6 +23,10 @@ echo $resulthome->metatag;
   <?php echo $gcdt->googleanalytics;?>
 </script>
 <style>
+/*.modal-dialog {
+    width: auto;
+}*/
+
 label.error {
   position: absolute;
 
@@ -188,7 +192,7 @@ bottom:4px;
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="about-img-sec">
                             <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->homepageimg2;?>" class="w-100"  alt="<?php echo $resulthome->alttagimg2;?>" >
                             </div>
@@ -197,7 +201,7 @@ bottom:4px;
                             <img src="<?php echo base_url().'uploads/homepage/'.$resulthome->homepageimg4;?>" class="w-100"  alt="<?php echo $resulthome->alttagimg4;?>" >
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="about-content">
                                <p><?php echo $about->aboutcompany;?></p>
                             
@@ -330,7 +334,7 @@ bottom:4px;
                     <?php foreach($result as $res){?>
                                               
 
-                                              <div class="col-lg-4 col-md-4 col-sm-6 mb-3">
+                                              <div class="col-lg-4 col-md-6 col-sm-6 mb-3">
                                                   <div class="elementor-element">
                                                       <div class="elementor-widget-container">
                                                           <div class="gt3-core-imagebox-wrapper elementor-image_icon-position-beside">

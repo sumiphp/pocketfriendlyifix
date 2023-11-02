@@ -1156,6 +1156,7 @@ Section Title Style
   margin-bottom: 30px;
 }
 
+.form-control{  border-radius: 0.25rem !important;}
 /*================================
 Section Title Style End
 ===================================*/

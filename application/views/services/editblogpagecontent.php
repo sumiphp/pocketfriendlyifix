@@ -36,7 +36,7 @@
                                                     <div class="row mb-3">
                                                           <div class="col-md-6">
                                                               <label for="company-name" class="form-label text-primary">Blog Page Title:</label>
-                                                              <input type="text" class="form-control" id="blogtitle" name="blogtitle" placeholder="Blog Content Title" required value="<?php echo $result->blogtitle;?>" >
+                                                              <input type="text" class="form-control" id="blogtitle" name="blogtitle" placeholder="Blog Content Title" maxlength="50" required value="<?php echo $result->blogtitle;?>" >
                                           
                                                           </div>
                                                           
@@ -44,12 +44,12 @@
                                                     
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Blog Page Content:</label>
-                                                          <textarea class="form-control" id="description" name="description" rows="7" placeholder="Enter Newsletter"><?php echo $result->blogdescription;?></textarea>
+                                                          <textarea class="form-control" id="description" name="description" rows="7" placeholder="Blog Page Content" maxlength="1344" ><?php echo $result->blogdescription;?></textarea>
                                                       </div>
                                                      
                                                       <div class="mb-3">
                                                           <label for="address" class="form-label text-primary">Meta Tag:</label>
-                                                          <textarea class="form-control" id="metatag" name="metatag" rows="20" placeholder="Enter Meta Tage"><?php echo $result->metatag;?></textarea>
+                                                          <textarea class="form-control" id="metatag" name="metatag" rows="20" placeholder="Enter Meta Tag"><?php echo $result->metatag;?></textarea>
                                                       </div>
                                                       
                                                       
