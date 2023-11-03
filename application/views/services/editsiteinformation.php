@@ -47,9 +47,14 @@
                                                               </div>
                                                             </div>
                                                           </div>
-                                                          <!--<div class="row">
-                                                            <div class="col-sm-12 text-end"><a class="btn btn-primary me-3" href="#" data-bs-original-title="" title="">ADD </a><a class="btn btn-secondary" data-bs-original-title="" title="">Update</a></div>
-                                                          </div>-->
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Site Title</label>
+                                                                <input class="form-control" placeholder="Enter Site Title" name="sitetitle" type="text" data-bs-original-title="" title=""  value="<?php echo $result->sitetitle;?>"><span class="text-danger" ></span>
+                                                              </div>
+                                                            </div>
+                                                          </div>
                                                         </div>
                                                       <!--</form>-->
 

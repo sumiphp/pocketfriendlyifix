@@ -66,7 +66,7 @@
                                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
                                                             <a href="<?php echo base_url().$sm['url'];?>" class="menu-image-title-after menu-image-not-hovered">
                                                                 <img width="40" height="40" src="<?php echo base_url().'uploads/menu/'.$sm['menuimg'];?>" class="menu-image menu-image-title-after" alt="<?php echo $sm['alttagimg1'];?>" decoding="async" />
-                                                                <span class="menu-image-title-after menu-image-title">  <?php echo $sm['menuname'];?> </span>
+                                                                <span class="menu-image-title-after menu-image-title" style='color:red'>  <?php echo $sm['menuname'];?> </span>
                                                             </a>
                                                         </li>
                                                         <?php } ?>
@@ -80,6 +80,27 @@
                                         </div>
                                     </ul>
                                   
+                                </li>
+
+                                <li class="nav-item hidden-lg">
+                                    <a href="#" class="nav-link">
+                                    <?php echo $mn['menuname'];?>
+                                        <i class='bx bxs-chevron-right'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                    <?php foreach($submenulist as $sm){?>
+                                        <li class="nav-item">
+                                            <a href="<?php echo base_url().$sm['url'];?>" class="nav-link">
+                                            <?php echo $sm['menuname'];?>
+                                            </a>
+                                        </li>
+                                        <?php } ?>
+                                        <!--<li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                Service Details3 
+                                            </a>
+                                        </li>-->
+                                    </ul>
                                 </li>
 
                                 <?php } } ?>

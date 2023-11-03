@@ -723,7 +723,7 @@
   }
   /*service-details*/
   .service-detail-banner {
-    height: 30vh !important;
+    height: 40vh !important;
   }
   .service-detail-banner .right-banner-content {
     padding-top: 5%;
@@ -850,19 +850,6 @@ label.error.errpopupmsg
   width: auto;
 
 }
-
-.blog-content-inner .blog-author-img img
-{
-  display: none;
-}
-.blog-title {
-  font-size: 16px;
-}
-
-.inner-blog-sec {
-  padding: 100px 0 0;
-}
-
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .hidden-xs {
@@ -973,10 +960,6 @@ label.error.errpopupmsg
 
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .inner-blog-sec {
-    padding: 130px 0 0;
-}
-
   .hidden-md {
     display: none;
   }
@@ -1725,10 +1708,9 @@ label.error.errpopupmsg
     height: 45px;
     font-size: 15px;
   }
-  
   .contact-banner-sec .address-sec h4 img {
     padding: 10px !important;
-    width: auto !important;
+    width: 25% !important;
   }
   .contact-banner-sec .address-sec h4 a {
     font-size: 16px;
@@ -1740,7 +1722,7 @@ label.error.errpopupmsg
     height: 105vh;
   }
   .contact-banner-sec {
-    height: 105vh;
+    height: 95vh;
   }
   /*blog-inner-page*/
   .blog-area {
@@ -1755,7 +1737,6 @@ label.error.errpopupmsg
   {
     padding-top: 50px;
   }
-  
 }
 @media only screen and (min-width: 820px) and (max-width: 992px) {
   .hidden-lg {
@@ -1775,17 +1756,6 @@ label.error.errpopupmsg
   .hidden-lg {
     display: none;
   }
-  .contact-banner-sec
-  {
-    height: 100vh;
-  }
-  .inner-blog-sec {
-    padding: 50px 0 0;
-}
-  .contact-banner-sec .address-sec h4 a
-  {
-    font-size: 16px;
-  }
   /*responsive tab view*/
   .feature-updates img {
     width: 55% !important;
@@ -1799,9 +1769,8 @@ label.error.errpopupmsg
   /*end*/
   /* Home Page One */
   .main-nav nav .navbar-nav .nav-item a {
-    margin-left: 15px;
-    margin-right: 15px;
-    font-size: 15px;
+    margin-left: 7px;
+    margin-right: 7px;
   }
   .banner-text {
     max-width: 460px;
@@ -1923,13 +1892,6 @@ label.error.errpopupmsg
   .copyright-text p {
     font-size: 20px;
   }
-  .contact-banner-sec .address-sec h4 img {
-    padding: 20px 10px;
-  }
-  .contact-banner-sec .address-sec h4 a
-  {
-    font-size: 16px;
-  }
   /*----------about-page---------*/
   .inner-banner-sec {
     height: 50vh;
@@ -1968,7 +1930,7 @@ label.error.errpopupmsg
     height:60vh !important;
   }
   .contact-banner-sec {
-    height: 110vh;
+    height: 75vh;
   }
   .icon-services .icon-main-area .content-area h3 {
     font-size: 16px;

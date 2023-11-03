@@ -94,8 +94,8 @@
                                                           <div class="row"> 
                                                             <div class="col-sm-12">
                                                               <div class="mb-3">
-                                                                <label class="form-label">Select Product Category Image</label>
-                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="file"  name="file"  data-bs-original-title="" title="" required><span class="text-danger"></span>
+                                                                <label class="form-label">Select Product Category Image--</label>
+                                                                <input class="form-control" placeholder="Enter Product Description" name="file" type="file"  id="file"  name="file"  data-bs-original-title="" title="" required accept="image/*" onChange="validate(this.value)"><span class="text-danger" accept="image/*" onChange="validate(this.value)"></span>
                                                               </div>
                                                             </div>
                                                           </div>
@@ -418,6 +418,7 @@
             type: 'post',
             success: function (response) {
                 $('#file').val('');
+                $('#metatag').val('');
                 $('#productdescription').val('');
                 $('input[type=text]').each(function() {
         $(this).val('');
@@ -491,7 +492,17 @@
     });
 
 
+    function validate(file) {
+      //alert("enter");
+    var ext = file.split(".");
+    ext = ext[ext.length-1].toLowerCase();      
+    var arrayExtensions = ["jpg" , "jpeg", "png", "bmp", "gif"];
 
+    if (arrayExtensions.lastIndexOf(ext) == -1) {
+        alert("Wrong extension type.");
+        $("#file").val("");
+    }
+}
 
 
 

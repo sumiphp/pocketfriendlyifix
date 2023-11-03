@@ -35,7 +35,7 @@
     $favdt=$query->row();
    $favicon=$favdt->faviconimg;
     ?>
-        <title><?php echo $favdt->sitename;?></title>
+        <title><?php echo $favdt->sitetitle;?></title>
         
         <link rel="icon" type="image/png" href="<?php echo base_url().'uploads/logo/'.$favicon;?>" />
         <!-- Favicon -->

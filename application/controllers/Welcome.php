@@ -1773,10 +1773,11 @@ else{
 
 $sitedescription=$this->input->post('sitedescription');
 $sitename=$this->input->post('sitename');
+$sitetitle=$this->input->post('sitetitle');
    $data = array(
 	'sitedescription' =>"$sitedescription",
 	'sitename' =>"$sitename",
-	//'description'=>"$description",
+	'sitetitle' =>"$sitetitle",
 	//'metatag'=>"$metatag",
 	//'alttagimg1'=>"$alttag1",
 	//'alttagimg2'=>"$alttag2",

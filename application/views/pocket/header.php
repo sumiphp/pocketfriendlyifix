@@ -1,3 +1,17 @@
+
+<?php $this->db->select('*');
+    $this->db->from('siteinformation');
+    $query = $this->db->get();
+    $favdt=$query->row();
+   $favicon=$favdt->faviconimg;
+    ?>
+        <title><?php echo $favdt->sitetitle;?></title>
+        
+        <link rel="icon" type="image/png" href="<?php echo base_url().'uploads/logo/'.$favicon;?>" />
+
+
+
+
 <!doctype html>
 <html lang="zxx">
     <head>
@@ -65,7 +79,7 @@
        
 
         <!-- Favicon -->
-      <link rel="icon" type="image/png" href="<?php echo base_url().'pockets/assets/img/favicon.ico';?>"/>
+      
       <!-- Google tag (gtag.js) -->
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q1GCL7WC8"></script>

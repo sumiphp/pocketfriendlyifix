@@ -104,8 +104,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           tr += "<td>"+ content +"</td>";
           tr += "</tr>";*/
           var div='<div class="col-lg-6 col-md-12"><div class="bg-box"><div class="icon-block">';
-          div+= '</div> <div class="content-block">Image</div>
-                                        <div class="content-block">
+          div+= 'Image</div><div class="content-block">';
+          div+= '<h4><?php echo $sd['subcategoryname'];?></h4>';
+                                        
+
+         
+                                            <h4><?php echo $sd['subcategoryname'];?></h4>
+                                            <p><?php echo $sd['subcatdesc'];?></p>
+                                            <!--<p>Enhance your website with our professional single-page package</p>
+                                            <p>Enhance your website with our professional single-page package</p>-->
+                                            <span class="smallText">For just </span>
+                                            <h6><?php echo $sd['price'];?> <?php echo $sd['currency'];?></h6>
+                                        </div>
+                                        <div class="btn-block bg-btn">
+                                            <!--<a href="<?php //echo base_url().'Pocket/contact';?>" class="default-btn enquiry-btn">Enquiry</a>-->
+
+                                            <a href="#" onclick=setval(<?php echo $sd['subcategoryid'];?>) class="default-btn enquiry-btn" data-bs-toggle="modal" data-bs-target="#myModal">Enquiry</a>
+                                        </div>
+                                    </div>
+                                </div>
                                        
                                         
                                    
