@@ -1,4 +1,15 @@
 <!-- Footer Area -->
+<style>
+label.error.errpopupmsg {
+    position: absolute;
+    /*bottom: -35px;*/
+    bottom: -28px;
+    color: #f61c0d;
+    font-style: italic;
+    font-weight: 600;
+}
+
+</style>
 <footer id="footer" class="footer-area-bg">
     <div class="footer-newletter-area">
         <div class="container">
@@ -9,12 +20,14 @@
                         <p><?php echo $newsletter->newsletterdescription;?></p>
                     </div>
                     <div class="newsletter-area">
-                    <span id="newsmsg"></span>
-                         <form class="newsletter-form" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
-                         <input type="email" class="form-control" placeholder="Enter Your Email" name="emailidnews"  id="emailnews" required />
-                            <button class="subscribe-btn" type="submit">
+                    <span id="newsmsg" style='bottom:51px;color:red;font-weight:bold;'></span>
+                         <form class="newsletter-form-email" name="frmemail" id="frmemail" action="<?php echo base_url().'Pocket/newslettersubscribe';?>" method="post">
+                         <input type="email" class="form-control" placeholder="Enter Your Email" name="emailidnews"  id="emailidnews"  />
+                         <label id="emailnews-error" class="error errpopupmsg" for="emailidnews" ></label>
+                            <button class="subscribe-btn" type="submit" id="btn" >
                                 Subscribe
                             </button>
+                           
                             <!--<div id="validator-newsletter" class="form-result"></div>-->
                         </form>
                     </div>
@@ -198,7 +211,7 @@
         <script src="<?php echo base_url().'services/assets/js/contact-form-script.js';?>"></script>
        
         <script src="<?php echo base_url().'services/assets/js/custom.js';?>"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
 <script>
         $(".numericvalidate").keypress(function(event){
         var keycode = event.which;
@@ -208,9 +221,9 @@
     });
 
 
-    $('#frmemail').on('submit', function (e) {
+    $('#frmemail_old').on('submit', function (e) {
     e.preventDefault();
-    
+    alert("enter");
         var emailnews=$("#emailnews").val();
         
         var form_data = new FormData();
@@ -241,6 +254,105 @@
             }
         });
     });
+
+
+
+    function clearValue(){
+
+    }
+
+    $('form[id="frmemail"]').validate({  
+    rules: {  
+        emailidnews: 'required',  
+      /* companyname: 'required',
+      phone:'required',  
+      email: {  
+        required: true,  
+        email: true,  
+      }, 
+      business:"required", 
+      message:"required",
+      package:"required", 
+     psword: {  
+        required: true,  
+        minlength: 8,  
+      }*/  
+    },  
+    messages: {  
+        emailidnews: 'Please enter your emailid',  
+      /*companyname: 'Company Name is required',  
+      phone: 'Enter a valid Phone',
+      email: 'Enter a valid Email',
+      business: 'Enter Your nature of business',
+      package:"Please select package",   
+      psword: {  
+        minlength: 'Password must be at least 8 characters long'  
+      } */
+      //message:'Please enter Message' 
+    },  
+    submitHandler: function(form) { 
+       // form.preventDefault();
+       /* $.ajax({
+                url: contactForm1.attr('action'),
+                type: 'post',
+                data: contactForm1.serialize(),
+                success: function(response){
+                    
+                    
+                    $('input[type=text]').each(function() {
+        $(this).val('');
+    });
+    
+    $("#email").val('');
+                    $("#msg").html(response);
+                   
+
+                }
+            });*/
+
+            $.ajax({
+	url: form.action,
+	type: form.method,
+	data: $(form).serialize(),
+	success: function(response) {
+        $('input[type=text]').each(function() {
+        $(this).val('');
+    });
+    
+    
+    
+		$('#newsmsg').html(response);
+        $('#emailidnews').val('');
+	}            
+      });		
+}
+
+
+
+
+
+      //form.submit();  
+   // }  
+  });  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
